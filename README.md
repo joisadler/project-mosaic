@@ -11,6 +11,8 @@ The first MVP will focus on frontend interview preparation using short explanati
 - Next.js 16.4.0 with App Router and React 19.3.0
 - TypeScript 6.0.3 with strict checking
 - SCSS Modules and global SCSS (Sass)
+- Swiper for touch, mouse, and keyboard navigation
+- react-markdown for local learning content
 - ESLint with Next.js rules
 - Built-in Next.js PWA metadata and web app manifest
 - Node.js 24.21.0 LTS and npm
@@ -42,16 +44,19 @@ Open http://localhost:3000. Run `nvm use` in each new terminal before working on
 
 ## Structure
 
-- `src/app/`: root layout, placeholder homepage, global SCSS, page SCSS Module, and manifest.
+- `src/app/`: root layout, feed entry page, global SCSS, and manifest.
+- `src/components/learning-feed/`: virtualized vertical feed, horizontal card pages, and Markdown rendering.
+- `src/content/`: typed local learning content.
+- `public/illustrations/`: local content illustrations.
 - `public/icons/`: placeholder app icons.
 - `AGENTS.md`: development and communication rules.
 - `ROADMAP.md`: MVP scope and tentative later stages.
 
 ## Current status
 
-Initialization only. The homepage displays the project name and tagline. The manifest includes standalone display, app icons, and theme colors. Service workers, offline caching, and push notifications are not configured; install behavior depends on the browser, and offline use is not supported.
+Iteration 1 implements a full-screen information-card feed with virtualized vertical navigation, horizontal pages, Markdown content, keyboard controls, and local demo content. QuizCard and FlipCard are not implemented yet.
 
-The feed, card components, and learning content have not been implemented. See [ROADMAP.md](ROADMAP.md) for future scope.
+The manifest includes standalone display, app icons, and theme colors. Service workers, offline caching, and push notifications are not configured; install behavior depends on the browser, and offline use is not supported. See [ROADMAP.md](ROADMAP.md) for future scope.
 
 ## Dependency notes
 

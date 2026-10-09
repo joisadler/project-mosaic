@@ -1,0 +1,309 @@
+.feedShell {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #071018;
+  user-select: none;
+}
+
+.feed,
+.pages {
+  width: 100%;
+  height: 100%;
+}
+
+.feed :global(.swiper-slide),
+.pages :global(.swiper-slide) {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.card {
+  --card-accent: #7bdff2;
+  --card-glow: rgba(123, 223, 242, 0.2);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  color: #f7f8ff;
+  background:
+    radial-gradient(circle at 86% 12%, var(--card-glow), transparent 34%),
+    linear-gradient(150deg, #101c2a 0%, #08111b 58%, #050a10 100%);
+}
+
+.card::before {
+  position: absolute;
+  z-index: -1;
+  right: -18%;
+  bottom: -26%;
+  width: min(72vw, 34rem);
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--card-accent) 28%, transparent);
+  border-radius: 50%;
+  content: "";
+  box-shadow:
+    0 0 0 3rem color-mix(in srgb, var(--card-accent) 4%, transparent),
+    0 0 0 7rem color-mix(in srgb, var(--card-accent) 2%, transparent);
+}
+
+.card[data-theme="1"] {
+  --card-accent: #ffcf70;
+  --card-glow: rgba(255, 183, 77, 0.2);
+  background:
+    radial-gradient(circle at 10% 86%, var(--card-glow), transparent 36%),
+    linear-gradient(150deg, #241a16 0%, #110f13 58%, #08090e 100%);
+}
+
+.card[data-theme="2"] {
+  --card-accent: #c3a6ff;
+  --card-glow: rgba(163, 122, 255, 0.22);
+  background:
+    radial-gradient(circle at 88% 78%, var(--card-glow), transparent 36%),
+    linear-gradient(150deg, #1c1730 0%, #0e1020 58%, #080a12 100%);
+}
+
+.card[data-theme="3"] {
+  --card-accent: #77edb5;
+  --card-glow: rgba(74, 222, 159, 0.2);
+  background:
+    radial-gradient(circle at 14% 12%, var(--card-glow), transparent 34%),
+    linear-gradient(150deg, #10271f 0%, #0a1518 58%, #060b10 100%);
+}
+
+.cardProgress {
+  position: absolute;
+  z-index: 3;
+  top: max(1rem, env(safe-area-inset-top));
+  right: max(1.15rem, env(safe-area-inset-right));
+  color: rgba(247, 248, 255, 0.5);
+  font-size: 0.68rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.page {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding:
+    max(3.25rem, calc(env(safe-area-inset-top) + 2.5rem))
+    max(1.35rem, calc(env(safe-area-inset-right) + 1.1rem))
+    max(3.8rem, calc(env(safe-area-inset-bottom) + 3rem))
+    max(1.35rem, calc(env(safe-area-inset-left) + 1.1rem));
+}
+
+.pageDense {
+  align-items: flex-start;
+  padding-top: max(3.1rem, calc(env(safe-area-inset-top) + 2.35rem));
+}
+
+.markdown {
+  width: min(100%, 42rem);
+  max-height: 100%;
+  margin: auto;
+}
+
+.markdown h2 {
+  max-width: 16ch;
+  margin: 0 0 clamp(0.8rem, 2.5vh, 1.35rem);
+  color: #fff;
+  font-size: clamp(1.75rem, 7.5vw, 3.35rem);
+  font-weight: 760;
+  letter-spacing: -0.045em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.markdown p,
+.markdown li {
+  color: rgba(247, 248, 255, 0.82);
+  font-size: clamp(0.94rem, 3.8vw, 1.12rem);
+  line-height: 1.48;
+}
+
+.markdown p + p,
+.markdown p + ul,
+.markdown p + ol,
+.markdown ul + p,
+.markdown ol + p,
+.markdown pre + p,
+.markdown p + pre,
+.markdown p + blockquote {
+  margin-top: clamp(0.7rem, 2vh, 1rem);
+}
+
+.markdown ul,
+.markdown ol {
+  display: grid;
+  gap: 0.38rem;
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.markdown li::marker {
+  color: var(--card-accent);
+  font-weight: 800;
+}
+
+.markdown strong {
+  color: #fff;
+  font-weight: 760;
+}
+
+.markdown em {
+  color: color-mix(in srgb, var(--card-accent) 74%, white);
+}
+
+.markdown :not(pre) > code {
+  user-select: text;
+  border: 1px solid color-mix(in srgb, var(--card-accent) 24%, transparent);
+  border-radius: 0.4em;
+  padding: 0.08em 0.34em;
+  color: color-mix(in srgb, var(--card-accent) 82%, white);
+  background: rgba(255, 255, 255, 0.07);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.88em;
+}
+
+.codeBlock {
+  max-width: 100%;
+  margin: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  touch-action: pan-x;
+  user-select: text;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.85rem;
+  padding: clamp(0.72rem, 2.4vw, 1rem);
+  color: #e9f4ff;
+  background: rgba(1, 5, 10, 0.72);
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.18);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: clamp(0.72rem, 3vw, 0.88rem);
+  line-height: 1.48;
+  scrollbar-color: color-mix(in srgb, var(--card-accent) 58%, transparent) transparent;
+  scrollbar-width: thin;
+}
+
+.codeBlock code {
+  font: inherit;
+}
+
+.markdown blockquote {
+  margin-right: 0;
+  margin-left: 0;
+  border-left: 3px solid var(--card-accent);
+  padding-left: 0.9rem;
+}
+
+.markdownImage {
+  display: block;
+  width: 100%;
+  height: clamp(6.5rem, 21vh, 10rem);
+  margin-top: clamp(0.75rem, 2vh, 1rem);
+  object-fit: contain;
+  object-position: left center;
+}
+
+.pageIndicator {
+  position: absolute;
+  z-index: 3;
+  bottom: max(1.1rem, calc(env(safe-area-inset-bottom) + 0.7rem));
+  left: 50%;
+  display: flex;
+  min-width: 2.5rem;
+  justify-content: center;
+  gap: 0.38rem;
+  transform: translateX(-50%);
+}
+
+.pageDot,
+.pageDotActive {
+  display: block;
+  width: 0.38rem;
+  height: 0.38rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.3);
+  transition:
+    width 220ms ease,
+    background-color 220ms ease;
+}
+
+.pageDotActive {
+  width: 1.15rem;
+  background: var(--card-accent);
+}
+
+@media (min-width: 48rem) {
+  .page {
+    padding-right: max(4rem, calc(env(safe-area-inset-right) + 3rem));
+    padding-left: max(4rem, calc(env(safe-area-inset-left) + 3rem));
+  }
+
+  .markdown p,
+  .markdown li {
+    font-size: 1.12rem;
+  }
+}
+
+@media (max-height: 43rem) {
+  .page {
+    padding-top: max(2.6rem, calc(env(safe-area-inset-top) + 2rem));
+    padding-bottom: max(3.1rem, calc(env(safe-area-inset-bottom) + 2.5rem));
+  }
+
+  .markdown h2 {
+    margin-bottom: 0.65rem;
+    font-size: clamp(1.5rem, 6.6vw, 2.2rem);
+  }
+
+  .markdown p,
+  .markdown li {
+    font-size: clamp(0.82rem, 3.45vw, 0.98rem);
+    line-height: 1.4;
+  }
+
+  .markdown p + p,
+  .markdown p + ul,
+  .markdown p + ol,
+  .markdown ul + p,
+  .markdown ol + p,
+  .markdown pre + p,
+  .markdown p + pre {
+    margin-top: 0.55rem;
+  }
+
+  .markdown ul,
+  .markdown ol {
+    gap: 0.22rem;
+  }
+
+  .codeBlock {
+    padding: 0.6rem 0.72rem;
+    font-size: clamp(0.66rem, 2.75vw, 0.78rem);
+    line-height: 1.36;
+  }
+
+  .markdownImage {
+    height: clamp(5.1rem, 18vh, 7rem);
+    margin-top: 0.55rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feed :global(.swiper-wrapper),
+  .pages :global(.swiper-wrapper),
+  .pageDot,
+  .pageDotActive {
+    transition-duration: 0ms !important;
+  }
+}

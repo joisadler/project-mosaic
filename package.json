@@ -6,7 +6,7 @@
     "node": ">=24.21.0 <25"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --hostname 0.0.0.0",
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
@@ -15,7 +15,9 @@
   "dependencies": {
     "next": "16.4.0",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "react-markdown": "10.1.0",
+    "swiper": "14.3.0"
   },
   "devDependencies": {
     "@types/node": "^24",

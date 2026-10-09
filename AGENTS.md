@@ -6,6 +6,7 @@ Mobile-first educational microlearning feed. The first MVP focuses on frontend i
 
 - Always communicate with the user in Russian, including questions, updates, and reports.
 - Use English for source code, identifiers, code comments, documentation, and Git commit messages.
+- Write learning content in natural Russian. Keep technical terminology in English at its first mention, and keep code, identifiers, APIs, and program output in English.
 
 ## Stack and workflow
 
@@ -18,7 +19,7 @@ Mobile-first educational microlearning feed. The first MVP focuses on frontend i
 
 ## Scope and principles
 
-- Current status: initialization only, with a placeholder homepage and PWA metadata. Implement features only when requested.
+- Current status: Iteration 1 includes a virtualized vertical feed, multi-page InfoCards, Markdown rendering, and local frontend content. QuizCard and FlipCard are not implemented.
 - Future MVP: vertical touch-first feed, InfoCard, QuizCard, FlipCard, and local structured frontend content. Mix explanations and exercises; use taps/selections/gestures, no mobile code typing, and allow skipping cards.
 - Implement only the authorized task in small, independently verifiable increments.
 - Prefer simple readable code, focused reusable components, strong typing, and native browser/framework capabilities. Avoid `any` unless justified.

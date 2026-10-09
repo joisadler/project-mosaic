@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 220" role="img" aria-labelledby="title description">
+  <title id="title">JavaScript event loop</title>
+  <desc id="description">Tasks orbit the call stack while microtasks wait in a shorter queue.</desc>
+  <defs>
+    <linearGradient id="stack" x1="0" x2="1">
+      <stop offset="0" stop-color="#7bdff2" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#9b8cff" stop-opacity=".95"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <path d="M95 112c0-58 78-92 185-92s185 34 185 92-78 92-185 92S95 170 95 112Z" fill="none" stroke="#fff" stroke-opacity=".14" stroke-width="2" stroke-dasharray="7 9"/>
+  <rect x="218" y="54" width="124" height="116" rx="22" fill="#071018" stroke="url(#stack)" stroke-width="3"/>
+  <rect x="238" y="76" width="84" height="18" rx="9" fill="url(#stack)" opacity=".38"/>
+  <rect x="238" y="102" width="84" height="18" rx="9" fill="url(#stack)" opacity=".65"/>
+  <rect x="238" y="128" width="84" height="18" rx="9" fill="url(#stack)"/>
+  <g fill="#ffcf70" filter="url(#glow)">
+    <circle cx="95" cy="112" r="10"/>
+    <circle cx="420" cy="48" r="8"/>
+    <circle cx="465" cy="132" r="9"/>
+  </g>
+  <g fill="#77edb5">
+    <circle cx="150" cy="45" r="7"/>
+    <circle cx="155" cy="182" r="8"/>
+    <circle cx="405" cy="186" r="7"/>
+  </g>
+</svg>

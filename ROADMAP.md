@@ -2,7 +2,7 @@
 
 ## Current status
 
-Foundation setup only: Next.js App Router, strict TypeScript, SCSS, ESLint, placeholder homepage, and PWA metadata/manifest. No application features implemented yet.
+Iteration 1 complete: a virtualized vertical feed, multi-page InfoCards, Markdown rendering, local frontend content, responsive mobile layout, keyboard controls, and PWA metadata/manifest. QuizCard and FlipCard remain future MVP work.
 
 ## Stage 1 — MVP
 
