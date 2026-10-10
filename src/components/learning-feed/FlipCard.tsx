@@ -1,0 +1,193 @@
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
+import { A11y, EffectFlip } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import type { Swiper as SwiperInstance } from "swiper/types";
+import type { FlipCardData } from "@/content/info-cards";
+import { CardTypeLabel } from "./CardTypeLabel";
+import { MarkdownContent } from "./MarkdownPage";
+import styles from "./learning-feed.module.scss";
+
+export type FlipSideIndex = 0 | 1;
+
+type FlipCardProps = {
+  card: FlipCardData;
+  cardIndex: number;
+  cardCount: number;
+  activeSide: FlipSideIndex;
+  isActive: boolean;
+  onSideChange: (cardId: string, sideIndex: FlipSideIndex) => void;
+};
+
+const flipModules = [A11y, EffectFlip];
+
+function usePrefersReducedMotion() {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const syncPreference = () => setPrefersReducedMotion(mediaQuery.matches);
+
+    syncPreference();
+    mediaQuery.addEventListener("change", syncPreference);
+
+    return () => mediaQuery.removeEventListener("change", syncPreference);
+  }, []);
+
+  return prefersReducedMotion;
+}
+
+export function FlipCard({
+  card,
+  cardIndex,
+  cardCount,
+  activeSide,
+  isActive,
+  onSideChange,
+}: FlipCardProps) {
+  const swiperRef = useRef<SwiperInstance | null>(null);
+  const [announcement, setAnnouncement] = useState("");
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const isAnswerOpen = activeSide === 1;
+  const actionLabel = isAnswerOpen ? "Показать вопрос" : "Показать ответ";
+
+  const showSide = (sideIndex: FlipSideIndex) => {
+    const swiper = swiperRef.current;
+
+    if (!swiper || swiper.destroyed || swiper.animating) {
+      return;
+    }
+
+    swiper.slideTo(sideIndex, prefersReducedMotion ? 0 : 300);
+  };
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (!isActive || event.target !== event.currentTarget) {
+      return;
+    }
+
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      showSide(1);
+    } else if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      showSide(0);
+    } else if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      showSide(isAnswerOpen ? 0 : 1);
+    }
+  };
+
+  const handleTransitionEnd = (swiper: SwiperInstance) => {
+    const sideIndex: FlipSideIndex = swiper.activeIndex === 1 ? 1 : 0;
+
+    if (sideIndex !== activeSide) {
+      onSideChange(card.id, sideIndex);
+      setAnnouncement(sideIndex === 1 ? "Ответ открыт" : "Вопрос открыт");
+    }
+  };
+
+  return (
+    <article
+      className={styles.card}
+      data-theme={cardIndex % 4}
+      aria-label={`Карточка для повторения ${cardIndex + 1} из ${cardCount}`}
+      aria-hidden={!isActive}
+      inert={!isActive}
+    >
+      <CardTypeLabel type="flip" />
+
+      <span className={styles.cardProgress} aria-hidden="true">
+        {String(cardIndex + 1).padStart(2, "0")} / {String(cardCount).padStart(2, "0")}
+      </span>
+
+      <div
+        className={styles.flipFocusTarget}
+        role="group"
+        aria-label="Карточка с вопросом и ответом"
+        tabIndex={0}
+        onKeyDown={handleKeyDown}
+      >
+        <Swiper
+          key={prefersReducedMotion ? "reduced-motion" : "flip-motion"}
+          className={styles.flipSwiper}
+          modules={flipModules}
+          direction="horizontal"
+          effect={prefersReducedMotion ? "slide" : "flip"}
+          initialSlide={activeSide}
+          slidesPerView={1}
+          slidesPerGroup={1}
+          speed={prefersReducedMotion ? 0 : 300}
+          threshold={8}
+          touchAngle={42}
+          followFinger
+          loop={false}
+          grabCursor
+          flipEffect={{ limitRotation: true }}
+          a11y={{
+            enabled: true,
+            containerMessage: `Вопрос и ответ карточки ${cardIndex + 1}`,
+            slideLabelMessage: "Сторона {{index}} из {{slidesLength}}",
+            prevSlideMessage: "Показать вопрос",
+            nextSlideMessage: "Показать ответ",
+          }}
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
+          }}
+          onTransitionEnd={handleTransitionEnd}
+        >
+          <SwiperSlide>
+            {({ isActive: isSideActive }) => (
+              <section
+                className={styles.flipSide}
+                aria-label="Вопрос"
+                aria-hidden={!isSideActive}
+                inert={!isSideActive}
+              >
+                <div className={styles.flipSideScroller}>
+                  <MarkdownContent markdown={card.question} />
+                </div>
+                <span className={styles.flipTouchHint} aria-hidden="true">
+                  Свайпни влево — покажи ответ
+                </span>
+              </section>
+            )}
+          </SwiperSlide>
+
+          <SwiperSlide>
+            {({ isActive: isSideActive }) => (
+              <section
+                className={styles.flipSide}
+                aria-label="Ответ"
+                aria-hidden={!isSideActive}
+                inert={!isSideActive}
+              >
+                <div className={styles.flipSideScroller}>
+                  <MarkdownContent markdown={card.answer} />
+                </div>
+                <span className={styles.flipTouchHint} aria-hidden="true">
+                  Свайпни вправо — вернись к вопросу
+                </span>
+              </section>
+            )}
+          </SwiperSlide>
+        </Swiper>
+
+        <button
+          className={styles.flipActionButton}
+          type="button"
+          onClick={() => showSide(isAnswerOpen ? 0 : 1)}
+        >
+          {actionLabel}
+        </button>
+
+        <span className={styles.flipKeyboardHint} aria-hidden="true">
+          ←/→ — сторона · Enter/Space — переключить
+        </span>
+
+        <span className={styles.visuallyHidden} role="status" aria-live="polite">
+          {announcement}
+        </span>
+      </div>
+    </article>
+  );
+}

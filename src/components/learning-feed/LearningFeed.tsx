@@ -4,6 +4,7 @@ import { useCallback, useState } from "react";
 import { A11y, Keyboard, Mousewheel, Virtual } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { LearningCardData } from "@/content/info-cards";
+import { FlipCard, type FlipSideIndex } from "./FlipCard";
 import { InfoCard } from "./InfoCard";
 import { QuizCard } from "./QuizCard";
 import styles from "./learning-feed.module.scss";
@@ -17,12 +18,21 @@ const feedModules = [A11y, Keyboard, Mousewheel, Virtual];
 export function LearningFeed({ cards }: LearningFeedProps) {
   const [pageByCard, setPageByCard] = useState<Record<string, number>>({});
   const [selectedOptionByCard, setSelectedOptionByCard] = useState<Record<string, string>>({});
+  const [flipSideByCard, setFlipSideByCard] = useState<Record<string, FlipSideIndex>>({});
 
   const rememberPage = useCallback((cardId: string, pageIndex: number) => {
     setPageByCard((current) =>
       current[cardId] === pageIndex
         ? current
         : { ...current, [cardId]: pageIndex },
+    );
+  }, []);
+
+  const rememberFlipSide = useCallback((cardId: string, sideIndex: FlipSideIndex) => {
+    setFlipSideByCard((current) =>
+      current[cardId] === sideIndex
+        ? current
+        : { ...current, [cardId]: sideIndex },
     );
   }, []);
 
@@ -59,25 +69,44 @@ export function LearningFeed({ cards }: LearningFeedProps) {
       >
         {cards.map((card, index) => (
           <SwiperSlide key={card.id} virtualIndex={index} data-card-id={card.id}>
-            {({ isActive }) => card.type === "info" ? (
-              <InfoCard
-                card={card}
-                cardIndex={index}
-                cardCount={cards.length}
-                activePage={pageByCard[card.id] ?? 0}
-                isActive={isActive}
-                onPageChange={rememberPage}
-              />
-            ) : (
-              <QuizCard
-                card={card}
-                cardIndex={index}
-                cardCount={cards.length}
-                isActive={isActive}
-                selectedOptionId={selectedOptionByCard[card.id]}
-                onOptionSelect={rememberSelectedOption}
-              />
-            )}
+            {({ isActive }) => {
+              if (card.type === "info") {
+                return (
+                  <InfoCard
+                    card={card}
+                    cardIndex={index}
+                    cardCount={cards.length}
+                    activePage={pageByCard[card.id] ?? 0}
+                    isActive={isActive}
+                    onPageChange={rememberPage}
+                  />
+                );
+              }
+
+              if (card.type === "quiz") {
+                return (
+                  <QuizCard
+                    card={card}
+                    cardIndex={index}
+                    cardCount={cards.length}
+                    isActive={isActive}
+                    selectedOptionId={selectedOptionByCard[card.id]}
+                    onOptionSelect={rememberSelectedOption}
+                  />
+                );
+              }
+
+              return (
+                <FlipCard
+                  card={card}
+                  cardIndex={index}
+                  cardCount={cards.length}
+                  activeSide={flipSideByCard[card.id] ?? 0}
+                  isActive={isActive}
+                  onSideChange={rememberFlipSide}
+                />
+              );
+            }}
           </SwiperSlide>
         ))}
       </Swiper>

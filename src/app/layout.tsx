@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import "swiper/css";
 import "swiper/css/a11y";
+import "swiper/css/effect-flip";
 import "swiper/css/keyboard";
 import "swiper/css/mousewheel";
 import "swiper/css/virtual";
