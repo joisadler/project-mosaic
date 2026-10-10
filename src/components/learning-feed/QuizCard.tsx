@@ -1,4 +1,4 @@
-import type { QuizCardData } from "@/content/info-cards";
+import type { QuizCardData } from "@/content/card-types";
 import { CardTypeLabel } from "./CardTypeLabel";
 import { MarkdownContent } from "./MarkdownPage";
 import styles from "./learning-feed.module.scss";

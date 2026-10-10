@@ -1,7 +1,7 @@
 import { A11y, Keyboard } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperInstance } from "swiper/types";
-import type { InfoCardData } from "@/content/info-cards";
+import type { InfoCardData } from "@/content/card-types";
 import { CardTypeLabel } from "./CardTypeLabel";
 import { MarkdownPage } from "./MarkdownPage";
 import styles from "./learning-feed.module.scss";

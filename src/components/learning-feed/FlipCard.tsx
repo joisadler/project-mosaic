@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { A11y, EffectFlip } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperInstance } from "swiper/types";
-import type { FlipCardData } from "@/content/info-cards";
+import type { FlipCardData } from "@/content/card-types";
 import { CardTypeLabel } from "./CardTypeLabel";
 import { MarkdownContent } from "./MarkdownPage";
 import styles from "./learning-feed.module.scss";

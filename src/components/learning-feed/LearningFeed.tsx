@@ -1,24 +1,49 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { A11y, Keyboard, Mousewheel, Virtual } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import type { LearningCardData } from "@/content/info-cards";
+import type { LearningCardData } from "@/content/card-types";
 import { FlipCard, type FlipSideIndex } from "./FlipCard";
 import { InfoCard } from "./InfoCard";
 import { QuizCard } from "./QuizCard";
 import styles from "./learning-feed.module.scss";
 
 type LearningFeedProps = {
-  cards: LearningCardData[];
+  cards: readonly LearningCardData[];
 };
 
 const feedModules = [A11y, Keyboard, Mousewheel, Virtual];
 
+function shuffleCards(cards: readonly LearningCardData[]) {
+  const shuffledCards = [...cards];
+
+  for (let index = shuffledCards.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    const currentCard = shuffledCards[index];
+
+    shuffledCards[index] = shuffledCards[randomIndex];
+    shuffledCards[randomIndex] = currentCard;
+  }
+
+  return shuffledCards;
+}
+
 export function LearningFeed({ cards }: LearningFeedProps) {
+  const hasInitializedOrder = useRef(false);
+  const [shuffledCards, setShuffledCards] = useState<LearningCardData[] | null>(null);
   const [pageByCard, setPageByCard] = useState<Record<string, number>>({});
   const [selectedOptionByCard, setSelectedOptionByCard] = useState<Record<string, string>>({});
   const [flipSideByCard, setFlipSideByCard] = useState<Record<string, FlipSideIndex>>({});
+
+  useEffect(() => {
+    if (hasInitializedOrder.current) {
+      return;
+    }
+
+    hasInitializedOrder.current = true;
+    setShuffledCards(shuffleCards(cards));
+  }, [cards]);
 
   const rememberPage = useCallback((cardId: string, pageIndex: number) => {
     setPageByCard((current) =>
@@ -44,6 +69,16 @@ export function LearningFeed({ cards }: LearningFeedProps) {
     );
   }, []);
 
+  if (!shuffledCards) {
+    return (
+      <main
+        className={styles.feedShell}
+        aria-label="Учебная лента по frontend"
+        aria-busy="true"
+      />
+    );
+  }
+
   return (
     <main className={styles.feedShell} aria-label="Учебная лента по frontend">
       <Swiper
@@ -67,7 +102,7 @@ export function LearningFeed({ cards }: LearningFeedProps) {
           nextSlideMessage: "Следующая учебная карточка",
         }}
       >
-        {cards.map((card, index) => (
+        {shuffledCards.map((card, index) => (
           <SwiperSlide key={card.id} virtualIndex={index} data-card-id={card.id}>
             {({ isActive }) => {
               if (card.type === "info") {
@@ -75,7 +110,7 @@ export function LearningFeed({ cards }: LearningFeedProps) {
                   <InfoCard
                     card={card}
                     cardIndex={index}
-                    cardCount={cards.length}
+                    cardCount={shuffledCards.length}
                     activePage={pageByCard[card.id] ?? 0}
                     isActive={isActive}
                     onPageChange={rememberPage}
@@ -88,7 +123,7 @@ export function LearningFeed({ cards }: LearningFeedProps) {
                   <QuizCard
                     card={card}
                     cardIndex={index}
-                    cardCount={cards.length}
+                    cardCount={shuffledCards.length}
                     isActive={isActive}
                     selectedOptionId={selectedOptionByCard[card.id]}
                     onOptionSelect={rememberSelectedOption}
@@ -100,7 +135,7 @@ export function LearningFeed({ cards }: LearningFeedProps) {
                 <FlipCard
                   card={card}
                   cardIndex={index}
-                  cardCount={cards.length}
+                  cardCount={shuffledCards.length}
                   activeSide={flipSideByCard[card.id] ?? 0}
                   isActive={isActive}
                   onSideChange={rememberFlipSide}

@@ -2,7 +2,7 @@
 
 ## Current status
 
-Iteration 3 complete: the virtualized feed now mixes multi-page InfoCards, accessible QuizCards, and swipe-driven FlipCards with Markdown on both sides. Horizontal card state and quiz selections persist during the current feed session, and all three card types include compact visible labels.
+Iteration 3 complete: the virtualized feed mixes multi-page InfoCards, accessible QuizCards, and swipe-driven FlipCards with Markdown on both sides. Content is organized by card type and shuffled once for each mounted feed, while horizontal card state and quiz selections persist during the session.
 
 ## Stage 1 — MVP
 
