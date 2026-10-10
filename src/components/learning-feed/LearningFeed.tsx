@@ -3,24 +3,34 @@
 import { useCallback, useState } from "react";
 import { A11y, Keyboard, Mousewheel, Virtual } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import type { InfoCardData } from "@/content/info-cards";
+import type { LearningCardData } from "@/content/info-cards";
 import { InfoCard } from "./InfoCard";
+import { QuizCard } from "./QuizCard";
 import styles from "./learning-feed.module.scss";
 
 type LearningFeedProps = {
-  cards: InfoCardData[];
+  cards: LearningCardData[];
 };
 
 const feedModules = [A11y, Keyboard, Mousewheel, Virtual];
 
 export function LearningFeed({ cards }: LearningFeedProps) {
   const [pageByCard, setPageByCard] = useState<Record<string, number>>({});
+  const [selectedOptionByCard, setSelectedOptionByCard] = useState<Record<string, string>>({});
 
   const rememberPage = useCallback((cardId: string, pageIndex: number) => {
     setPageByCard((current) =>
       current[cardId] === pageIndex
         ? current
         : { ...current, [cardId]: pageIndex },
+    );
+  }, []);
+
+  const rememberSelectedOption = useCallback((cardId: string, optionId: string) => {
+    setSelectedOptionByCard((current) =>
+      current[cardId] === optionId
+        ? current
+        : { ...current, [cardId]: optionId },
     );
   }, []);
 
@@ -49,7 +59,7 @@ export function LearningFeed({ cards }: LearningFeedProps) {
       >
         {cards.map((card, index) => (
           <SwiperSlide key={card.id} virtualIndex={index} data-card-id={card.id}>
-            {({ isActive }) => (
+            {({ isActive }) => card.type === "info" ? (
               <InfoCard
                 card={card}
                 cardIndex={index}
@@ -57,6 +67,15 @@ export function LearningFeed({ cards }: LearningFeedProps) {
                 activePage={pageByCard[card.id] ?? 0}
                 isActive={isActive}
                 onPageChange={rememberPage}
+              />
+            ) : (
+              <QuizCard
+                card={card}
+                cardIndex={index}
+                cardCount={cards.length}
+                isActive={isActive}
+                selectedOptionId={selectedOptionByCard[card.id]}
+                onOptionSelect={rememberSelectedOption}
               />
             )}
           </SwiperSlide>

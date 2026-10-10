@@ -2,6 +2,7 @@ import { A11y, Keyboard } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperInstance } from "swiper/types";
 import type { InfoCardData } from "@/content/info-cards";
+import { CardTypeLabel } from "./CardTypeLabel";
 import { MarkdownPage } from "./MarkdownPage";
 import styles from "./learning-feed.module.scss";
 
@@ -37,7 +38,10 @@ export function InfoCard({
       data-theme={cardIndex % 4}
       aria-label={`Учебная карточка ${cardIndex + 1} из ${cardCount}`}
       aria-hidden={!isActive}
+      inert={!isActive}
     >
+      <CardTypeLabel type="info" />
+
       <span className={styles.cardProgress} aria-hidden="true">
         {String(cardIndex + 1).padStart(2, "0")} / {String(cardCount).padStart(2, "0")}
       </span>

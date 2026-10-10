@@ -2,13 +2,13 @@
 
 ## Current status
 
-Iteration 1 complete: a virtualized vertical feed, multi-page InfoCards, Markdown rendering, local frontend content, responsive mobile layout, keyboard controls, and PWA metadata/manifest. QuizCard and FlipCard remain future MVP work.
+Iteration 2 complete: the virtualized feed now mixes multi-page InfoCards with accessible QuizCards that provide immediate per-option feedback and preserve the latest selection during the current feed session. Both card types include compact visible type labels. FlipCard remains future MVP work.
 
 ## Stage 1 — MVP
 
 - Full-screen vertical scrolling feed with smooth touch-first navigation.
 - InfoCard: short explanations, definitions, facts, and code examples.
-- QuizCard: multiple-choice questions, immediate feedback, and answer explanations.
+- QuizCard: multiple-choice questions, immediate feedback, and answer explanations. Completed in Iteration 2.
 - FlipCard: a question and a tap-to-reveal answer.
 - Frontend interview content stored locally in structured TypeScript or JSON files.
 - Mixed educational and interactive cards; users can skip any card.

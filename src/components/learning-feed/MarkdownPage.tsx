@@ -24,6 +24,21 @@ const markdownComponents: Components = {
   },
 };
 
+type MarkdownContentProps = {
+  markdown: string;
+  className?: string;
+};
+
+export function MarkdownContent({ markdown, className }: MarkdownContentProps) {
+  const classes = className ? `${styles.markdown} ${className}` : styles.markdown;
+
+  return (
+    <div className={classes}>
+      <ReactMarkdown components={markdownComponents}>{markdown}</ReactMarkdown>
+    </div>
+  );
+}
+
 type MarkdownPageProps = {
   markdown: string;
   isActive: boolean;
@@ -38,9 +53,7 @@ export function MarkdownPage({ markdown, isActive }: MarkdownPageProps) {
       className={isDense ? `${styles.page} ${styles.pageDense}` : styles.page}
       aria-hidden={!isActive}
     >
-      <div className={styles.markdown}>
-        <ReactMarkdown components={markdownComponents}>{markdown}</ReactMarkdown>
-      </div>
+      <MarkdownContent markdown={markdown} />
     </section>
   );
 }
