@@ -19,7 +19,7 @@ Mobile-first educational microlearning feed. The first MVP focuses on frontend i
 
 ## Scope and principles
 
-- Current status: Iteration 1 includes a virtualized vertical feed, multi-page InfoCards, Markdown rendering, and local frontend content. QuizCard and FlipCard are not implemented.
+- Current status: Iteration 3 includes a virtualized vertical feed with InfoCards, accessible QuizCards, swipe-driven FlipCards, Markdown rendering, local structured frontend content, and a stable randomized order for each mounted feed.
 - Future MVP: vertical touch-first feed, InfoCard, QuizCard, FlipCard, and local structured frontend content. Mix explanations and exercises; use taps/selections/gestures, no mobile code typing, and allow skipping cards.
 - Implement only the authorized task in small, independently verifiable increments.
 - Prefer simple readable code, focused reusable components, strong typing, and native browser/framework capabilities. Avoid `any` unless justified.
