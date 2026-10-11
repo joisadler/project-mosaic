@@ -2,22 +2,31 @@
 
 ## Current status
 
-Iteration 3 complete: the virtualized feed mixes multi-page InfoCards, accessible QuizCards, and swipe-driven FlipCards with Markdown on both sides. Content is organized by card type and shuffled once for each mounted feed, while horizontal card state and quiz selections persist during the session. The 64-card JavaScript section 1.1 pack is now the feed's only learning content.
+MVP complete and accepted by the project owner on October 11, 2026. Linear issue `JOI-10` was closed with that acceptance recorded. Remaining backlog items are post-MVP improvements and do not block MVP completion.
 
-The current standalone iPhone PWA build has also passed a physical-device check for top safe-area metadata, home-gesture navigation protection, and feed alignment after app lifecycle or viewport changes. Reopen the related bugs if the intermittent displacement returns.
+The accepted implementation includes a virtualized vertical educational feed with multi-page InfoCards, accessible multiple-choice QuizCards, and swipe-driven question-and-answer FlipCards with Markdown on both sides. Content is organized by card type and shuffled once for each mounted feed, while horizontal card state and quiz selections persist during the session. The 64-card JavaScript section 1.1 pack is the feed's current learning content.
 
-## Stage 1 — MVP
+The project owner confirmed on October 11, 2026, that the previously discussed iPhone/PWA bugs were fixed and verified on his device, including top safe-area metadata, home-gesture navigation protection, and feed alignment after app lifecycle or viewport changes. Reopen the relevant Linear issue if a regression recurs.
+
+## Stage 1 — MVP (Complete)
 
 - Full-screen vertical scrolling feed with smooth touch-first navigation.
 - InfoCard: short explanations, definitions, facts, and code examples.
-- QuizCard: multiple-choice questions, immediate feedback, and answer explanations. Completed in Iteration 2.
-- FlipCard: a question and answer revealed with a horizontal swipe. Completed in Iteration 3.
+- QuizCard: multiple-choice questions, immediate feedback, and answer explanations.
+- FlipCard: a question and answer revealed with a horizontal swipe.
 - Frontend interview content stored locally in structured TypeScript or JSON files.
 - Mixed educational and interactive cards; users can skip any card.
 - Mobile UX and basic accessibility, with taps/selections/gestures rather than typing code.
-- Basic PWA experience, building on the initial manifest and metadata. Any offline support is a separate future task.
+- Basic PWA experience through the manifest and metadata. Offline support is not part of the accepted MVP.
 
-Implement incrementally after scope approval. Existing study materials may later become a content source.
+This stage describes the accepted product baseline, not a list of open tasks. Existing study materials may still become a source for future content.
+
+## Post-MVP operating guidance
+
+- Use the current product and gather feedback before expanding scope.
+- Select small improvements by user value, priority, and dependencies.
+- Keep the [Project Mosaic Linear project](https://linear.app/joisadler/project/project-mosaic-1db195c51ec6) as the source of truth for tasks and backlog status; do not reproduce an issue tracker here.
+- Treat backlog entries and the ideas below as candidates, not as completed work or approved commitments.
 
 ## Stage 2 — Learning Improvements (Optional)
 
@@ -26,7 +35,7 @@ Implement incrementally after scope approval. Existing study materials may later
 - Learning progress tracking.
 - Improved content selection.
 
-Tentative and subject to product validation and explicit approval. These possibilities must not introduce unnecessary dependencies or architecture into the current implementation.
+Tentative and subject to feedback, prioritization, dependencies, and explicit approval. These possibilities must not introduce unnecessary dependencies or architecture into the current implementation.
 
 ## Stage 3 — Potential Product Expansion
 
@@ -36,4 +45,4 @@ Tentative and subject to product validation and explicit approval. These possibi
 - Accounts and synchronization if needed.
 - Possible native mobile applications.
 
-Tentative possibilities, not committed requirements. Evaluate only when the MVP demonstrates value. Do not create backend, cross-platform abstractions, or other speculative infrastructure for this stage.
+Tentative possibilities, not committed requirements. Evaluate only when product feedback and priorities justify the work. Do not create backend, cross-platform abstractions, or other speculative infrastructure for this stage.

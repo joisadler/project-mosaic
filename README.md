@@ -4,7 +4,7 @@ A mobile-first educational feed designed to turn passive scrolling into microlea
 
 **Turn scrolling into learning.**
 
-The first MVP will focus on frontend interview preparation using short explanations and interactive learning cards.
+The completed MVP focuses on frontend interview preparation using short explanations and interactive learning cards.
 
 ## Stack
 
@@ -50,15 +50,23 @@ Open http://localhost:3000. Run `nvm use` in each new terminal before working on
 - `public/illustrations/`: local content illustrations.
 - `public/icons/`: placeholder app icons.
 - `AGENTS.md`: development and communication rules.
-- `ROADMAP.md`: MVP scope and tentative later stages.
+- `ROADMAP.md`: completed MVP scope, post-MVP guidance, and tentative later stages.
 
 ## Current status
 
-Iteration 3 implements a full-screen virtualized feed that mixes multi-page InfoCards, accessible QuizCards, and swipe-driven FlipCards. Markdown content is stored locally, the 64-card JavaScript section 1.1 pack is shuffled once per mounted feed, and card interaction state persists during the session.
+The project owner accepted the existing application as the completed MVP on October 11, 2026. Linear issue `JOI-10` was closed with that acceptance recorded. Remaining backlog items are post-MVP improvements and do not prevent the MVP from being complete.
 
-The standalone iPhone PWA flow includes safe-area-aware top metadata, protection against unintended navigation from the home gesture, and feed realignment after viewport or app lifecycle changes. These fixes were validated on a physical iPhone; the intermittent displacement issue can be reopened if it recurs.
+The MVP implements a full-screen virtualized educational feed that mixes multi-page InfoCards, accessible multiple-choice QuizCards, and swipe-driven question-and-answer FlipCards. Markdown content is stored locally, the 64-card JavaScript section 1.1 pack is shuffled once per mounted feed, and card interaction state persists during the session.
+
+The standalone iPhone PWA flow includes safe-area-aware top metadata, protection against unintended navigation from the home gesture, and feed realignment after viewport or app lifecycle changes. The project owner confirmed on October 11, 2026, that the previously discussed iPhone/PWA bugs were fixed and verified on his device. Reopen the relevant Linear issue if a regression recurs.
 
 The manifest includes standalone display, app icons, and theme colors. Service workers, offline caching, and push notifications are not configured; install behavior depends on the browser, and offline use is not supported. See [ROADMAP.md](ROADMAP.md) for future scope.
+
+## Post-MVP work
+
+Use the product, gather feedback, and select small improvements according to user value, priority, and dependencies. The [Project Mosaic Linear project](https://linear.app/joisadler/project/project-mosaic-1db195c51ec6) is the source of truth for tasks and backlog status; this repository documentation describes product scope and working agreements rather than duplicating the task tracker.
+
+Future ideas remain tentative until they are prioritized and explicitly approved. A backlog item is not evidence that a feature is committed or that the completed MVP is incomplete.
 
 ## Dependency notes
 
