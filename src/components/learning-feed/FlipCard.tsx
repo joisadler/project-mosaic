@@ -47,8 +47,6 @@ export function FlipCard({
   const swiperRef = useRef<SwiperInstance | null>(null);
   const [announcement, setAnnouncement] = useState("");
   const prefersReducedMotion = usePrefersReducedMotion();
-  const isAnswerOpen = activeSide === 1;
-  const actionLabel = isAnswerOpen ? "Показать вопрос" : "Показать ответ";
 
   const showSide = (sideIndex: FlipSideIndex) => {
     const swiper = swiperRef.current;
@@ -71,9 +69,6 @@ export function FlipCard({
     } else if (event.key === "ArrowLeft") {
       event.preventDefault();
       showSide(0);
-    } else if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      showSide(isAnswerOpen ? 0 : 1);
     }
   };
 
@@ -103,7 +98,8 @@ export function FlipCard({
       <div
         className={styles.flipFocusTarget}
         role="group"
-        aria-label="Карточка с вопросом и ответом"
+        aria-label="Карточка с вопросом и ответом. Стрелка влево — вопрос, стрелка вправо — ответ"
+        aria-keyshortcuts="ArrowLeft ArrowRight"
         tabIndex={0}
         onKeyDown={handleKeyDown}
       >
@@ -172,16 +168,8 @@ export function FlipCard({
           </SwiperSlide>
         </Swiper>
 
-        <button
-          className={styles.flipActionButton}
-          type="button"
-          onClick={() => showSide(isAnswerOpen ? 0 : 1)}
-        >
-          {actionLabel}
-        </button>
-
         <span className={styles.flipKeyboardHint} aria-hidden="true">
-          ←/→ — сторона · Enter/Space — переключить
+          ← — вопрос · → — ответ
         </span>
 
         <span className={styles.visuallyHidden} role="status" aria-live="polite">

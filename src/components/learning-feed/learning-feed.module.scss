@@ -464,50 +464,11 @@
   pointer-events: none;
 }
 
-.flipActionButton {
-  position: absolute;
-  z-index: 4;
-  right: 50%;
-  bottom: max(3.1rem, calc(env(safe-area-inset-bottom) + 2.6rem));
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  transform: translateX(50%);
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
-
-.flipFocusTarget:focus-visible .flipActionButton,
-.flipFocusTarget:focus-within .flipActionButton,
-.flipActionButton:focus-visible {
-  width: auto;
-  height: auto;
-  overflow: visible;
-  border: 1px solid color-mix(in srgb, var(--card-accent) 55%, white);
-  border-radius: 999px;
-  padding: 0.58rem 0.9rem;
-  clip: auto;
-  clip-path: none;
-  color: #fff;
-  background: rgba(4, 10, 16, 0.88);
-  font-size: 0.82rem;
-  font-weight: 750;
-  cursor: pointer;
-}
-
-.flipActionButton:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--card-accent) 82%, white);
-  outline-offset: 2px;
-}
-
-.flipFocusTarget:focus-visible .flipTouchHint,
-.flipFocusTarget:focus-within .flipTouchHint {
+.flipFocusTarget:focus-visible .flipTouchHint {
   opacity: 0;
 }
 
-.flipFocusTarget:focus-visible .flipKeyboardHint,
-.flipFocusTarget:focus-within .flipKeyboardHint {
+.flipFocusTarget:focus-visible .flipKeyboardHint {
   opacity: 1;
 }
 
