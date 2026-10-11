@@ -38,6 +38,7 @@ Open http://localhost:3000. Run `nvm use` in each new terminal before working on
 | --- | --- |
 | `npm run dev` | Start the development server |
 | `npm run lint` | Run ESLint with zero warnings allowed |
+| `npm run validate:content` | Validate card structure and mobile content budgets |
 | `npm run typecheck` | Generate Next.js types and run TypeScript checks |
 | `npm run build` | Create a production build |
 | `npm start` | Serve the production build after `npm run build` |
@@ -47,6 +48,7 @@ Open http://localhost:3000. Run `nvm use` in each new terminal before working on
 - `src/app/`: root layout, feed entry page, global SCSS, and manifest.
 - `src/components/learning-feed/`: virtualized vertical feed, horizontal card pages, and Markdown rendering.
 - `src/content/`: typed local learning content.
+- `docs/content/`: shared content rules and source-specific package documentation.
 - `public/illustrations/`: local content illustrations.
 - `public/icons/`: placeholder app icons.
 - `AGENTS.md`: development and communication rules.
@@ -56,7 +58,7 @@ Open http://localhost:3000. Run `nvm use` in each new terminal before working on
 
 The project owner accepted the existing application as the completed MVP on October 11, 2026. Linear issue `JOI-10` was closed with that acceptance recorded. Remaining backlog items are post-MVP improvements and do not prevent the MVP from being complete.
 
-The MVP implements a full-screen virtualized educational feed that mixes multi-page InfoCards, accessible multiple-choice QuizCards, and swipe-driven question-and-answer FlipCards. Markdown content is stored locally, the 64-card JavaScript section 1.1 pack is shuffled once per mounted feed, and card interaction state persists during the session.
+The MVP implements a full-screen virtualized educational feed that mixes multi-page InfoCards, accessible multiple-choice QuizCards, and swipe-driven question-and-answer FlipCards. Markdown content is stored locally, the 100-card Frontend Interview Preparation `fe-1.1` pack is shuffled once per mounted feed, and card interaction state persists during the session.
 
 The standalone iPhone PWA flow includes safe-area-aware top metadata, protection against unintended navigation from the home gesture, and feed realignment after viewport or app lifecycle changes. The project owner confirmed on October 11, 2026, that the previously discussed iPhone/PWA bugs were fixed and verified on his device. Reopen the relevant Linear issue if a regression recurs.
 

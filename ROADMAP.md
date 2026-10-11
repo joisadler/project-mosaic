@@ -4,7 +4,7 @@
 
 MVP complete and accepted by the project owner on October 11, 2026. Linear issue `JOI-10` was closed with that acceptance recorded. Remaining backlog items are post-MVP improvements and do not block MVP completion.
 
-The accepted implementation includes a virtualized vertical educational feed with multi-page InfoCards, accessible multiple-choice QuizCards, and swipe-driven question-and-answer FlipCards with Markdown on both sides. Content is organized by card type and shuffled once for each mounted feed, while horizontal card state and quiz selections persist during the session. The 64-card JavaScript section 1.1 pack is the feed's current learning content.
+The accepted implementation includes a virtualized vertical educational feed with multi-page InfoCards, accessible multiple-choice QuizCards, and swipe-driven question-and-answer FlipCards with Markdown on both sides. Content is organized by card type and shuffled once for each mounted feed, while horizontal card state and quiz selections persist during the session. The 100-card Frontend Interview Preparation `fe-1.1` pack is the feed's current learning content.
 
 The project owner confirmed on October 11, 2026, that the previously discussed iPhone/PWA bugs were fixed and verified on his device, including top safe-area metadata, home-gesture navigation protection, and feed alignment after app lifecycle or viewport changes. Reopen the relevant Linear issue if a regression recurs.
 

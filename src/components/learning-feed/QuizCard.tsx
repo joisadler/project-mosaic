@@ -28,17 +28,19 @@ export function QuizCard({
 
   return (
     <article
-      className={styles.card}
+      className={`${styles.card} ${styles.quizCard}`}
       data-theme={cardIndex % 4}
       aria-label={`Проверочная карточка ${cardIndex + 1} из ${cardCount}`}
       aria-hidden={!isActive}
       inert={!isActive}
     >
-      <CardTypeLabel type="quiz" />
+      <header className={styles.quizHeader}>
+        <CardTypeLabel type="quiz" />
 
-      <span className={styles.cardProgress} aria-hidden="true">
-        {String(cardIndex + 1).padStart(2, "0")} / {String(cardCount).padStart(2, "0")}
-      </span>
+        <span className={styles.cardProgress} aria-hidden="true">
+          {String(cardIndex + 1).padStart(2, "0")} / {String(cardCount).padStart(2, "0")}
+        </span>
+      </header>
 
       <div className={styles.quizScroller}>
         <div className={styles.quizContent}>
@@ -85,10 +87,7 @@ export function QuizCard({
                   </span>
                   <span className={styles.optionText}>{option.text}</span>
                   {stateLabel ? (
-                    <span className={styles.optionState}>
-                      <span aria-hidden="true">{optionIsCorrect ? "✓" : "✕"}</span>
-                      {stateLabel}
-                    </span>
+                    <span className={styles.visuallyHidden}>{stateLabel}</span>
                   ) : null}
                 </button>
               );

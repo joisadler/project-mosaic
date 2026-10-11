@@ -27,6 +27,7 @@ Mobile-first educational microlearning feed. The completed MVP focuses on fronte
 - Implement only the authorized task in small, independently verifiable increments.
 - Prefer simple readable code, focused reusable components, strong typing, and native browser/framework capabilities. Avoid `any` unless justified.
 - Prioritize mobile UX, accessibility, and performance. Separate business logic from presentation where practical.
+- Name handbook-derived content packages with the unambiguous `fe-<section>.<subsection>` namespace across directories, files, card IDs and documentation. Use identifier-safe names such as `feSection1_1InfoCards` only where source-code syntax cannot contain dots or hyphens.
 - No Tailwind, utility-first CSS frameworks, CSS-in-JS, or UI component libraries.
 - Discuss major architecture changes or additional dependencies before introducing them. No speculative abstractions, plugin systems, premature optimization, or complex state management.
 - No authentication, backend/database, runtime AI, recommendations, spaced repetition, tracking/analytics, social features, or multiple domains in the current scope.

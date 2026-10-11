@@ -10,6 +10,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
+    "validate:content": "node scripts/validate-content.mjs",
     "typecheck": "next typegen && tsc --noEmit"
   },
   "dependencies": {
