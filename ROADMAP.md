@@ -4,6 +4,8 @@
 
 Iteration 3 complete: the virtualized feed mixes multi-page InfoCards, accessible QuizCards, and swipe-driven FlipCards with Markdown on both sides. Content is organized by card type and shuffled once for each mounted feed, while horizontal card state and quiz selections persist during the session. The 64-card JavaScript section 1.1 pack is now the feed's only learning content.
 
+The current standalone iPhone PWA build has also passed a physical-device check for top safe-area metadata, home-gesture navigation protection, and feed alignment after app lifecycle or viewport changes. Reopen the related bugs if the intermittent displacement returns.
+
 ## Stage 1 — MVP
 
 - Full-screen vertical scrolling feed with smooth touch-first navigation.

@@ -54,7 +54,9 @@ Open http://localhost:3000. Run `nvm use` in each new terminal before working on
 
 ## Current status
 
-Iteration 1 implements a full-screen information-card feed with virtualized vertical navigation, horizontal pages, Markdown content, keyboard controls, and local demo content. QuizCard and FlipCard are not implemented yet.
+Iteration 3 implements a full-screen virtualized feed that mixes multi-page InfoCards, accessible QuizCards, and swipe-driven FlipCards. Markdown content is stored locally, the 64-card JavaScript section 1.1 pack is shuffled once per mounted feed, and card interaction state persists during the session.
+
+The standalone iPhone PWA flow includes safe-area-aware top metadata, protection against unintended navigation from the home gesture, and feed realignment after viewport or app lifecycle changes. These fixes were validated on a physical iPhone; the intermittent displacement issue can be reopened if it recurs.
 
 The manifest includes standalone display, app icons, and theme colors. Service workers, offline caching, and push notifications are not configured; install behavior depends on the browser, and offline use is not supported. See [ROADMAP.md](ROADMAP.md) for future scope.
 

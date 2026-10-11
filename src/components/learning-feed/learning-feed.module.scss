@@ -1,4 +1,5 @@
 .feedShell {
+  position: relative;
   width: 100%;
   height: 100vh;
   height: 100dvh;
@@ -16,6 +17,16 @@
 
 .feed {
   overflow: clip;
+}
+
+.systemGestureGuard {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: calc(1rem + env(safe-area-inset-bottom, 0px));
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .feed :global(.swiper-slide),
@@ -82,7 +93,7 @@
 .cardProgress {
   position: absolute;
   z-index: 3;
-  top: max(1rem, env(safe-area-inset-top));
+  top: calc(env(safe-area-inset-top, 0px) + 1.15rem);
   right: max(1.15rem, env(safe-area-inset-right));
   color: rgba(247, 248, 255, 0.5);
   font-size: 0.68rem;
@@ -94,7 +105,7 @@
 .cardTypeLabel {
   position: absolute;
   z-index: 3;
-  top: max(0.82rem, env(safe-area-inset-top));
+  top: calc(env(safe-area-inset-top, 0px) + 1.15rem);
   left: max(1.15rem, env(safe-area-inset-left));
   display: inline-flex;
   align-items: center;
