@@ -15,6 +15,7 @@ import type { LearningCardData } from "@/content/card-types";
 import { FlipCard, type FlipSideIndex } from "./FlipCard";
 import { InfoCard } from "./InfoCard";
 import { QuizCard } from "./QuizCard";
+import { ReadMoreLink } from "./ReadMoreLink";
 import styles from "./learning-feed.module.scss";
 
 type LearningFeedProps = {
@@ -43,6 +44,7 @@ export function LearningFeed({ cards }: LearningFeedProps) {
   const systemGestureGuardRef = useRef<HTMLDivElement | null>(null);
   const isSystemGestureGuardActiveRef = useRef(false);
   const [shuffledCards, setShuffledCards] = useState<LearningCardData[] | null>(null);
+  const [activeCardIndex, setActiveCardIndex] = useState(0);
   const [pageByCard, setPageByCard] = useState<Record<string, number>>({});
   const [selectedOptionByCard, setSelectedOptionByCard] = useState<Record<string, string>>({});
   const [flipSideByCard, setFlipSideByCard] = useState<Record<string, FlipSideIndex>>({});
@@ -250,6 +252,9 @@ export function LearningFeed({ cards }: LearningFeedProps) {
         onSwiper={(swiper) => {
           feedSwiperRef.current = swiper;
         }}
+        onActiveIndexChange={(swiper) => {
+          setActiveCardIndex(swiper.activeIndex);
+        }}
         a11y={{
           enabled: true,
           containerMessage: "Учебные карточки по frontend",
@@ -301,6 +306,10 @@ export function LearningFeed({ cards }: LearningFeedProps) {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      <div className={styles.actionRail} data-theme={activeCardIndex % 4}>
+        <ReadMoreLink url={shuffledCards[activeCardIndex]?.readMoreUrl} />
+      </div>
 
       <div
         ref={systemGestureGuardRef}

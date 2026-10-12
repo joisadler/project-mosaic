@@ -1,5 +1,27 @@
 # fe-1.1 coverage
 
+Each card's `readMoreUrl` points to the first question listed in its Source subsection cell. For cards that combine several questions, that first entry is the primary source selected for the card's main learning objective.
+
+## Verified source links
+
+GitHub heading permalinks verified against the rendered current chapter on 2026-10-11:
+
+- [Q1 — Variables and bindings](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/01-execution-model-declarations-and-scope.md#-1-что-в-javascript-называют-переменной)
+- [Q2 — Declaration lifecycle](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/01-execution-model-declarations-and-scope.md#-2-чем-отличаются-объявление-создание-привязки-инициализация-и-присваивание)
+- [Q3 — var, let and const](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/01-execution-model-declarations-and-scope.md#-3-чем-отличаются-var-let-и-const)
+- [Q4 — Scope types](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/01-execution-model-declarations-and-scope.md#-4-что-такое-область-видимости-и-какие-области-бывают)
+- [Q5 — Identifier resolution](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/01-execution-model-declarations-and-scope.md#-5-как-javascript-решает-к-какой-переменной-относится-имя)
+- [Q6 — Declaration preparation](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/01-execution-model-declarations-and-scope.md#-6-что-происходит-до-выполнения-первой-строки)
+- [Q7 — Execution context, call stack and lexical environment](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/01-execution-model-declarations-and-scope.md#-7-что-такое-контекст-выполнения-стек-вызовов-и-лексическое-окружение)
+- [Q8 — Hoisting](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/01-execution-model-declarations-and-scope.md#-8-что-на-интервью-называют-подъёмом-объявлений-hoisting)
+- [Q9 — Temporal Dead Zone](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/01-execution-model-declarations-and-scope.md#-9-что-такое-tdz-и-почему-это-не-просто-строки-выше-объявления)
+- [Q10 — Function declarations and expressions](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/01-execution-model-declarations-and-scope.md#-10-почему-объявление-функции-и-функциональное-выражение-ведут-себя-по-разному-до-своей-строки)
+- [Q11 — Shadowing and redeclaration](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/01-execution-model-declarations-and-scope.md#-11-чем-затенение-отличается-от-повторного-объявления-и-что-называют-illegal-shadowing)
+- [Q12 — Global bindings and globalThis](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/01-execution-model-declarations-and-scope.md#-12-почему-глобальная-переменная-не-всегда-является-свойством-globalthis)
+- [Q13 — Strict mode and delete](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/01-execution-model-declarations-and-scope.md#-13-что-меняет-строгий-режим-strict-mode-и-что-на-самом-деле-удаляет-delete)
+- [Q14 — Common interview consequences](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/01-execution-model-declarations-and-scope.md#-14-какие-практические-последствия-особенно-часто-проверяют-на-интервью)
+- [Q15 — Systematic scope analysis](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/01-execution-model-declarations-and-scope.md#-15-как-системно-разбирать-задачу-на-результат-или-ошибку-области-видимости)
+
 | Card ID | Format | Source subsection |
 |---|---|---|
 | `fe-1.1-info-binding` | info | 1.1, Q1 |

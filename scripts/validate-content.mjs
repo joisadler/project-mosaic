@@ -9,6 +9,11 @@ const contentFiles = fs.readdirSync(contentDirectory)
   .filter((fileName) => contentFilePattern.test(fileName))
   .sort()
   .map((fileName) => path.join("src/content", fileName));
+const sourceUrlFilePattern = /^fe-\d+\.\d+-source-urls\.ts$/;
+const sourceUrlFiles = fs.readdirSync(contentDirectory)
+  .filter((fileName) => sourceUrlFilePattern.test(fileName))
+  .sort()
+  .map((fileName) => path.join("src/content", fileName));
 
 const limits = {
   info: {
@@ -52,6 +57,40 @@ function getProperty(object, name) {
 
 function getArray(node) {
   return node && ts.isArrayLiteralExpression(node) ? [...node.elements] : null;
+}
+
+function unwrapExpression(node) {
+  let current = node;
+
+  while (
+    current
+    && (ts.isAsExpression(current)
+      || ts.isSatisfiesExpression(current)
+      || ts.isParenthesizedExpression(current))
+  ) {
+    current = current.expression;
+  }
+
+  return current;
+}
+
+function isSafeAbsoluteHttpUrl(value) {
+  if (!/^https?:\/\//i.test(value)) {
+    return false;
+  }
+
+  try {
+    const url = new URL(value);
+
+    return (
+      (url.protocol === "http:" || url.protocol === "https:")
+      && Boolean(url.hostname)
+      && !url.username
+      && !url.password
+    );
+  } catch {
+    return false;
+  }
 }
 
 function getCardObjects(sourceFile) {
@@ -127,7 +166,60 @@ function estimateWrappedLines(value, charactersPerLine) {
 const errors = [];
 const cardIds = new Set();
 const cardIdsByPackage = new Map();
+const readMoreUrlsByReference = new Map();
 let cardCount = 0;
+
+for (const relativePath of sourceUrlFiles) {
+  const absolutePath = path.join(projectRoot, relativePath);
+  const sourceText = fs.readFileSync(absolutePath, "utf8");
+  const sourceFile = ts.createSourceFile(
+    absolutePath,
+    sourceText,
+    ts.ScriptTarget.Latest,
+    true,
+    ts.ScriptKind.TS,
+  );
+
+  for (const statement of sourceFile.statements) {
+    if (!ts.isVariableStatement(statement)) {
+      continue;
+    }
+
+    for (const declaration of statement.declarationList.declarations) {
+      if (!ts.isIdentifier(declaration.name)) {
+        continue;
+      }
+
+      const initializer = unwrapExpression(declaration.initializer);
+
+      if (!initializer || !ts.isObjectLiteralExpression(initializer)) {
+        continue;
+      }
+
+      for (const property of initializer.properties) {
+        if (!ts.isPropertyAssignment(property)) {
+          continue;
+        }
+
+        const propertyName = ts.isIdentifier(property.name) || ts.isStringLiteral(property.name)
+          ? property.name.text
+          : null;
+        const url = getString(property.initializer);
+
+        if (!propertyName || url === null) {
+          errors.push(`${relativePath}: source URL entries must be static string properties.`);
+          continue;
+        }
+
+        if (!isSafeAbsoluteHttpUrl(url)) {
+          errors.push(`${relativePath}: ${propertyName} is not a safe absolute HTTP(S) URL.`);
+        }
+
+        readMoreUrlsByReference.set(`${declaration.name.text}.${propertyName}`, url);
+      }
+    }
+  }
+}
 
 for (const relativePath of contentFiles) {
   const absolutePath = path.join(projectRoot, relativePath);
@@ -163,6 +255,27 @@ for (const relativePath of contentFiles) {
     }
 
     cardIds.add(card.id);
+
+    const readMoreUrlNode = getProperty(card.node, "readMoreUrl");
+
+    if (readMoreUrlNode) {
+      let readMoreUrl = getString(readMoreUrlNode);
+
+      if (
+        readMoreUrl === null
+        && ts.isPropertyAccessExpression(readMoreUrlNode)
+        && ts.isIdentifier(readMoreUrlNode.expression)
+      ) {
+        const reference = `${readMoreUrlNode.expression.text}.${readMoreUrlNode.name.text}`;
+        readMoreUrl = readMoreUrlsByReference.get(reference) ?? null;
+      }
+
+      if (readMoreUrl === null) {
+        errors.push(`${card.id}: readMoreUrl must be a static URL or a verified source URL reference.`);
+      } else if (!isSafeAbsoluteHttpUrl(readMoreUrl)) {
+        errors.push(`${card.id}: readMoreUrl must be a safe absolute HTTP(S) URL.`);
+      }
+    }
 
     if (card.type === "info") {
       const pages = getArray(getProperty(card.node, "pages"));

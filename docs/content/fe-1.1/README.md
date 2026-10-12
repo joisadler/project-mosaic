@@ -6,6 +6,8 @@ Source: [Frontend Interview Preparation, section 1.1: Execution Model, Declarati
 
 Adapted to the current Project Mosaic `card-types.ts` schema. The source handbook is not modified. This pack is the only learning content currently included in the feed. InfoCards may use multiple compact horizontal pages; questions and answers are independent of feed order.
 
+Every card includes a `readMoreUrl` for the handbook question that best matches its primary topic. The shared, verified GitHub anchors live in `src/content/fe-1.1-source-urls.ts`; card objects reference those URLs rather than duplicating long source strings. The anchors were checked against GitHub's rendered heading permalinks on 2026-10-11. `COVERAGE.md` records the card-to-question mapping and the exact source-link index.
+
 ## Integration
 
 The card arrays live in `src/content/`, beside `card-types.ts`:
@@ -13,6 +15,7 @@ The card arrays live in `src/content/`, beside `card-types.ts`:
 - `fe-1.1-info-cards.ts`
 - `fe-1.1-quiz-cards.ts`
 - `fe-1.1-flip-cards.ts`
+- `fe-1.1-source-urls.ts`
 
 `src/content/learning-cards.ts` imports the arrays from these paths:
 

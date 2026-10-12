@@ -1,4 +1,5 @@
 import type { FlipCardData } from "./card-types";
+import { feSection1_1ReadMoreUrls } from "./fe-1.1-source-urls";
 
 // Authored for Project Mosaic on 2026-10-11; chapter 1.1 only.
 // Source: https://github.com/joisadler/frontend-interview-preparation/blob/7e57113acc5632a5b91fa9062d336c36b60e35b7/handbook/01-javascript-and-async-programming/01-execution-model-declarations-and-scope.md
@@ -11,6 +12,7 @@ export const feSection1_1FlipCards: FlipCardData[] = [
   {
     id: "fe-1.1-flip-scope-context",
     type: "flip",
+    readMoreUrl: feSection1_1ReadMoreUrls.q7,
     question: `## Чем область видимости отличается от контекста выполнения?`,
     answer: `## Ответ
 
@@ -21,6 +23,7 @@ export const feSection1_1FlipCards: FlipCardData[] = [
   {
     id: "fe-1.1-flip-block-object",
     type: "flip",
+    readMoreUrl: feSection1_1ReadMoreUrls.q4,
     question: `## Создаёт ли объектный литерал новую область видимости?`,
     answer: `## Ответ
 
@@ -31,6 +34,7 @@ export const feSection1_1FlipCards: FlipCardData[] = [
   {
     id: "fe-1.1-flip-calls",
     type: "flip",
+    readMoreUrl: feSection1_1ReadMoreUrls.q4,
     question: `## Два вызова одной функции используют одни локальные переменные?`,
     answer: `## Ответ
 
@@ -41,6 +45,7 @@ export const feSection1_1FlipCards: FlipCardData[] = [
   {
     id: "fe-1.1-flip-name-property",
     type: "flip",
+    readMoreUrl: feSection1_1ReadMoreUrls.q5,
     question: `## Почему отсутствующее имя бросает ошибку, а отсутствующее свойство — нет?`,
     answer: `## Ответ
 
@@ -51,6 +56,7 @@ export const feSection1_1FlipCards: FlipCardData[] = [
   {
     id: "fe-1.1-flip-initialized",
     type: "flip",
+    readMoreUrl: feSection1_1ReadMoreUrls.q2,
     question: `## Можно ли присвоить значение let, пока она в TDZ?`,
     answer: `## Ответ
 
@@ -61,6 +67,7 @@ export const feSection1_1FlipCards: FlipCardData[] = [
   {
     id: "fe-1.1-flip-const-initializer",
     type: "flip",
+    readMoreUrl: feSection1_1ReadMoreUrls.q2,
     question: `## Почему обычное const без значения — ошибка?`,
     answer: `## Ответ
 
@@ -71,6 +78,7 @@ export const feSection1_1FlipCards: FlipCardData[] = [
   {
     id: "fe-1.1-flip-named-expression",
     type: "flip",
+    readMoreUrl: feSection1_1ReadMoreUrls.q10,
     question: `## Где доступно внутреннее имя именованного функционального выражения?`,
     answer: `## Ответ
 
@@ -81,6 +89,7 @@ export const feSection1_1FlipCards: FlipCardData[] = [
   {
     id: "fe-1.1-flip-switch-fix",
     type: "flip",
+    readMoreUrl: feSection1_1ReadMoreUrls.q11,
     question: `## Как разрешить одинаковые const в разных case?`,
     answer: `## Ответ
 
@@ -91,6 +100,7 @@ export const feSection1_1FlipCards: FlipCardData[] = [
   {
     id: "fe-1.1-flip-module-global",
     type: "flip",
+    readMoreUrl: feSection1_1ReadMoreUrls.q12,
     question: `## Публикует ли верхнеуровневый var в ES-модуле свойство globalThis?`,
     answer: `## Ответ
 
@@ -101,6 +111,7 @@ export const feSection1_1FlipCards: FlipCardData[] = [
   {
     id: "fe-1.1-flip-module-api",
     type: "flip",
+    readMoreUrl: feSection1_1ReadMoreUrls.q12,
     question: `## Если имена модуля локальные, почему модуль видит document?`,
     answer: `## Ответ
 
@@ -111,6 +122,7 @@ export const feSection1_1FlipCards: FlipCardData[] = [
   {
     id: "fe-1.1-flip-host-language",
     type: "flip",
+    readMoreUrl: feSection1_1ReadMoreUrls.q12,
     question: `## setTimeout — часть ECMAScript?`,
     answer: `## Ответ
 
@@ -121,6 +133,7 @@ ECMAScript задаёт язык, стандартные объекты и пр�
   {
     id: "fe-1.1-flip-multiple-scripts",
     type: "flip",
+    readMoreUrl: feSection1_1ReadMoreUrls.q12,
     question: `## Может ли объявление из следующего script подняться в предыдущий?`,
     answer: `## Ответ
 
@@ -131,6 +144,7 @@ ECMAScript задаёт язык, стандартные объекты и пр�
   {
     id: "fe-1.1-flip-cross-script-conflict",
     type: "flip",
+    readMoreUrl: feSection1_1ReadMoreUrls.q12,
     question: `## Конфликт глобальных let в разных script — всегда Early Error парсинга?`,
     answer: `## Ответ
 
@@ -141,6 +155,7 @@ ECMAScript задаёт язык, стандартные объекты и пр�
   {
     id: "fe-1.1-flip-delete-configurable",
     type: "flip",
+    readMoreUrl: feSection1_1ReadMoreUrls.q13,
     question: `## От чего зависит возможность удалить свойство?`,
     answer: `## Ответ
 
@@ -151,6 +166,7 @@ ECMAScript задаёт язык, стандартные объекты и пр�
   {
     id: "fe-1.1-flip-refactor-var",
     type: "flip",
+    readMoreUrl: feSection1_1ReadMoreUrls.q14,
     question: `## Почему нельзя вслепую заменить все var на let?`,
     answer: `## Ответ
 
@@ -161,6 +177,7 @@ ECMAScript задаёт язык, стандартные объекты и пр�
   {
     id: "fe-1.1-flip-analysis-order",
     type: "flip",
+    readMoreUrl: feSection1_1ReadMoreUrls.q15,
     question: `## Как разбирать задачу на вывод, не попадая в ловушки TDZ?`,
     answer: `## Ответ
 
@@ -172,6 +189,7 @@ ECMAScript задаёт язык, стандартные объекты и пр�
   {
     id: "fe-1.1-flip-lexical-principle",
     type: "flip",
+    readMoreUrl: feSection1_1ReadMoreUrls.q4,
     question: `## Lexical scope — отдельный пятый вид области?`,
     answer: `## Ответ
 
@@ -183,6 +201,7 @@ Global, module, function и block описывают границы; lexical о�
   {
     id: "fe-1.1-flip-function-scope",
     type: "flip",
+    readMoreUrl: feSection1_1ReadMoreUrls.q3,
     question: `## Проходит ли var через границу вложенной функции?`,
     answer: `## Ответ
 
@@ -194,6 +213,7 @@ Global, module, function и block описывают границы; lexical о�
   {
     id: "fe-1.1-flip-undefined-vs-tdz",
     type: "flip",
+    readMoreUrl: feSection1_1ReadMoreUrls.q2,
     question: `## Чем undefined отличается от неинициализированной привязки?`,
     answer: `## Ответ
 
@@ -205,6 +225,7 @@ Global, module, function и block описывают границы; lexical о�
   {
     id: "fe-1.1-flip-hoisting-assignment",
     type: "flip",
+    readMoreUrl: feSection1_1ReadMoreUrls.q8,
     question: `## Выполняется ли = 9 заранее вместе с подготовкой var?`,
     answer: `## Ответ
 
@@ -216,6 +237,7 @@ Global, module, function и block описывают границы; lexical о�
   {
     id: "fe-1.1-flip-error-phases",
     type: "flip",
+    readMoreUrl: feSection1_1ReadMoreUrls.q6,
     question: `## Если ошибка до первого лога, это обязательно Early Error?`,
     answer: `## Ответ
 
@@ -227,6 +249,7 @@ Global, module, function и block описывают границы; lexical о�
   {
     id: "fe-1.1-flip-loop-location",
     type: "flip",
+    readMoreUrl: feSection1_1ReadMoreUrls.q14,
     question: `## Даст ли let перед for независимые индексы замыканиям?`,
     answer: `## Ответ
 
@@ -238,6 +261,7 @@ Global, module, function и block описывают границы; lexical о�
   {
     id: "fe-1.1-flip-no-fallback",
     type: "flip",
+    readMoreUrl: feSection1_1ReadMoreUrls.q5,
     question: `## Почему поиск не берёт внешнее имя, если внутреннее в TDZ?`,
     answer: `## Ответ
 
@@ -249,6 +273,7 @@ TDZ не означает «пропустить эту область»: чте
   {
     id: "fe-1.1-flip-explicit-global-api",
     type: "flip",
+    readMoreUrl: feSection1_1ReadMoreUrls.q12,
     question: `## Как модулю намеренно предоставить API старому скрипту?`,
     answer: `## Ответ
 

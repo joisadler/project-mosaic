@@ -1,5 +1,6 @@
 export type BaseCardData = {
   id: string;
+  readMoreUrl?: string;
 };
 
 export type InfoCardData = BaseCardData & {

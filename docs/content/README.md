@@ -15,6 +15,15 @@ Apply the identifier consistently:
 
 The `fe` prefix identifies the source handbook as a whole, not the technology discussed by an individual section. A JavaScript, React, CSS or browser APIs package therefore follows the same namespace.
 
+## Optional source links
+
+Every learning card may define `readMoreUrl?: string` in the shared `BaseCardData` type. Use it for a direct, verified source section that expands the card's primary topic.
+
+- Store an absolute `http://` or `https://` URL. Prefer a stable source page with a verified section anchor when one exists.
+- Do not add placeholder, relative, `javascript:`, `data:` or credential-bearing URLs.
+- The UI validates the value again before rendering. Missing, malformed and non-HTTP(S) values produce no action.
+- When a card covers several source sections, choose the section that best matches its main learning objective and record that choice in the package coverage document.
+
 ## Shared mobile content contract
 
 The vertical feed is the only vertical gesture surface. Individual cards must not require nested vertical scrolling. Treat content that does not fit at a `320 × 568` CSS viewport as a content error:

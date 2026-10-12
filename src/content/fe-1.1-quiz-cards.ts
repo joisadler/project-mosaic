@@ -1,4 +1,5 @@
 import type { QuizCardData } from "./card-types";
+import { feSection1_1ReadMoreUrls } from "./fe-1.1-source-urls";
 
 // Authored for Project Mosaic on 2026-10-11; chapter 1.1 only.
 // Source: https://github.com/joisadler/frontend-interview-preparation/blob/7e57113acc5632a5b91fa9062d336c36b60e35b7/handbook/01-javascript-and-async-programming/01-execution-model-declarations-and-scope.md
@@ -11,6 +12,7 @@ export const feSection1_1QuizCards: QuizCardData[] = [
   {
     id: "fe-1.1-quiz-var-before",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q8,
     question: `## Что появится в консоли?
 
 Строгий изолированный скрипт.
@@ -46,6 +48,7 @@ var value = 9;
   {
     id: "fe-1.1-quiz-let-before",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q9,
     question: `## Как завершится чтение?
 
 Строгий изолированный скрипт.
@@ -81,6 +84,7 @@ let value = 9;
   {
     id: "fe-1.1-quiz-empty-let",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q2,
     question: `## Чем закончится фрагмент?
 
 Строгий изолированный скрипт.
@@ -116,6 +120,7 @@ console.log(value);
   {
     id: "fe-1.1-quiz-repeat-var",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q2,
     question: `## Что выведет повторное объявление?
 
 Строгий изолированный скрипт.
@@ -152,6 +157,7 @@ console.log(score);
   {
     id: "fe-1.1-quiz-mutate-const",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q1,
     question: `## Что выведет код?
 
 Строгий изолированный скрипт.
@@ -188,6 +194,7 @@ console.log(user.name);
   {
     id: "fe-1.1-quiz-reassign-const",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q3,
     question: `## Какие логи успеют появиться?
 
 Строгий изолированный скрипт.
@@ -225,6 +232,7 @@ console.log(value);
   {
     id: "fe-1.1-quiz-var-if",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q3,
     question: `## Что видно после if?
 
 Строгий изолированный скрипт.
@@ -263,6 +271,7 @@ run();
   {
     id: "fe-1.1-quiz-let-if",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q4,
     question: `## Что видно снаружи блока?
 
 Строгий изолированный скрипт.
@@ -298,6 +307,7 @@ console.log(count);
   {
     id: "fe-1.1-quiz-call-site",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q5,
     question: `## Какое имя прочитает функция?
 
 Строгий изолированный скрипт.
@@ -338,6 +348,7 @@ run();
   {
     id: "fe-1.1-quiz-shadow",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q5,
     question: `## Изменится ли внешняя переменная?
 
 Строгий изолированный скрипт.
@@ -374,6 +385,7 @@ console.log(label);
   {
     id: "fe-1.1-quiz-shadow-tdz",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q9,
     question: `## Можно ли прочитать внешнюю count?
 
 Строгий изолированный скрипт.
@@ -412,6 +424,7 @@ let count = 1;
   {
     id: "fe-1.1-quiz-typeof-missing",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q9,
     question: `## Что вернёт typeof?
 
 Строгий изолированный скрипт.
@@ -446,6 +459,7 @@ console.log(typeof mosaicAbsentName);
   {
     id: "fe-1.1-quiz-typeof-tdz",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q9,
     question: `## Спасёт ли typeof от TDZ?
 
 Строгий изолированный скрипт.
@@ -481,6 +495,7 @@ let value;
   {
     id: "fe-1.1-quiz-self-init",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q9,
     question: `## Какое значение получит value?
 
 Строгий изолированный скрипт.
@@ -516,6 +531,7 @@ console.log(value);
   {
     id: "fe-1.1-quiz-declaration",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q10,
     question: `## Можно ли вызвать функцию раньше?
 
 Строгий изолированный скрипт.
@@ -551,6 +567,7 @@ function sum(a, b) { return a + b; }
   {
     id: "fe-1.1-quiz-expression-var",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q10,
     question: `## Как завершится ранний вызов?
 
 Строгий изолированный скрипт.
@@ -586,6 +603,7 @@ var run = () => 7;
   {
     id: "fe-1.1-quiz-expression-const",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q10,
     question: `## Как завершится ранний вызов?
 
 Строгий изолированный скрипт.
@@ -621,6 +639,7 @@ const run = () => 7;
   {
     id: "fe-1.1-quiz-early-let",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q11,
     question: `## Успеет ли появиться start?
 
 Строгий изолированный скрипт.
@@ -657,6 +676,7 @@ let value = 2;
   {
     id: "fe-1.1-quiz-illegal-var",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q11,
     question: `## Создаёт ли var внутреннюю переменную?
 
 Строгий изолированный скрипт.
@@ -693,6 +713,7 @@ console.log(mode);
   {
     id: "fe-1.1-quiz-legal-shadow",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q11,
     question: `## Что выведет код с внешним var и внутренним let?
 
 Строгий изолированный скрипт.
@@ -729,6 +750,7 @@ console.log(mode);
   {
     id: "fe-1.1-quiz-loop-var",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q14,
     question: `## Что прочитают функции после цикла?
 
 Строгий изолированный скрипт.
@@ -767,6 +789,7 @@ console.log(readers.map(read => read()).join(','));
   {
     id: "fe-1.1-quiz-loop-let",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q14,
     question: `## Какие значения сохранят функции в for с let?
 
 Строгий изолированный скрипт.
@@ -805,6 +828,7 @@ console.log(readers.map(read => read()).join(','));
   {
     id: "fe-1.1-quiz-strict-missing",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q13,
     question: `## Что произойдёт без объявления имени?
 
 Строгий изолированный скрипт.
@@ -840,6 +864,7 @@ console.log(mosaicTotal);
   {
     id: "fe-1.1-quiz-classic-global",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q12,
     question: `## Что попадёт в globalThis?
 
 Среда: чистый нестрогий классический скрипт браузера. Имена из примера заранее не существуют.
@@ -878,6 +903,7 @@ console.log(globalThis.mosaicLexical);
   {
     id: "fe-1.1-quiz-var-false",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q3,
     question: `## Что будет, если ветка не выполнена?
 
 Строгий изолированный скрипт.
@@ -917,6 +943,7 @@ run();
   {
     id: "fe-1.1-quiz-nested-function-var",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q4,
     question: `## Выходит ли var из вложенной функции?
 
 Строгий изолированный скрипт.
@@ -957,6 +984,7 @@ outer();
   {
     id: "fe-1.1-quiz-write-tdz",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q2,
     question: `## Можно ли заранее записать значение?
 
 Строгий изолированный скрипт.
@@ -994,6 +1022,7 @@ console.log(value);
   {
     id: "fe-1.1-quiz-delayed-read",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q9,
     question: `## Слишком рано определена функция?
 
 Строгий изолированный скрипт.
@@ -1031,6 +1060,7 @@ console.log(read());
   {
     id: "fe-1.1-quiz-live-binding",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q5,
     question: `## Функция запомнила число или привязку?
 
 Строгий изолированный скрипт.
@@ -1069,6 +1099,7 @@ console.log(read());
   {
     id: "fe-1.1-quiz-call-stack-order",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q7,
     question: `## В каком порядке появятся логи?
 
 Строгий изолированный скрипт.
@@ -1110,6 +1141,7 @@ first();
   {
     id: "fe-1.1-quiz-switch-duplicate",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q11,
     question: `## Спасает ли выбор только одного case?
 
 Строгий изолированный скрипт.
@@ -1149,6 +1181,7 @@ switch (1) {
   {
     id: "fe-1.1-quiz-class-tdz",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q8,
     question: `## Что вернёт typeof перед class?
 
 Строгий изолированный скрипт.
@@ -1185,6 +1218,7 @@ class Widget {}
   {
     id: "fe-1.1-quiz-module-var",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q12,
     question: `## Публикует ли модуль свой var?
 
 ES-модуль; свойства globalThis.mosaicModuleValue заранее нет.
@@ -1222,6 +1256,7 @@ console.log(globalThis.mosaicModuleValue);
   {
     id: "fe-1.1-quiz-sloppy-global-delete",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q13,
     question: `## Удаляется ли случайное глобальное свойство?
 
 Нестрогий браузерный classic script в чистой среде; имени mosaicAccidental заранее нет.
@@ -1259,6 +1294,7 @@ console.log(typeof mosaicAccidental);
   {
     id: "fe-1.1-quiz-forof-const",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q2,
     question: `## Почему const здесь допустим?
 
 Строгий изолированный скрипт.
@@ -1296,6 +1332,7 @@ for (const value of [1, 2]) {
   {
     id: "fe-1.1-quiz-loop-outer-let",
     type: "quiz",
+    readMoreUrl: feSection1_1ReadMoreUrls.q14,
     question: `## Достаточно ли заменить var на let снаружи?
 
 Строгий изолированный скрипт.

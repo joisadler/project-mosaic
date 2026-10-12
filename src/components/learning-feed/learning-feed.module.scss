@@ -66,7 +66,8 @@
     0 0 0 7rem color-mix(in srgb, var(--card-accent) 2%, transparent);
 }
 
-.card[data-theme="1"] {
+.card[data-theme="1"],
+.actionRail[data-theme="1"] {
   --card-accent: #ffcf70;
   --card-glow: rgba(255, 183, 77, 0.2);
   --card-background:
@@ -74,7 +75,8 @@
     linear-gradient(150deg, #241a16 0%, #110f13 58%, #08090e 100%);
 }
 
-.card[data-theme="2"] {
+.card[data-theme="2"],
+.actionRail[data-theme="2"] {
   --card-accent: #c3a6ff;
   --card-glow: rgba(163, 122, 255, 0.22);
   --card-background:
@@ -82,7 +84,8 @@
     linear-gradient(150deg, #1c1730 0%, #0e1020 58%, #080a12 100%);
 }
 
-.card[data-theme="3"] {
+.card[data-theme="3"],
+.actionRail[data-theme="3"] {
   --card-accent: #77edb5;
   --card-glow: rgba(74, 222, 159, 0.2);
   --card-background:
@@ -122,6 +125,96 @@
   backdrop-filter: blur(0.45rem);
 }
 
+.actionRail {
+  --card-accent: #7bdff2;
+  position: fixed;
+  z-index: 5;
+  right: max(1rem, calc(env(safe-area-inset-right, 0px) + 0.75rem));
+  bottom: max(1.5rem, calc(env(safe-area-inset-bottom, 0px) + 1.25rem));
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.readMoreLink {
+  position: relative;
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  flex: none;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--card-accent) 62%, white 8%);
+  border-radius: 50%;
+  color: color-mix(in srgb, var(--card-accent) 82%, white);
+  background: color-mix(in srgb, var(--card-accent) 18%, rgba(4, 10, 16, 0.92));
+  box-shadow: 0 0.65rem 1.5rem rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.readMoreLink:hover {
+  border-color: color-mix(in srgb, var(--card-accent) 82%, white);
+  background: color-mix(in srgb, var(--card-accent) 28%, rgba(4, 10, 16, 0.94));
+}
+
+.readMoreLink:active {
+  transform: scale(0.96);
+}
+
+.readMoreLink:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--card-accent) 78%, white);
+  outline-offset: 3px;
+  box-shadow:
+    0 0 0 2px #071018,
+    0 0.65rem 1.5rem rgba(0, 0, 0, 0.3);
+}
+
+.readMoreLink::after {
+  position: absolute;
+  right: calc(100% + 0.7rem);
+  width: max-content;
+  max-width: 11rem;
+  border: 1px solid color-mix(in srgb, var(--card-accent) 32%, transparent);
+  border-radius: 0.55rem;
+  padding: 0.42rem 0.58rem;
+  color: #fff;
+  background: rgba(4, 10, 16, 0.94);
+  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.28);
+  content: attr(data-tooltip);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(0.25rem);
+  transition:
+    opacity 140ms ease,
+    transform 140ms ease,
+    visibility 140ms ease;
+  visibility: hidden;
+}
+
+.readMoreIcon {
+  width: 1.55rem;
+  height: 1.55rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .readMoreLink:hover::after,
+  .readMoreLink:focus-visible::after {
+    opacity: 1;
+    transform: translateX(0);
+    visibility: visible;
+  }
+}
+
 .page {
   display: flex;
   width: 100%;
@@ -132,7 +225,7 @@
   padding:
     max(3.25rem, calc(env(safe-area-inset-top) + 2.5rem))
     max(1.35rem, calc(env(safe-area-inset-right) + 1.1rem))
-    max(3.8rem, calc(env(safe-area-inset-bottom) + 3rem))
+    max(4.75rem, calc(env(safe-area-inset-bottom) + 4rem))
     max(1.35rem, calc(env(safe-area-inset-left) + 1.1rem));
 }
 
@@ -284,7 +377,7 @@
   padding:
     clamp(0.35rem, 1.2vh, 0.65rem)
     max(1.15rem, calc(env(safe-area-inset-right) + 1rem))
-    max(1.4rem, calc(env(safe-area-inset-bottom) + 1rem))
+    max(4.75rem, calc(env(safe-area-inset-bottom) + 4rem))
     max(1.15rem, calc(env(safe-area-inset-left) + 1rem));
 }
 
@@ -459,7 +552,7 @@
 .flipKeyboardHint {
   position: absolute;
   z-index: 3;
-  right: max(1.15rem, env(safe-area-inset-right));
+  right: max(4.75rem, calc(env(safe-area-inset-right) + 4.5rem));
   bottom: max(1.2rem, calc(env(safe-area-inset-bottom) + 0.8rem));
   left: max(1.15rem, env(safe-area-inset-left));
   color: rgba(247, 248, 255, 0.58);
@@ -552,7 +645,7 @@
 @media (max-height: 43rem) {
   .page {
     padding-top: max(2.6rem, calc(env(safe-area-inset-top) + 2rem));
-    padding-bottom: max(3.1rem, calc(env(safe-area-inset-bottom) + 2.5rem));
+    padding-bottom: max(4.5rem, calc(env(safe-area-inset-bottom) + 3.75rem));
   }
 
   .markdown h2 {
@@ -594,7 +687,7 @@
 
   .quizScroller {
     padding-top: 0.25rem;
-    padding-bottom: max(2rem, calc(env(safe-area-inset-bottom) + 1.5rem));
+    padding-bottom: max(4.5rem, calc(env(safe-area-inset-bottom) + 3.75rem));
   }
 
   .quizContent {
@@ -643,7 +736,7 @@
   .flipSideScroller {
     align-items: flex-start;
     padding-top: max(3.35rem, calc(env(safe-area-inset-top) + 2.8rem));
-    padding-bottom: max(4.25rem, calc(env(safe-area-inset-bottom) + 3.65rem));
+    padding-bottom: max(4.75rem, calc(env(safe-area-inset-bottom) + 4rem));
   }
 }
 
@@ -653,6 +746,8 @@
   .pageDot,
   .pageDotActive,
   .quizOption,
+  .readMoreLink,
+  .readMoreLink::after,
   .flipTouchHint,
   .flipKeyboardHint,
   .flipSwiper :global(.swiper-wrapper),

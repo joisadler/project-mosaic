@@ -1,4 +1,5 @@
 import type { InfoCardData } from "./card-types";
+import { feSection1_1ReadMoreUrls } from "./fe-1.1-source-urls";
 
 // Authored for Project Mosaic on 2026-10-11; chapter 1.1 only.
 // Source: https://github.com/joisadler/frontend-interview-preparation/blob/7e57113acc5632a5b91fa9062d336c36b60e35b7/handbook/01-javascript-and-async-programming/01-execution-model-declarations-and-scope.md
@@ -12,6 +13,7 @@ export const feSection1_1InfoCards: InfoCardData[] = [
   {
     id: "fe-1.1-info-binding",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q1,
     pages: [
       `## Имя → привязка → значение
 
@@ -33,6 +35,7 @@ console.log(count); // 2
   {
     id: "fe-1.1-info-lifecycle",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q2,
     pages: [
       `## Четыре разных события
 
@@ -55,6 +58,7 @@ console.log(count); // 2
   {
     id: "fe-1.1-info-let-empty",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q2,
     pages: [
       `## Без значения — тоже инициализация
 
@@ -80,6 +84,7 @@ let value;
   {
     id: "fe-1.1-info-const-object",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q1,
     pages: [
       `## const фиксирует привязку
 
@@ -106,6 +111,7 @@ user = { name: "Grace" }; // TypeError
   {
     id: "fe-1.1-info-choose",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q3,
     pages: [
       `## const по умолчанию
 
@@ -133,6 +139,7 @@ console.log(total); // 5
   {
     id: "fe-1.1-info-var-block",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q3,
     pages: [
       `## Обычный блок не удержит var
 
@@ -162,6 +169,7 @@ run();
   {
     id: "fe-1.1-info-lexical-block",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q4,
     pages: [
       `## let и const остаются в блоке
 
@@ -187,6 +195,7 @@ console.log(user.name); // Ada
   {
     id: "fe-1.1-info-lexical-location",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q5,
     pages: [
       `## Важно, где функция определена
 
@@ -212,6 +221,7 @@ console.log(run()); // guest
   {
     id: "fe-1.1-info-shadow",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q5,
     pages: [
       `## Затенение не меняет внешнее
 
@@ -242,6 +252,7 @@ console.log(label); // updated
   {
     id: "fe-1.1-info-resolution",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q5,
     pages: [
       `## Поиск имени идёт наружу
 
@@ -263,6 +274,7 @@ const state = "outer";
   {
     id: "fe-1.1-info-missing-property",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q5,
     pages: [
       `## Нет имени ≠ нет свойства
 
@@ -289,6 +301,7 @@ console.log(mosaicAbsentConfig.port);
   {
     id: "fe-1.1-info-context",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q7,
     pages: [
       `## Вызов создаёт рабочее состояние
 
@@ -312,6 +325,7 @@ render();
   {
     id: "fe-1.1-info-environment",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q7,
     pages: [
       `## Окружение — модель привязок
 
@@ -328,6 +342,7 @@ Environment Record — понятие спецификации. Нельзя п�
   {
     id: "fe-1.1-info-hoisting",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q8,
     pages: [
       `## Строки никуда не переезжают
 
@@ -356,6 +371,7 @@ console.log(total); // 3
   {
     id: "fe-1.1-info-tdz-time",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q9,
     pages: [
       `## TDZ — время, не номер строки
 
@@ -383,6 +399,7 @@ let value = 7;
   {
     id: "fe-1.1-info-typeof",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q9,
     pages: [
       `## typeof для отсутствующего имени
 
@@ -411,6 +428,7 @@ let later;
   {
     id: "fe-1.1-info-function-readiness",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q10,
     pages: [
       `## Объявление функции готово заранее
 
@@ -446,6 +464,7 @@ const ready = () => "ok";
   {
     id: "fe-1.1-info-early-error",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q11,
     pages: [
       `## Ошибка до первого лога
 
@@ -475,6 +494,7 @@ let item = 1;
   {
     id: "fe-1.1-info-switch",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q11,
     pages: [
       `## case не создаёт отдельную область
 
@@ -501,6 +521,7 @@ switch ("idle") {
   {
     id: "fe-1.1-info-global",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q12,
     pages: [
       `## Глобальное имя не всегда свойство
 
@@ -525,6 +546,7 @@ console.log(lexical); // 2
   {
     id: "fe-1.1-info-hosts",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q12,
     pages: [
       `## Перед ответом назови среду
 
@@ -541,6 +563,7 @@ DevTools и REPL могут сохранять имена между коман�
   {
     id: "fe-1.1-info-strict",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q13,
     pages: [
       `## Опечатка не должна стать глобальной
 
@@ -567,6 +590,7 @@ console.log(count(["a", "b"])); // 2
   {
     id: "fe-1.1-info-delete",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q13,
     pages: [
       `## delete удаляет свойство
 
@@ -589,6 +613,7 @@ console.log(config.debug); // undefined
   {
     id: "fe-1.1-info-loop",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q14,
     pages: [
       `## Замыкание читает привязку
 
@@ -623,6 +648,7 @@ console.log(readers.map(read => read()).join(","));
   {
     id: "fe-1.1-info-scope-map",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q4,
     pages: [
       `## Четыре границы видимости
 
@@ -649,6 +675,7 @@ function calculate(price) {
   {
     id: "fe-1.1-info-function-locals",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q4,
     pages: [
       `## Каждый вызов — свои локальные имена
 
@@ -679,6 +706,7 @@ console.log(next(), next()); // 1 2
   {
     id: "fe-1.1-info-scope-direction",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q4,
     pages: [
       `## Видимость направлена наружу
 
@@ -708,6 +736,7 @@ console.log(secret); // ReferenceError
   {
     id: "fe-1.1-info-lexical-principle",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q4,
     pages: [
       `## Lexical — правило связи областей
 
@@ -732,6 +761,7 @@ console.log(read()); // admin
   {
     id: "fe-1.1-info-prepare-per-entry",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q6,
     pages: [
       `## Подготовка не одна на весь файл
 
@@ -754,6 +784,7 @@ for (let i = 0; i < 2; i++) {
   {
     id: "fe-1.1-info-call-stack",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q7,
     pages: [
       `## Последний вызван — первый завершён
 
@@ -777,6 +808,7 @@ first(); // A, B, C
   {
     id: "fe-1.1-info-stack-vs-scope",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q5,
     pages: [
       `## Стек вызовов ≠ цепочка областей
 
@@ -800,6 +832,7 @@ console.log(caller()); // global
   {
     id: "fe-1.1-info-uninitialized-vs-missing",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q2,
     pages: [
       `## Три разных состояния имени
 
@@ -815,6 +848,7 @@ console.log(caller()); // global
   {
     id: "fe-1.1-info-redeclaration",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q2,
     pages: [
       `## Повторное объявление ≠ присваивание
 
@@ -844,6 +878,7 @@ console.log(score); // 20
   {
     id: "fe-1.1-info-illegal-shadow",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q11,
     pages: [
       `## Когда затенения не получилось
 
@@ -871,6 +906,7 @@ console.log(mode); // outer
   {
     id: "fe-1.1-info-named-expression",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q10,
     pages: [
       `## Два имени, разные роли
 
@@ -899,6 +935,7 @@ console.log(typeof outer); // function
   {
     id: "fe-1.1-info-global-record",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q12,
     pages: [
       `## Две части глобального окружения
 
@@ -914,6 +951,7 @@ console.log(typeof outer); // function
   {
     id: "fe-1.1-info-module-boundary",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q12,
     pages: [
       `## Локальные объявления, глобальные API
 
@@ -936,6 +974,7 @@ console.log(globalThis.mosaicApi.version);
   {
     id: "fe-1.1-info-script-sequence",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q12,
     pages: [
       `## Hoisting не путешествует между script
 
@@ -952,6 +991,7 @@ console.log(globalThis.mosaicApi.version);
   {
     id: "fe-1.1-info-loop-location",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q14,
     pages: [
       `## Само слово let не всё решает
 
@@ -977,6 +1017,7 @@ console.log(readers.map(read => read()).join(","));
   {
     id: "fe-1.1-info-analysis-order",
     type: "info",
+    readMoreUrl: feSection1_1ReadMoreUrls.q15,
     pages: [
       `## Не начинай с первой строки
 
