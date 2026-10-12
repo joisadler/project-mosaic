@@ -32,13 +32,25 @@ The vertical feed is the only vertical gesture surface. Individual cards must no
 - Keep QuizCard explanations concise; move a detailed treatment into a standalone InfoCard.
 - Shorten or split FlipCards instead of adding a scrollable side.
 - Do not use line clamping or clipping to hide educational content.
-- Keep primary prose, options and explanations at `14px` or larger, and code at `12px` or larger.
+- In the standard mobile layout, keep primary prose, options and explanations at `14px` or larger, and code at `12px` or larger. The reviewed compact-height and zoom/reflow fallbacks may use their existing smaller CSS tokens because the enlarged browser scale supplies the visual magnification; do not reduce those tokens further to make new content fit.
 - Keep touch targets at least `44 × 44` CSS pixels.
 - Preserve at least `32px` between the last visible QuizCard element and the bottom of the viewport.
 
 `npm run validate:content` discovers every `fe-<section>.<subsection>-*-cards.ts` file and enforces the shared structural budgets: page, question, option, explanation and answer lengths; an aggregate QuizCard layout estimate; Markdown line counts; fenced-code line lengths; IDs; coverage synchronization; and the four-option quiz contract. These limits are an early warning, not a substitute for rendered checks.
 
-After content changes, inspect every card state at `320 × 568` and `375 × 667`. The rendered check is the source of truth: `scrollHeight <= clientHeight` and `scrollWidth <= clientWidth` must hold, primary text and target size floors must remain intact, and the last visible QuizCard element must retain the `32px` bottom safe zone. If a card fails, rewrite or split its content rather than shrinking text or introducing nested vertical scrolling.
+After content changes, inspect every card state at `320 × 568` and `375 × 667`. The rendered check is the source of truth: `scrollHeight <= clientHeight` and `scrollWidth <= clientWidth` must hold, the applicable standard or reviewed compact typography floors must remain intact, and the last visible QuizCard element must retain the `32px` bottom safe zone. If a card fails, rewrite or split its content rather than shrinking text or introducing nested vertical scrolling.
+
+## Text enlargement and reflow
+
+Also inspect the feed at browser zoom up to `400%`, including a reflow viewport equivalent to `320` CSS pixels wide. This is a rendered accessibility check, not a runtime content transformation:
+
+- InfoCard pages remain the explicit top-level entries in `pages`. Never create viewport-dependent subpages or split Markdown at runtime.
+- QuizCard may present its existing question, options and selected-answer explanation as separate horizontal panels in an extreme compact layout. This changes presentation only; the selected answer remains owned by the feed.
+- FlipCard always remains exactly two sides. Do not add nested answer pages or vertical scrolling.
+- If an InfoCard page or FlipCard side still does not fit after the compact layout is applied, split or shorten the source content for every viewport and review that content change explicitly.
+- `validate:content` can enforce approximate authoring budgets, but it cannot determine rendered fit. Browser checks remain the source of truth.
+
+The web app manifest requests `portrait-primary` for installed experiences. Treat this as a best-effort platform hint, not a guaranteed browser lock and not a substitute for landscape or zoom fallbacks. The project owner's iPhone continued to rotate after installation from both Chrome and Safari, while the responsive layout and fixed viewport shell recovered correctly after returning to portrait.
 
 Run the repository checks after content changes:
 

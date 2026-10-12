@@ -1,15 +1,13 @@
 .feedShell {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  height: 100dvh;
-  min-height: 100svh;
+  position: fixed;
+  inset: 0;
   overflow: hidden;
   background: #071018;
   user-select: none;
 }
 
 .feed,
+.pageFocusTarget,
 .pages {
   width: 100%;
   height: 100%;
@@ -98,7 +96,7 @@
   z-index: 3;
   top: calc(env(safe-area-inset-top, 0px) + 1.15rem);
   right: max(1.15rem, env(safe-area-inset-right));
-  color: rgba(247, 248, 255, 0.5);
+  color: rgba(247, 248, 255, 0.66);
   font-size: 0.68rem;
   font-variant-numeric: tabular-nums;
   font-weight: 700;
@@ -232,6 +230,15 @@
 .pageDense {
   align-items: flex-start;
   padding-top: max(3.1rem, calc(env(safe-area-inset-top) + 2.35rem));
+}
+
+.pageFocusTarget {
+  outline: none;
+}
+
+.pageFocusTarget:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--card-accent) 82%, white);
+  outline-offset: -5px;
 }
 
 .markdown {
@@ -390,6 +397,56 @@
   align-content: center;
   gap: clamp(0.75rem, 2.2vh, 1.15rem);
   margin: auto;
+}
+
+.compactQuizFocusTarget,
+.compactQuizSwiper {
+  width: 100%;
+  height: 100%;
+}
+
+.compactQuizFocusTarget {
+  outline: none;
+}
+
+.compactQuizFocusTarget:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--card-accent) 82%, white);
+  outline-offset: -5px;
+}
+
+.compactQuizSwiper {
+  overflow: clip;
+}
+
+.compactQuizSwiper :global(.swiper-slide) {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--card-background);
+}
+
+.compactQuizPanel {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.quizExplanationButton {
+  min-height: 2.75rem;
+  border: 1px solid color-mix(in srgb, var(--card-accent) 55%, transparent);
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  color: #fff;
+  background: color-mix(in srgb, var(--card-accent) 18%, rgba(4, 10, 16, 0.9));
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.quizExplanationButton:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--card-accent) 78%, white);
+  outline-offset: 2px;
 }
 
 .quizQuestion {
@@ -555,7 +612,7 @@
   right: max(4.75rem, calc(env(safe-area-inset-right) + 4.5rem));
   bottom: max(1.2rem, calc(env(safe-area-inset-bottom) + 0.8rem));
   left: max(1.15rem, env(safe-area-inset-left));
-  color: rgba(247, 248, 255, 0.58);
+  color: rgba(247, 248, 255, 0.66);
   font-size: clamp(0.72rem, 3vw, 0.82rem);
   font-weight: 650;
   line-height: 1.3;
@@ -740,6 +797,365 @@
   }
 }
 
+@media (min-width: 40rem) and (max-height: 32rem) {
+  .quizContent {
+    grid-template-areas:
+      "question options"
+      "question result";
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+    column-gap: clamp(1rem, 3vw, 2rem);
+  }
+
+  .quizQuestion {
+    grid-area: question;
+    align-self: center;
+  }
+
+  .quizOptions {
+    grid-area: options;
+  }
+
+  .quizResult {
+    grid-area: result;
+  }
+}
+
+@media (max-width: 20rem) and (min-height: 20.001rem) and (max-height: 35.5rem) {
+  .quizHeader {
+    min-height: 1.75rem;
+    padding: 0.4rem 0.75rem 0;
+  }
+
+  .quizHeader .cardTypeLabel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .quizScroller {
+    padding-top: 0.15rem;
+  }
+
+  .quizContent {
+    gap: 0.4rem;
+  }
+
+  .quizQuestion h2 {
+    margin-bottom: 0.3rem;
+    font-size: 1.12rem;
+    line-height: 1.02;
+  }
+
+  .quizQuestion p,
+  .quizQuestion li {
+    font-size: 0.78rem;
+    line-height: 1.25;
+  }
+
+  .quizQuestion .codeBlock {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.68rem;
+    line-height: 1.2;
+  }
+
+  .quizOptions {
+    gap: 0.25rem;
+  }
+
+  .quizOption {
+    min-height: 2.75rem;
+    padding: 0.38rem 0.55rem;
+  }
+
+  .optionText {
+    font-size: 0.82rem;
+    line-height: 1.2;
+  }
+
+  .quizResult {
+    padding: 0.45rem 0.6rem;
+    font-size: 0.8rem;
+    line-height: 1.22;
+  }
+}
+
+@media (max-width: 39.999rem) and (max-height: 20rem) {
+  .card > .cardTypeLabel,
+  .quizHeader .cardTypeLabel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .cardProgress,
+  .quizHeader .cardProgress {
+    position: absolute;
+    top: max(0.45rem, env(safe-area-inset-top));
+    right: max(0.55rem, env(safe-area-inset-right));
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+  }
+
+  .actionRail {
+    right: max(0.45rem, env(safe-area-inset-right));
+    bottom: max(0.45rem, env(safe-area-inset-bottom));
+  }
+
+  .readMoreLink {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .readMoreIcon {
+    width: 1.35rem;
+    height: 1.35rem;
+  }
+
+  .page {
+    align-items: center;
+    justify-content: flex-start;
+    padding:
+      max(1.7rem, calc(env(safe-area-inset-top) + 1.4rem))
+      max(3.75rem, calc(env(safe-area-inset-right) + 3.5rem))
+      max(0.45rem, env(safe-area-inset-bottom))
+      max(0.65rem, env(safe-area-inset-left));
+  }
+
+  .pageDense {
+    align-items: flex-start;
+  }
+
+  .markdown h2 {
+    max-width: none;
+    margin-bottom: 0.35rem;
+    font-size: 1.25rem;
+    line-height: 1.02;
+  }
+
+  .markdown p,
+  .markdown li {
+    font-size: 0.8rem;
+    line-height: 1.28;
+  }
+
+  .markdown p + p,
+  .markdown p + ul,
+  .markdown p + ol,
+  .markdown ul + p,
+  .markdown ol + p,
+  .markdown pre + p,
+  .markdown p + pre,
+  .markdown p + blockquote {
+    margin-top: 0.35rem;
+  }
+
+  .markdown ul,
+  .markdown ol {
+    gap: 0.12rem;
+    padding-left: 1rem;
+  }
+
+  .codeBlock,
+  .quizQuestion .codeBlock {
+    padding: 0.38rem 0.48rem;
+    border-radius: 0.58rem;
+    font-size: 0.68rem;
+    line-height: 1.22;
+  }
+
+  .markdownImage {
+    height: 4.5rem;
+    margin-top: 0.35rem;
+  }
+
+  .pageIndicator {
+    top: max(0.6rem, env(safe-area-inset-top));
+    bottom: auto;
+    gap: 0.25rem;
+  }
+
+  .pageDot,
+  .pageDotActive {
+    height: 0.28rem;
+  }
+
+  .pageDot {
+    width: 0.28rem;
+  }
+
+  .pageDotActive {
+    width: 0.8rem;
+  }
+
+  .quizCard {
+    display: block;
+  }
+
+  .quizHeader {
+    position: absolute;
+    z-index: 4;
+    inset: 0 0 auto;
+    height: 1.65rem;
+    padding: 0;
+    pointer-events: none;
+  }
+
+  .quizScroller {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+
+  .compactQuizQuestionPanel {
+    display: flex;
+    align-items: center;
+    padding:
+      max(1.7rem, calc(env(safe-area-inset-top) + 1.4rem))
+      max(0.65rem, env(safe-area-inset-right))
+      max(0.45rem, env(safe-area-inset-bottom))
+      max(0.65rem, env(safe-area-inset-left));
+  }
+
+  .compactQuizQuestionPanel .quizQuestion {
+    width: 100%;
+  }
+
+  .compactQuizQuestionPanel .quizQuestion h2 {
+    max-width: none;
+    margin-bottom: 0.35rem;
+    font-size: 1.25rem;
+    line-height: 1.02;
+  }
+
+  .compactQuizQuestionPanel .codeBlock {
+    width: calc(100% - 3.4rem);
+  }
+
+  .compactQuizOptionsPanel {
+    display: grid;
+    min-width: 0;
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: 0.35rem;
+    padding:
+      max(1.65rem, calc(env(safe-area-inset-top) + 1.35rem))
+      max(0.55rem, env(safe-area-inset-right))
+      max(0.45rem, env(safe-area-inset-bottom))
+      max(0.55rem, env(safe-area-inset-left));
+  }
+
+  .compactQuizOptionsPanel .quizOptions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-content: center;
+    gap: 0.32rem;
+  }
+
+  .compactQuizOptionsPanel .quizOption {
+    min-height: 2.75rem;
+    grid-template-columns: 1.5rem minmax(0, 1fr);
+    gap: 0.38rem;
+    border-radius: 0.58rem;
+    padding: 0.3rem 0.42rem;
+  }
+
+  .compactQuizOptionsPanel .optionLetter {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 0.65rem;
+  }
+
+  .compactQuizOptionsPanel .optionText {
+    font-size: 0.72rem;
+    line-height: 1.15;
+  }
+
+  .quizExplanationButton {
+    width: calc(100% - 3.4rem);
+    max-width: 16rem;
+    justify-self: start;
+  }
+
+  .compactQuizResultPanel {
+    display: flex;
+    align-items: center;
+    padding:
+      max(1.7rem, calc(env(safe-area-inset-top) + 1.4rem))
+      max(3.75rem, calc(env(safe-area-inset-right) + 3.5rem))
+      max(0.45rem, env(safe-area-inset-bottom))
+      max(0.65rem, env(safe-area-inset-left));
+  }
+
+  .compactQuizResultPanel .quizResult {
+    width: min(100%, 32rem);
+    margin: auto;
+    padding: 0.5rem 0.62rem;
+    font-size: 0.8rem;
+    line-height: 1.28;
+  }
+
+  .flipSideScroller {
+    align-items: center;
+    padding:
+      max(1.7rem, calc(env(safe-area-inset-top) + 1.4rem))
+      max(3.75rem, calc(env(safe-area-inset-right) + 3.5rem))
+      max(0.45rem, env(safe-area-inset-bottom))
+      max(0.65rem, env(safe-area-inset-left));
+  }
+
+  .flipTouchHint,
+  .flipKeyboardHint {
+    display: none;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (max-width: 39.999rem) and (max-height: 20rem) {
+  .page,
+  .compactQuizQuestionPanel,
+  .compactQuizResultPanel,
+  .flipSideScroller {
+    padding-top: max(1.35rem, calc(env(safe-area-inset-top) + 1.1rem));
+  }
+
+  .markdown h2,
+  .compactQuizQuestionPanel .quizQuestion h2 {
+    margin-bottom: 0.22rem;
+    font-size: 1.08rem;
+    line-height: 1;
+  }
+
+  .markdown p,
+  .markdown li {
+    font-size: 0.7rem;
+    line-height: 1.18;
+  }
+
+  .markdown p + p,
+  .markdown p + ul,
+  .markdown p + ol,
+  .markdown ul + p,
+  .markdown ol + p,
+  .markdown pre + p,
+  .markdown p + pre,
+  .markdown p + blockquote {
+    margin-top: 0.22rem;
+  }
+
+  .codeBlock,
+  .quizQuestion .codeBlock {
+    padding: 0.3rem 0.4rem;
+    font-size: 0.58rem;
+    line-height: 1.15;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .feed :global(.swiper-wrapper),
   .pages :global(.swiper-wrapper),
@@ -748,6 +1164,8 @@
   .quizOption,
   .readMoreLink,
   .readMoreLink::after,
+  .compactQuizSwiper :global(.swiper-wrapper),
+  .compactQuizSwiper :global(.swiper-slide),
   .flipTouchHint,
   .flipKeyboardHint,
   .flipSwiper :global(.swiper-wrapper),

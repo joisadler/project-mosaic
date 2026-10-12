@@ -41,6 +41,7 @@ function shuffleCards(cards: readonly LearningCardData[]) {
 export function LearningFeed({ cards }: LearningFeedProps) {
   const hasInitializedOrder = useRef(false);
   const feedSwiperRef = useRef<SwiperInstance | null>(null);
+  const feedShellRef = useRef<HTMLElement | null>(null);
   const systemGestureGuardRef = useRef<HTMLDivElement | null>(null);
   const isSystemGestureGuardActiveRef = useRef(false);
   const [shuffledCards, setShuffledCards] = useState<LearningCardData[] | null>(null);
@@ -159,6 +160,7 @@ export function LearningFeed({ cards }: LearningFeedProps) {
   useEffect(() => {
     let firstAnimationFrame: number | null = null;
     let secondAnimationFrame: number | null = null;
+    let settleTimeout: number | null = null;
 
     const cancelScheduledRealignment = () => {
       if (firstAnimationFrame !== null) {
@@ -169,6 +171,11 @@ export function LearningFeed({ cards }: LearningFeedProps) {
       if (secondAnimationFrame !== null) {
         window.cancelAnimationFrame(secondAnimationFrame);
         secondAnimationFrame = null;
+      }
+
+      if (settleTimeout !== null) {
+        window.clearTimeout(settleTimeout);
+        settleTimeout = null;
       }
     };
 
@@ -185,6 +192,11 @@ export function LearningFeed({ cards }: LearningFeedProps) {
           realignFeed();
         });
       });
+
+      settleTimeout = window.setTimeout(() => {
+        settleTimeout = null;
+        realignFeed();
+      }, 400);
     };
 
     const handleVisibilityChange = () => {
@@ -200,15 +212,25 @@ export function LearningFeed({ cards }: LearningFeedProps) {
     window.addEventListener("blur", realignFeed);
     window.addEventListener("focus", scheduleRealignment);
     window.addEventListener("pageshow", scheduleRealignment);
+    window.addEventListener("resize", scheduleRealignment);
     window.addEventListener("orientationchange", scheduleRealignment);
     window.visualViewport?.addEventListener("resize", scheduleRealignment);
     document.addEventListener("visibilitychange", handleVisibilityChange);
 
+    const resizeObserver = new ResizeObserver(scheduleRealignment);
+    const feedShell = feedShellRef.current;
+
+    if (feedShell) {
+      resizeObserver.observe(feedShell);
+    }
+
     return () => {
       cancelScheduledRealignment();
+      resizeObserver.disconnect();
       window.removeEventListener("blur", realignFeed);
       window.removeEventListener("focus", scheduleRealignment);
       window.removeEventListener("pageshow", scheduleRealignment);
+      window.removeEventListener("resize", scheduleRealignment);
       window.removeEventListener("orientationchange", scheduleRealignment);
       window.visualViewport?.removeEventListener("resize", scheduleRealignment);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
@@ -218,6 +240,7 @@ export function LearningFeed({ cards }: LearningFeedProps) {
   if (!shuffledCards) {
     return (
       <main
+        ref={feedShellRef}
         className={styles.feedShell}
         aria-label="Учебная лента по frontend"
         aria-busy="true"
@@ -227,6 +250,7 @@ export function LearningFeed({ cards }: LearningFeedProps) {
 
   return (
     <main
+      ref={feedShellRef}
       className={styles.feedShell}
       aria-label="Учебная лента по frontend"
       onPointerDownCapture={handlePointerDownCapture}

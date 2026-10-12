@@ -58,11 +58,13 @@ Open http://localhost:3000. Run `nvm use` in each new terminal before working on
 
 The project owner accepted the existing application as the completed MVP on October 11, 2026. Linear issue `JOI-10` was closed with that acceptance recorded. Remaining backlog items are post-MVP improvements and do not prevent the MVP from being complete.
 
-The MVP implements a full-screen virtualized educational feed that mixes multi-page InfoCards, accessible multiple-choice QuizCards, and swipe-driven question-and-answer FlipCards. Markdown content is stored locally, the 100-card Frontend Interview Preparation `fe-1.1` pack is shuffled once per mounted feed, and card interaction state persists during the session.
+The MVP implements a full-screen virtualized educational feed that mixes multi-page InfoCards, accessible multiple-choice QuizCards, and swipe-driven question-and-answer FlipCards. Markdown content is stored locally, the 100-card Frontend Interview Preparation `fe-1.1` pack is shuffled once per mounted feed, and card interaction state persists while that feed remains mounted.
 
-The standalone iPhone PWA flow includes safe-area-aware top metadata, protection against unintended navigation from the home gesture, and feed realignment after viewport or app lifecycle changes. The project owner confirmed on October 11, 2026, that the previously discussed iPhone/PWA bugs were fixed and verified on his device. Reopen the relevant Linear issue if a regression recurs.
+The core controls support visible keyboard focus and accessible names. Multi-page InfoCards use Left/Right navigation, FlipCards expose their two sides as a named keyboard surface, and QuizCard arrows move focus without submitting an answer; click, Space or Enter makes the selection and reveals textual feedback. Reduced-motion preferences disable the relevant feed, page and flip transitions. Extreme zoom/reflow uses compact horizontal presentation without changing the authored InfoCard pages, QuizCard data or two-sided FlipCard structure.
 
-The manifest includes standalone display, app icons, and theme colors. Service workers, offline caching, and push notifications are not configured; install behavior depends on the browser, and offline use is not supported. See [ROADMAP.md](ROADMAP.md) for future scope.
+The standalone iPhone PWA flow includes safe-area-aware metadata, protection against unintended navigation from the home gesture, and feed realignment after viewport or app lifecycle changes. The fixed viewport shell prevents the stale-height bottom gap observed after returning from landscape. The project owner confirmed the original PWA fixes on October 11, 2026, and confirmed the portrait-landscape-portrait recovery on October 12, 2026. The manifest requests `portrait-primary`, but the owner's iPhone still rotates when the app is installed from either Chrome or Safari; responsive landscape behavior remains required.
+
+The manifest includes standalone display, a best-effort portrait orientation hint, app icons, and theme colors. Service workers, offline caching, and push notifications are not configured; install behavior depends on the browser, and offline use is not supported. See [ROADMAP.md](ROADMAP.md) for future scope.
 
 ## Post-MVP work
 

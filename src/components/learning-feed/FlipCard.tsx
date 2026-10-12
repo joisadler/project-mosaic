@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState, type KeyboardEvent } from "react";
+import { useRef, useState, type KeyboardEvent } from "react";
 import { A11y, EffectFlip } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperInstance } from "swiper/types";
 import type { FlipCardData } from "@/content/card-types";
 import { CardTypeLabel } from "./CardTypeLabel";
 import { MarkdownContent } from "./MarkdownPage";
+import { useMediaQuery } from "./use-media-query";
 import styles from "./learning-feed.module.scss";
 
 export type FlipSideIndex = 0 | 1;
@@ -20,22 +21,6 @@ type FlipCardProps = {
 
 const flipModules = [A11y, EffectFlip];
 
-function usePrefersReducedMotion() {
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const syncPreference = () => setPrefersReducedMotion(mediaQuery.matches);
-
-    syncPreference();
-    mediaQuery.addEventListener("change", syncPreference);
-
-    return () => mediaQuery.removeEventListener("change", syncPreference);
-  }, []);
-
-  return prefersReducedMotion;
-}
-
 export function FlipCard({
   card,
   cardIndex,
@@ -46,7 +31,7 @@ export function FlipCard({
 }: FlipCardProps) {
   const swiperRef = useRef<SwiperInstance | null>(null);
   const [announcement, setAnnouncement] = useState("");
-  const prefersReducedMotion = usePrefersReducedMotion();
+  const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
 
   const showSide = (sideIndex: FlipSideIndex) => {
     const swiper = swiperRef.current;

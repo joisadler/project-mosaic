@@ -4,9 +4,9 @@
 
 MVP complete and accepted by the project owner on October 11, 2026. Linear issue `JOI-10` was closed with that acceptance recorded. Remaining backlog items are post-MVP improvements and do not block MVP completion.
 
-The accepted implementation includes a virtualized vertical educational feed with multi-page InfoCards, accessible multiple-choice QuizCards, and swipe-driven question-and-answer FlipCards with Markdown on both sides. Content is organized by card type and shuffled once for each mounted feed, while horizontal card state and quiz selections persist during the session. The 100-card Frontend Interview Preparation `fe-1.1` pack is the feed's current learning content.
+The accepted implementation includes a virtualized vertical educational feed with multi-page InfoCards, accessible multiple-choice QuizCards, and swipe-driven question-and-answer FlipCards with Markdown on both sides. Content is organized by card type and shuffled once for each mounted feed, while horizontal card state and quiz selections persist while that feed remains mounted. The 100-card Frontend Interview Preparation `fe-1.1` pack is the feed's current learning content.
 
-The project owner confirmed on October 11, 2026, that the previously discussed iPhone/PWA bugs were fixed and verified on his device, including top safe-area metadata, home-gesture navigation protection, and feed alignment after app lifecycle or viewport changes. Reopen the relevant Linear issue if a regression recurs.
+The project owner confirmed on October 11, 2026, that the original iPhone/PWA fixes worked on his device, including top safe-area metadata and home-gesture navigation protection. On October 12, 2026, he also confirmed that the feed correctly rebuilds its layout after a portrait-landscape-portrait cycle without leaving a bottom gap. The manifest's portrait orientation is only a best-effort hint and did not prevent rotation when installed from either Chrome or Safari, so the responsive landscape fallback remains part of the supported layout.
 
 ## Stage 1 — MVP (Complete)
 
