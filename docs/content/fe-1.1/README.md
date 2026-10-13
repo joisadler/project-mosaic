@@ -4,7 +4,7 @@
 
 Source: [Frontend Interview Preparation, section 1.1: Execution Model, Declarations & Scope](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/01-execution-model-declarations-and-scope.md), retrieved 2026-10-10.
 
-Adapted to the current Project Mosaic `card-types.ts` schema. The source handbook is not modified. This pack is the only learning content currently included in the feed. InfoCards may use multiple compact horizontal pages; questions and answers are independent of feed order.
+Adapted to the current Project Mosaic `card-types.ts` schema. The source handbook is not modified. This pack is included in the feed alongside later handbook sections. InfoCards may use multiple compact horizontal pages; questions and answers are independent of feed order.
 
 Every card includes a `readMoreUrl` for the handbook question that best matches its primary topic. The shared, verified GitHub anchors live in `src/content/fe-1.1-source-urls.ts`; card objects reference those URLs rather than duplicating long source strings. The anchors were checked against GitHub's rendered heading permalinks on 2026-10-11. `COVERAGE.md` records the card-to-question mapping and the exact source-link index.
 
@@ -25,7 +25,7 @@ import { feSection1_1QuizCards } from "./fe-1.1-quiz-cards";
 import { feSection1_1FlipCards } from "./fe-1.1-flip-cards";
 ```
 
-The feed combines only these three arrays:
+The feed includes these three arrays together with the arrays from other integrated packages:
 
 ```ts
 export const learningCards: LearningCardData[] = [
@@ -35,7 +35,7 @@ export const learningCards: LearningCardData[] = [
 ];
 ```
 
-The current feed shuffles all 100 cards once per mount. No shuffle or component changes are required.
+The current feed shuffles every integrated package once per mount. No package-specific shuffle or component changes are required.
 
 All card IDs start with `fe-1.1-`. Option IDs are unique within each quiz. The coverage table is documentation only; it is not imported into the app or used to order the feed.
 

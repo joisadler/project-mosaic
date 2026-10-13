@@ -58,7 +58,7 @@ Open http://localhost:3000. Run `nvm use` in each new terminal before working on
 
 The project owner accepted the existing application as the completed MVP on October 11, 2026. Linear issue `JOI-10` was closed with that acceptance recorded. Remaining backlog items are post-MVP improvements and do not prevent the MVP from being complete.
 
-The MVP implements a full-screen virtualized educational feed that mixes multi-page InfoCards, accessible multiple-choice QuizCards, and swipe-driven question-and-answer FlipCards. Markdown content is stored locally, the 100-card Frontend Interview Preparation `fe-1.1` pack is shuffled once per mounted feed, and card interaction state persists while that feed remains mounted.
+The MVP implements a full-screen virtualized educational feed that mixes multi-page InfoCards, accessible multiple-choice QuizCards, and swipe-driven question-and-answer FlipCards. Markdown content is stored locally, the 220 cards from the Frontend Interview Preparation `fe-1.1` and `fe-1.2` packs are shuffled once per mounted feed, and card interaction state persists while that feed remains mounted.
 
 The core controls support visible keyboard focus and accessible names. Multi-page InfoCards use Left/Right navigation, FlipCards expose their two sides as a named keyboard surface, and QuizCard arrows move focus without submitting an answer; click, Space or Enter makes the selection and reveals textual feedback. Reduced-motion preferences disable the relevant feed, page and flip transitions. Extreme zoom/reflow uses compact horizontal presentation without changing the authored InfoCard pages, QuizCard data or two-sided FlipCard structure.
 
