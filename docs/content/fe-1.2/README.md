@@ -16,7 +16,7 @@ The card arrays live in `src/content/`, beside `card-types.ts`:
 - `fe-1.2-quiz-cards.ts`
 - `fe-1.2-flip-cards.ts`
 
-`src/content/learning-cards.ts` imports all three arrays and combines them with the other integrated packages. The feed shuffles the complete 220-card collection once per mount; no component or package-specific shuffle changes are required.
+`src/content/learning-sections.ts` registers all three arrays under `fe-1.2`, section `1.2`, with the title “Значения, типы, равенство и приведение типов”. `src/content/learning-cards.ts` derives the flat collection from that shared registry. The feed shuffles the complete 220-card collection once per mount; no component or package-specific shuffle changes are required.
 
 All card IDs start with `fe-1.2-`. Option IDs are unique within each quiz. The coverage table is documentation only; it is not imported into the app or used to order the feed.
 

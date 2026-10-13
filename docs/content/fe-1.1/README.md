@@ -17,25 +17,22 @@ The card arrays live in `src/content/`, beside `card-types.ts`:
 - `fe-1.1-flip-cards.ts`
 - `fe-1.1-source-urls.ts`
 
-`src/content/learning-cards.ts` imports the arrays from these paths:
+`src/content/learning-sections.ts` registers the arrays as the `fe-1.1` learning section:
 
 ```ts
-import { feSection1_1InfoCards } from "./fe-1.1-info-cards";
-import { feSection1_1QuizCards } from "./fe-1.1-quiz-cards";
-import { feSection1_1FlipCards } from "./fe-1.1-flip-cards";
+{
+  id: "fe-1.1",
+  number: "1.1",
+  title: "Модель выполнения, объявления и области видимости",
+  cards: [
+    ...feSection1_1InfoCards,
+    ...feSection1_1QuizCards,
+    ...feSection1_1FlipCards,
+  ],
+}
 ```
 
-The feed includes these three arrays together with the arrays from other integrated packages:
-
-```ts
-export const learningCards: LearningCardData[] = [
-  ...feSection1_1InfoCards,
-  ...feSection1_1QuizCards,
-  ...feSection1_1FlipCards,
-];
-```
-
-The current feed shuffles every integrated package once per mount. No package-specific shuffle or component changes are required.
+`src/content/learning-cards.ts` derives the flat collection from that shared registry. The current feed shuffles every integrated package once per mount. No package-specific shuffle or component changes are required.
 
 All card IDs start with `fe-1.1-`. Option IDs are unique within each quiz. The coverage table is documentation only; it is not imported into the app or used to order the feed.
 
@@ -56,4 +53,4 @@ The pack covers declaration lifecycle, binding, var/let/const, scope, identifier
 
 Different formats may revisit the same concept for explanation, prediction and recall. This is intentional learning reinforcement. The pack is not a claim that every advanced edge case of the chapter has a dedicated card.
 
-Use `COVERAGE.md` to locate the source subsection behind each card. It contains no runtime metadata and adds no fields to the app schema.
+Use `COVERAGE.md` to locate the source subsection behind each card. It documents editorial coverage; runtime section membership comes from `learning-sections.ts`.

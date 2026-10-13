@@ -13,6 +13,12 @@ Apply the identifier consistently:
 - Card IDs: `fe-1.1-info-*`, `fe-1.1-quiz-*` and `fe-1.1-flip-*`
 - TypeScript exports: use the identifier-safe form `feSection1_1InfoCards`, `feSection1_1QuizCards` and `feSection1_1FlipCards`
 
+## Learning section registry
+
+`src/content/learning-sections.ts` is the runtime source of truth for selectable learning units. Each handbook section or subsection has one canonical ID, section number, human-readable Russian title and the three card arrays that belong to it. The flat feed is derived from this registry, so future filtering, visual identity, ordering and progress aggregation can use the same `LearningSectionId` values.
+
+Register a package only after all three card files exist. `npm run validate:content` rejects missing packages, duplicate registrations, cross-section card arrays and registered sections without content. Keep section selection at the handbook section/subsection level; do not replace these identities with a broad JavaScript topic taxonomy.
+
 The `fe` prefix identifies the source handbook as a whole, not the technology discussed by an individual section. A JavaScript, React, CSS or browser APIs package therefore follows the same namespace.
 
 ## Optional source links
@@ -36,7 +42,7 @@ The vertical feed is the only vertical gesture surface. Individual cards must no
 - Keep touch targets at least `44 × 44` CSS pixels.
 - Preserve at least `32px` between the last visible QuizCard element and the bottom of the viewport.
 
-`npm run validate:content` discovers every `fe-<section>.<subsection>-*-cards.ts` file and enforces the shared structural budgets: page, question, option, explanation and answer lengths; an aggregate QuizCard layout estimate; Markdown line counts; fenced-code line lengths; IDs; coverage synchronization; and the four-option quiz contract. These limits are an early warning, not a substitute for rendered checks.
+`npm run validate:content` discovers every `fe-<section>.<subsection>-*-cards.ts` file and enforces the shared structural budgets: page, question, option, explanation and answer lengths; an aggregate QuizCard layout estimate; Markdown line counts; fenced-code line lengths; IDs; section registry membership; coverage synchronization; and the four-option quiz contract. These limits are an early warning, not a substitute for rendered checks.
 
 After content changes, inspect every card state at `320 × 568` and `375 × 667`. The rendered check is the source of truth: `scrollHeight <= clientHeight` and `scrollWidth <= clientWidth` must hold, the applicable standard or reviewed compact typography floors must remain intact, and the last visible QuizCard element must retain the `32px` bottom safe zone. If a card fails, rewrite or split its content rather than shrinking text or introducing nested vertical scrolling.
 

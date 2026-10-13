@@ -4,6 +4,7 @@ import ts from "typescript";
 
 const projectRoot = process.cwd();
 const contentDirectory = path.join(projectRoot, "src/content");
+const sectionRegistryPath = path.join(contentDirectory, "learning-sections.ts");
 const contentFilePattern = /^(fe-\d+\.\d+)-(info|quiz|flip)-cards\.ts$/;
 const contentFiles = fs.readdirSync(contentDirectory)
   .filter((fileName) => contentFilePattern.test(fileName))
@@ -163,7 +164,116 @@ function estimateWrappedLines(value, charactersPerLine) {
   }, 0);
 }
 
+function getLearningSectionRegistrations(errors) {
+  if (!fs.existsSync(sectionRegistryPath)) {
+    errors.push("Missing section registry at src/content/learning-sections.ts.");
+    return new Map();
+  }
+
+  const sourceText = fs.readFileSync(sectionRegistryPath, "utf8");
+  const sourceFile = ts.createSourceFile(
+    sectionRegistryPath,
+    sourceText,
+    ts.ScriptTarget.Latest,
+    true,
+    ts.ScriptKind.TS,
+  );
+  const imports = new Map();
+
+  for (const statement of sourceFile.statements) {
+    if (!ts.isImportDeclaration(statement) || !ts.isStringLiteral(statement.moduleSpecifier)) {
+      continue;
+    }
+
+    for (const element of statement.importClause?.namedBindings?.elements ?? []) {
+      imports.set(element.name.text, statement.moduleSpecifier.text);
+    }
+  }
+
+  const registryDeclaration = sourceFile.statements
+    .filter(ts.isVariableStatement)
+    .flatMap((statement) => [...statement.declarationList.declarations])
+    .find((declaration) => ts.isIdentifier(declaration.name) && declaration.name.text === "learningSections");
+  const registry = unwrapExpression(registryDeclaration?.initializer);
+
+  if (!registry || !ts.isArrayLiteralExpression(registry)) {
+    errors.push("learningSections must be a static array in src/content/learning-sections.ts.");
+    return new Map();
+  }
+
+  const registrations = new Map();
+
+  for (const [index, element] of registry.elements.entries()) {
+    if (!ts.isObjectLiteralExpression(element)) {
+      errors.push(`learningSections entry ${index + 1} must be an object literal.`);
+      continue;
+    }
+
+    const sectionId = getString(getProperty(element, "id"));
+    const sectionNumber = getString(getProperty(element, "number"));
+    const title = getString(getProperty(element, "title"));
+    const cards = getArray(getProperty(element, "cards"));
+
+    if (!sectionId || !/^fe-\d+\.\d+$/.test(sectionId)) {
+      errors.push(`learningSections entry ${index + 1} must have a canonical fe-x.y ID.`);
+      continue;
+    }
+
+    if (registrations.has(sectionId)) {
+      errors.push(`${sectionId}: duplicate section registry entry.`);
+      continue;
+    }
+
+    if (sectionNumber !== sectionId.slice(3)) {
+      errors.push(`${sectionId}: section number must be ${sectionId.slice(3)}.`);
+    }
+
+    if (!title?.trim()) {
+      errors.push(`${sectionId}: section title must be a non-empty static string.`);
+    }
+
+    if (!cards) {
+      errors.push(`${sectionId}: cards must be a static array.`);
+      continue;
+    }
+
+    const registeredTypes = new Set();
+
+    for (const cardEntry of cards) {
+      if (!ts.isSpreadElement(cardEntry) || !ts.isIdentifier(cardEntry.expression)) {
+        errors.push(`${sectionId}: cards must contain only imported card-array spreads.`);
+        continue;
+      }
+
+      const modulePath = imports.get(cardEntry.expression.text);
+      const match = modulePath?.match(/^\.\/(fe-\d+\.\d+)-(info|quiz|flip)-cards$/);
+
+      if (!match) {
+        errors.push(`${sectionId}: ${cardEntry.expression.text} must import a section card array.`);
+        continue;
+      }
+
+      const [, importedSectionId, cardType] = match;
+
+      if (importedSectionId !== sectionId) {
+        errors.push(`${sectionId}: cannot include cards from ${importedSectionId}.`);
+      }
+
+      if (registeredTypes.has(cardType)) {
+        errors.push(`${sectionId}: duplicate ${cardType} card-array registration.`);
+      }
+
+      registeredTypes.add(cardType);
+    }
+
+    registrations.set(sectionId, registeredTypes);
+  }
+
+  return registrations;
+}
+
 const errors = [];
+const sectionRegistrations = getLearningSectionRegistrations(errors);
 const cardIds = new Set();
 const cardIdsByPackage = new Map();
 const readMoreUrlsByReference = new Map();
@@ -410,6 +520,18 @@ for (const relativePath of contentFiles) {
 }
 
 for (const [packageId, packageCardIds] of cardIdsByPackage) {
+  const registeredTypes = sectionRegistrations.get(packageId);
+
+  if (!registeredTypes) {
+    errors.push(`${packageId}: content package is missing from the section registry.`);
+  } else {
+    for (const cardType of ["info", "quiz", "flip"]) {
+      if (!registeredTypes.has(cardType)) {
+        errors.push(`${packageId}: ${cardType} cards are missing from the section registry.`);
+      }
+    }
+  }
+
   const coveragePath = path.join(projectRoot, "docs/content", packageId, "COVERAGE.md");
 
   if (!fs.existsSync(coveragePath)) {
@@ -433,6 +555,12 @@ for (const [packageId, packageCardIds] of cardIdsByPackage) {
     if (!packageCardIds.has(cardId)) {
       errors.push(`${cardId}: documented in ${packageId}/COVERAGE.md but missing from content.`);
     }
+  }
+}
+
+for (const sectionId of sectionRegistrations.keys()) {
+  if (!cardIdsByPackage.has(sectionId)) {
+    errors.push(`${sectionId}: registered section has no content package.`);
   }
 }
 
