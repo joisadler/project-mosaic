@@ -3,7 +3,10 @@ import { A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperInstance } from "swiper/types";
 import type { InfoCardData } from "@/content/card-types";
+import { CardDecoration } from "./CardDecoration";
 import { CardTypeLabel } from "./CardTypeLabel";
+import { getCardPresentation } from "./section-presentation";
+import presentationStyles from "./section-presentation.module.scss";
 import { MarkdownPage } from "./MarkdownPage";
 import styles from "./learning-feed.module.scss";
 
@@ -58,12 +61,13 @@ export function InfoCard({
 
   return (
     <article
-      className={styles.card}
-      data-theme={cardIndex % 4}
+      className={`${styles.card} ${presentationStyles.presentation}`}
+      data-section={getCardPresentation(card).section}
       aria-label={`Учебная карточка ${cardIndex + 1} из ${cardCount}`}
       aria-hidden={!isActive}
       inert={!isActive}
     >
+      <CardDecoration card={card} />
       <CardTypeLabel type="info" />
 
       <span className={styles.cardProgress} aria-hidden="true">

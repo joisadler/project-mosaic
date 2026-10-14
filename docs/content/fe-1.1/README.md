@@ -54,3 +54,7 @@ The pack covers declaration lifecycle, binding, var/let/const, scope, identifier
 Different formats may revisit the same concept for explanation, prediction and recall. This is intentional learning reinforcement. The pack is not a claim that every advanced edge case of the chapter has a dedicated card.
 
 Use `COVERAGE.md` to locate the source subsection behind each card. It documents editorial coverage; runtime section membership comes from `learning-sections.ts`.
+
+## Visual identity
+
+Blue/cyan with cropped braces and nested contours (`scope`) by default. Cards centered on declaration preparation, initialization, TDZ or execution phases explicitly select `lifecycle`. The connected stages do not represent event-loop scheduling, which remains outside this package. See the shared [optional motif contract](../README.md#optional-visual-motifs) for supported identifiers and fallback behavior. No learning text, IDs or source links are changed by these assignments.

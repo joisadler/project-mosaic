@@ -34,6 +34,7 @@ console.log(count); // 2
   // Chapter 1.1: Q2.
   {
     id: "fe-1.1-info-lifecycle",
+    visual: { motif: "lifecycle" },
     type: "info",
     readMoreUrl: feSection1_1ReadMoreUrls.q2,
     pages: [
@@ -57,6 +58,7 @@ console.log(count); // 2
   // Chapter 1.1: Q2, Q9.
   {
     id: "fe-1.1-info-let-empty",
+    visual: { motif: "lifecycle" },
     type: "info",
     readMoreUrl: feSection1_1ReadMoreUrls.q2,
     pages: [
@@ -341,6 +343,7 @@ Environment Record — понятие спецификации. Нельзя п�
   // Chapter 1.1: Q6, Q8.
   {
     id: "fe-1.1-info-hoisting",
+    visual: { motif: "lifecycle" },
     type: "info",
     readMoreUrl: feSection1_1ReadMoreUrls.q8,
     pages: [
@@ -370,6 +373,7 @@ console.log(total); // 3
   // Chapter 1.1: Q9.
   {
     id: "fe-1.1-info-tdz-time",
+    visual: { motif: "lifecycle" },
     type: "info",
     readMoreUrl: feSection1_1ReadMoreUrls.q9,
     pages: [
@@ -427,6 +431,7 @@ let later;
   // Chapter 1.1: Q10.
   {
     id: "fe-1.1-info-function-readiness",
+    visual: { motif: "lifecycle" },
     type: "info",
     readMoreUrl: feSection1_1ReadMoreUrls.q10,
     pages: [
@@ -463,6 +468,7 @@ const ready = () => "ok";
   // Chapter 1.1: Q6, Q11.
   {
     id: "fe-1.1-info-early-error",
+    visual: { motif: "lifecycle" },
     type: "info",
     readMoreUrl: feSection1_1ReadMoreUrls.q11,
     pages: [
@@ -760,6 +766,7 @@ console.log(read()); // admin
   // Chapter 1.1: Q6.
   {
     id: "fe-1.1-info-prepare-per-entry",
+    visual: { motif: "lifecycle" },
     type: "info",
     readMoreUrl: feSection1_1ReadMoreUrls.q6,
     pages: [
@@ -973,6 +980,7 @@ console.log(globalThis.mosaicApi.version);
   // Chapter 1.1: Q12.
   {
     id: "fe-1.1-info-script-sequence",
+    visual: { motif: "lifecycle" },
     type: "info",
     readMoreUrl: feSection1_1ReadMoreUrls.q12,
     pages: [

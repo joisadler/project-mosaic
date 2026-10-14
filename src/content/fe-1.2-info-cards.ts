@@ -56,6 +56,7 @@ console.log(text); // CAT
   // Chapter 1.2, Q2.
   {
     id: "fe-1.2-info-object-identity",
+    visual: { motif: "equality" },
     type: "info",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-2-чем-primitive-value-отличается-от-object-value",
     pages: [
@@ -220,6 +221,7 @@ console.log(Object.hasOwn(b, "value")); // true
   // Chapter 1.2, Q6.
   {
     id: "fe-1.2-info-symbol-identity",
+    visual: { motif: "equality" },
     type: "info",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-6-зачем-нужны-symbol-и-bigint",
     pages: [
@@ -246,6 +248,7 @@ console.log(a === b); // true
   // Chapter 1.2, Q6.
   {
     id: "fe-1.2-info-symbol-conversion",
+    visual: { motif: "conversion" },
     type: "info",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-6-зачем-нужны-symbol-и-bigint",
     pages: [
@@ -369,6 +372,7 @@ console.log(Number.isFinite(Infinity)); // false
   // Chapter 1.2, Q7.
   {
     id: "fe-1.2-info-signed-zero",
+    visual: { motif: "equality" },
     type: "info",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-7-что-особенного-в-nan-infinity-и--0",
     pages: [
@@ -650,6 +654,7 @@ console.log(index); // 0
   // Chapter 1.2, Q12.
   {
     id: "fe-1.2-info-strict-equality",
+    visual: { motif: "equality" },
     type: "info",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-12-какие-семантики-равенства-есть-в-javascript",
     pages: [
@@ -674,6 +679,7 @@ console.log(0 === -0); // true
   // Chapter 1.2, Q12.
   {
     id: "fe-1.2-info-same-value",
+    visual: { motif: "equality" },
     type: "info",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-12-какие-семантики-равенства-есть-в-javascript",
     pages: [
@@ -701,6 +707,7 @@ console.log(Object.is(a, { id: 1 })); // false
   // Chapter 1.2, Q12.
   {
     id: "fe-1.2-info-same-value-zero",
+    visual: { motif: "equality" },
     type: "info",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-12-какие-семантики-равенства-есть-в-javascript",
     pages: [
@@ -726,6 +733,7 @@ console.log(new Set([{}, {}]).size); // 2
   // Chapter 1.2, Q13.
   {
     id: "fe-1.2-info-loose-equality",
+    visual: { motif: "equality" },
     type: "info",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-13-когда--преобразует-типы-и-можно-ли-его-использовать-осознанно",
     pages: [
@@ -752,6 +760,7 @@ Legacy-исключение браузера — \`document.all\`.`,
   // Chapter 1.2, Q13.
   {
     id: "fe-1.2-info-legacy-document-all",
+    visual: { motif: "equality" },
     type: "info",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-13-когда--преобразует-типы-и-можно-ли-его-использовать-осознанно",
     pages: [
@@ -770,6 +779,7 @@ Legacy-исключение браузера — \`document.all\`.`,
   // Chapter 1.2, Q14.
   {
     id: "fe-1.2-info-explicit-conversion",
+    visual: { motif: "conversion" },
     type: "info",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-14-что-такое-explicit-и-implicit-coercion",
     pages: [
@@ -797,6 +807,7 @@ console.log(Number(value)); // 0
   // Chapter 1.2, Q14.
   {
     id: "fe-1.2-info-number-conversion",
+    visual: { motif: "conversion" },
     type: "info",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-14-что-такое-explicit-и-implicit-coercion",
     pages: [
@@ -822,6 +833,7 @@ console.log(Number("42px")); // NaN
   // Chapter 1.2, Q14.
   {
     id: "fe-1.2-info-numeric-input",
+    visual: { motif: "conversion" },
     type: "info",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-14-что-такое-explicit-и-implicit-coercion",
     pages: [
@@ -845,6 +857,7 @@ console.log(valid); // false
   // Chapter 1.2, Q15.
   {
     id: "fe-1.2-info-plus-branches",
+    visual: { motif: "conversion" },
     type: "info",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-15-почему-оператор--особенно-опасен-для-mental-model",
     pages: [
@@ -872,6 +885,7 @@ console.log("1" + 2n); // 12
   // Chapter 1.2, Q15.
   {
     id: "fe-1.2-info-plus-order",
+    visual: { motif: "conversion" },
     type: "info",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-15-почему-оператор--особенно-опасен-для-mental-model",
     pages: [
@@ -901,6 +915,7 @@ console.log("5" / 2); // 2.5
   // Chapter 1.2, Q16.
   {
     id: "fe-1.2-info-relational-comparison",
+    visual: { motif: "conversion" },
     type: "info",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-16-как-работают-сравнения-----с-разными-типами",
     pages: [
@@ -928,6 +943,7 @@ console.log(NaN >= 1); // false
   // Chapter 1.2, Q17.
   {
     id: "fe-1.2-info-ordinary-to-primitive",
+    visual: { motif: "conversion" },
     type: "info",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-17-как-toprimitive-valueof-и-tostring-связаны-с-coercion",
     pages: [
@@ -957,6 +973,7 @@ console.log(amount + 1); // 8
   // Chapter 1.2, Q17.
   {
     id: "fe-1.2-info-primitive-hook",
+    visual: { motif: "conversion" },
     type: "info",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-17-как-toprimitive-valueof-и-tostring-связаны-с-coercion",
     pages: [
@@ -986,6 +1003,7 @@ console.log(value + 1); // 21
   // Chapter 1.2, Q17.
   {
     id: "fe-1.2-info-coercion-puzzle",
+    visual: { motif: "conversion" },
     type: "info",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-17-как-toprimitive-valueof-и-tostring-связаны-с-coercion",
     pages: [
@@ -1010,6 +1028,7 @@ console.log([] == ![]); // true
   // Chapter 1.2, Q18.
   {
     id: "fe-1.2-info-prediction-method",
+    visual: { motif: "conversion" },
     type: "info",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-18-как-системно-решать-output-prediction-задачи-на-values-и-coercion",
     pages: [

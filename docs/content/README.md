@@ -21,6 +21,25 @@ Register a package only after all three card files exist. `npm run validate:cont
 
 The `fe` prefix identifies the source handbook as a whole, not the technology discussed by an individual section. A JavaScript, React, CSS or browser APIs package therefore follows the same namespace.
 
+## Optional visual motifs
+
+Cards may include `visual?: { motif?: VisualMotif }` in `BaseCardData`. Select a motif by the card's primary learning objective after reading all pages or both sides. Motifs are optional: omit `visual` for the section default, and do not add metadata just to vary the feed.
+
+| Registered section | Palette | Default | Optional motifs |
+| --- | --- | --- | --- |
+| `fe-1.1` | Blue/cyan | `scope`: cropped braces and nested contours | `lifecycle`: connected stages for declaration preparation, initialization, TDZ and execution order |
+| `fe-1.2` | Plum/lilac | `values`: distinct circle, rounded square and diamond | `equality`: paired circular contours for equality/identity semantics; `conversion`: directed paths between shapes for explicit/implicit conversion and operator coercion |
+
+```ts
+visual: { motif: "conversion" },
+```
+
+Section membership comes exclusively from `learningSectionIdByCardId`, derived from the explicit section registry. A missing, unsupported or cross-section motif uses that section's default. An unregistered card receives the neutral palette and composition, even if it requests a known motif. TypeScript checks authored identifiers; runtime fallback also tolerates unsupported identifiers.
+
+Application presets and reusable artwork live in `src/components/learning-feed/section-presentation.ts`, `section-presentation.module.scss` and `CardDecoration.tsx`. Never put colors, SVG markup, coordinates or styling instructions in card data. A motif remains fixed across revisits, rerenders, horizontal pages and flip sides. Artwork is static, non-interactive, hidden from accessibility APIs and fainter on cramped layouts; it reserves no content space.
+
+Use the default for general values, types and object mutation in `fe-1.2`; equality examples alone do not make equality the primary objective. Likewise, scope remains the default for `fe-1.1`: the lifecycle motif describes declaration stages, not an event-loop queue. Add future motifs only when a meaningful subtopic warrants distinct geometry and placement, with at most two or three optional motifs per section. Review all three card types, dense content, code, selected quiz feedback, pages, flip sides and phone/desktop/landscape layouts when extending artwork.
+
 ## Optional source links
 
 Every learning card may define `readMoreUrl?: string` in the shared `BaseCardData` type. Use it for a direct, verified source section that expands the card's primary topic.

@@ -11,6 +11,7 @@ import { feSection1_1ReadMoreUrls } from "./fe-1.1-source-urls";
 export const feSection1_1QuizCards: QuizCardData[] = [
   {
     id: "fe-1.1-quiz-var-before",
+    visual: { motif: "lifecycle" },
     type: "quiz",
     readMoreUrl: feSection1_1ReadMoreUrls.q8,
     question: `## Что появится в консоли?
@@ -47,6 +48,7 @@ var value = 9;
   },
   {
     id: "fe-1.1-quiz-let-before",
+    visual: { motif: "lifecycle" },
     type: "quiz",
     readMoreUrl: feSection1_1ReadMoreUrls.q9,
     question: `## Как завершится чтение?
@@ -83,6 +85,7 @@ let value = 9;
   },
   {
     id: "fe-1.1-quiz-empty-let",
+    visual: { motif: "lifecycle" },
     type: "quiz",
     readMoreUrl: feSection1_1ReadMoreUrls.q2,
     question: `## Чем закончится фрагмент?
@@ -494,6 +497,7 @@ let value;
   },
   {
     id: "fe-1.1-quiz-self-init",
+    visual: { motif: "lifecycle" },
     type: "quiz",
     readMoreUrl: feSection1_1ReadMoreUrls.q9,
     question: `## Какое значение получит value?
@@ -530,6 +534,7 @@ console.log(value);
   },
   {
     id: "fe-1.1-quiz-declaration",
+    visual: { motif: "lifecycle" },
     type: "quiz",
     readMoreUrl: feSection1_1ReadMoreUrls.q10,
     question: `## Можно ли вызвать функцию раньше?
@@ -566,6 +571,7 @@ function sum(a, b) { return a + b; }
   },
   {
     id: "fe-1.1-quiz-expression-var",
+    visual: { motif: "lifecycle" },
     type: "quiz",
     readMoreUrl: feSection1_1ReadMoreUrls.q10,
     question: `## Как завершится ранний вызов?
@@ -602,6 +608,7 @@ var run = () => 7;
   },
   {
     id: "fe-1.1-quiz-expression-const",
+    visual: { motif: "lifecycle" },
     type: "quiz",
     readMoreUrl: feSection1_1ReadMoreUrls.q10,
     question: `## Как завершится ранний вызов?
@@ -902,6 +909,7 @@ console.log(globalThis.mosaicLexical);
   // Chapter 1.1: Q3, Q8.
   {
     id: "fe-1.1-quiz-var-false",
+    visual: { motif: "lifecycle" },
     type: "quiz",
     readMoreUrl: feSection1_1ReadMoreUrls.q3,
     question: `## Что будет, если ветка не выполнена?
@@ -983,6 +991,7 @@ outer();
   // Chapter 1.1: Q2, Q9.
   {
     id: "fe-1.1-quiz-write-tdz",
+    visual: { motif: "lifecycle" },
     type: "quiz",
     readMoreUrl: feSection1_1ReadMoreUrls.q2,
     question: `## Можно ли заранее записать значение?
@@ -1021,6 +1030,7 @@ console.log(value);
   // Chapter 1.1: Q9.
   {
     id: "fe-1.1-quiz-delayed-read",
+    visual: { motif: "lifecycle" },
     type: "quiz",
     readMoreUrl: feSection1_1ReadMoreUrls.q9,
     question: `## Слишком рано определена функция?
@@ -1180,6 +1190,7 @@ switch (1) {
   // Chapter 1.1: Q8, Q9.
   {
     id: "fe-1.1-quiz-class-tdz",
+    visual: { motif: "lifecycle" },
     type: "quiz",
     readMoreUrl: feSection1_1ReadMoreUrls.q8,
     question: `## Что вернёт typeof перед class?

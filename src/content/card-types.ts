@@ -1,6 +1,9 @@
+export type VisualMotif = "scope" | "lifecycle" | "values" | "equality" | "conversion";
+
 export type BaseCardData = {
   id: string;
   readMoreUrl?: string;
+  visual?: { motif?: VisualMotif };
 };
 
 export type InfoCardData = BaseCardData & {

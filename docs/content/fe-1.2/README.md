@@ -34,3 +34,7 @@ The package follows the shared namespace, content budgets and verification workf
 The pack covers JavaScript values and runtime types, primitive and object semantics, identity and mutation, numeric edge cases, truthiness, logical and optional operators, equality semantics, explicit and implicit coercion, relational comparison and object-to-primitive conversion.
 
 Different formats may revisit the same concept for explanation, prediction and recall. This is intentional learning reinforcement. Use `COVERAGE.md` to locate the source subsection behind each card.
+
+## Visual identity
+
+Plum/lilac with distinct value shapes (`values`) by default. Cards centered on equality or identity comparisons explicitly select `equality`; conversion, coercion and operator-conversion cards select `conversion`. General type, mutation, numeric representation and optional-access cards retain the default. See the shared [optional motif contract](../README.md#optional-visual-motifs) for supported identifiers and fallback behavior. No learning text, IDs or source links are changed by these assignments.

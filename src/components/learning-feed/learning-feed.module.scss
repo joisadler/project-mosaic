@@ -35,11 +35,6 @@
 }
 
 .card {
-  --card-accent: #7bdff2;
-  --card-glow: rgba(123, 223, 242, 0.2);
-  --card-background:
-    radial-gradient(circle at 86% 12%, var(--card-glow), transparent 34%),
-    linear-gradient(150deg, #101c2a 0%, #08111b 58%, #050a10 100%);
   position: relative;
   width: 100%;
   height: 100%;
@@ -47,48 +42,6 @@
   isolation: isolate;
   color: #f7f8ff;
   background: var(--card-background);
-}
-
-.card::before {
-  position: absolute;
-  z-index: -1;
-  right: -18%;
-  bottom: -26%;
-  width: min(72vw, 34rem);
-  aspect-ratio: 1;
-  border: 1px solid color-mix(in srgb, var(--card-accent) 28%, transparent);
-  border-radius: 50%;
-  content: "";
-  box-shadow:
-    0 0 0 3rem color-mix(in srgb, var(--card-accent) 4%, transparent),
-    0 0 0 7rem color-mix(in srgb, var(--card-accent) 2%, transparent);
-}
-
-.card[data-theme="1"],
-.actionRail[data-theme="1"] {
-  --card-accent: #ffcf70;
-  --card-glow: rgba(255, 183, 77, 0.2);
-  --card-background:
-    radial-gradient(circle at 10% 86%, var(--card-glow), transparent 36%),
-    linear-gradient(150deg, #241a16 0%, #110f13 58%, #08090e 100%);
-}
-
-.card[data-theme="2"],
-.actionRail[data-theme="2"] {
-  --card-accent: #c3a6ff;
-  --card-glow: rgba(163, 122, 255, 0.22);
-  --card-background:
-    radial-gradient(circle at 88% 78%, var(--card-glow), transparent 36%),
-    linear-gradient(150deg, #1c1730 0%, #0e1020 58%, #080a12 100%);
-}
-
-.card[data-theme="3"],
-.actionRail[data-theme="3"] {
-  --card-accent: #77edb5;
-  --card-glow: rgba(74, 222, 159, 0.2);
-  --card-background:
-    radial-gradient(circle at 14% 12%, var(--card-glow), transparent 34%),
-    linear-gradient(150deg, #10271f 0%, #0a1518 58%, #060b10 100%);
 }
 
 .cardProgress {
@@ -124,7 +77,6 @@
 }
 
 .actionRail {
-  --card-accent: #7bdff2;
   position: fixed;
   z-index: 5;
   right: max(1rem, calc(env(safe-area-inset-right, 0px) + 0.75rem));
@@ -422,7 +374,6 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: var(--card-background);
 }
 
 .compactQuizPanel {
@@ -586,6 +537,7 @@
 
 .flipSide {
   position: relative;
+  isolation: isolate;
   width: 100%;
   height: 100%;
   overflow: hidden;

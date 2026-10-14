@@ -92,6 +92,7 @@ JavaScript использует передачу по значению (pass-by-
   // Chapter 1.2, Q6.
   {
     id: "fe-1.2-flip-symbol-description",
+    visual: { motif: "equality" },
     type: "flip",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-6-зачем-нужны-symbol-и-bigint",
     question: `## Делает ли одинаковое описание два Symbol равными?`,
@@ -116,6 +117,7 @@ JavaScript использует передачу по значению (pass-by-
   // Chapter 1.2, Q7.
   {
     id: "fe-1.2-flip-nan-versus-global",
+    visual: { motif: "conversion" },
     type: "flip",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-7-что-особенного-в-nan-infinity-и--0",
     question: `## Чем Number.isNaN отличается от глобальной isNaN?`,
@@ -236,6 +238,7 @@ Nullish coalescing \`??\` обрабатывает только отсутств
   // Chapter 1.2, Q12.
   {
     id: "fe-1.2-flip-samevalue-differences",
+    visual: { motif: "equality" },
     type: "flip",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-12-какие-семантики-равенства-есть-в-javascript",
     question: `## Чем Object.is отличается от ===?`,
@@ -248,6 +251,7 @@ Nullish coalescing \`??\` обрабатывает только отсутств
   // Chapter 1.2, Q12.
   {
     id: "fe-1.2-flip-samevaluezero-users",
+    visual: { motif: "equality" },
     type: "flip",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-12-какие-семантики-равенства-есть-в-javascript",
     question: `## Где используется SameValueZero?`,
@@ -260,6 +264,7 @@ Nullish coalescing \`??\` обрабатывает только отсутств
   // Chapter 1.2, Q12.
   {
     id: "fe-1.2-flip-domain-equality",
+    visual: { motif: "equality" },
     type: "flip",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-12-какие-семантики-равенства-есть-в-javascript",
     question: `## Как сравнить объекты по смыслу, а не по identity?`,
@@ -272,6 +277,7 @@ Nullish coalescing \`??\` обрабатывает только отсутств
   // Chapter 1.2, Q13.
   {
     id: "fe-1.2-flip-loose-null-policy",
+    visual: { motif: "equality" },
     type: "flip",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-13-когда--преобразует-типы-и-можно-ли-его-использовать-осознанно",
     question: `## Когда value == null может быть осознанным выбором?`,
@@ -284,6 +290,7 @@ Nullish coalescing \`??\` обрабатывает только отсутств
   // Chapter 1.2, Q14.
   {
     id: "fe-1.2-flip-boolean-coercion",
+    visual: { motif: "conversion" },
     type: "flip",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-14-что-такое-explicit-и-implicit-coercion",
     question: `## Вызывает ли Boolean(object) метод valueOf()?`,
@@ -296,6 +303,7 @@ Nullish coalescing \`??\` обрабатывает только отсутств
   // Chapter 1.2, Q14.
   {
     id: "fe-1.2-flip-empty-input",
+    visual: { motif: "conversion" },
     type: "flip",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-14-что-такое-explicit-и-implicit-coercion",
     question: `## Почему пустой ввод нужно проверять до Number()?`,
@@ -308,6 +316,7 @@ Nullish coalescing \`??\` обрабатывает только отсутств
   // Chapter 1.2, Q15.
   {
     id: "fe-1.2-flip-plus-choice",
+    visual: { motif: "conversion" },
     type: "flip",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-15-почему-оператор--особенно-опасен-для-mental-model",
     question: `## Когда бинарный + выбирает конкатенацию?`,
@@ -320,6 +329,7 @@ Nullish coalescing \`??\` обрабатывает только отсутств
   // Chapter 1.2, Q16.
   {
     id: "fe-1.2-flip-ordering-equality",
+    visual: { motif: "conversion" },
     type: "flip",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-16-как-работают-сравнения-----с-разными-типами",
     question: `## Почему null >= 0 истинно, а null == 0 ложно?`,
@@ -332,6 +342,7 @@ Nullish coalescing \`??\` обрабатывает только отсутств
   // Chapter 1.2, Q17.
   {
     id: "fe-1.2-flip-primitive-hints",
+    visual: { motif: "conversion" },
     type: "flip",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-17-как-toprimitive-valueof-и-tostring-связаны-с-coercion",
     question: `## Какой порядок методов у обычного ToPrimitive?`,
@@ -344,6 +355,7 @@ Nullish coalescing \`??\` обрабатывает только отсутств
   // Chapter 1.2, Q17.
   {
     id: "fe-1.2-flip-hook-result",
+    visual: { motif: "conversion" },
     type: "flip",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-17-как-toprimitive-valueof-и-tostring-связаны-с-coercion",
     question: `## Что будет, если Symbol.toPrimitive вернёт объект?`,
@@ -356,6 +368,7 @@ Nullish coalescing \`??\` обрабатывает только отсутств
   // Chapter 1.2, Q18.
   {
     id: "fe-1.2-flip-prediction-first",
+    visual: { motif: "conversion" },
     type: "flip",
     readMoreUrl: "https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md#-18-как-системно-решать-output-prediction-задачи-на-values-и-coercion",
     question: `## С чего начинать задачу на результат выражения?`,

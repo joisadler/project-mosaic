@@ -55,6 +55,7 @@ export const feSection1_1FlipCards: FlipCardData[] = [
   },
   {
     id: "fe-1.1-flip-initialized",
+    visual: { motif: "lifecycle" },
     type: "flip",
     readMoreUrl: feSection1_1ReadMoreUrls.q2,
     question: `## Можно ли присвоить значение let, пока она в TDZ?`,
@@ -132,6 +133,7 @@ ECMAScript задаёт язык, стандартные объекты и пр�
   },
   {
     id: "fe-1.1-flip-multiple-scripts",
+    visual: { motif: "lifecycle" },
     type: "flip",
     readMoreUrl: feSection1_1ReadMoreUrls.q12,
     question: `## Может ли объявление из следующего script подняться в предыдущий?`,
@@ -212,6 +214,7 @@ Global, module, function и block описывают границы; lexical о�
   // Chapter 1.1: Q2, Q9.
   {
     id: "fe-1.1-flip-undefined-vs-tdz",
+    visual: { motif: "lifecycle" },
     type: "flip",
     readMoreUrl: feSection1_1ReadMoreUrls.q2,
     question: `## Чем undefined отличается от неинициализированной привязки?`,
@@ -224,6 +227,7 @@ Global, module, function и block описывают границы; lexical о�
   // Chapter 1.1: Q8.
   {
     id: "fe-1.1-flip-hoisting-assignment",
+    visual: { motif: "lifecycle" },
     type: "flip",
     readMoreUrl: feSection1_1ReadMoreUrls.q8,
     question: `## Выполняется ли = 9 заранее вместе с подготовкой var?`,
@@ -236,6 +240,7 @@ Global, module, function и block описывают границы; lexical о�
   // Chapter 1.1: Q6, Q11, Q12.
   {
     id: "fe-1.1-flip-error-phases",
+    visual: { motif: "lifecycle" },
     type: "flip",
     readMoreUrl: feSection1_1ReadMoreUrls.q6,
     question: `## Если ошибка до первого лога, это обязательно Early Error?`,

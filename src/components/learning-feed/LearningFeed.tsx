@@ -16,6 +16,8 @@ import { FlipCard, type FlipSideIndex } from "./FlipCard";
 import { InfoCard } from "./InfoCard";
 import { QuizCard } from "./QuizCard";
 import { ReadMoreLink } from "./ReadMoreLink";
+import { getCardPresentation } from "./section-presentation";
+import presentationStyles from "./section-presentation.module.scss";
 import styles from "./learning-feed.module.scss";
 
 type LearningFeedProps = {
@@ -331,7 +333,10 @@ export function LearningFeed({ cards }: LearningFeedProps) {
         ))}
       </Swiper>
 
-      <div className={styles.actionRail} data-theme={activeCardIndex % 4}>
+      <div
+        className={`${styles.actionRail} ${presentationStyles.presentation}`}
+        data-section={getCardPresentation(shuffledCards[activeCardIndex]).section}
+      >
         <ReadMoreLink url={shuffledCards[activeCardIndex]?.readMoreUrl} />
       </div>
 

@@ -3,7 +3,10 @@ import { A11y, EffectFlip } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperInstance } from "swiper/types";
 import type { FlipCardData } from "@/content/card-types";
+import { CardDecoration } from "./CardDecoration";
 import { CardTypeLabel } from "./CardTypeLabel";
+import { getCardPresentation } from "./section-presentation";
+import presentationStyles from "./section-presentation.module.scss";
 import { MarkdownContent } from "./MarkdownPage";
 import { useMediaQuery } from "./use-media-query";
 import styles from "./learning-feed.module.scss";
@@ -68,8 +71,8 @@ export function FlipCard({
 
   return (
     <article
-      className={styles.card}
-      data-theme={cardIndex % 4}
+      className={`${styles.card} ${presentationStyles.presentation}`}
+      data-section={getCardPresentation(card).section}
       aria-label={`Карточка для повторения ${cardIndex + 1} из ${cardCount}`}
       aria-hidden={!isActive}
       inert={!isActive}
@@ -124,6 +127,7 @@ export function FlipCard({
                 aria-hidden={!isSideActive}
                 inert={!isSideActive}
               >
+                <CardDecoration card={card} />
                 <div className={styles.flipSideScroller}>
                   <MarkdownContent markdown={card.question} />
                 </div>
@@ -142,6 +146,7 @@ export function FlipCard({
                 aria-hidden={!isSideActive}
                 inert={!isSideActive}
               >
+                <CardDecoration card={card} />
                 <div className={styles.flipSideScroller}>
                   <MarkdownContent markdown={card.answer} />
                 </div>

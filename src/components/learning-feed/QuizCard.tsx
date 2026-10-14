@@ -3,7 +3,10 @@ import { A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperInstance } from "swiper/types";
 import type { QuizCardData } from "@/content/card-types";
+import { CardDecoration } from "./CardDecoration";
 import { CardTypeLabel } from "./CardTypeLabel";
+import { getCardPresentation } from "./section-presentation";
+import presentationStyles from "./section-presentation.module.scss";
 import { MarkdownContent } from "./MarkdownPage";
 import { useMediaQuery } from "./use-media-query";
 import styles from "./learning-feed.module.scss";
@@ -184,12 +187,13 @@ export function QuizCard({
 
   return (
     <article
-      className={`${styles.card} ${styles.quizCard}`}
-      data-theme={cardIndex % 4}
+      className={`${styles.card} ${styles.quizCard} ${presentationStyles.presentation}`}
+      data-section={getCardPresentation(card).section}
       aria-label={`Проверочная карточка ${cardIndex + 1} из ${cardCount}`}
       aria-hidden={!isActive}
       inert={!isActive}
     >
+      <CardDecoration card={card} />
       <header className={styles.quizHeader}>
         <CardTypeLabel type="quiz" />
 
