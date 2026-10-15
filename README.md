@@ -30,7 +30,7 @@ npm ci
 npm run dev
 ```
 
-Open http://localhost:3000. Run `nvm use` in each new terminal before working on this project. No environment variables or external services are required.
+Open http://localhost:3000. Run `nvm use` in each new terminal before working on this project. Guest browsing needs no environment variables or external services. Optional Google sign-in uses Better Auth and MongoDB; see the [authentication setup guide](docs/authentication.md) for local, fixed-tunnel, and production configuration. Real credentials belong only in ignored local files or the deployment environment.
 
 ## Scripts
 
@@ -39,6 +39,7 @@ Open http://localhost:3000. Run `nvm use` in each new terminal before working on
 | `npm run dev` | Start the development server |
 | `npm run lint` | Run ESLint with zero warnings allowed |
 | `npm run validate:content` | Validate card structure and mobile content budgets |
+| `npm run test:auth` | Check authentication origin/configuration boundaries |
 | `npm run typecheck` | Generate Next.js types and run TypeScript checks |
 | `npm run build` | Create a production build |
 | `npm start` | Serve the production build after `npm run build` |
@@ -48,6 +49,8 @@ Open http://localhost:3000. Run `nvm use` in each new terminal before working on
 - `src/app/`: root layout, feed entry page, global SCSS, and manifest.
 - `src/components/learning-feed/`: virtualized vertical feed, horizontal card pages, and Markdown rendering.
 - `src/content/`: typed local learning content.
+- `src/lib/auth/`: server authentication, MongoDB connection, and ownership helpers.
+- `src/app/sign-in/`: independently testable optional Google sign-in/sign-out page.
 - `docs/content/`: shared content rules and source-specific package documentation.
 - `public/illustrations/`: local content illustrations.
 - `public/icons/`: placeholder app icons.
@@ -56,9 +59,11 @@ Open http://localhost:3000. Run `nvm use` in each new terminal before working on
 
 ## Current status
 
-The project owner accepted the existing application as the completed MVP on October 11, 2026. Linear issue `JOI-10` was closed with that acceptance recorded. Remaining backlog items are post-MVP improvements and do not prevent the MVP from being complete.
+The project owner accepted the existing application as the completed MVP on October 11, 2026. Linear issue [MOS-1](https://linear.app/joisadler/issue/MOS-1) records that acceptance. Remaining backlog items are post-MVP improvements and do not prevent the MVP from being complete.
 
 The MVP implements a full-screen virtualized educational feed that mixes multi-page InfoCards, accessible multiple-choice QuizCards, and swipe-driven question-and-answer FlipCards. Markdown content is stored locally, the 220 cards from the Frontend Interview Preparation `fe-1.1` and `fe-1.2` packs are shuffled once per mounted feed, and card interaction state persists while that feed remains mounted.
+
+Both packs use the explicit learning-section registry. Blue/cyan scope and declaration-lifecycle compositions identify fe-1.1; plum/lilac value, equality, and conversion compositions identify fe-1.2. Shared section presets apply across all three card types, with optional typed motifs and safe fallbacks. See the [content authoring contract](docs/content/README.md#optional-visual-motifs).
 
 The core controls support visible keyboard focus and accessible names. Multi-page InfoCards use Left/Right navigation, FlipCards expose their two sides as a named keyboard surface, and QuizCard arrows move focus without submitting an answer; click, Space or Enter makes the selection and reveals textual feedback. Reduced-motion preferences disable the relevant feed, page and flip transitions. Extreme zoom/reflow uses compact horizontal presentation without changing the authored InfoCard pages, QuizCard data or two-sided FlipCard structure.
 
@@ -70,7 +75,11 @@ The manifest includes standalone display, a best-effort portrait orientation hin
 
 Use the product, gather feedback, and select small improvements according to user value, priority, and dependencies. The [Project Mosaic Linear project](https://linear.app/joisadler/project/project-mosaic-1db195c51ec6) is the source of truth for tasks and backlog status; this repository documentation describes product scope and working agreements rather than duplicating the task tracker.
 
-Future ideas remain tentative until they are prioritized and explicitly approved. A backlog item is not evidence that a feature is committed or that the completed MVP is incomplete.
+The owner approved a bounded learning-state and account plan on October 12, 2026, recorded in [MOS-12](https://linear.app/joisadler/issue/MOS-12). It selects Google sign-in, a minimal MongoDB user/backend foundation through Next.js route handlers, a dedicated user/settings page, device-local session resume, explicit understanding progress, account synchronization, section controls, completed-card review, and progress-aware ordering with basic repeat spacing. Implement these as small tasks in the recorded sequence and observe their dependencies.
+
+The Google/MongoDB foundation is implemented behind optional environment configuration: `/sign-in`, `/api/auth/*`, and the authenticated `/api/account` boundary. Development credentials are configured, and the owner confirmed Google sign-in, refresh persistence, sign-out, and repeat sign-in on desktop and iPhone Safari. On October 14, 2026, the owner also confirmed Google sign-in returning to the installed development PWA, session persistence after closing/reopening, and sign-out there. Production infrastructure and environment variables are prepared. Live development checks cover session expiry/revocation, signed cookies, ownership, origin checks, and OAuth cancellation callbacks; The owner confirmed account selection and switching between both test Google accounts in the installed development PWA on October 15, 2026. Actual Google consent cancellation and deployed production validation remain pending. MOS-24 is not complete. The permanent user/settings entry, durable session storage, progress, and synchronization are still pending. The feed needs no account or external services; its order, page, quiz, and flip state live only in memory for the mounted feed. The approved later synchronization will share progress and selected sections across devices while active session order and position stay device-local.
+
+Other backlog ideas, including sound/haptics and user-reporting flows, remain tentative until selected. Runtime AI, recommendation engines, advanced spaced-repetition infrastructure, analytics, social features, and additional domains are outside the approved plan. See [ROADMAP.md](ROADMAP.md) for scope boundaries; current task status remains in Linear.
 
 ## Dependency notes
 

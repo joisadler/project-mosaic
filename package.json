@@ -11,13 +11,18 @@
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
     "validate:content": "node scripts/validate-content.mjs",
+    "test:auth": "node --test scripts/auth-config.test.mjs",
     "typecheck": "next typegen && tsc --noEmit"
   },
   "dependencies": {
+    "@better-auth/mongo-adapter": "1.7.7",
+    "better-auth": "1.7.7",
+    "mongodb": "7.7.0",
     "next": "16.4.0",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "react-markdown": "10.1.0",
+    "server-only": "0.0.1",
     "swiper": "14.3.0"
   },
   "devDependencies": {
