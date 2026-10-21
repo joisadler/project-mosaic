@@ -1,8 +1,7 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { readAuthConfig } from "@/lib/auth/config";
-import { SignIn } from "./SignIn";
-import styles from "./SignIn.module.scss";
+import { AccountSession } from "@/components/account/AccountSession";
+import { AccountScreen, AccountUnavailable } from "@/components/account/AccountScreen";
 
 export const dynamic = "force-dynamic";
 
@@ -25,15 +24,8 @@ export default async function SignInPage({ searchParams }: {
   }
   const params = await searchParams;
   return (
-    <main className={styles.page}>
-      <section className={styles.panel} aria-labelledby="sign-in-title">
-        <h1 id="sign-in-title">Вход в Mosaic</h1>
-        <p>Учиться можно без аккаунта.</p>
-        {configured ? <SignIn callbackFailed={Boolean(params.error)} /> : (
-          <p role="status">Вход пока недоступен. Можно продолжить обучение без аккаунта.</p>
-        )}
-        <Link href="/" className={styles.link}>Перейти к карточкам</Link>
-      </section>
-    </main>
+    <AccountScreen>
+      {configured ? <AccountSession callbackFailed={Boolean(params.error)} /> : <AccountUnavailable />}
+    </AccountScreen>
   );
 }

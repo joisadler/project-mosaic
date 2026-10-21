@@ -82,7 +82,7 @@
   right: max(1rem, calc(env(safe-area-inset-right, 0px) + 0.75rem));
   bottom: max(1.5rem, calc(env(safe-area-inset-bottom, 0px) + 1.25rem));
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   align-items: center;
   gap: 0.75rem;
 }
@@ -155,6 +155,7 @@
   width: 1.55rem;
   height: 1.55rem;
 }
+
 
 @media (hover: hover) and (pointer: fine) {
   .readMoreLink:hover::after,
@@ -1132,5 +1133,14 @@
   .flipSwiper :global(.swiper-slide-shadow-left),
   .flipSwiper :global(.swiper-slide-shadow-right) {
     display: none !important;
+  }
+}
+
+// Keep both feed actions clear of card content on phone-sized layouts.
+@media (max-width: 47.999rem) and (min-height: 20.001rem) {
+  .page,
+  .quizScroller,
+  .flipSideScroller {
+    padding-right: max(5rem, calc(env(safe-area-inset-right) + 4.75rem));
   }
 }

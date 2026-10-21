@@ -1,0 +1,25 @@
+# Device-local study sessions
+
+The feed restores its order and position from `localStorage` on the same origin and browser profile. No session position is sent to MongoDB or synchronized to another device. Localhost, a development tunnel, production, private browsing, and separate browser profiles have separate storage. Clearing site data removes the saved session; unavailable storage falls back to an in-memory session and a notice on the account page.
+
+## Saved state
+
+The versioned snapshot stores only a random session UUID, ordered stable card IDs, current card ID, informational page indices, selected quiz option IDs, and flip sides. Explanations are derived from the selected quiz option; scroll offsets and transient focus/animation state are not stored. Presentation identity is `session UUID:card ID`, stable across reload and backward/forward navigation. It does not grant rewards or record understanding; those behaviors belong to later progress tasks.
+
+Keys have the form `mosaic:session:v1:<encoded owner>:<encoded scope>`. Owners are `guest` or `account:<server user ID>`. Identity comes from the shared Better Auth session client. While identity is unresolved, no previous account session is displayed or overwritten. If authentication is unavailable, browsing uses a separate unsaved session until identity can be confirmed. Sign-out/account switching remounts the session boundary and restores only the new owner's state. Nothing is automatically imported from guest to account. Browser storage is not encrypted or a security boundary against someone controlling the same browser profile; the snapshot contains no credentials, name, or email.
+
+The current scope is `study:all`. Future section-filter and review tasks should supply separate deterministic scope keys (mode plus sorted selected section IDs) and eligible card lists to the same reconciliation functions. They must not mix study/review sessions or grant new presentation identities merely because a saved session was reloaded. No filter or review UI is introduced here.
+
+## Recovery and starting again
+
+Malformed snapshots and unsupported versions start a new session. Existing valid orders retain surviving cards, remove duplicate/deleted IDs, and append shuffled new IDs. If the current card disappeared, resume at the nearest remaining position. Informational pages clamp to their new page count; invalid quiz options and flip sides are discarded. Empty feeds remain navigable to the account page.
+
+The account page's **Начать заново** action asks before replacing the current local session, assigns a new UUID, reshuffles, clears its quiz/page/flip presentation state, and returns to the feed. It does not clear study progress. With more than one card, an identical random permutation is rotated to ensure a changed order. Existing guest/other-account snapshots are unaffected. Multiple tabs in the same browser profile use the same saved namespace; each mounted tab retains its current session and the last interaction to write storage wins. This does not implement live tab synchronization.
+
+Storage reads happen once when the client subscribes; snapshots are cached through `useSyncExternalStore` with a matching empty server snapshot for hydration. Each meaningful interaction writes synchronously, so leaving for Read more does not rely on an unload handler. Write failures never block navigation. No dependencies, service workers, or general-purpose state framework are added.
+
+## Validation
+
+Run `npm run test:session`, `npm run test:auth`, content validation, lint, typecheck, and build. Check actual rendered order/current card, multipage InfoCard, selected quiz feedback, and both flip sides before/after reload. Check account round trips, explicit restart/cancel, two independent browser profiles/origins, and user switching. Separately ask the owner to validate closing and reopening the actual installed iPhone PWA; browser reload evidence is not physical-device reopen evidence.
+
+On October 21, 2026, the owner tested the new session resume behavior in the installed development iPhone PWA and confirmed normal behavior. MOS-17 is accepted; detailed implementation and validation evidence is recorded in Linear. This confirmation does not establish validation of a later production deployment.

@@ -3,8 +3,8 @@
 import {
   useCallback,
   useEffect,
+  useMemo,
   useRef,
-  useState,
   type PointerEvent as ReactPointerEvent,
   type TouchEvent as ReactTouchEvent,
 } from "react";
@@ -12,78 +12,58 @@ import { A11y, Keyboard, Mousewheel, Virtual } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperInstance } from "swiper/types";
 import type { LearningCardData } from "@/content/card-types";
+import { useStudySession } from "@/components/study-shell/StudySessionProvider";
+import { presentationId } from "@/lib/study-session/session";
 import { FlipCard, type FlipSideIndex } from "./FlipCard";
 import { InfoCard } from "./InfoCard";
 import { QuizCard } from "./QuizCard";
 import { ReadMoreLink } from "./ReadMoreLink";
+import { AccountLink } from "./AccountLink";
 import { getCardPresentation } from "./section-presentation";
 import presentationStyles from "./section-presentation.module.scss";
 import styles from "./learning-feed.module.scss";
 
 type LearningFeedProps = {
   cards: readonly LearningCardData[];
+  active?: boolean;
 };
 
 const feedModules = [A11y, Keyboard, Mousewheel, Virtual];
 
-function shuffleCards(cards: readonly LearningCardData[]) {
-  const shuffledCards = [...cards];
-
-  for (let index = shuffledCards.length - 1; index > 0; index -= 1) {
-    const randomIndex = Math.floor(Math.random() * (index + 1));
-    const currentCard = shuffledCards[index];
-
-    shuffledCards[index] = shuffledCards[randomIndex];
-    shuffledCards[randomIndex] = currentCard;
-  }
-
-  return shuffledCards;
-}
-
-export function LearningFeed({ cards }: LearningFeedProps) {
-  const hasInitializedOrder = useRef(false);
+export function LearningFeed({ cards, active = true }: LearningFeedProps) {
+  const { session, update } = useStudySession();
   const feedSwiperRef = useRef<SwiperInstance | null>(null);
   const feedShellRef = useRef<HTMLElement | null>(null);
   const systemGestureGuardRef = useRef<HTMLDivElement | null>(null);
   const isSystemGestureGuardActiveRef = useRef(false);
-  const [shuffledCards, setShuffledCards] = useState<LearningCardData[] | null>(null);
-  const [activeCardIndex, setActiveCardIndex] = useState(0);
-  const [pageByCard, setPageByCard] = useState<Record<string, number>>({});
-  const [selectedOptionByCard, setSelectedOptionByCard] = useState<Record<string, string>>({});
-  const [flipSideByCard, setFlipSideByCard] = useState<Record<string, FlipSideIndex>>({});
-
-  useEffect(() => {
-    if (hasInitializedOrder.current) {
-      return;
-    }
-
-    hasInitializedOrder.current = true;
-    setShuffledCards(shuffleCards(cards));
-  }, [cards]);
+  const cardsById = useMemo(() => new Map(cards.map(card => [card.id, card])), [cards]);
+  const order = session?.order;
+  const shuffledCards = useMemo(() => order?.flatMap(id => {
+    const card = cardsById.get(id);
+    return card ? [card] : [];
+  }) ?? null, [order, cardsById]);
+  const activeCardIndex = Math.max(0, session?.order.indexOf(session.currentCardId ?? "") ?? 0);
+  const pageByCard = session?.pages ?? {};
+  const selectedOptionByCard = session?.answers ?? {};
+  const flipSideByCard = session?.sides ?? {};
 
   const rememberPage = useCallback((cardId: string, pageIndex: number) => {
-    setPageByCard((current) =>
-      current[cardId] === pageIndex
-        ? current
-        : { ...current, [cardId]: pageIndex },
-    );
-  }, []);
+    update(current => current.pages[cardId] === pageIndex ? current : {
+      ...current, pages: { ...current.pages, [cardId]: pageIndex },
+    });
+  }, [update]);
 
   const rememberFlipSide = useCallback((cardId: string, sideIndex: FlipSideIndex) => {
-    setFlipSideByCard((current) =>
-      current[cardId] === sideIndex
-        ? current
-        : { ...current, [cardId]: sideIndex },
-    );
-  }, []);
+    update(current => current.sides[cardId] === sideIndex ? current : {
+      ...current, sides: { ...current.sides, [cardId]: sideIndex },
+    });
+  }, [update]);
 
   const rememberSelectedOption = useCallback((cardId: string, optionId: string) => {
-    setSelectedOptionByCard((current) =>
-      current[cardId] === optionId
-        ? current
-        : { ...current, [cardId]: optionId },
-    );
-  }, []);
+    update(current => current.answers[cardId] === optionId ? current : {
+      ...current, answers: { ...current.answers, [cardId]: optionId },
+    });
+  }, [update]);
 
   const resetSystemGestureGuard = useCallback(() => {
     if (!isSystemGestureGuardActiveRef.current) {
@@ -126,6 +106,22 @@ export function LearningFeed({ cards }: LearningFeedProps) {
     swiper.update();
     swiper.slideTo(swiper.activeIndex, 0, false, true);
   }, [resetSystemGestureGuard]);
+
+  useEffect(() => {
+    const swiper = feedSwiperRef.current;
+    if (!swiper || swiper.destroyed) return;
+    resetSystemGestureGuard();
+    if (active) {
+      swiper.enable();
+      swiper.keyboard.enable();
+      swiper.mousewheel.enable();
+      realignFeed();
+    } else {
+      swiper.keyboard.disable();
+      swiper.mousewheel.disable();
+      swiper.disable();
+    }
+  }, [active, session?.id, realignFeed, resetSystemGestureGuard]);
 
   const guardSystemGesture = useCallback((clientY: number) => {
     resetSystemGestureGuard();
@@ -250,6 +246,10 @@ export function LearningFeed({ cards }: LearningFeedProps) {
     );
   }
 
+  if (shuffledCards.length === 0) {
+    return <main className={styles.feedShell} aria-label="Учебная лента по frontend"><p role="status">Пока нет карточек для обучения.</p><AccountLink /></main>;
+  }
+
   return (
     <main
       ref={feedShellRef}
@@ -263,7 +263,9 @@ export function LearningFeed({ cards }: LearningFeedProps) {
       onTouchCancelCapture={resetSystemGestureGuard}
     >
       <Swiper
+        key={session?.id}
         className={styles.feed}
+        initialSlide={activeCardIndex}
         modules={feedModules}
         direction="vertical"
         slidesPerView={1}
@@ -272,14 +274,16 @@ export function LearningFeed({ cards }: LearningFeedProps) {
         threshold={8}
         touchAngle={42}
         grabCursor
-        keyboard={{ enabled: true, onlyInViewport: true, pageUpDown: true }}
+        enabled={active}
+        keyboard={{ enabled: active, onlyInViewport: true, pageUpDown: true }}
         mousewheel={{ forceToAxis: true, releaseOnEdges: true, thresholdDelta: 12 }}
         virtual={{ addSlidesBefore: 1, addSlidesAfter: 1 }}
         onSwiper={(swiper) => {
           feedSwiperRef.current = swiper;
         }}
         onActiveIndexChange={(swiper) => {
-          setActiveCardIndex(swiper.activeIndex);
+          const id = shuffledCards[swiper.activeIndex]?.id;
+          if (id) update(current => current.currentCardId === id ? current : { ...current, currentCardId: id });
         }}
         a11y={{
           enabled: true,
@@ -290,7 +294,7 @@ export function LearningFeed({ cards }: LearningFeedProps) {
         }}
       >
         {shuffledCards.map((card, index) => (
-          <SwiperSlide key={card.id} virtualIndex={index} data-card-id={card.id}>
+          <SwiperSlide key={card.id} virtualIndex={index} data-card-id={card.id} data-presentation-id={session ? presentationId(session, card.id) : undefined}>
             {({ isActive }) => {
               if (card.type === "info") {
                 return (
@@ -299,7 +303,7 @@ export function LearningFeed({ cards }: LearningFeedProps) {
                     cardIndex={index}
                     cardCount={shuffledCards.length}
                     activePage={pageByCard[card.id] ?? 0}
-                    isActive={isActive}
+                    isActive={isActive && active}
                     onPageChange={rememberPage}
                   />
                 );
@@ -311,7 +315,7 @@ export function LearningFeed({ cards }: LearningFeedProps) {
                     card={card}
                     cardIndex={index}
                     cardCount={shuffledCards.length}
-                    isActive={isActive}
+                    isActive={isActive && active}
                     selectedOptionId={selectedOptionByCard[card.id]}
                     onOptionSelect={rememberSelectedOption}
                   />
@@ -324,7 +328,7 @@ export function LearningFeed({ cards }: LearningFeedProps) {
                   cardIndex={index}
                   cardCount={shuffledCards.length}
                   activeSide={flipSideByCard[card.id] ?? 0}
-                  isActive={isActive}
+                  isActive={isActive && active}
                   onSideChange={rememberFlipSide}
                 />
               );
@@ -338,6 +342,7 @@ export function LearningFeed({ cards }: LearningFeedProps) {
         data-section={getCardPresentation(shuffledCards[activeCardIndex]).section}
       >
         <ReadMoreLink url={shuffledCards[activeCardIndex]?.readMoreUrl} />
+        <AccountLink />
       </div>
 
       <div
