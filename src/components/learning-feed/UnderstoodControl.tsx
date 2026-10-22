@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { LearningCardData } from "@/content/card-types";
+import { interactionKey } from "@/lib/study-session/study-queue";
 import { useStudySession } from "@/components/study-shell/StudySessionProvider";
 import { cardPercentage, confirmationStatus } from "@/lib/learning-progress/progress";
 import { useMediaQuery } from "./use-media-query";
@@ -20,7 +21,7 @@ export function UnderstoodControl({ card, presentationId, poolIds, onToggle }: {
     const timer = window.setInterval(() => setNow(Date.now()), 30_000);
     return () => window.clearInterval(timer);
   }, []);
-  const status = confirmationStatus(progress.data, card, presentationId, poolIds, now, session?.answers[card.id]);
+  const status = confirmationStatus(progress.data, card, presentationId, poolIds, now, session?.answers[interactionKey(session, presentationId, card.id)]);
   const percentage = cardPercentage(progress.data, card.id);
   const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
   const [displayedPercentage, setDisplayedPercentage] = useState(percentage);

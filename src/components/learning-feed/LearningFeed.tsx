@@ -15,7 +15,7 @@ import Link from "next/link";
 import type { Swiper as SwiperInstance } from "swiper/types";
 import type { LearningCardData } from "@/content/card-types";
 import { useStudySession } from "@/components/study-shell/StudySessionProvider";
-import { presentationId } from "@/lib/study-session/session";
+import { interactionKey, sessionEntries } from "@/lib/study-session/study-queue";
 import { FlipCard, type FlipSideIndex } from "./FlipCard";
 import { InfoCard } from "./InfoCard";
 import { QuizCard } from "./QuizCard";
@@ -45,20 +45,29 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
   const systemGestureGuardRef = useRef<HTMLDivElement | null>(null);
   const isSystemGestureGuardActiveRef = useRef(false);
   const cardsById = useMemo(() => new Map(cards.map(card => [card.id, card])), [cards]);
-  const order = session?.order;
-  const shuffledCards = useMemo(() => order?.flatMap(id => {
-    const card = cardsById.get(id);
-    return card ? [card] : [];
-  }) ?? null, [order, cardsById]);
-  const activeCardIndex = Math.max(0, session?.order.indexOf(session.currentCardId ?? "") ?? 0);
+  const entries = useMemo(() => session ? sessionEntries(session).filter(entry => cardsById.has(entry.cardId)) : null, [session, cardsById]);
+  const shuffledCards = useMemo(() => entries?.map(entry => cardsById.get(entry.cardId)!) ?? null, [entries, cardsById]);
+  const activeCardIndex = Math.max(0, entries?.findIndex(entry => session?.queue ? entry.id === session.currentEntryId : entry.cardId === session?.currentCardId) ?? 0);
+  const positions = useMemo(() => {
+    const counts = new Map<string, number>();
+    const indices = new Map<string, number>();
+    for (const entry of entries ?? []) counts.set(entry.id.slice(0, 36), (counts.get(entry.id.slice(0, 36)) ?? 0) + 1);
+    return entries?.map(entry => {
+      const round = entry.id.slice(0, 36);
+      const index = indices.get(round) ?? 0;
+      indices.set(round, index + 1);
+      return { index, count: counts.get(round)! };
+    }) ?? [];
+  }, [entries]);
   const pageByCard = session?.pages ?? {};
   const selectedOptionByCard = session?.answers ?? {};
   const flipSideByCard = session?.sides ?? {};
 
   const activeCard = shuffledCards?.[activeCardIndex];
-  const currentPresentation = session && activeCard ? presentationId(session, activeCard.id) : null;
-  const currentPage = activeCard ? pageByCard[activeCard.id] ?? 0 : 0;
-  const currentSide = activeCard ? flipSideByCard[activeCard.id] ?? 0 : 0;
+  const currentPresentation = entries?.[activeCardIndex]?.id ?? null;
+  const currentKey = activeCard && currentPresentation ? interactionKey(session, currentPresentation, activeCard.id) : "";
+  const currentPage = pageByCard[currentKey] ?? 0;
+  const currentSide = flipSideByCard[currentKey] ?? 0;
 
   useEffect(() => {
     if (mode === "review" || !active || !activeCard || !currentPresentation || !progress.ready) return;
@@ -66,9 +75,9 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
       ? { pages: [currentPage] } : activeCard.type === "flip" && currentSide === 1 ? { answerSeen: true } : {});
   }, [mode, active, activeCard, currentPresentation, currentPage, currentSide, progress.ready, reviewCard]);
 
-  const rememberQuizFeedback = useCallback((cardId: string, optionId: string) => {
-    if (session && progress.ready) reviewCard(cardId, presentationId(session, cardId), { feedbackOptionId: optionId });
-  }, [session, progress.ready, reviewCard]);
+  const rememberQuizFeedback = useCallback((entryId: string, cardId: string, optionId: string) => {
+    if (progress.ready) reviewCard(cardId, entryId, { feedbackOptionId: optionId });
+  }, [progress.ready, reviewCard]);
 
   useEffect(() => () => {
     if (noticeTimer.current) clearTimeout(noticeTimer.current);
@@ -76,30 +85,33 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
 
   const confirmUnderstanding = useCallback(() => {
     if (mode === "review" || !active || !activeCard || !currentPresentation || !session) return;
-    const message = toggleConfirmation(activeCard, currentPresentation, session.order, Date.now(), session.answers[activeCard.id]);
+    const message = toggleConfirmation(activeCard, currentPresentation, session.order, Date.now(), session.answers[currentKey]);
     setNotice(message);
     if (noticeTimer.current) clearTimeout(noticeTimer.current);
     noticeTimer.current = setTimeout(() => setNotice(""), 4500);
-  }, [mode, active, activeCard, currentPresentation, session, toggleConfirmation]);
+  }, [mode, active, activeCard, currentPresentation, currentKey, session, toggleConfirmation]);
 
   const isTapArea = (target: EventTarget | null) => target instanceof Element &&
     !!target.closest("article") && !target.closest('a,button,input,textarea,select,pre,code,[contenteditable="true"],[role="radio"],[role="radiogroup"]');
 
-  const rememberPage = useCallback((cardId: string, pageIndex: number) => {
-    update(current => current.pages[cardId] === pageIndex ? current : {
-      ...current, pages: { ...current.pages, [cardId]: pageIndex },
+  const rememberPage = useCallback((entryId: string, cardId: string, pageIndex: number) => {
+    update(current => {
+      const key = interactionKey(current, entryId, cardId);
+      return current.pages[key] === pageIndex ? current : { ...current, pages: { ...current.pages, [key]: pageIndex } };
     });
   }, [update]);
 
-  const rememberFlipSide = useCallback((cardId: string, sideIndex: FlipSideIndex) => {
-    update(current => current.sides[cardId] === sideIndex ? current : {
-      ...current, sides: { ...current.sides, [cardId]: sideIndex },
+  const rememberFlipSide = useCallback((entryId: string, cardId: string, sideIndex: FlipSideIndex) => {
+    update(current => {
+      const key = interactionKey(current, entryId, cardId);
+      return current.sides[key] === sideIndex ? current : { ...current, sides: { ...current.sides, [key]: sideIndex } };
     });
   }, [update]);
 
-  const rememberSelectedOption = useCallback((cardId: string, optionId: string) => {
-    update(current => current.answers[cardId] === optionId ? current : {
-      ...current, answers: { ...current.answers, [cardId]: optionId },
+  const rememberSelectedOption = useCallback((entryId: string, cardId: string, optionId: string) => {
+    update(current => {
+      const key = interactionKey(current, entryId, cardId);
+      return current.answers[key] === optionId ? current : { ...current, answers: { ...current.answers, [key]: optionId } };
     });
   }, [update]);
 
@@ -292,7 +304,12 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
         className={styles.feedShell}
         aria-label={mode === "review" ? "Повторение завершённых карточек" : "Учебная лента по frontend"}
         aria-busy="true"
-      />
+      >
+        <div className={styles.emptyFeed}>
+          <p role="status">Загружаем карточки…</p>
+          <Link href="/account" scroll={false} data-account-entry>Аккаунт и настройки</Link>
+        </div>
+      </main>
     );
   }
 
@@ -327,7 +344,7 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
       onTouchCancelCapture={resetSystemGestureGuard}
     >
       <Swiper
-        key={`${session?.id}:${shuffledCards.map(card => card.id).join("|")}`}
+        key={`${session?.id}:${entries?.[0]?.id}:${session?.order.join("|")}`}
         className={styles.feed}
         initialSlide={activeCardIndex}
         modules={feedModules}
@@ -346,10 +363,11 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
           feedSwiperRef.current = swiper;
         }}
         onActiveIndexChange={(swiper) => {
-          const id = shuffledCards[swiper.activeIndex]?.id;
-          if (id) {
+          const entry = entries?.[swiper.activeIndex];
+          if (active && entry) {
             setNotice("");
-            update(current => current.currentCardId === id ? current : { ...current, currentCardId: id });
+            update(current => (current.queue ? current.currentEntryId === entry.id : current.currentCardId === entry.cardId)
+              ? current : { ...current, currentCardId: entry.cardId, ...(current.queue ? { currentEntryId: entry.id } : {}) });
           }
         }}
         a11y={{
@@ -361,17 +379,17 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
         }}
       >
         {shuffledCards.map((card, index) => (
-          <SwiperSlide key={card.id} virtualIndex={index} data-card-id={card.id} data-presentation-id={session ? presentationId(session, card.id) : undefined}>
+          <SwiperSlide key={entries![index].id} virtualIndex={index} data-card-id={card.id} data-presentation-id={entries![index].id}>
             {({ isActive }) => {
               if (card.type === "info") {
                 return (
                   <InfoCard
                     card={card}
-                    cardIndex={index}
-                    cardCount={shuffledCards.length}
-                    activePage={pageByCard[card.id] ?? 0}
+                    cardIndex={positions[index].index}
+                    cardCount={positions[index].count}
+                    activePage={pageByCard[interactionKey(session, entries![index].id, card.id)] ?? 0}
                     isActive={isActive && active}
-                    onPageChange={rememberPage}
+                    onPageChange={(cardId, page) => rememberPage(entries![index].id, cardId, page)}
                   />
                 );
               }
@@ -380,12 +398,12 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
                 return (
                   <QuizCard
                     card={card}
-                    cardIndex={index}
-                    cardCount={shuffledCards.length}
+                    cardIndex={positions[index].index}
+                    cardCount={positions[index].count}
                     isActive={isActive && active}
-                    selectedOptionId={selectedOptionByCard[card.id]}
-                    onOptionSelect={rememberSelectedOption}
-                    onFeedbackReview={rememberQuizFeedback}
+                    selectedOptionId={selectedOptionByCard[interactionKey(session, entries![index].id, card.id)]}
+                    onOptionSelect={(cardId, option) => rememberSelectedOption(entries![index].id, cardId, option)}
+                    onFeedbackReview={(cardId, option) => rememberQuizFeedback(entries![index].id, cardId, option)}
                   />
                 );
               }
@@ -393,11 +411,11 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
               return (
                 <FlipCard
                   card={card}
-                  cardIndex={index}
-                  cardCount={shuffledCards.length}
-                  activeSide={flipSideByCard[card.id] ?? 0}
+                  cardIndex={positions[index].index}
+                  cardCount={positions[index].count}
+                  activeSide={flipSideByCard[interactionKey(session, entries![index].id, card.id)] ?? 0}
                   isActive={isActive && active}
-                  onSideChange={rememberFlipSide}
+                  onSideChange={(cardId, side) => rememberFlipSide(entries![index].id, cardId, side)}
                 />
               );
             }}

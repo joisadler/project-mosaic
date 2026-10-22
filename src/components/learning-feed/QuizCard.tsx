@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type KeyboardEvent } from "react";
+import { useId, useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperInstance } from "swiper/types";
@@ -43,8 +43,9 @@ export function QuizCard({
   const hasAnswered = selectedOption !== undefined;
   const isCorrect = selectedOption?.id === card.correctOptionId;
   const compactPanelCount = hasAnswered ? 3 : 2;
-  const questionId = `${card.id}-question`;
-  const resultId = `${card.id}-result`;
+  const instanceId = useId();
+  const questionId = `${instanceId}-question`;
+  const resultId = `${instanceId}-result`;
   const resultText = selectedOption
     ? `${isCorrect ? "Верно." : "Не совсем."} ${selectedOption.explanation}`
     : "";

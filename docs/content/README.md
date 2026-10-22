@@ -15,7 +15,7 @@ Apply the identifier consistently:
 
 ## Learning section registry
 
-`src/content/learning-sections.ts` is the runtime source of truth for selectable learning units. Each handbook section or subsection has one canonical ID, section number, human-readable Russian title and the three card arrays that belong to it. The flat inventory, subsection filtering, visual identity, completion filtering, and progress aggregation use this registry and the same `LearningSectionId` values. New sessions shuffle the inventory; progress-aware ordering remains pending. See [Study sessions](../study-sessions.md) and [Learning progress](../learning-progress.md).
+`src/content/learning-sections.ts` is the runtime source of truth for selectable learning units. Each handbook section or subsection has one canonical ID, section number, human-readable Russian title and the three card arrays that belong to it. The flat inventory, subsection filtering, visual identity, completion filtering, and progress aggregation use this registry and the same `LearningSectionId` values. Continuous study generates unique-card rounds from this inventory with a soft progress mix and subsection/type balance; see [Study ordering](../study-ordering.md). See [Study sessions](../study-sessions.md) and [Learning progress](../learning-progress.md).
 
 Register a package only after all three card files exist. `npm run validate:content` rejects missing packages, duplicate registrations, cross-section card arrays and registered sections without content. Keep section selection at the handbook section/subsection level; do not replace these identities with a broad JavaScript topic taxonomy.
 

@@ -16,7 +16,7 @@ The card arrays live in `src/content/`, beside `card-types.ts`:
 - `fe-1.2-quiz-cards.ts`
 - `fe-1.2-flip-cards.ts`
 
-`src/content/learning-sections.ts` registers all three arrays under subsection `fe-1.2` of chapter `fe-1`, number `1.2`, with the title “Значения, типы, равенство и приведение типов”. `src/content/learning-cards.ts` derives the flat collection from that shared registry. Each new device-local session shuffles the complete registered inventory once, then restores it across reloads. Selection and completion project separate study/review views without restarting the session; no component or package-specific shuffle changes are required. See [Study sessions](../../study-sessions.md).
+`src/content/learning-sections.ts` registers all three arrays under subsection `fe-1.2` of chapter `fe-1`, number `1.2`, with the title “Значения, типы, равенство и приведение типов”. `src/content/learning-cards.ts` derives the flat collection from that shared registry. Each device-local study session generates progress-aware rounds from the registered inventory, then restores its queue across reloads. Selection and completion project separate study/review views without restarting the session; no component or package-specific shuffle changes are required. See [Study sessions](../../study-sessions.md).
 
 All card IDs start with `fe-1.2-`. Option IDs are unique within each quiz. The coverage table is documentation only; it is not imported into the app or used to order the feed.
 

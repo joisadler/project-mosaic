@@ -33,7 +33,7 @@ The card arrays live in `src/content/`, beside `card-types.ts`:
 }
 ```
 
-`src/content/learning-cards.ts` derives the flat collection from that shared registry. Each new device-local session shuffles the complete registered inventory once and then restores its order and interactions across reloads. Selected subsections and completion project the study/review views without creating a new session. No package-specific shuffle or component changes are required. See [Study sessions](../../study-sessions.md).
+`src/content/learning-cards.ts` derives the flat collection from that shared registry. Each device-local study session generates progress-aware rounds from the registered inventory and restores its queue and interactions across reloads. Selected subsections and completion project the study/review views without creating a new session. No package-specific shuffle or component changes are required. See [Study sessions](../../study-sessions.md).
 
 All card IDs start with `fe-1.1-`. Option IDs are unique within each quiz. The coverage table is documentation only; it is not imported into the app or used to order the feed.
 

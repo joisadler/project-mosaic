@@ -102,6 +102,20 @@ export function summarizeProgress(data: ProgressData, cardIds: readonly string[]
   return { average: ids.size ? totalPercentage / ids.size : 0, completed, total: ids.size, hasHistory };
 }
 
+// Ordering and confirmation use the same spacing rule; exposure is checked separately.
+export function repeatEligibility(data: ProgressData, cardId: string, poolIds: readonly string[], now: number) {
+  if (cardPercentage(data, cardId) >= 100) return { eligible: false, reason: "Для этой карточки уже набрано 100%." };
+  const latest = Object.values(data.confirmations).filter(event => event.cardId === cardId).sort((a, b) => b.createdAt - a.createdAt)[0];
+  if (latest) {
+    const pool = new Set(poolIds.filter(id => id !== cardId));
+    const required = Math.min(REPEAT_OTHER_CARDS, pool.size);
+    const seen = [...pool].filter(id => (data.lastSeen[id] ?? 0) > latest.visit).length;
+    if (now - latest.createdAt < REPEAT_DELAY_MS || seen < required)
+      return { eligible: false, reason: `Следующее начисление — через 10 минут после предыдущего${required ? (required === 5 ? " и после просмотра 5 других карточек" : " и после просмотра остальных карточек") : ""}.` };
+  }
+  return { eligible: true, reason: "" };
+}
+
 export function confirmationStatus(data: ProgressData, card: LearningCardData, presentationId: string, poolIds: readonly string[], now: number, selectedOptionId?: string) {
   const existing = data.confirmations[presentationId];
   if (existing) return { confirmed: existing.active, eligible: true, reason: "" };
@@ -110,17 +124,7 @@ export function confirmationStatus(data: ProgressData, card: LearningCardData, p
   if (card.type === "info" && !card.pages.every((_, index) => review?.pages.includes(index))) reason = "Сначала просмотрите все страницы карточки.";
   if (card.type === "flip" && !review?.answerSeen) reason = "Сначала откройте ответ.";
   if (card.type === "quiz" && (!selectedOptionId || review?.feedbackOptionId !== selectedOptionId)) reason = "Сначала выберите ответ и просмотрите объяснение.";
-  if (reason) return { confirmed: false, eligible: false, reason };
-  if (cardPercentage(data, card.id) >= 100) return { confirmed: false, eligible: false, reason: "Для этой карточки уже набрано 100%." };
-  const latest = Object.values(data.confirmations).filter(event => event.cardId === card.id).sort((a, b) => b.createdAt - a.createdAt)[0];
-  if (latest) {
-    const pool = new Set(poolIds.filter(id => id !== card.id));
-    const required = Math.min(REPEAT_OTHER_CARDS, pool.size);
-    const seen = [...pool].filter(id => (data.lastSeen[id] ?? 0) > latest.visit).length;
-    if (now - latest.createdAt < REPEAT_DELAY_MS || seen < required)
-      return { confirmed: false, eligible: false, reason: `Следующее начисление — через 10 минут после предыдущего${required ? (required === 5 ? " и после просмотра 5 других карточек" : " и после просмотра остальных карточек") : ""}.` };
-  }
-  return { confirmed: false, eligible: true, reason: "" };
+  return { confirmed: false, ...(reason ? { eligible: false, reason } : repeatEligibility(data, card.id, poolIds, now)) };
 }
 
 export function createProgressStore(
@@ -141,6 +145,11 @@ export function createProgressStore(
   return {
     getSnapshot: () => snapshot,
     getServerSnapshot: () => initial,
+    retainReviews(presentations: ReadonlySet<string>) {
+      const data = snapshot.data;
+      const reviews = Object.fromEntries(Object.entries(data.reviews).filter(([id]) => presentations.has(id)));
+      if (Object.keys(reviews).length !== Object.keys(data.reviews).length) publish({ ...data, reviews });
+    },
     replaceConfirmations(events: Record<string, Omit<Confirmation, "visit">>) {
       const data = snapshot.data;
       const confirmations = Object.fromEntries(Object.entries(events).map(([key, event]) => [key, {

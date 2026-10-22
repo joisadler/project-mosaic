@@ -40,6 +40,7 @@ Open http://localhost:3000. The dev script listens on all interfaces for phone t
 | `npm run lint` | Run ESLint with zero warnings allowed |
 | `npm run validate:content` | Validate card structure and mobile content budgets |
 | `npm run test:auth` | Check authentication origin/configuration boundaries |
+| `npm run test:ordering` | Check soft mixing, round spacing, continuous queue, and migration |
 | `npm run test:session` | Check device-local session restoration, filtering, and study/review isolation |
 | `npm run test:progress` | Check explicit confirmations, repeat eligibility, completion, and aggregates |
 | `npm run test:sync` | Check account synchronization, offline retries, conflicts, and resets |
@@ -65,6 +66,7 @@ In the restricted agent environment, the configured Turbopack build can fail whi
 - `docs/content/`: shared content rules and source-specific package documentation.
 - `docs/authentication.md`: environments, OAuth/MongoDB setup, session ownership, and auth validation.
 - `docs/study-sessions.md`: device-local study/review navigation and recovery.
+- `docs/study-ordering.md`: continuous rounds, soft new/partial mixing, spacing, limits, and tuning parameters.
 - `docs/learning-progress.md`: confirmation rules, synchronization, review, aggregates, and resets.
 - `public/illustrations/`: local content illustrations.
 - `public/icons/`: placeholder app icons.
@@ -75,7 +77,7 @@ In the restricted agent environment, the configured Turbopack build can fail whi
 
 The project owner accepted the existing application as the completed MVP on October 11, 2026. Linear issue [MOS-1](https://linear.app/joisadler/issue/MOS-1) records that acceptance. Remaining backlog items are post-MVP improvements and do not prevent the MVP from being complete.
 
-The MVP implements a full-screen virtualized educational feed that mixes multi-page InfoCards, accessible multiple-choice QuizCards, and swipe-driven question-and-answer FlipCards. Markdown content is stored locally, the 220 cards from the Frontend Interview Preparation `fe-1.1` and `fe-1.2` packs are shuffled for each new study session. Session order, position, and card interactions resume from device-local storage.
+The MVP implements a full-screen virtualized educational feed that mixes multi-page InfoCards, accessible multiple-choice QuizCards, and swipe-driven question-and-answer FlipCards. Markdown content is stored locally, the inventory contains 220 cards from the Frontend Interview Preparation `fe-1.1` and `fe-1.2` packs. Normal study continuously generates unique-card rounds with a soft new/partial mix and subsection/type balance. Session order, position, and card interactions resume from device-local storage.
 
 Both packs use the explicit learning-section registry. Blue/cyan scope and declaration-lifecycle compositions identify fe-1.1; plum/lilac value, equality, and conversion compositions identify fe-1.2. Shared section presets apply across all three card types, with optional typed motifs and safe fallbacks. See the [content authoring contract](docs/content/README.md#optional-visual-motifs).
 
@@ -94,6 +96,8 @@ The owner approved a bounded learning-state and account plan on October 12, 2026
 The Google/MongoDB foundation is implemented behind optional environment configuration: `/sign-in`, `/api/auth/*`, and the authenticated `/api/account` boundary. Development credentials are configured, and the owner confirmed Google sign-in, refresh persistence, sign-out, and repeat sign-in on desktop and iPhone Safari. On October 14, 2026, the owner also confirmed Google sign-in returning to the installed development PWA, session persistence after closing/reopening, and sign-out there. Production is deployed; the owner confirmed the desktop and installed iPhone/PWA authentication checks on October 15, 2026. Live development checks cover session expiry/revocation, signed cookies, ownership, origin checks, and OAuth cancellation callbacks. The owner confirmed account selection and switching between both test Google accounts in the installed development PWA on October 15, 2026. MOS-24 is complete and accepted; detailed validation evidence is recorded in Linear. A bottom-right account entry and `/account` page are implemented for MOS-23 and were accepted by the owner on iPhone/PWA on October 21, 2026. Client-side account visits preserve the mounted feed; device-local session resume is implemented for MOS-17, accepted by the owner after iPhone/PWA reopen validation on October 21, 2026. Explicit local understanding confirmations are implemented for MOS-14, accepted by the owner on October 22, 2026; MOS-22 account synchronization is implemented and accepted by the owner after phone/desktop synchronization checks on October 22, 2026. See [Learning progress](docs/learning-progress.md). The feed needs no account; order, position, page, quiz choice, and flip side are stored locally per guest/account. See [Study sessions](docs/study-sessions.md). Account synchronization shares confirmation records and selected section IDs across devices while active session order and position stay device-local. Guest progress remains separate; see the retry, conflict, and reset policy in [Learning progress](docs/learning-progress.md). The account page now includes hierarchical chapter/subsection selection, aggregate progress, and confirmed scoped resets; the owner accepted MOS-15 functionality and phone/desktop synchronization on October 22, 2026. Visual and information-architecture improvements are deferred to [MOS-32](https://linear.app/joisadler/issue/MOS-32).
 
 Completed-card review is implemented and pushed for MOS-16: the account page opens a separate, read-only `/review` feed; normal study excludes cards at 100%. Both respect selected subsections and retain independent device-local navigation. Physical iPhone/PWA acceptance remains pending.
+
+Continuous progress-aware ordering is implemented for MOS-13, pending owner acceptance. The soft 2:1 mix never duplicates scarce partial cards within a round; the existing reward gate remains separate from display spacing. See [Study ordering](docs/study-ordering.md) for exact rules and tuning guidance.
 
 Other backlog ideas, including sound/haptics and user-reporting flows, remain tentative until selected. Runtime AI, recommendation engines, advanced spaced-repetition infrastructure, analytics, social features, and additional domains are outside the approved plan. See [ROADMAP.md](ROADMAP.md) for scope boundaries; current task status remains in Linear.
 
