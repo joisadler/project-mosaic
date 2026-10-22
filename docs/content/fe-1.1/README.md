@@ -33,13 +33,15 @@ The card arrays live in `src/content/`, beside `card-types.ts`:
 }
 ```
 
-`src/content/learning-cards.ts` derives the flat collection from that shared registry. The current feed shuffles every integrated package once per mount. No package-specific shuffle or component changes are required.
+`src/content/learning-cards.ts` derives the flat collection from that shared registry. Each new device-local session shuffles the complete registered inventory once and then restores its order and interactions across reloads. Selected subsections and completion project the study/review views without creating a new session. No package-specific shuffle or component changes are required. See [Study sessions](../../study-sessions.md).
 
 All card IDs start with `fe-1.1-`. Option IDs are unique within each quiz. The coverage table is documentation only; it is not imported into the app or used to order the feed.
 
 The package follows the shared namespace, content budgets and verification workflow in [`docs/content/README.md`](../README.md).
 
 ## Verification completed
+
+The results below record the package integration audit. They do not establish that every state has been rechecked after later content or shared-layout changes; follow the shared rendered-validation contract when making such changes.
 
 - Checked all 100 cards against the field structure and four-option quiz constraint.
 - Checked unique card IDs, unique option IDs per quiz, and exactly one referenced correct option.

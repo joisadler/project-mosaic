@@ -16,13 +16,15 @@ The card arrays live in `src/content/`, beside `card-types.ts`:
 - `fe-1.2-quiz-cards.ts`
 - `fe-1.2-flip-cards.ts`
 
-`src/content/learning-sections.ts` registers all three arrays under `fe-1.2`, section `1.2`, with the title “Значения, типы, равенство и приведение типов”. `src/content/learning-cards.ts` derives the flat collection from that shared registry. The feed shuffles the complete 220-card collection once per mount; no component or package-specific shuffle changes are required.
+`src/content/learning-sections.ts` registers all three arrays under subsection `fe-1.2` of chapter `fe-1`, number `1.2`, with the title “Значения, типы, равенство и приведение типов”. `src/content/learning-cards.ts` derives the flat collection from that shared registry. Each new device-local session shuffles the complete registered inventory once, then restores it across reloads. Selection and completion project separate study/review views without restarting the session; no component or package-specific shuffle changes are required. See [Study sessions](../../study-sessions.md).
 
 All card IDs start with `fe-1.2-`. Option IDs are unique within each quiz. The coverage table is documentation only; it is not imported into the app or used to order the feed.
 
 The package follows the shared namespace, content budgets and verification workflow in [`docs/content/README.md`](../README.md).
 
 ## Verification completed
+
+The results below record the package integration audit. They do not establish that every state has been rechecked after later content or shared-layout changes; follow the shared rendered-validation contract when making such changes.
 
 - `npm run validate:content` checked the integrated 220-card collection against the structural budgets, ID rules, four-option quiz contract and coverage synchronization.
 - All 120 cards in this package and their 398 rendered states passed the browser layout audit at `320 × 568` and `375 × 667`.

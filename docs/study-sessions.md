@@ -20,6 +20,8 @@ Storage reads happen once when the client subscribes; snapshots are cached throu
 
 ## Validation
 
-Run `npm run test:session`, `npm run test:auth`, content validation, lint, typecheck, and build. Check actual rendered order/current card, multipage InfoCard, selected quiz feedback, and both flip sides before/after reload. Check account round trips, explicit restart/cancel, two independent browser profiles/origins, and user switching. Separately ask the owner to validate closing and reopening the actual installed iPhone PWA; browser reload evidence is not physical-device reopen evidence.
+Run `npm run test:session`, `npm run test:progress`, `npm run test:sync`, `npm run test:auth`, content validation, lint, typecheck, and build. Check actual rendered order/current card, multipage InfoCard, selected quiz feedback, and both flip sides before/after reload. Check account round trips, explicit restart/cancel, two independent browser profiles/origins, and user switching. Separately ask the owner to validate closing and reopening the actual installed iPhone PWA; browser reload evidence is not physical-device reopen evidence.
+
+The separate review mode is implemented and pushed for MOS-16; its physical iPhone/PWA navigation and reopen acceptance remain pending. Earlier study-session validation does not establish review validation.
 
 On October 21, 2026, the owner tested the new session resume behavior in the installed development iPhone PWA and confirmed normal behavior. MOS-17 is accepted; detailed implementation and validation evidence is recorded in Linear. This confirmation does not establish validation of a later production deployment.
