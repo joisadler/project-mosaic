@@ -3,6 +3,7 @@ import { readAuthConfig } from "@/lib/auth/config";
 import { AccountSession } from "@/components/account/AccountSession";
 import { StudySessionControl } from "@/components/account/StudySessionControl";
 import { SectionSelection } from "@/components/account/SectionSelection";
+import { ReviewEntry } from "@/components/account/ReviewEntry";
 import { AccountScreen, AccountUnavailable } from "@/components/account/AccountScreen";
 
 export const dynamic = "force-dynamic";
@@ -22,6 +23,7 @@ export default async function AccountPage({ searchParams }: {
     <AccountScreen>
       {configured ? <AccountSession callbackFailed={Boolean(params.error)} callbackPath="/account" /> : <AccountUnavailable />}
       <SectionSelection />
+      <ReviewEntry />
       <StudySessionControl />
     </AccountScreen>
   );

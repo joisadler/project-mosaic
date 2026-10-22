@@ -77,6 +77,12 @@ export function cardPercentage(data: ProgressData, cardId: string) {
   return Math.min(TARGET, Object.values(data.confirmations).filter(event => event.cardId === cardId && event.active).length) * 10;
 }
 
+export function completedCardIds(confirmations: ProgressData["confirmations"]): ReadonlySet<string> {
+  const counts = new Map<string, number>();
+  for (const event of Object.values(confirmations)) if (event.active) counts.set(event.cardId, (counts.get(event.cardId) ?? 0) + 1);
+  return new Set([...counts].filter(([, count]) => count >= TARGET).map(([id]) => id));
+}
+
 export function summarizeProgress(data: ProgressData, cardIds: readonly string[]) {
   const ids = new Set(cardIds);
   const counts = new Map<string, number>();

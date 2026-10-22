@@ -11,6 +11,7 @@ import {
 } from "react";
 import { A11y, Keyboard, Mousewheel, Virtual } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Link from "next/link";
 import type { Swiper as SwiperInstance } from "swiper/types";
 import type { LearningCardData } from "@/content/card-types";
 import { useStudySession } from "@/components/study-shell/StudySessionProvider";
@@ -35,7 +36,7 @@ type LearningFeedProps = {
 const feedModules = [A11y, Keyboard, Mousewheel, Virtual];
 
 export function LearningFeed({ cards, active = true }: LearningFeedProps) {
-  const { session, update, progress, reviewCard, toggleConfirmation } = useStudySession();
+  const { session, update, progress, reviewCard, toggleConfirmation, mode, sync } = useStudySession();
   const [notice, setNotice] = useState("");
   const [tapDetector] = useState(createDoubleTapDetector);
   const noticeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -60,10 +61,10 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
   const currentSide = activeCard ? flipSideByCard[activeCard.id] ?? 0 : 0;
 
   useEffect(() => {
-    if (!active || !activeCard || !currentPresentation || !progress.ready) return;
+    if (mode === "review" || !active || !activeCard || !currentPresentation || !progress.ready) return;
     reviewCard(activeCard.id, currentPresentation, activeCard.type === "info"
       ? { pages: [currentPage] } : activeCard.type === "flip" && currentSide === 1 ? { answerSeen: true } : {});
-  }, [active, activeCard, currentPresentation, currentPage, currentSide, progress.ready, reviewCard]);
+  }, [mode, active, activeCard, currentPresentation, currentPage, currentSide, progress.ready, reviewCard]);
 
   const rememberQuizFeedback = useCallback((cardId: string, optionId: string) => {
     if (session && progress.ready) reviewCard(cardId, presentationId(session, cardId), { feedbackOptionId: optionId });
@@ -74,12 +75,12 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
   }, []);
 
   const confirmUnderstanding = useCallback(() => {
-    if (!active || !activeCard || !currentPresentation || !session) return;
+    if (mode === "review" || !active || !activeCard || !currentPresentation || !session) return;
     const message = toggleConfirmation(activeCard, currentPresentation, session.order, Date.now(), session.answers[activeCard.id]);
     setNotice(message);
     if (noticeTimer.current) clearTimeout(noticeTimer.current);
     noticeTimer.current = setTimeout(() => setNotice(""), 4500);
-  }, [active, activeCard, currentPresentation, session, toggleConfirmation]);
+  }, [mode, active, activeCard, currentPresentation, session, toggleConfirmation]);
 
   const isTapArea = (target: EventTarget | null) => target instanceof Element &&
     !!target.closest("article") && !target.closest('a,button,input,textarea,select,pre,code,[contenteditable="true"],[role="radio"],[role="radiogroup"]');
@@ -177,7 +178,7 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
   }, [resetSystemGestureGuard]);
 
   const handlePointerDownCapture = useCallback((event: ReactPointerEvent<HTMLElement>) => {
-    if (!event.isPrimary || event.pointerType !== "touch" || !currentPresentation || !active || !isTapArea(event.target)) {
+    if (mode === "review" || !event.isPrimary || event.pointerType !== "touch" || !currentPresentation || !active || !isTapArea(event.target)) {
       tapDetector.reset();
       return;
     }
@@ -185,7 +186,7 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
     const guardTop = systemGestureGuardRef.current?.getBoundingClientRect().top ?? Infinity;
     if (event.clientY >= guardTop) { tapDetector.reset(); return; }
     tapDetector.start({ presentationId: currentPresentation, x: event.clientX, y: event.clientY, time: event.timeStamp, pointerId: event.pointerId });
-  }, [guardSystemGesture, tapDetector, currentPresentation, active]);
+  }, [mode, guardSystemGesture, tapDetector, currentPresentation, active]);
 
   const handlePointerUpCapture = useCallback((event: ReactPointerEvent<HTMLElement>) => {
     resetSystemGestureGuard();
@@ -289,21 +290,33 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
       <main
         ref={feedShellRef}
         className={styles.feedShell}
-        aria-label="Учебная лента по frontend"
+        aria-label={mode === "review" ? "Повторение завершённых карточек" : "Учебная лента по frontend"}
         aria-busy="true"
       />
     );
   }
 
   if (shuffledCards.length === 0) {
-    return <main className={styles.feedShell} aria-label="Учебная лента по frontend"><p role="status">В выбранных разделах нет карточек. Откройте аккаунт и настройки, чтобы выбрать разделы.</p><AccountLink /></main>;
+    return (
+      <main ref={feedShellRef} className={styles.feedShell} aria-label={mode === "review" ? "Повторение завершённых карточек" : "Учебная лента по frontend"}>
+        <div className={styles.emptyFeed}>
+          <h1>{sync.status === "unavailable" ? "Аккаунт недоступен" : !sync.sections.length ? "Выберите учебный материал" : mode === "review" ? "Пока нечего повторять" : "Карточки для обучения закончились"}</h1>
+          <p role="status">{sync.status === "unavailable" ? "Не удалось проверить аккаунт. Проверьте соединение в настройках." :
+            !sync.sections.length ? "Подразделы не выбраны. Откройте настройки, чтобы выбрать учебный материал." :
+            mode === "review" ? "В выбранных подразделах пока нет карточек со 100%. Они появятся здесь после завершения обучения." :
+            "В выбранных подразделах нет незавершённых карточек. Можно повторить завершённые или выбрать другой материал."}</p>
+          <Link href="/account" scroll={false} data-account-entry>Открыть настройки</Link>
+          {mode === "review" ? <Link href="/" scroll={false} data-review-return>Вернуться к обучению</Link> : <Link href="/review" scroll={false}>Повторить завершённые</Link>}
+        </div>
+      </main>
+    );
   }
 
   return (
     <main
       ref={feedShellRef}
       className={styles.feedShell}
-      aria-label="Учебная лента по frontend"
+      aria-label={mode === "review" ? "Повторение завершённых карточек" : "Учебная лента по frontend"}
       onPointerDownCapture={handlePointerDownCapture}
       onPointerUpCapture={handlePointerUpCapture}
       onPointerMoveCapture={event => tapDetector.move(event.pointerId, event.clientX, event.clientY)}
@@ -396,7 +409,16 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
         className={`${styles.actionRail} ${presentationStyles.presentation}`}
         data-section={getCardPresentation(shuffledCards[activeCardIndex]).section}
       >
-        {activeCard && currentPresentation && session ? (
+        {mode === "review" ? (
+          <div className={understoodStyles.control}>
+            <span className={styles.reviewMode}>Повторение</span>
+            <span className={understoodStyles.percentage} aria-hidden="true">100%</span>
+            <progress className={styles.visuallyHidden} max={100} value={100} aria-label="Завершённая карточка. При повторении прогресс не меняется." />
+            <Link href="/" scroll={false} className={`${styles.readMoreLink} swiper-no-swiping`} aria-label="Вернуться к обучению" data-tooltip="Вернуться к обучению" data-review-return>
+              <svg className={styles.readMoreIcon} viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="m10 5-7 7 7 7M3 12h18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            </Link>
+          </div>
+        ) : activeCard && currentPresentation && session ? (
           <UnderstoodControl key={currentPresentation} card={activeCard} presentationId={currentPresentation} poolIds={session.order} onToggle={confirmUnderstanding} />
         ) : null}
         <ReadMoreLink url={shuffledCards[activeCardIndex]?.readMoreUrl} />

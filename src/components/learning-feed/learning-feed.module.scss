@@ -6,6 +6,20 @@
   user-select: none;
 }
 
+.emptyFeed {
+  display: flex; flex-direction: column; justify-content: center; gap: 20px;
+  width: min(100%, 520px); min-height: 100%; margin: auto;
+  padding: max(24px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
+  color: #f7f8ff; user-select: text;
+  h1 { font-size: clamp(1.4rem, 5vw, 2rem); line-height: 1.2; }
+  p { color: #b9c4d6; line-height: 1.6; }
+  a { display: flex; align-items: center; min-height: 44px; color: #b2dfff; }
+  a:focus-visible { outline: 3px solid #b2dfff; outline-offset: 4px; }
+}
+.feedShell:has(> .emptyFeed) { overflow-y: auto; overscroll-behavior: contain; }
+.reviewMode { color: #b9c4d6; font-size: 0.6rem; line-height: 1.4; }
+
+
 .feed,
 .pageFocusTarget,
 .pages {
@@ -1127,14 +1141,5 @@
   .flipSwiper :global(.swiper-slide-shadow-left),
   .flipSwiper :global(.swiper-slide-shadow-right) {
     display: none !important;
-  }
-}
-
-// Keep both feed actions clear of card content on phone-sized layouts.
-@media (max-width: 47.999rem) and (min-height: 20.001rem) {
-  .page,
-  .quizScroller,
-  .flipSideScroller {
-    padding-right: max(5rem, calc(env(safe-area-inset-right) + 4.75rem));
   }
 }

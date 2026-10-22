@@ -3,12 +3,13 @@
 import { createContext, useContext, useCallback, useEffect, useMemo, useState, useSyncExternalStore, type ReactNode } from "react";
 import type { LearningCardData } from "@/content/card-types";
 import { learningSections, learningSectionIdByCardId } from "@/content/learning-sections";
-import { createProgressStore } from "@/lib/learning-progress/progress";
+import { completedCardIds, createProgressStore } from "@/lib/learning-progress/progress";
 import { createProgressSync } from "@/lib/learning-progress/sync-client";
 import { authClient } from "@/lib/auth/client";
 import { createSessionStore, filterSession, type StudySession } from "@/lib/study-session/session";
 
 type SessionContext = {
+  mode: "study" | "review";
   session: StudySession | null;
   update: (change: (current: StudySession) => StudySession) => void;
   restart: () => void;
@@ -20,6 +21,12 @@ type SessionContext = {
   retrySync: () => void;
   setSections: ReturnType<typeof createProgressSync>["setSections"];
   resetProgress: ReturnType<typeof createProgressSync>["reset"];
+  review: {
+    session: StudySession | null;
+    storageAvailable: boolean;
+    update: (change: (current: StudySession) => StudySession) => void;
+    restart: () => void;
+  };
 };
 
 const Context = createContext<SessionContext | null>(null);
@@ -35,18 +42,28 @@ type ProviderProps = { cards: readonly LearningCardData[]; children: ReactNode }
 function OwnerSession({ cards, children, owner }: ProviderProps & { owner: string | null }) {
   const [store] = useState(() => createSessionStore(cards, owner));
   const snapshot = useSyncExternalStore(store.subscribe, store.getSnapshot, store.getServerSnapshot);
+  const [reviewStore] = useState(() => createSessionStore(cards, owner, undefined, "review:all"));
+  const reviewSnapshot = useSyncExternalStore(reviewStore.subscribe, reviewStore.getSnapshot, reviewStore.getServerSnapshot);
   const [progressStore] = useState(() => createProgressStore(cards, learningSectionIdByCardId, owner));
   const progress = useSyncExternalStore(progressStore.subscribe, progressStore.getSnapshot, progressStore.getServerSnapshot);
   const [syncStore] = useState(() => createProgressSync(owner, progressStore, {
     sections: learningSections.map(section => section.id), cardSections: learningSectionIdByCardId,
   }));
   const sync = useSyncExternalStore(syncStore.subscribe, syncStore.getSnapshot, syncStore.getServerSnapshot);
-  const session = useMemo(() => snapshot.session ? filterSession(snapshot.session, sync.sections, learningSectionIdByCardId) : null, [snapshot.session, sync.sections]);
+  const completed = useMemo(() => completedCardIds(progress.data.confirmations), [progress.data.confirmations]);
+  const studyIds = useMemo(() => new Set(cards.filter(card => !completed.has(card.id)).map(card => card.id)), [cards, completed]);
+  const session = useMemo(() => snapshot.session && progress.ready ? filterSession(snapshot.session, sync.sections, learningSectionIdByCardId, studyIds) : null, [snapshot.session, sync.sections, studyIds, progress.ready]);
+  const reviewSession = useMemo(() => reviewSnapshot.session && progress.ready ? filterSession(reviewSnapshot.session, sync.sections, learningSectionIdByCardId, completed) : null, [reviewSnapshot.session, sync.sections, completed, progress.ready]);
   const update = useCallback((change: (current: StudySession) => StudySession) => store.update(current => {
-    const visible = filterSession(current, sync.sections, learningSectionIdByCardId);
+    const visible = filterSession(current, sync.sections, learningSectionIdByCardId, studyIds);
     const next = change(visible);
     return next === visible ? current : { ...next, order: current.order };
-  }), [store, sync.sections]);
+  }), [store, sync.sections, studyIds]);
+  const updateReview = useCallback((change: (current: StudySession) => StudySession) => reviewStore.update(current => {
+    const visible = filterSession(current, sync.sections, learningSectionIdByCardId, completed);
+    const next = change(visible);
+    return next === visible ? current : { ...next, order: current.order };
+  }), [reviewStore, sync.sections, completed]);
   useEffect(() => {
     const stop = syncStore.start();
     const retry = () => syncStore.retry();
@@ -62,10 +79,22 @@ function OwnerSession({ cards, children, owner }: ProviderProps & { owner: strin
     };
   }, [syncStore]);
   const value = useMemo(() => ({
-    ...snapshot, session, update, restart: store.restart, progress,
+    ...snapshot, mode: "study" as const, session, update, restart: store.restart, progress,
     reviewCard: progressStore.review, toggleConfirmation: progressStore.toggle,
     sync, retrySync: syncStore.retry, setSections: syncStore.setSections, resetProgress: syncStore.reset,
-  }), [snapshot, session, update, store, progress, progressStore, sync, syncStore]);
+    review: { ...reviewSnapshot, session: reviewSession, update: updateReview, restart: reviewStore.restart },
+  }), [snapshot, session, update, store, progress, progressStore, sync, syncStore, reviewSnapshot, reviewSession, updateReview, reviewStore]);
+  return <Context.Provider value={value}>{children}</Context.Provider>;
+}
+
+const ignoreReview = () => {};
+const readOnlyConfirmation = () => "В режиме повторения прогресс не меняется.";
+
+export function ReviewSessionProvider({ children }: { children: ReactNode }) {
+  const base = useStudySession();
+  const value = useMemo(() => ({ ...base, ...base.review, mode: "review" as const,
+    reviewCard: ignoreReview, toggleConfirmation: readOnlyConfirmation,
+  }), [base]);
   return <Context.Provider value={value}>{children}</Context.Provider>;
 }
 

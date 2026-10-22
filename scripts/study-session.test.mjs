@@ -117,3 +117,45 @@ test("chapter toggles preserve other chapters and reflect partial subsection sel
   assert.deepEqual(toggleSectionGroup(all, ['1.1', '1.2'], false), ['2.1']);
   assert.deepEqual(groupSelection([], []), { checked: false, mixed: false });
 });
+
+test("study and review inventories are disjoint, section-filtered views with stable independent identities", async () => {
+  const { filterSession } = await import('../src/lib/study-session/session.ts');
+  const { completedCardIds } = await import('../src/lib/learning-progress/progress.ts');
+  const confirmations = Object.fromEntries(Array.from({ length: 10 }, (_, i) => [`p${i}`, { cardId: 'info', active: true }]));
+  const completed = completedCardIds(confirmations);
+  const sections = new Map([['info','one'],['quiz','one'],['flip','two']]);
+  const study = createSession(cards), review = createSession(cards);
+  const view = (session, mode, selected = ['one','two']) => filterSession(session, selected, sections,
+    mode === 'review' ? completed : new Set(cards.filter(card => !completed.has(card.id)).map(card => card.id)));
+  assert.deepEqual(new Set(view(study,'study').order), new Set(['quiz','flip']));
+  assert.deepEqual(view(review,'review').order, ['info']);
+  assert.deepEqual(view(review,'review',['two']).order, []);
+  assert.deepEqual(view(study,'study',[]).order, []);
+  assert.notEqual(presentationId(study,'info'), presentationId(review,'info'));
+  assert.equal(view(study,'study').id, study.id);
+  assert.equal(view(review,'review').id, review.id);
+  for (const card of cards) completed.add(card.id);
+  assert.deepEqual(view(study,'study').order, []);
+  assert.equal(view(study,'study').currentCardId, null);
+  assert.deepEqual(new Set(view(review,'review').order), new Set(cards.map(card => card.id)));
+  completed.clear();
+  assert.deepEqual(view(review,'review').order, []);
+  assert.deepEqual(view(study,'study'), study);
+  assert.deepEqual(filterSession(study,['one','two'],sections,new Set(cards.map(card => card.id))), study);
+});
+
+test("review reload, interactions, and restart never replace the study snapshot or another owner's review", () => {
+  const records = new Map();
+  const storage = () => ({ getItem: key => records.get(key) ?? null, setItem: (key,value) => records.set(key,value) });
+  const open = (owner, scope) => { const store = createSessionStore(cards, owner, storage, scope); store.subscribe(() => {}); return store; };
+  const study = open('guest','study:all'), review = open('guest','review:all');
+  study.update(current => ({...current,currentCardId:'flip',sides:{flip:1}}));
+  const original = structuredClone(study.getSnapshot().session);
+  review.update(current => ({...current,currentCardId:'quiz',pages:{info:1},answers:{quiz:'b'},sides:{flip:1}}));
+  assert.deepEqual(open('guest','review:all').getSnapshot().session, review.getSnapshot().session);
+  assert.deepEqual(open('guest','study:all').getSnapshot().session, original);
+  assert.notEqual(open('account:one','review:all').getSnapshot().session.id, review.getSnapshot().session.id);
+  review.restart();
+  assert.deepEqual(study.getSnapshot().session, original);
+  assert.deepEqual(study.getSnapshot().session.sides, {flip:1});
+});

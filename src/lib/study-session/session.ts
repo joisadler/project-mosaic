@@ -19,13 +19,14 @@ export function presentationId(session: StudySession, cardId: string) {
 }
 
 // Filtering is a view of the existing session, never a new presentation.
-export function filterSession(session: StudySession, selected: readonly string[], sections: ReadonlyMap<string, string>): StudySession {
+export function filterSession(session: StudySession, selected: readonly string[], sections: ReadonlyMap<string, string>, eligible?: ReadonlySet<string>): StudySession {
   const allowed = new Set(selected);
-  const order = session.order.filter(id => allowed.has(sections.get(id) ?? ""));
+  const includes = (id: string) => allowed.has(sections.get(id) ?? "") && (!eligible || eligible.has(id));
+  const order = session.order.filter(includes);
   if (order.length === session.order.length) return session;
   const currentIndex = session.order.indexOf(session.currentCardId ?? "");
   const currentCardId = order.includes(session.currentCardId ?? "") ? session.currentCardId :
-    session.order.slice(Math.max(0, currentIndex)).find(id => allowed.has(sections.get(id) ?? "")) ?? order.at(-1) ?? null;
+    session.order.slice(Math.max(0, currentIndex)).find(includes) ?? order.at(-1) ?? null;
   return { ...session, order, currentCardId };
 }
 

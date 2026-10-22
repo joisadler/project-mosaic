@@ -138,3 +138,18 @@ test("aggregate progress averages unique card percentages, includes untouched ca
   assert.deepEqual(summarizeProgress(data(store), []), { average: 0, completed: 0, total: 0, hasHistory: false });
   assert.deepEqual(summarizeProgress(data(store), ['flip']), { average: 0, completed: 0, total: 1, hasHistory: false });
 });
+
+test("completed membership changes only at the 100% boundary and canceled awards do not count", async () => {
+  const { completedCardIds } = await import('../src/lib/learning-progress/progress.ts');
+  const { store } = setup();
+  const awards = Object.fromEntries(Array.from({length:9}, (_, i) => [`p${i}`,{id:`id${i}`,presentationId:`p${i}`,cardId:'info',sectionId:'fe-1.1',active:true,createdAt:i,updatedAt:i}]));
+  store.replaceConfirmations(awards);
+  assert.equal(completedCardIds(data(store).confirmations).has('info'), false);
+  awards.tenth = {...awards.p0, id:'tenth',presentationId:'tenth'};
+  store.replaceConfirmations(awards);
+  assert.equal(completedCardIds(data(store).confirmations).has('info'), true);
+  awards.tenth.active = false; store.replaceConfirmations(awards);
+  assert.equal(completedCardIds(data(store).confirmations).has('info'), false);
+  store.replaceConfirmations({});
+  assert.equal(completedCardIds(data(store).confirmations).size, 0);
+});
