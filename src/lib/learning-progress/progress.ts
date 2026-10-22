@@ -77,6 +77,25 @@ export function cardPercentage(data: ProgressData, cardId: string) {
   return Math.min(TARGET, Object.values(data.confirmations).filter(event => event.cardId === cardId && event.active).length) * 10;
 }
 
+export function summarizeProgress(data: ProgressData, cardIds: readonly string[]) {
+  const ids = new Set(cardIds);
+  const counts = new Map<string, number>();
+  let hasHistory = false;
+  for (const event of Object.values(data.confirmations)) {
+    if (!ids.has(event.cardId)) continue;
+    hasHistory = true;
+    if (event.active) counts.set(event.cardId, (counts.get(event.cardId) ?? 0) + 1);
+  }
+  let totalPercentage = 0;
+  let completed = 0;
+  for (const id of ids) {
+    const percentage = Math.min(TARGET, counts.get(id) ?? 0) * 10;
+    totalPercentage += percentage;
+    if (percentage === 100) completed++;
+  }
+  return { average: ids.size ? totalPercentage / ids.size : 0, completed, total: ids.size, hasHistory };
+}
+
 export function confirmationStatus(data: ProgressData, card: LearningCardData, presentationId: string, poolIds: readonly string[], now: number, selectedOptionId?: string) {
   const existing = data.confirmations[presentationId];
   if (existing) return { confirmed: existing.active, eligible: true, reason: "" };

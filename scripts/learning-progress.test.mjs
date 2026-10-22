@@ -125,3 +125,16 @@ test("touch detector accepts a nearby double tap and rejects swipes, long presse
   detector.start(tap(800)); detector.end(tap(820)); detector.start(tap(900, "other")); assert.equal(detector.end(tap(920, "other")), false);
   detector.reset(); detector.start(tap(1000)); assert.equal(detector.end(tap(1020)), false);
 });
+
+test("aggregate progress averages unique card percentages, includes untouched cards and counts only 100% as complete", async () => {
+  const { summarizeProgress } = await import('../src/lib/learning-progress/progress.ts');
+  const { store } = setup();
+  const events = {};
+  for (let i = 0; i < 12; i++) events[`p${i}`] = { id: `award${i}`, presentationId: `p${i}`, cardId: 'info', sectionId: 'fe-1.1', active: true, createdAt: i, updatedAt: i };
+  events.quiz = { id: 'quiz-award', presentationId: 'quiz', cardId: 'quiz', sectionId: 'fe-1.1', active: true, createdAt: 20, updatedAt: 20 };
+  events.canceled = { ...events.quiz, id: 'canceled', presentationId: 'canceled', active: false };
+  store.replaceConfirmations(events);
+  assert.deepEqual(summarizeProgress(data(store), ['info','quiz','flip','info']), { average: 110 / 3, completed: 1, total: 3, hasHistory: true });
+  assert.deepEqual(summarizeProgress(data(store), []), { average: 0, completed: 0, total: 0, hasHistory: false });
+  assert.deepEqual(summarizeProgress(data(store), ['flip']), { average: 0, completed: 0, total: 1, hasHistory: false });
+});

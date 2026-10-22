@@ -200,3 +200,35 @@ test("inventory changes remove obsolete section selections and do not silently o
   state.sections.version = 0;
   assert.deepEqual(parseCloudState(state, inventory).sections.ids, inventory.sections);
 });
+
+test("guest scoped and full resets persist without touching selection, reviews, or account state", async t => {
+  const api = server(), guest = device(api, 'guest'); t.after(guest.start());
+  const a = guest.award();
+  const b = `${randomUUID()}:b`;
+  guest.progress.review('b', b, { answerSeen: true });
+  guest.progress.toggle(cards[1], b, ['b'], 1000);
+  guest.sync.setSections(['fe-1.2']);
+  const reviews = structuredClone(guest.progress.getSnapshot().data.reviews);
+  assert.equal(await guest.sync.reset(['a']), true);
+  assert.equal(guest.percentage(), 0);
+  assert.equal(guest.progress.getSnapshot().data.confirmations[b].active, true);
+  assert.deepEqual(guest.progress.getSnapshot().data.reviews, reviews);
+  const restored = device(api, 'guest', guest.records); t.after(restored.start());
+  assert.equal(restored.progress.getSnapshot().data.confirmations[a], undefined);
+  assert.deepEqual(restored.sync.getSnapshot().sections, ['fe-1.2']);
+  assert.equal(await restored.sync.reset(['a','b']), true);
+  assert.deepEqual(restored.progress.getSnapshot().data.confirmations, {});
+  assert.equal(await restored.sync.reset(['unknown']), false);
+  assert.equal(api.states.size, 0);
+});
+
+test("an unavailable account reset leaves cached confirmations intact and can be retried explicitly", async t => {
+  const api = server(), first = device(api); t.after(first.start()); await settle();
+  first.award(); first.sync.retry(); await settle();
+  api.setOffline(true);
+  assert.equal(await first.sync.reset(['a']), false);
+  assert.equal(first.percentage(), 10);
+  api.setOffline(false);
+  assert.equal(await first.sync.reset(['a']), true);
+  assert.equal(first.percentage(), 0);
+});

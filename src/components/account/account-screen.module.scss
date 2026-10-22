@@ -297,6 +297,32 @@
 }
 .sectionActions { display: flex; flex-wrap: wrap; gap: 10px; button { flex: 1 1 160px; } }
 
+.progressSummary { display: grid; gap: 10px; margin-block: 8px 20px; }
+.progressHeading { font-size: 0.9rem; font-weight: 650; }
+.progressNumbers { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 14px; color: #a3aec4; font-size: 0.8rem; line-height: 1.5; strong { color: #e3eafa; } }
+.progressSummary progress {
+  width: 100%; height: 6px; overflow: hidden; border: 0; border-radius: 3px;
+  appearance: none; background: #273242; color: #b7d5ed;
+  &::-webkit-progress-bar { background: #273242; border-radius: 3px; }
+  &::-webkit-progress-value { background: #b7d5ed; border-radius: 3px; }
+  &::-moz-progress-bar { background: #b7d5ed; border-radius: 3px; }
+}
+.subsection + .subsection { padding-top: 8px; border-top: 1px solid rgba(183, 205, 238, 0.1); }
+.resetProgress { justify-self: start; min-height: 44px; padding: 8px 0; border: 0; background: transparent; color: #c7aeb5; font-size: 0.8rem; text-align: left; cursor: pointer; }
+.resetProgress:disabled { opacity: 0.5; cursor: default; }
+.confirmReset { min-height: 48px; padding: 12px 18px; border: 1px solid #a86b76; border-radius: 12px; background: #663641; color: #fff; font: inherit; cursor: pointer; }
+.resetDialog {
+  width: min(460px, calc(100% - 32px)); max-height: calc(100dvh - 32px); margin: auto;
+  overflow-y: auto; overscroll-behavior: contain; padding: 24px;
+  border: 1px solid #374354; border-radius: 20px; background: #111b28; color: #f3f5fa;
+  &::backdrop { background: rgba(3, 7, 13, 0.8); }
+  h2 { margin-bottom: 16px; font-size: 1.25rem; }
+  p { margin-bottom: 16px; font-size: 0.9rem; line-height: 1.6; color: #b9c4d6; }
+  .resetScope { color: #f3f5fa; font-weight: 650; overflow-wrap: anywhere; }
+  button:focus-visible { outline: 3px solid #b2dfff; outline-offset: 3px; }
+  button:disabled { opacity: 0.55; cursor: wait; }
+}
+
 @media (max-width: 360px) {
   .screen { padding-right: max(18px, env(safe-area-inset-right)); padding-left: max(18px, env(safe-area-inset-left)); }
   .identity { flex-direction: column; align-items: flex-start; }

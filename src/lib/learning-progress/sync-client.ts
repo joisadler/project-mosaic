@@ -209,6 +209,13 @@ export function createProgressSync(owner: string | null, progress: ProgressStore
       save(); emit({ status: "syncing" }); schedule(250);
     },
     async reset(cardIds: string[]) {
+      if (owner === "guest" && initialized && progress.getSnapshot().ready) {
+        if (!cardIds.length || cardIds.some(id => !inventory.cardSections.has(id))) return false;
+        const ids = new Set(cardIds);
+        progress.replaceConfirmations(Object.fromEntries(Object.entries(progress.getSnapshot().data.confirmations)
+          .filter(([, event]) => !ids.has(event.cardId))));
+        return true;
+      }
       if (!account || !initialized || stopped || resetting) return false;
       await sync();
       if (stopped || resetting || snapshot.status !== "saved") return false;
