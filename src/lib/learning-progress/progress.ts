@@ -116,6 +116,13 @@ export function createProgressStore(
   return {
     getSnapshot: () => snapshot,
     getServerSnapshot: () => initial,
+    replaceConfirmations(events: Record<string, Omit<Confirmation, "visit">>) {
+      const data = snapshot.data;
+      const confirmations = Object.fromEntries(Object.entries(events).map(([key, event]) => [key, {
+        ...event, visit: data.confirmations[key]?.id === event.id ? data.confirmations[key].visit : data.visit,
+      }]));
+      if (JSON.stringify(confirmations) !== JSON.stringify(data.confirmations)) publish({ ...data, confirmations });
+    },
     subscribe(listener: () => void) {
       listeners.add(listener);
       if (!initialized && owner) {

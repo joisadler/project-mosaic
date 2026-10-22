@@ -1,9 +1,10 @@
 "use client";
 
-import { createContext, useContext, useMemo, useState, useSyncExternalStore, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useMemo, useState, useSyncExternalStore, type ReactNode } from "react";
 import type { LearningCardData } from "@/content/card-types";
-import { learningSectionIdByCardId } from "@/content/learning-sections";
+import { learningSections, learningSectionIdByCardId } from "@/content/learning-sections";
 import { createProgressStore } from "@/lib/learning-progress/progress";
+import { createProgressSync } from "@/lib/learning-progress/sync-client";
 import { authClient } from "@/lib/auth/client";
 import { createSessionStore, type StudySession } from "@/lib/study-session/session";
 
@@ -15,6 +16,10 @@ type SessionContext = {
   progress: ReturnType<ReturnType<typeof createProgressStore>["getSnapshot"]>;
   reviewCard: ReturnType<typeof createProgressStore>["review"];
   toggleConfirmation: ReturnType<typeof createProgressStore>["toggle"];
+  sync: ReturnType<ReturnType<typeof createProgressSync>["getSnapshot"]>;
+  retrySync: () => void;
+  setSections: ReturnType<typeof createProgressSync>["setSections"];
+  resetProgress: ReturnType<typeof createProgressSync>["reset"];
 };
 
 const Context = createContext<SessionContext | null>(null);
@@ -32,10 +37,29 @@ function OwnerSession({ cards, children, owner }: ProviderProps & { owner: strin
   const snapshot = useSyncExternalStore(store.subscribe, store.getSnapshot, store.getServerSnapshot);
   const [progressStore] = useState(() => createProgressStore(cards, learningSectionIdByCardId, owner));
   const progress = useSyncExternalStore(progressStore.subscribe, progressStore.getSnapshot, progressStore.getServerSnapshot);
+  const [syncStore] = useState(() => createProgressSync(owner, progressStore, {
+    sections: learningSections.map(section => section.id), cardSections: learningSectionIdByCardId,
+  }));
+  const sync = useSyncExternalStore(syncStore.subscribe, syncStore.getSnapshot, syncStore.getServerSnapshot);
+  useEffect(() => {
+    const stop = syncStore.start();
+    const retry = () => syncStore.retry();
+    const resume = () => { if (document.visibilityState === "visible") retry(); };
+    window.addEventListener("online", retry);
+    window.addEventListener("focus", retry);
+    document.addEventListener("visibilitychange", resume);
+    return () => {
+      stop();
+      window.removeEventListener("online", retry);
+      window.removeEventListener("focus", retry);
+      document.removeEventListener("visibilitychange", resume);
+    };
+  }, [syncStore]);
   const value = useMemo(() => ({
     ...snapshot, update: store.update, restart: store.restart, progress,
     reviewCard: progressStore.review, toggleConfirmation: progressStore.toggle,
-  }), [snapshot, store, progress, progressStore]);
+    sync, retrySync: syncStore.retry, setSections: syncStore.setSections, resetProgress: syncStore.reset,
+  }), [snapshot, store, progress, progressStore, sync, syncStore]);
   return <Context.Provider value={value}>{children}</Context.Provider>;
 }
 
