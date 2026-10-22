@@ -1,12 +1,12 @@
 "use client";
 
-import { createContext, useContext, useEffect, useMemo, useState, useSyncExternalStore, type ReactNode } from "react";
+import { createContext, useContext, useCallback, useEffect, useMemo, useState, useSyncExternalStore, type ReactNode } from "react";
 import type { LearningCardData } from "@/content/card-types";
 import { learningSections, learningSectionIdByCardId } from "@/content/learning-sections";
 import { createProgressStore } from "@/lib/learning-progress/progress";
 import { createProgressSync } from "@/lib/learning-progress/sync-client";
 import { authClient } from "@/lib/auth/client";
-import { createSessionStore, type StudySession } from "@/lib/study-session/session";
+import { createSessionStore, filterSession, type StudySession } from "@/lib/study-session/session";
 
 type SessionContext = {
   session: StudySession | null;
@@ -41,6 +41,12 @@ function OwnerSession({ cards, children, owner }: ProviderProps & { owner: strin
     sections: learningSections.map(section => section.id), cardSections: learningSectionIdByCardId,
   }));
   const sync = useSyncExternalStore(syncStore.subscribe, syncStore.getSnapshot, syncStore.getServerSnapshot);
+  const session = useMemo(() => snapshot.session ? filterSession(snapshot.session, sync.sections, learningSectionIdByCardId) : null, [snapshot.session, sync.sections]);
+  const update = useCallback((change: (current: StudySession) => StudySession) => store.update(current => {
+    const visible = filterSession(current, sync.sections, learningSectionIdByCardId);
+    const next = change(visible);
+    return next === visible ? current : { ...next, order: current.order };
+  }), [store, sync.sections]);
   useEffect(() => {
     const stop = syncStore.start();
     const retry = () => syncStore.retry();
@@ -56,10 +62,10 @@ function OwnerSession({ cards, children, owner }: ProviderProps & { owner: strin
     };
   }, [syncStore]);
   const value = useMemo(() => ({
-    ...snapshot, update: store.update, restart: store.restart, progress,
+    ...snapshot, session, update, restart: store.restart, progress,
     reviewCard: progressStore.review, toggleConfirmation: progressStore.toggle,
     sync, retrySync: syncStore.retry, setSections: syncStore.setSections, resetProgress: syncStore.reset,
-  }), [snapshot, store, progress, progressStore, sync, syncStore]);
+  }), [snapshot, session, update, store, progress, progressStore, sync, syncStore]);
   return <Context.Provider value={value}>{children}</Context.Provider>;
 }
 

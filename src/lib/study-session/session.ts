@@ -18,6 +18,17 @@ export function presentationId(session: StudySession, cardId: string) {
   return `${session.id}:${cardId}`;
 }
 
+// Filtering is a view of the existing session, never a new presentation.
+export function filterSession(session: StudySession, selected: readonly string[], sections: ReadonlyMap<string, string>): StudySession {
+  const allowed = new Set(selected);
+  const order = session.order.filter(id => allowed.has(sections.get(id) ?? ""));
+  if (order.length === session.order.length) return session;
+  const currentIndex = session.order.indexOf(session.currentCardId ?? "");
+  const currentCardId = order.includes(session.currentCardId ?? "") ? session.currentCardId :
+    session.order.slice(Math.max(0, currentIndex)).find(id => allowed.has(sections.get(id) ?? "")) ?? order.at(-1) ?? null;
+  return { ...session, order, currentCardId };
+}
+
 function shuffle(ids: string[]) {
   const result = [...ids];
   for (let i = result.length - 1; i > 0; i--) {

@@ -178,3 +178,25 @@ test("same-record client conflicts apply the server version and expose a notice"
   assert.equal(second.sync.getSnapshot().conflict, true);
   assert.equal(second.sync.getSnapshot().pending, 0);
 });
+
+test("guest section preferences persist independently, including clear-all, without network requests", async t => {
+  const api = server(), guest = device(api, 'guest'); t.after(guest.start());
+  guest.sync.setSections(['fe-1.2']);
+  const restored = device(api, 'guest', guest.records); t.after(restored.start());
+  assert.deepEqual(restored.sync.getSnapshot().sections, ['fe-1.2']);
+  restored.sync.setSections([]);
+  const empty = device(api, 'guest', guest.records); t.after(empty.start());
+  assert.deepEqual(empty.sync.getSnapshot().sections, []);
+  const account = device(api, 'account:one', guest.records); t.after(account.start()); await settle();
+  assert.deepEqual(account.sync.getSnapshot().sections, inventory.sections);
+  assert.equal(api.states.has('guest'), false);
+});
+
+test("inventory changes remove obsolete section selections and do not silently opt into new ones", async () => {
+  const { parseCloudState } = await import('../src/lib/learning-progress/sync-model.ts');
+  const state = initialCloudState(['old']);
+  state.sections = { ids: ['old'], version: 1, mutationId: randomUUID() };
+  assert.deepEqual(parseCloudState(state, inventory).sections.ids, []);
+  state.sections.version = 0;
+  assert.deepEqual(parseCloudState(state, inventory).sections.ids, inventory.sections);
+});

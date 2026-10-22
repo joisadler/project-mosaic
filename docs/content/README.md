@@ -21,6 +21,8 @@ Register a package only after all three card files exist. `npm run validate:cont
 
 The `fe` prefix identifies the source handbook as a whole, not the technology discussed by an individual section. A JavaScript, React, CSS or browser APIs package therefore follows the same namespace.
 
+The registry also defines top-level `learningChapters` (for example `fe-1`) and a required `chapterId` on each subsection (`fe-1.1`, `fe-1.2`). Settings group subsections by this explicit relationship; neither titles nor numeric ID prefixes determine membership. Add a chapter and link its content-bearing subsections when integrating future chapters. Parent checkboxes select all currently available children and show an indeterminate state for a partial selection. Persistence continues to store subsection IDs, so a chapter toggle never changes another chapter and does not automatically opt into future content.
+
 ## Optional visual motifs
 
 Cards may include `visual?: { motif?: VisualMotif }` in `BaseCardData`. Select a motif by the card's primary learning objective after reading all pages or both sides. Motifs are optional: omit `visual` for the section default, and do not add metadata just to vary the feed.

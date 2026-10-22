@@ -146,6 +146,18 @@ export function createProgressSync(owner: string | null, progress: ProgressStore
     getServerSnapshot: () => initial,
     subscribe(listener: () => void) { listeners.add(listener); return () => { listeners.delete(listener); }; },
     start() {
+      if (owner === "guest" && !initialized) {
+        initialized = true;
+        try {
+          const raw = storage().getItem("mosaic:sections:v1:guest");
+          if (raw) {
+            const saved: unknown = JSON.parse(raw);
+            if (isRecord(saved) && saved.version === 1 && Array.isArray(saved.ids) && saved.ids.every(id => typeof id === "string"))
+              cloud.sections.ids = [...new Set(saved.ids.filter(id => inventory.sections.includes(id)))];
+          }
+        } catch { snapshot = { ...snapshot, storageAvailable: false }; }
+        emit();
+      }
       if (!account || !stopped) return () => {};
       stopped = false;
       if (!initialized) {
@@ -185,7 +197,14 @@ export function createProgressSync(owner: string | null, progress: ProgressStore
     },
     retry: () => { void sync(); },
     setSections(ids: string[]) {
-      if (!account || !initialized) return;
+      if (!initialized) return;
+      if (owner === "guest") {
+        cloud.sections.ids = parseSyncBatch({ mutations: [], preferences: { mutationId: crypto.randomUUID(), ids, expectedVersion: 0 } }, inventory).preferences!.ids;
+        try { storage().setItem("mosaic:sections:v1:guest", JSON.stringify({ version: 1, ids: cloud.sections.ids })); }
+        catch { snapshot = { ...snapshot, storageAvailable: false }; }
+        emit(); return;
+      }
+      if (!account) return;
       preferences = parseSyncBatch({ mutations: [], preferences: { mutationId: crypto.randomUUID(), ids, expectedVersion: preferences?.expectedVersion ?? cloud.sections.version } }, inventory).preferences;
       save(); emit({ status: "syncing" }); schedule(250);
     },

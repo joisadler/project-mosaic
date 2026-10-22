@@ -277,6 +277,26 @@
   button:disabled { opacity: 0.55; cursor: wait; }
 }
 
+.sectionChoices { min-width: 0; margin: 0; padding: 0; border: 0; }
+.sectionLegend { margin-bottom: 12px; color: #a3aec4; font-size: 0.85rem; }
+.chapter { min-width: 0; margin: 0 0 12px; padding: 0; border: 0; legend { width: 100%; padding: 0; } }
+.chapterChoice { font-weight: 650; }
+.subsections { margin-left: 10px; padding-left: 14px; border-left: 1px solid rgba(183, 205, 238, 0.18); }
+.sectionChoice {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  min-height: 48px;
+  padding-block: 12px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  cursor: pointer;
+  input { width: 20px; height: 20px; flex: none; margin-top: 2px; accent-color: #b7d5ed; }
+  input:focus-visible { outline: 2px solid #b7d5ed; outline-offset: 4px; }
+  strong { display: block; color: #a3aec4; font-size: 0.8rem; }
+}
+.sectionActions { display: flex; flex-wrap: wrap; gap: 10px; button { flex: 1 1 160px; } }
+
 @media (max-width: 360px) {
   .screen { padding-right: max(18px, env(safe-area-inset-right)); padding-left: max(18px, env(safe-area-inset-left)); }
   .identity { flex-direction: column; align-items: flex-start; }

@@ -296,7 +296,7 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
   }
 
   if (shuffledCards.length === 0) {
-    return <main className={styles.feedShell} aria-label="Учебная лента по frontend"><p role="status">Пока нет карточек для обучения.</p><AccountLink /></main>;
+    return <main className={styles.feedShell} aria-label="Учебная лента по frontend"><p role="status">В выбранных разделах нет карточек. Откройте аккаунт и настройки, чтобы выбрать разделы.</p><AccountLink /></main>;
   }
 
   return (
@@ -314,7 +314,7 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
       onTouchCancelCapture={resetSystemGestureGuard}
     >
       <Swiper
-        key={session?.id}
+        key={`${session?.id}:${shuffledCards.map(card => card.id).join("|")}`}
         className={styles.feed}
         initialSlide={activeCardIndex}
         modules={feedModules}

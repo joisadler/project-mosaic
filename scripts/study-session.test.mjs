@@ -92,3 +92,28 @@ test("storage denial/quota and unresolved identity never block or expose prior s
   assert.equal(unavailable.getSnapshot().storageAvailable, false);
   assert.ok(unavailable.getSnapshot().session);
 });
+
+test("section filtering retains presentation IDs, hidden pages and canonical order across empty/reselected views", async () => {
+  const { filterSession, presentationId } = await import('../src/lib/study-session/session.ts');
+  const canonical = { version: 1, id: crypto.randomUUID(), order: ['a', 'b', 'c'], currentCardId: 'b', pages: { a: 2 }, answers: { b: 'right' }, sides: { c: 1 } };
+  const sections = new Map([['a', 'one'], ['b', 'two'], ['c', 'one']]);
+  const filtered = filterSession(canonical, ['one'], sections);
+  assert.deepEqual(filtered.order, ['a', 'c']);
+  assert.equal(filtered.currentCardId, 'c');
+  assert.equal(presentationId(filtered, 'a'), presentationId(canonical, 'a'));
+  assert.deepEqual(filtered.pages, canonical.pages);
+  const empty = filterSession(canonical, [], sections);
+  assert.deepEqual(empty.order, []); assert.equal(empty.currentCardId, null);
+  assert.equal(filterSession(canonical, ['one', 'two'], sections), canonical);
+  assert.deepEqual(canonical.order, ['a', 'b', 'c']);
+});
+
+test("chapter toggles preserve other chapters and reflect partial subsection selection", async () => {
+  const { groupSelection, toggleSectionGroup } = await import('../src/lib/study-session/section-selection.ts');
+  assert.deepEqual(groupSelection(['1.1', '2.1'], ['1.1', '1.2']), { checked: false, mixed: true });
+  const all = toggleSectionGroup(['1.1', '2.1'], ['1.1', '1.2'], true);
+  assert.deepEqual(new Set(all), new Set(['1.1', '1.2', '2.1']));
+  assert.deepEqual(groupSelection(all, ['1.1', '1.2']), { checked: true, mixed: false });
+  assert.deepEqual(toggleSectionGroup(all, ['1.1', '1.2'], false), ['2.1']);
+  assert.deepEqual(groupSelection([], []), { checked: false, mixed: false });
+});

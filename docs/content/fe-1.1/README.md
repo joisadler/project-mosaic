@@ -17,11 +17,12 @@ The card arrays live in `src/content/`, beside `card-types.ts`:
 - `fe-1.1-flip-cards.ts`
 - `fe-1.1-source-urls.ts`
 
-`src/content/learning-sections.ts` registers the arrays as the `fe-1.1` learning section:
+`src/content/learning-sections.ts` registers the arrays as the `fe-1.1` learning subsection of chapter `fe-1`:
 
 ```ts
 {
   id: "fe-1.1",
+  chapterId: "fe-1",
   number: "1.1",
   title: "Модель выполнения, объявления и области видимости",
   cards: [

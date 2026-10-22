@@ -132,7 +132,9 @@ export function parseCloudState(value: unknown, inventory: SyncInventory): Cloud
   const state = initialCloudState(inventory.sections);
   state.revision = value.revision;
   state.lastResetId = value.lastResetId;
-  state.sections = { ids: parseIds(value.sections.ids, new Set(inventory.sections)), version: value.sections.version, mutationId: value.sections.mutationId };
+  if (!Array.isArray(value.sections.ids) || !value.sections.ids.every(id => typeof id === "string")) invalid();
+  const ids = value.sections.version === 0 ? [...inventory.sections] : [...new Set(value.sections.ids.filter(id => inventory.sections.includes(id)))];
+  state.sections = { ids, version: value.sections.version, mutationId: value.sections.mutationId };
   for (const [key, entry] of Object.entries(value.records)) {
     if (!isRecord(entry) || !isCounter(entry.version) || entry.version < 1 || typeof entry.mutationId !== "string") invalid();
     // Content removed from the registry must not prevent other cards from syncing.

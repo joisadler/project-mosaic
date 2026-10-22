@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { readAuthConfig } from "@/lib/auth/config";
 import { AccountSession } from "@/components/account/AccountSession";
 import { StudySessionControl } from "@/components/account/StudySessionControl";
+import { SectionSelection } from "@/components/account/SectionSelection";
 import { AccountScreen, AccountUnavailable } from "@/components/account/AccountScreen";
 
 export const dynamic = "force-dynamic";
@@ -20,6 +21,7 @@ export default async function AccountPage({ searchParams }: {
   return (
     <AccountScreen>
       {configured ? <AccountSession callbackFailed={Boolean(params.error)} callbackPath="/account" /> : <AccountUnavailable />}
+      <SectionSelection />
       <StudySessionControl />
     </AccountScreen>
   );

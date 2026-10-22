@@ -21,7 +21,7 @@ export function StudySessionControl() {
         sync.status === "unauthorized" ? "Для синхронизации войдите в аккаунт снова. Локальные изменения сохранены отдельно для этого аккаунта." :
         "Не удалось синхронизировать прогресс. Изменения остаются на этом устройстве; отправим их при восстановлении связи."}</p>
       {sync.conflict ? <p role="status">Часть прогресса была изменена или сброшена на другом устройстве. Для этих подтверждений применена версия из аккаунта.</p> : null}
-      {!sync.storageAvailable ? <p role="alert">Очередь синхронизации не сохраняется на устройстве. Не закрывайте приложение до завершения отправки.</p> : null}
+      {!sync.storageAvailable && sync.status !== "local" ? <p role="alert">Очередь синхронизации не сохраняется на устройстве. Не закрывайте приложение до завершения отправки.</p> : null}
       {sync.status === "error" || sync.status === "offline" ? <button className={styles.retry} type="button" onClick={retrySync}>Повторить синхронизацию</button> : null}
       {confirming ? (
         <>

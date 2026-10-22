@@ -6,8 +6,13 @@ import { feSection1_2FlipCards } from "./fe-1.2-flip-cards";
 import { feSection1_2InfoCards } from "./fe-1.2-info-cards";
 import { feSection1_2QuizCards } from "./fe-1.2-quiz-cards";
 
+export const learningChapters = [
+  { id: "fe-1", number: "1", title: "JavaScript и асинхронное программирование" },
+] as const;
+
 type LearningSectionDefinition = {
   id: `fe-${number}.${number}`;
+  chapterId: (typeof learningChapters)[number]["id"];
   number: `${number}.${number}`;
   title: string;
   cards: readonly LearningCardData[];
@@ -16,6 +21,7 @@ type LearningSectionDefinition = {
 export const learningSections = [
   {
     id: "fe-1.1",
+    chapterId: "fe-1",
     number: "1.1",
     title: "Модель выполнения, объявления и области видимости",
     cards: [
@@ -26,6 +32,7 @@ export const learningSections = [
   },
   {
     id: "fe-1.2",
+    chapterId: "fe-1",
     number: "1.2",
     title: "Значения, типы, равенство и приведение типов",
     cards: [
