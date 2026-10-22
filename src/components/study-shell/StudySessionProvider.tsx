@@ -2,6 +2,8 @@
 
 import { createContext, useContext, useMemo, useState, useSyncExternalStore, type ReactNode } from "react";
 import type { LearningCardData } from "@/content/card-types";
+import { learningSectionIdByCardId } from "@/content/learning-sections";
+import { createProgressStore } from "@/lib/learning-progress/progress";
 import { authClient } from "@/lib/auth/client";
 import { createSessionStore, type StudySession } from "@/lib/study-session/session";
 
@@ -10,6 +12,9 @@ type SessionContext = {
   update: (change: (current: StudySession) => StudySession) => void;
   restart: () => void;
   storageAvailable: boolean;
+  progress: ReturnType<ReturnType<typeof createProgressStore>["getSnapshot"]>;
+  reviewCard: ReturnType<typeof createProgressStore>["review"];
+  toggleConfirmation: ReturnType<typeof createProgressStore>["toggle"];
 };
 
 const Context = createContext<SessionContext | null>(null);
@@ -25,7 +30,12 @@ type ProviderProps = { cards: readonly LearningCardData[]; children: ReactNode }
 function OwnerSession({ cards, children, owner }: ProviderProps & { owner: string | null }) {
   const [store] = useState(() => createSessionStore(cards, owner));
   const snapshot = useSyncExternalStore(store.subscribe, store.getSnapshot, store.getServerSnapshot);
-  const value = useMemo(() => ({ ...snapshot, update: store.update, restart: store.restart }), [snapshot, store]);
+  const [progressStore] = useState(() => createProgressStore(cards, learningSectionIdByCardId, owner));
+  const progress = useSyncExternalStore(progressStore.subscribe, progressStore.getSnapshot, progressStore.getServerSnapshot);
+  const value = useMemo(() => ({
+    ...snapshot, update: store.update, restart: store.restart, progress,
+    reviewCard: progressStore.review, toggleConfirmation: progressStore.toggle,
+  }), [snapshot, store, progress, progressStore]);
   return <Context.Provider value={value}>{children}</Context.Provider>;
 }
 

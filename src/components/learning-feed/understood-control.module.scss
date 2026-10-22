@@ -1,0 +1,41 @@
+.control { display: grid; justify-items: center; gap: 5px; }
+.button[aria-pressed="true"] {
+  color: var(--card-accent);
+  path { stroke-width: 3; }
+}
+.button[aria-disabled="true"] { opacity: 0.58; }
+.percentage { font-size: 0.66rem; font-variant-numeric: tabular-nums; color: #f7f8ff; }
+.progress {
+  display: block;
+  width: 2.5rem;
+  height: 3px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 3px;
+  background: #34404f;
+}
+.fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--card-accent);
+  transform-origin: left;
+}
+.notice {
+  position: fixed;
+  z-index: 7;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1.5rem, calc(env(safe-area-inset-bottom) + 1.25rem));
+  left: max(1rem, env(safe-area-inset-left));
+  width: fit-content;
+  max-width: min(30rem, calc(100vw - 7rem));
+  border: 1px solid #4c6077;
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: #f7f8ff;
+  background: #101b29;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  pointer-events: none;
+  &:empty { display: none; }
+}

@@ -94,24 +94,21 @@
   height: 3rem;
   flex: none;
   place-items: center;
-  border: 1px solid color-mix(in srgb, var(--card-accent) 62%, white 8%);
-  border-radius: 50%;
-  color: color-mix(in srgb, var(--card-accent) 82%, white);
-  background: color-mix(in srgb, var(--card-accent) 18%, rgba(4, 10, 16, 0.92));
-  box-shadow: 0 0.65rem 1.5rem rgba(0, 0, 0, 0.3);
+  border: 0;
+  border-radius: 0.5rem;
+  padding: 0;
+  color: rgba(247, 248, 255, 0.88);
+  background: transparent;
   cursor: pointer;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
   transition:
-    border-color 160ms ease,
-    background-color 160ms ease,
-    box-shadow 160ms ease,
+    color 160ms ease,
     transform 160ms ease;
 }
 
 .readMoreLink:hover {
-  border-color: color-mix(in srgb, var(--card-accent) 82%, white);
-  background: color-mix(in srgb, var(--card-accent) 28%, rgba(4, 10, 16, 0.94));
+  color: var(--card-accent);
 }
 
 .readMoreLink:active {
@@ -121,9 +118,6 @@
 .readMoreLink:focus-visible {
   outline: 3px solid color-mix(in srgb, var(--card-accent) 78%, white);
   outline-offset: 3px;
-  box-shadow:
-    0 0 0 2px #071018,
-    0 0.65rem 1.5rem rgba(0, 0, 0, 0.3);
 }
 
 .readMoreLink::after {
@@ -152,8 +146,8 @@
 }
 
 .readMoreIcon {
-  width: 1.55rem;
-  height: 1.55rem;
+  width: 1.75rem;
+  height: 1.75rem;
 }
 
 
@@ -869,8 +863,8 @@
   }
 
   .readMoreIcon {
-    width: 1.35rem;
-    height: 1.35rem;
+    width: 1.6rem;
+    height: 1.6rem;
   }
 
   .page {

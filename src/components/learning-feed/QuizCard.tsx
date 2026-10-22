@@ -1,4 +1,4 @@
-import { useRef, useState, type KeyboardEvent } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperInstance } from "swiper/types";
@@ -18,6 +18,7 @@ type QuizCardProps = {
   isActive: boolean;
   selectedOptionId?: string;
   onOptionSelect: (cardId: string, optionId: string) => void;
+  onFeedbackReview: (cardId: string, optionId: string) => void;
 };
 
 const compactQuizModules = [A11y];
@@ -30,6 +31,7 @@ export function QuizCard({
   isActive,
   selectedOptionId,
   onOptionSelect,
+  onFeedbackReview,
 }: QuizCardProps) {
   const compactSwiperRef = useRef<SwiperInstance | null>(null);
   const compactFocusTargetRef = useRef<HTMLDivElement | null>(null);
@@ -46,6 +48,12 @@ export function QuizCard({
   const resultText = selectedOption
     ? `${isCorrect ? "Верно." : "Не совсем."} ${selectedOption.explanation}`
     : "";
+
+  useEffect(() => {
+    if (isActive && selectedOption && (!isCompactQuiz || activeCompactPanel === 2)) {
+      onFeedbackReview(card.id, selectedOption.id);
+    }
+  }, [isActive, selectedOption, isCompactQuiz, activeCompactPanel, onFeedbackReview, card.id]);
 
   const handleOptionKeyDown = (
     event: KeyboardEvent<HTMLButtonElement>,

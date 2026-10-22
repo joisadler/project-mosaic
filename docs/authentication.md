@@ -1,6 +1,6 @@
 # Google authentication and MongoDB
 
-Google authentication is optional. The feed works without configuration, accounts, or a database. Open `/sign-in` directly to exercise the authentication foundation; the permanent user/settings entry belongs to MOS-23. Learning progress and synchronization remain separate tasks; device-local feed resume is described in [Study sessions](study-sessions.md).
+Google authentication is optional. The feed works without configuration, accounts, or a database. Open `/sign-in` directly to exercise the authentication foundation; the permanent user/settings entry belongs to MOS-23. Device-local feed resume is described in [Study sessions](study-sessions.md), and explicit local confirmations in [Learning progress](learning-progress.md). Server synchronization remains a separate task.
 
 ## Environments
 

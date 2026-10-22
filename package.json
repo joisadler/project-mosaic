@@ -11,6 +11,7 @@
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
     "validate:content": "node scripts/validate-content.mjs",
+    "test:progress": "node --test scripts/learning-progress.test.mjs",
     "test:session": "node --test scripts/study-session.test.mjs",
     "test:auth": "node --test scripts/auth-config.test.mjs",
     "typecheck": "next typegen && tsc --noEmit"
