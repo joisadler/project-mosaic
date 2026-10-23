@@ -292,9 +292,30 @@
 
 .sectionChoices { min-width: 0; margin: 0; padding: 0; border: 0; }
 .sectionLegend { margin-bottom: 12px; color: #a3aec4; font-size: 0.85rem; }
-.chapter { min-width: 0; margin: 0 0 12px; padding: 0; border: 0; legend { width: 100%; padding: 0; } }
-.chapterChoice { font-weight: 650; }
-.subsections { margin-left: 10px; padding-left: 14px; border-left: 1px solid rgba(183, 205, 238, 0.18); }
+.chapter { min-width: 0; margin-bottom: 16px; padding-top: 12px; border-top: 1px solid rgba(183, 205, 238, 0.13); }
+.chapterHeader {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 8px;
+  h3 { flex: 1; min-width: 0; }
+}
+.chapterCheckbox {
+  display: flex; flex: none; align-items: center; justify-content: center;
+  width: 44px; min-height: 48px; cursor: pointer;
+  input { width: 20px; height: 20px; accent-color: #b7d5ed; }
+}
+.chapterToggle {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+  width: 100%; min-height: 48px; border: 0; border-radius: 8px; padding: 12px;
+  background: transparent; color: #e3eafa; font: inherit; font-size: 0.9rem;
+  font-weight: 650; line-height: 1.5; text-align: left; overflow-wrap: anywhere; cursor: pointer;
+  span { min-width: 0; }
+  svg { width: 20px; height: 20px; flex: none; margin-top: 1px; }
+  &[aria-expanded="true"] svg { transform: rotate(180deg); }
+  &:hover { color: #fff; background: rgba(196, 212, 235, 0.04); }
+}
+.sessionControl .chapterCount { font-size: 0.8rem; }
+.subsections { padding-left: 12px; border-left: 1px solid rgba(183, 205, 238, 0.18); }
 .sectionChoice {
   display: flex;
   align-items: flex-start;
@@ -305,6 +326,7 @@
   line-height: 1.5;
   cursor: pointer;
   input { width: 20px; height: 20px; flex: none; margin-top: 2px; accent-color: #b7d5ed; }
+  > span { min-width: 0; overflow-wrap: anywhere; }
   input:focus-visible { outline: 2px solid #b7d5ed; outline-offset: 4px; }
   strong { display: block; color: #a3aec4; font-size: 0.8rem; }
 }

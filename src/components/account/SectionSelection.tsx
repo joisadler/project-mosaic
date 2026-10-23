@@ -1,26 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { learningChapters, learningSections } from "@/content/learning-sections";
 import { useStudySession } from "@/components/study-shell/StudySessionProvider";
-import { groupSelection, toggleSectionGroup } from "@/lib/study-session/section-selection";
+import { ChapterSelection } from "./ChapterSelection";
 import { ProgressSummary, ResetProgressDialog, type ResetTarget } from "./ProgressControls";
 import styles from "./account-screen.module.scss";
-
-function ChapterCheckbox({ ids, selected, label, onChange }: {
-  ids: string[]; selected: string[]; label: string; onChange: (ids: string[]) => void;
-}) {
-  const inputRef = useRef<HTMLInputElement>(null);
-  const { checked, mixed } = groupSelection(selected, ids);
-  useEffect(() => { if (inputRef.current) inputRef.current.indeterminate = mixed; }, [mixed]);
-  return (
-    <label className={`${styles.sectionChoice} ${styles.chapterChoice}`}>
-      <input ref={inputRef} type="checkbox" checked={checked} aria-checked={mixed ? "mixed" : checked}
-        onChange={event => onChange(toggleSectionGroup(selected, ids, event.target.checked))} />
-      <span>{label}</span>
-    </label>
-  );
-}
 
 export function SectionSelection() {
   const { sync, setSections, session, progress } = useStudySession();
@@ -33,32 +18,15 @@ export function SectionSelection() {
       <p>Средний прогресс — среднее процентов всех карточек, включая невыбранные. Завершёнными считаются карточки со 100%.</p>
       <h3 className={styles.progressHeading}>Весь прогресс</h3>
       <ProgressSummary title="Весь прогресс" cardIds={learningSections.flatMap(section => section.cards.map(card => card.id))} onReset={setResetTarget} />
-      <fieldset className={styles.sectionChoices} disabled={disabled}>
+      <fieldset className={styles.sectionChoices}>
         <legend className={styles.sectionLegend}>Выберите разделы и подразделы</legend>
         {learningChapters.map(chapter => {
           const subsections = learningSections.filter(section => section.chapterId === chapter.id);
           if (!subsections.length) return null;
           return (
-            <fieldset className={styles.chapter} key={chapter.id}>
-              <legend>
-                <ChapterCheckbox ids={subsections.map(section => section.id)} selected={sync.sections}
-                  label={`${chapter.number}. ${chapter.title}`} onChange={setSections} />
-              </legend>
-              <ProgressSummary title={`Раздел ${chapter.number}: ${chapter.title}`} cardIds={subsections.flatMap(section => section.cards.map(card => card.id))} onReset={setResetTarget} />
-              <div className={styles.subsections}>
-                {subsections.map(section => (
-                  <div className={styles.subsection} key={section.id}>
-                    <label className={styles.sectionChoice}>
-                      <input type="checkbox" checked={sync.sections.includes(section.id)} onChange={event => setSections(
-                        toggleSectionGroup(sync.sections, [section.id], event.target.checked),
-                      )} />
-                      <span><strong>{section.number}</strong>{section.title}</span>
-                    </label>
-                    <ProgressSummary title={`Подраздел ${section.number}: ${section.title}`} cardIds={section.cards.map(card => card.id)} onReset={setResetTarget} />
-                  </div>
-                ))}
-              </div>
-            </fieldset>
+            <ChapterSelection key={chapter.id} number={chapter.number} title={chapter.title}
+              subsections={subsections} selected={sync.sections} disabled={disabled}
+              onChange={setSections} onReset={setResetTarget} />
           );
         })}
       </fieldset>
