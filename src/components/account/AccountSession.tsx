@@ -54,7 +54,7 @@ export function AccountSession({ callbackFailed, callbackPath = "/sign-in" }: {
     <div aria-busy={busy || isPending}>
       <header className={styles.heading}>
         <p className={styles.eyebrow}>Личное пространство</p>
-        <h1 id="account-title" tabIndex={-1}>{user || isPending || error ? "Ваш аккаунт" : "Вход в Mosaic"}</h1>
+        <h1 id="account-title" data-screen-heading tabIndex={-1}>{callbackPath === "/account" ? "Профиль" : user || isPending || error ? "Ваш аккаунт" : "Вход в Mosaic"}</h1>
         {!user && !isPending && !error ? <p className={styles.description}>Выберите свой Google-аккаунт, чтобы войти.</p> : null}
       </header>
       <div className={styles.card}>
@@ -81,7 +81,7 @@ export function AccountSession({ callbackFailed, callbackPath = "/sign-in" }: {
                 {busy ? "Выходим…" : "Выйти"}
               </button>
             </div>
-            <Link href="/" scroll={false} className={styles.primaryLink}>Продолжить обучение <span aria-hidden="true">→</span></Link>
+            {callbackPath !== "/account" ? <Link href="/" scroll={false} className={styles.primaryLink}>Продолжить обучение <span aria-hidden="true">→</span></Link> : null}
           </>
         ) : (
           <button className={styles.googleButton} type="button" disabled={busy} onClick={() => void signIn()}>

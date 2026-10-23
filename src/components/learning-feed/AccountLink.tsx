@@ -12,8 +12,8 @@ export function AccountLink() {
       href="/account"
       scroll={false}
       className={`${styles.readMoreLink} swiper-no-swiping`}
-      aria-label="Аккаунт и настройки"
-      data-tooltip="Аккаунт и настройки"
+      aria-label="Профиль"
+      data-tooltip="Профиль"
       data-account-entry
       data-swiper-no-swiping="true"
       draggable={false}

@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import { readAuthConfig } from "@/lib/auth/config";
 import { AccountSession } from "@/components/account/AccountSession";
-import { StudySessionControl } from "@/components/account/StudySessionControl";
-import { SectionSelection } from "@/components/account/SectionSelection";
-import { ReviewEntry } from "@/components/account/ReviewEntry";
+import { ProfileDestinations } from "@/components/account/ProfileDestinations";
 import { AccountScreen, AccountUnavailable } from "@/components/account/AccountScreen";
 
 export const dynamic = "force-dynamic";
-export const metadata: Metadata = { title: "Аккаунт — Mosaic" };
+export const metadata: Metadata = { title: "Профиль — Mosaic" };
 
 export default async function AccountPage({ searchParams }: {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
@@ -21,10 +19,8 @@ export default async function AccountPage({ searchParams }: {
   const params = await searchParams;
   return (
     <AccountScreen>
-      {configured ? <AccountSession callbackFailed={Boolean(params.error)} callbackPath="/account" /> : <AccountUnavailable />}
-      <SectionSelection />
-      <ReviewEntry />
-      <StudySessionControl />
+      {configured ? <AccountSession callbackFailed={Boolean(params.error)} callbackPath="/account" /> : <AccountUnavailable profile />}
+      <ProfileDestinations />
     </AccountScreen>
   );
 }

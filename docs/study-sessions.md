@@ -1,6 +1,10 @@
 # Device-local study sessions
 
-The feed restores its order and position from `localStorage` on the same origin and browser profile. No session position is sent to MongoDB or synchronized to another device. Localhost, a development tunnel, production, private browsing, and separate browser profiles have separate storage. Clearing site data removes the saved session; unavailable storage falls back to an in-memory session and a notice on the account page.
+The feed restores its order and position from `localStorage` on the same origin and browser profile. No session position is sent to MongoDB or synchronized to another device. Localhost, a development tunnel, production, private browsing, and separate browser profiles have separate storage. Clearing site data removes the saved session; unavailable storage falls back to an in-memory session and a notice on the My learning page.
+
+## Profile and learning navigation
+
+The feed profile icon opens `/account` (Профиль): authentication/profile/sign-out plus summary links to `/learning` (Моё обучение) and `/review` (Повторение). My learning contains subsection selection, detailed progress, scoped resets, synchronization/storage notices, and the confirmed shuffle action. It provides explicit profile and study return links. All four routes share the mounted study layout; inactive feeds remain inert. Back from My learning restores focus to its profile entry; other route changes focus the destination heading or feed return control. Direct links and reloads use the same owner-scoped stores. Application Settings will be added only when actual preferences exist; accordions and visual redesign are separate tasks. The owner accepted MOS-33 page separation on October 23, 2026, after confirming that the page flows work. This does not establish validation of a later production deployment.
 
 ## Saved state
 
@@ -12,9 +16,9 @@ The scopes are `study:all` and `review:all`, each with its own persistent UUID, 
 
 ## Recovery and starting again
 
-Malformed snapshots and unsupported versions start a new session. Existing valid orders retain surviving cards, remove duplicate/deleted IDs, and append shuffled new IDs. If the current card disappeared, resume at the nearest remaining position. Informational pages clamp to their new page count; invalid quiz options and flip sides are discarded. Empty feeds remain navigable to the account page.
+Malformed snapshots and unsupported versions start a new session. Existing valid orders retain surviving cards, remove duplicate/deleted IDs, and append shuffled new IDs. If the current card disappeared, resume at the nearest remaining position. Informational pages clamp to their new page count; invalid quiz options and flip sides are discarded. Empty feeds remain navigable to My learning (`/learning`) or the profile when identity is unavailable.
 
-The account page's **Начать заново** action asks before replacing the current local session, assigns a new UUID, reshuffles, clears its quiz/page/flip presentation state, and returns to the feed. It does not clear study progress. The separate subsection/chapter/all-progress reset controls clear confirmations without replacing this session or its saved interactions. The ordering policy generates a fresh round; constraints in small pools can still produce the same card order with new presentation identities. Existing guest/other-account snapshots are unaffected. Multiple tabs in the same browser profile use the same saved namespace; each mounted tab retains its current session and the last interaction to write storage wins. This does not implement live tab synchronization.
+The My learning page's **Перемешать ленту** action asks before replacing the current local session, assigns a new UUID, reshuffles, clears its quiz/page/flip presentation state, and returns to the feed. It does not clear study progress. The separate subsection/chapter/all-progress reset controls clear confirmations without replacing this session or its saved interactions. The ordering policy generates a fresh round; constraints in small pools can still produce the same card order with new presentation identities. Existing guest/other-account snapshots are unaffected. Multiple tabs in the same browser profile use the same saved namespace; each mounted tab retains its current session and the last interaction to write storage wins. This does not implement live tab synchronization.
 
 Storage reads happen once when the client subscribes; snapshots are cached through `useSyncExternalStore` with a matching empty server snapshot for hydration. Each meaningful interaction writes synchronously, so leaving for Read more does not rely on an unload handler. Write failures never block navigation. No dependencies, service workers, or general-purpose state framework are added.
 
@@ -22,6 +26,6 @@ Storage reads happen once when the client subscribes; snapshots are cached throu
 
 Run `npm run test:ordering`, `npm run test:session`, `npm run test:progress`, `npm run test:sync`, `npm run test:auth`, content validation, lint, typecheck, and build. Check actual rendered order/current card, multipage InfoCard, selected quiz feedback, and both flip sides before/after reload. Check account round trips, explicit restart/cancel, two independent browser profiles/origins, and user switching. Separately ask the owner to validate closing and reopening the actual installed iPhone PWA; browser reload evidence is not physical-device reopen evidence.
 
-The separate review mode is implemented and pushed for MOS-16; its physical iPhone/PWA navigation and reopen acceptance remain pending. Earlier study-session validation does not establish review validation.
+On October 22, 2026, the owner accepted completed-card review (MOS-16) and continuous-round navigation/resume (MOS-13) in the development iPhone/PWA workflow. This does not establish a particular production deployment check.
 
 On October 21, 2026, the owner tested the new session resume behavior in the installed development iPhone PWA and confirmed normal behavior. MOS-17 is accepted; detailed implementation and validation evidence is recorded in Linear. This confirmation does not establish validation of a later production deployment.

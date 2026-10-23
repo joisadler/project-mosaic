@@ -307,7 +307,7 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
       >
         <div className={styles.emptyFeed}>
           <p role="status">Загружаем карточки…</p>
-          <Link href="/account" scroll={false} data-account-entry>Аккаунт и настройки</Link>
+          <Link href="/account" scroll={false} data-account-entry>Профиль</Link>
         </div>
       </main>
     );
@@ -317,12 +317,12 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
     return (
       <main ref={feedShellRef} className={styles.feedShell} aria-label={mode === "review" ? "Повторение завершённых карточек" : "Учебная лента по frontend"}>
         <div className={styles.emptyFeed}>
-          <h1>{sync.status === "unavailable" ? "Аккаунт недоступен" : !sync.sections.length ? "Выберите учебный материал" : mode === "review" ? "Пока нечего повторять" : "Карточки для обучения закончились"}</h1>
-          <p role="status">{sync.status === "unavailable" ? "Не удалось проверить аккаунт. Проверьте соединение в настройках." :
-            !sync.sections.length ? "Подразделы не выбраны. Откройте настройки, чтобы выбрать учебный материал." :
+          <h1>{sync.status === "unavailable" ? "Аккаунт недоступен" : !sync.sections.length ? "Выберите темы для обучения" : mode === "review" ? "Пока нечего повторять" : "Карточки для обучения закончились"}</h1>
+          <p role="status">{sync.status === "unavailable" ? "Не удалось проверить аккаунт. Повторите проверку в профиле." :
+            !sync.sections.length ? "Подразделы не выбраны. Откройте «Моё обучение», чтобы выбрать темы." :
             mode === "review" ? "В выбранных подразделах пока нет карточек со 100%. Они появятся здесь после завершения обучения." :
             "В выбранных подразделах нет незавершённых карточек. Можно повторить завершённые или выбрать другой материал."}</p>
-          <Link href="/account" scroll={false} data-account-entry>Открыть настройки</Link>
+          <Link href={sync.status === "unavailable" ? "/account" : "/learning"} scroll={false} data-account-entry>{sync.status === "unavailable" ? "Открыть профиль" : "Моё обучение"}</Link>
           {mode === "review" ? <Link href="/" scroll={false} data-review-return>Вернуться к обучению</Link> : <Link href="/review" scroll={false}>Повторить завершённые</Link>}
         </div>
       </main>

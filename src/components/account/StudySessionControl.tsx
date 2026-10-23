@@ -29,7 +29,7 @@ export function StudySessionControl() {
           <button className={styles.retry} type="button" onClick={() => { restart(); setConfirming(false); router.push("/", { scroll: false }); }}>Перемешать и начать</button>
           <button className={styles.retry} type="button" onClick={() => setConfirming(false)}>Отмена</button>
         </>
-      ) : <button className={styles.retry} type="button" disabled={!session} onClick={() => setConfirming(true)}>Начать заново</button>}
+      ) : <button className={styles.retry} type="button" disabled={!session} onClick={() => setConfirming(true)}>Перемешать ленту</button>}
     </section>
   );
 }

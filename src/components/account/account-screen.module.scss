@@ -277,6 +277,19 @@
   button:disabled { opacity: 0.55; cursor: wait; }
 }
 
+.profileBack { display: inline-flex; align-items: center; min-height: 44px; margin-bottom: 16px; color: #b9c4d6; text-decoration: none; }
+.destinations { display: grid; gap: 12px; margin-top: 28px; }
+.destination {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  min-height: 76px; padding: 18px 20px; border: 1px solid rgba(183, 205, 238, 0.13);
+  border-radius: 16px; color: #f3f5fa; text-decoration: none;
+  background: rgba(196, 212, 235, 0.04);
+  > span:first-child { display: grid; gap: 6px; min-width: 0; }
+  strong { font-size: 0.95rem; font-weight: 650; }
+  span span { color: #a3aec4; font-size: 0.8rem; line-height: 1.5; }
+  &:hover { background: rgba(196, 212, 235, 0.08); }
+}
+
 .sectionChoices { min-width: 0; margin: 0; padding: 0; border: 0; }
 .sectionLegend { margin-bottom: 12px; color: #a3aec4; font-size: 0.85rem; }
 .chapter { min-width: 0; margin: 0 0 12px; padding: 0; border: 0; legend { width: 100%; padding: 0; } }

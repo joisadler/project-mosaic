@@ -2,9 +2,11 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import styles from "./account-screen.module.scss";
 
-export function AccountScreen({ children }: { children: ReactNode }) {
+export function AccountScreen({ children, titleId = "account-title", showProfileLink = false }: {
+  children: ReactNode; titleId?: string; showProfileLink?: boolean;
+}) {
   return (
-    <main className={styles.screen} aria-labelledby="account-title">
+    <main className={styles.screen} aria-labelledby={titleId}>
       <div className={styles.artwork} aria-hidden="true">
         <span /><span /><span /><span />
       </div>
@@ -25,17 +27,20 @@ export function AccountScreen({ children }: { children: ReactNode }) {
           К карточкам
         </Link>
       </nav>
-      <div className={styles.content}>{children}</div>
+      <div className={styles.content}>
+        {showProfileLink ? <Link href="/account" scroll={false} className={styles.profileBack}>← Профиль</Link> : null}
+        {children}
+      </div>
     </main>
   );
 }
 
-export function AccountUnavailable() {
+export function AccountUnavailable({ profile = false }: { profile?: boolean }) {
   return (
     <>
       <header className={styles.heading}>
         <p className={styles.eyebrow}>Личное пространство</p>
-        <h1 id="account-title" tabIndex={-1}>Вход в Mosaic</h1>
+        <h1 id="account-title" data-screen-heading tabIndex={-1}>{profile ? "Профиль" : "Вход в Mosaic"}</h1>
       </header>
       <div className={styles.card}>
         <p className={styles.notice} role="status">Вход сейчас недоступен. Карточки по-прежнему доступны без аккаунта.</p>

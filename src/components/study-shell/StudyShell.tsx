@@ -19,11 +19,14 @@ export function StudyShell({ cards, children, authConfigured }: {
   const shellRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const routeChanged = pathname !== previousPath.current;
+    const from = previousPath.current;
+    const routeChanged = pathname !== from;
     previousPath.current = pathname;
     if (!routeChanged) return;
     const frame = requestAnimationFrame(() => {
-      const target = feedActive ? "[data-study-feed] [data-account-entry]" : reviewActive ? "[data-review-return]" : "#account-title";
+      const target = feedActive ? "[data-study-feed] [data-account-entry]" : reviewActive ? "[data-review-return]" :
+        pathname === "/account" && from === "/learning" ? "[data-learning-entry]" :
+        pathname === "/account" && from === "/review" ? "[data-profile-review-entry]" : "[data-screen-heading]";
       shellRef.current?.querySelector<HTMLElement>(target)?.focus({ preventScroll: true });
     });
     return () => cancelAnimationFrame(frame);
