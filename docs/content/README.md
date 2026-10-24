@@ -23,6 +23,17 @@ The `fe` prefix identifies the source handbook as a whole, not the technology di
 
 The registry also defines top-level `learningChapters` (for example `fe-1`) and a required `chapterId` on each subsection (`fe-1.1`, `fe-1.2`). Settings group subsections by this explicit relationship; neither titles nor numeric ID prefixes determine membership. Add a chapter and link its content-bearing subsections when integrating future chapters. Parent checkboxes select all currently available children and show an indeterminate state for a partial selection. Persistence continues to store subsection IDs, so a chapter toggle never changes another chapter and does not automatically opt into future content.
 
+## Keep README availability in sync
+
+When integrating, removing, or changing the size of a content package, update the root [README's learning source and contents](../../README.md#learning-source-and-contents) in the same change:
+
+- Update the affected chapter's availability and its subsection entries; add subsection details when integrating another chapter.
+- Mark a subsection as integrated only when its cards are registered in `src/content/learning-sections.ts`. Source handbook completion or approval alone does not establish app availability.
+- Recalculate affected package/chapter card counts and the overall inventory count, including the README's Current status section and package documentation.
+- Verify source titles and links. Preserve the distinction between the full handbook contents and content available in Mosaic.
+
+Treat this as part of content integration completion, alongside registry, coverage, and rendered validation checks.
+
 ## Optional visual motifs
 
 Cards may include `visual?: { motif?: VisualMotif }` in `BaseCardData`. Select a motif by the card's primary learning objective after reading all pages or both sides. Motifs are optional: omit `visual` for the section default, and do not add metadata just to vary the feed.

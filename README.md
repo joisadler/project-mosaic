@@ -56,7 +56,7 @@ In the restricted agent environment, the configured Turbopack build can fail whi
 - `src/components/learning-feed/`: virtualized vertical feed, horizontal card pages, and Markdown rendering.
 - `src/content/`: typed local learning content.
 - `src/lib/auth/`: server authentication, MongoDB connection, and ownership helpers.
-- `src/app/(study)/`: shared persistent layout for `/`, `/account`, and `/review`; `(study)` is a route group and is not part of the URL.
+- `src/app/(study)/`: shared persistent layout for `/`, `/account`, `/learning`, and `/review`; `(study)` is a route group and is not part of the URL.
 - `src/components/study-shell/`: owner-scoped study/review sessions and shared progress/sync providers.
 - `src/lib/study-session/`: device-local navigation persistence and subsection selection helpers.
 - `src/lib/learning-progress/`: confirmations, aggregates, completion, synchronization, and account-owned persistence.
@@ -69,7 +69,7 @@ In the restricted agent environment, the configured Turbopack build can fail whi
 - `docs/study-ordering.md`: continuous rounds, soft new/partial mixing, spacing, limits, and tuning parameters.
 - `docs/learning-progress.md`: confirmation rules, synchronization, review, aggregates, and resets.
 - `public/illustrations/`: local content illustrations.
-- `public/icons/`: placeholder app icons.
+- `public/icons/`: canonical Mosaic brand mark and generated favicon/PWA icons.
 - `AGENTS.md`: development and communication rules.
 - `ROADMAP.md`: completed MVP scope, post-MVP guidance, and tentative later stages.
 
@@ -87,13 +87,64 @@ The standalone iPhone PWA flow includes safe-area-aware metadata, protection aga
 
 The manifest includes standalone display, a best-effort portrait orientation hint, app icons, and theme colors. Service workers, offline caching, and push notifications are not configured; install behavior depends on the browser, and offline app loading is not supported. An already loaded app can queue account progress changes during a temporary network failure. See [ROADMAP.md](ROADMAP.md) for future scope.
 
+## Learning source and contents
+
+Mosaic adapts learning material from [Frontend Interview Preparation](https://github.com/joisadler/frontend-interview-preparation), a separate frontend interview handbook, question bank, and practice repository. Its [canonical curriculum](https://github.com/joisadler/frontend-interview-preparation/blob/main/CURRICULUM.md) covers 19 domains; the [handbook index](https://github.com/joisadler/frontend-interview-preparation/tree/main/handbook) links to their contents. These describe the source curriculum, not the material currently available in Mosaic. Some source chapters are still placeholders; check the handbook's own status before treating them as completed learning material.
+
+### Full handbook contents
+
+Each chapter link opens its own subsection contents. Availability refers only to cards integrated into Mosaic, not to the completion status of the source handbook.
+
+| Handbook chapter | Available in Mosaic |
+| --- | --- |
+| [1. JavaScript & Async Programming](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/README.md) | Subsections 1.1–1.2: 220 cards |
+| [2. TypeScript](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/02-typescript/README.md) | Not integrated |
+| [3. React](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/03-react/README.md) | Not integrated |
+| [4. Next.js](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/04-next-js/README.md) | Not integrated |
+| [5. HTML, DOM & Native Forms](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/05-html-dom-and-native-forms/README.md) | Not integrated |
+| [6. CSS](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/06-css/README.md) | Not integrated |
+| [7. Accessibility](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/07-accessibility/README.md) | Not integrated |
+| [8. Browser Internals & Web APIs](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/08-browser-internals-and-web-apis/README.md) | Not integrated |
+| [9. HTTP, API Design & Real-Time Communication](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/09-http-api-design-and-real-time-communication/README.md) | Not integrated |
+| [10. Frontend Performance](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/10-frontend-performance/README.md) | Not integrated |
+| [11. Web Security, Authentication & Privacy](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/11-web-security-authentication-and-privacy/README.md) | Not integrated |
+| [12. State Management, Server Data & Forms](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/12-state-management-server-data-and-forms/README.md) | Not integrated |
+| [13. Testing](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/13-testing/README.md) | Not integrated |
+| [14. Git, Packages, Build Tools & Delivery](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/14-git-packages-build-tools-and-delivery/README.md) | Not integrated |
+| [15. Frontend Architecture & Design Patterns](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/15-frontend-architecture-and-design-patterns/README.md) | Not integrated |
+| [16. UI Machine Coding](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/16-ui-machine-coding/README.md) | Not integrated |
+| [17. Data Structures & Algorithms](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/17-data-structures-and-algorithms/README.md) | Not integrated |
+| [18. Frontend System Design](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/18-frontend-system-design/README.md) | Not integrated |
+| [19. Debugging, Code Review & Interview Communication](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/19-debugging-code-review-and-interview-communication/README.md) | Not integrated |
+
+### Integrated chapter: 1. JavaScript & Async Programming
+
+The [source chapter contents](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/README.md) list the following subsections:
+
+| Handbook subsection | Available in Mosaic |
+| --- | --- |
+| [1.1. Execution Model, Declarations & Scope](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/01-execution-model-declarations-and-scope.md) | Integrated as `fe-1.1`: 100 cards |
+| [1.2. Values, Types, Equality & Coercion](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md) | Integrated as `fe-1.2`: 120 cards |
+| [1.3. Functions, Closures & Functional Patterns](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/03-functions-closures-and-functional-patterns.md) | Not integrated |
+| [1.4. `this`, Invocation & Object Model](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/04-this-invocation-and-object-model.md) | Not integrated |
+| [1.5. Arrays, Transformations & Copying](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/05-arrays-transformations-and-copying.md) | Not integrated |
+| [1.6. Collections, Symbols & Iteration](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/06-collections-symbols-and-iteration.md) | Not integrated |
+| [1.7. Modules, Errors & Serialization](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/07-modules-errors-and-serialization.md) | Not integrated |
+| [1.8. Memory Management](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/08-memory-management.md) | Not integrated |
+| [1.9. Event Loop & Scheduling](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/09-event-loop-and-scheduling.md) | Not integrated |
+| [1.10. Promises & `async`/`await`](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/10-promises-and-async-await.md) | Not integrated |
+| [1.11. Async Coordination Patterns](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/11-async-coordination-patterns.md) | Not integrated |
+| [1.12. JavaScript Implementation Practice](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/12-javascript-implementation-practice.md) | Not integrated |
+
+Only `fe-1.1` and `fe-1.2` are registered in [the application's learning sections](src/content/learning-sections.ts): 220 cards in total. A source chapter's existence or approval does not mean its content has been integrated into the app. Package notes and card-to-source coverage are in [fe-1.1](docs/content/fe-1.1/README.md), [fe-1.2](docs/content/fe-1.2/README.md), and the [shared content authoring contract](docs/content/README.md).
+
 ## Post-MVP work
 
 Use the product, gather feedback, and select small improvements according to user value, priority, and dependencies. The [Project Mosaic Linear project](https://linear.app/joisadler/project/project-mosaic-1db195c51ec6) is the source of truth for tasks and backlog status; this repository documentation describes product scope and working agreements rather than duplicating the task tracker.
 
 The owner approved a bounded learning-state and account plan on October 12, 2026, recorded in [MOS-12](https://linear.app/joisadler/issue/MOS-12). It selects Google sign-in, a minimal MongoDB user/backend foundation through Next.js route handlers, a dedicated user/settings page, device-local session resume, explicit understanding progress, account synchronization, section controls, completed-card review, and progress-aware ordering with basic repeat spacing. Implement these as small tasks in the recorded sequence and observe their dependencies.
 
-The Google/MongoDB foundation is implemented behind optional environment configuration: `/sign-in`, `/api/auth/*`, and the authenticated `/api/account` boundary. Development credentials are configured, and the owner confirmed Google sign-in, refresh persistence, sign-out, and repeat sign-in on desktop and iPhone Safari. On October 14, 2026, the owner also confirmed Google sign-in returning to the installed development PWA, session persistence after closing/reopening, and sign-out there. Production is deployed; the owner confirmed the desktop and installed iPhone/PWA authentication checks on October 15, 2026. Live development checks cover session expiry/revocation, signed cookies, ownership, origin checks, and OAuth cancellation callbacks. The owner confirmed account selection and switching between both test Google accounts in the installed development PWA on October 15, 2026. MOS-24 is complete and accepted; detailed validation evidence is recorded in Linear. A bottom-right account entry and `/account` page are implemented for MOS-23 and were accepted by the owner on iPhone/PWA on October 21, 2026. Client-side account visits preserve the mounted feed; device-local session resume is implemented for MOS-17, accepted by the owner after iPhone/PWA reopen validation on October 21, 2026. Explicit local understanding confirmations are implemented for MOS-14, accepted by the owner on October 22, 2026; MOS-22 account synchronization is implemented and accepted by the owner after phone/desktop synchronization checks on October 22, 2026. See [Learning progress](docs/learning-progress.md). The feed needs no account; order, position, page, quiz choice, and flip side are stored locally per guest/account. See [Study sessions](docs/study-sessions.md). Account synchronization shares confirmation records and selected section IDs across devices while active session order and position stay device-local. Guest progress remains separate; see the retry, conflict, and reset policy in [Learning progress](docs/learning-progress.md). My learning (`/learning`), reached from the compact profile (`/account`), contains hierarchical chapter/subsection selection, aggregate progress, confirmed scoped resets and the shuffle action; the owner accepted MOS-15 functionality and phone/desktop synchronization on October 22, 2026. The owner accepted the profile/My learning separation (MOS-33) on October 23, 2026, after confirming that the page flows work. Compact section controls and visual improvements remain under [MOS-32](https://linear.app/joisadler/issue/MOS-32).
+The Google/MongoDB foundation is implemented behind optional environment configuration: `/sign-in`, `/api/auth/*`, and the authenticated `/api/account` boundary. Development credentials are configured, and the owner confirmed Google sign-in, refresh persistence, sign-out, and repeat sign-in on desktop and iPhone Safari. On October 14, 2026, the owner also confirmed Google sign-in returning to the installed development PWA, session persistence after closing/reopening, and sign-out there. Production is deployed; the owner confirmed the desktop and installed iPhone/PWA authentication checks on October 15, 2026. Live development checks cover session expiry/revocation, signed cookies, ownership, origin checks, and OAuth cancellation callbacks. The owner confirmed account selection and switching between both test Google accounts in the installed development PWA on October 15, 2026. MOS-24 is complete and accepted; detailed validation evidence is recorded in Linear. A bottom-right account entry and `/account` page are implemented for MOS-23 and were accepted by the owner on iPhone/PWA on October 21, 2026. Client-side account visits preserve the mounted feed; device-local session resume is implemented for MOS-17, accepted by the owner after iPhone/PWA reopen validation on October 21, 2026. Explicit local understanding confirmations are implemented for MOS-14, accepted by the owner on October 22, 2026; MOS-22 account synchronization is implemented and accepted by the owner after phone/desktop synchronization checks on October 22, 2026. See [Learning progress](docs/learning-progress.md). The feed needs no account; order, position, page, quiz choice, and flip side are stored locally per guest/account. See [Study sessions](docs/study-sessions.md). Account synchronization shares confirmation records and selected section IDs across devices while active session order and position stay device-local. Guest progress remains separate; see the retry, conflict, and reset policy in [Learning progress](docs/learning-progress.md). My learning (`/learning`), reached from the compact profile (`/account`), contains hierarchical chapter/subsection selection, aggregate progress, confirmed scoped resets and the shuffle action; the owner accepted MOS-15 functionality and phone/desktop synchronization on October 22, 2026. The owner accepted the profile/My learning separation (MOS-33) on October 23, 2026, after confirming that the page flows work. The owner also accepted the compact chapter/subsection controls and refreshed dark visual direction under [MOS-32](https://linear.app/joisadler/issue/MOS-32), completed on October 24, 2026. See [Account and learning presentation](docs/account-presentation.md) and [card progress presentation](docs/learning-progress.md#compact-card-progress-presentation) for the implemented design.
 
 Completed-card review is implemented and pushed for MOS-16: the account page opens a separate, read-only `/review` feed; normal study excludes cards at 100%. Both respect selected subsections and retain independent device-local navigation. The owner accepted the development iPhone/PWA review checklist on October 22, 2026.
 
