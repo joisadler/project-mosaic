@@ -4,7 +4,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperInstance } from "swiper/types";
 import type { FlipCardData } from "@/content/card-types";
 import { CardDecoration } from "./CardDecoration";
-import { CardTypeLabel } from "./CardTypeLabel";
+import { CardHeader } from "./CardHeader";
+import type { CardProgressData } from "./CardProgress";
 import { getCardPresentation } from "./section-presentation";
 import presentationStyles from "./section-presentation.module.scss";
 import { MarkdownContent } from "./MarkdownPage";
@@ -17,6 +18,7 @@ type FlipCardProps = {
   card: FlipCardData;
   cardIndex: number;
   cardCount: number;
+  progress: CardProgressData;
   activeSide: FlipSideIndex;
   isActive: boolean;
   onSideChange: (cardId: string, sideIndex: FlipSideIndex) => void;
@@ -28,6 +30,7 @@ export function FlipCard({
   card,
   cardIndex,
   cardCount,
+  progress,
   activeSide,
   isActive,
   onSideChange,
@@ -77,11 +80,7 @@ export function FlipCard({
       aria-hidden={!isActive}
       inert={!isActive}
     >
-      <CardTypeLabel type="flip" />
-
-      <span className={styles.cardProgress} aria-hidden="true">
-        {String(cardIndex + 1).padStart(2, "0")} / {String(cardCount).padStart(2, "0")}
-      </span>
+      <CardHeader type="flip" cardIndex={cardIndex} cardCount={cardCount} progress={progress} isActive={isActive} />
 
       <div
         className={styles.flipFocusTarget}

@@ -4,7 +4,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperInstance } from "swiper/types";
 import type { InfoCardData } from "@/content/card-types";
 import { CardDecoration } from "./CardDecoration";
-import { CardTypeLabel } from "./CardTypeLabel";
+import { CardHeader } from "./CardHeader";
+import type { CardProgressData } from "./CardProgress";
 import { getCardPresentation } from "./section-presentation";
 import presentationStyles from "./section-presentation.module.scss";
 import { MarkdownPage } from "./MarkdownPage";
@@ -14,6 +15,7 @@ type InfoCardProps = {
   card: InfoCardData;
   cardIndex: number;
   cardCount: number;
+  progress: CardProgressData;
   activePage: number;
   isActive: boolean;
   onPageChange: (cardId: string, pageIndex: number) => void;
@@ -25,6 +27,7 @@ export function InfoCard({
   card,
   cardIndex,
   cardCount,
+  progress,
   activePage,
   isActive,
   onPageChange,
@@ -68,11 +71,7 @@ export function InfoCard({
       inert={!isActive}
     >
       <CardDecoration card={card} />
-      <CardTypeLabel type="info" />
-
-      <span className={styles.cardProgress} aria-hidden="true">
-        {String(cardIndex + 1).padStart(2, "0")} / {String(cardCount).padStart(2, "0")}
-      </span>
+      <CardHeader type="info" cardIndex={cardIndex} cardCount={cardCount} progress={progress} isActive={isActive} />
 
       {hasMultiplePages ? (
         <div

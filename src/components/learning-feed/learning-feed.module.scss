@@ -90,29 +90,46 @@
   background: var(--card-background);
 }
 
-.cardProgress {
+.cardHeader {
   position: absolute;
   z-index: 3;
-  top: calc(env(safe-area-inset-top, 0px) + 1.15rem);
-  right: max(1.15rem, env(safe-area-inset-right));
-  color: rgba(247, 248, 255, 0.66);
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding:
+    calc(env(safe-area-inset-top, 0px) + 1.15rem)
+    max(1.15rem, env(safe-area-inset-right))
+    0
+    max(1.15rem, env(safe-area-inset-left));
+  pointer-events: none;
+}
+
+.cardCounter {
+  display: inline-flex;
+  height: 1.5rem;
+  flex: none;
+  align-items: center;
+  color: #e9edf5;
   font-size: 0.68rem;
   font-variant-numeric: tabular-nums;
   font-weight: 700;
   letter-spacing: 0.14em;
+  line-height: 1;
 }
 
 .cardTypeLabel {
-  position: absolute;
-  z-index: 3;
-  top: calc(env(safe-area-inset-top, 0px) + 1.15rem);
-  left: max(1.15rem, env(safe-area-inset-left));
   display: inline-flex;
+  flex: none;
   align-items: center;
   gap: 0.38rem;
   border: 1px solid color-mix(in srgb, var(--card-accent) 25%, transparent);
   border-radius: 999px;
-  padding: 0.34rem 0.62rem;
+  height: 1.5rem;
+  padding: 0 0.62rem;
   color: color-mix(in srgb, var(--card-accent) 76%, white);
   background: rgba(4, 10, 16, 0.58);
   font-size: 0.72rem;
@@ -133,7 +150,7 @@
   gap: 0.75rem;
 }
 
-.readMoreLink {
+.feedAction {
   position: relative;
   display: grid;
   width: 3rem;
@@ -153,20 +170,20 @@
     transform 160ms ease;
 }
 
-.readMoreLink:hover {
+.feedAction:hover {
   color: var(--card-accent);
 }
 
-.readMoreLink:active {
+.feedAction:active {
   transform: scale(0.96);
 }
 
-.readMoreLink:focus-visible {
+.feedAction:focus-visible {
   outline: 3px solid color-mix(in srgb, var(--card-accent) 78%, white);
   outline-offset: 3px;
 }
 
-.readMoreLink::after {
+.feedAction::after {
   position: absolute;
   right: calc(100% + 0.7rem);
   width: max-content;
@@ -191,15 +208,15 @@
   visibility: hidden;
 }
 
-.readMoreIcon {
+.feedActionIcon {
   width: 1.75rem;
   height: 1.75rem;
 }
 
 
 @media (hover: hover) and (pointer: fine) {
-  .readMoreLink:hover::after,
-  .readMoreLink:focus-visible::after {
+  .feedAction:hover::after,
+  .feedAction:focus-visible::after {
     opacity: 1;
     transform: translateX(0);
     visibility: visible;
@@ -253,7 +270,7 @@
 
 .markdown p,
 .markdown li {
-  color: rgba(247, 248, 255, 0.82);
+  color: #e9edf5;
   font-size: clamp(0.94rem, 3.8vw, 1.12rem);
   line-height: 1.48;
 }
@@ -288,7 +305,7 @@
 }
 
 .markdown em {
-  color: color-mix(in srgb, var(--card-accent) 74%, white);
+  color: color-mix(in srgb, var(--card-accent) 40%, white);
 }
 
 .markdown :not(pre) > code {
@@ -296,7 +313,7 @@
   border: 1px solid color-mix(in srgb, var(--card-accent) 24%, transparent);
   border-radius: 0.4em;
   padding: 0.08em 0.34em;
-  color: color-mix(in srgb, var(--card-accent) 82%, white);
+  color: #f7f8ff;
   background: rgba(255, 255, 255, 0.07);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 0.88em;
@@ -349,11 +366,7 @@
 }
 
 .quizHeader {
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  position: relative;
   padding:
     max(0.85rem, calc(env(safe-area-inset-top) + 0.45rem))
     max(1.15rem, calc(env(safe-area-inset-right) + 1rem))
@@ -361,13 +374,12 @@
     max(1.15rem, calc(env(safe-area-inset-left) + 1rem));
 }
 
-.quizHeader .cardTypeLabel,
-.quizHeader .cardProgress {
-  position: static;
-}
-
-.quizHeader .cardProgress {
-  flex: none;
+@media (max-width: 22.5rem) {
+  .quizHeader .cardTypeLabel {
+    gap: 0.25rem;
+    padding: 0 0.4rem;
+    font-size: 0.625rem;
+  }
 }
 
 .quizScroller {
@@ -489,7 +501,7 @@
 
 .quizOption:hover {
   border-color: color-mix(in srgb, var(--card-accent) 48%, transparent);
-  background: rgba(255, 255, 255, 0.085);
+  background: rgba(255, 255, 255, 0.065);
 }
 
 .quizOption:active {
@@ -517,8 +529,8 @@
   height: 2rem;
   place-items: center;
   border-radius: 50%;
-  color: color-mix(in srgb, var(--card-accent) 78%, white);
-  background: rgba(255, 255, 255, 0.08);
+  color: #f7f8ff;
+  background: rgba(0, 0, 0, 0.16);
   font-size: 0.78rem;
   font-weight: 800;
 }
@@ -605,7 +617,7 @@
   right: max(4.75rem, calc(env(safe-area-inset-right) + 4.5rem));
   bottom: max(1.2rem, calc(env(safe-area-inset-bottom) + 0.8rem));
   left: max(1.15rem, env(safe-area-inset-left));
-  color: rgba(247, 248, 255, 0.66);
+  color: #e9edf5;
   font-size: clamp(0.72rem, 3vw, 0.82rem);
   font-weight: 650;
   line-height: 1.3;
@@ -830,6 +842,8 @@
     white-space: nowrap;
   }
 
+  .quizHeader .cardCounter { height: 1.1rem; }
+
   .quizScroller {
     padding-top: 0.15rem;
   }
@@ -878,8 +892,7 @@
 }
 
 @media (max-width: 39.999rem) and (max-height: 20rem) {
-  .card > .cardTypeLabel,
-  .quizHeader .cardTypeLabel {
+  .cardHeader .cardTypeLabel {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -889,11 +902,16 @@
     white-space: nowrap;
   }
 
-  .cardProgress,
-  .quizHeader .cardProgress {
-    position: absolute;
-    top: max(0.45rem, env(safe-area-inset-top));
-    right: max(0.55rem, env(safe-area-inset-right));
+  .cardHeader {
+    padding:
+      max(0.45rem, env(safe-area-inset-top))
+      max(0.55rem, env(safe-area-inset-right))
+      0
+      max(0.65rem, env(safe-area-inset-left));
+  }
+
+  .cardCounter {
+    height: 1.1rem;
     font-size: 0.62rem;
     letter-spacing: 0.08em;
   }
@@ -903,12 +921,12 @@
     bottom: max(0.45rem, env(safe-area-inset-bottom));
   }
 
-  .readMoreLink {
+  .feedAction {
     width: 2.75rem;
     height: 2.75rem;
   }
 
-  .readMoreIcon {
+  .feedActionIcon {
     width: 1.6rem;
     height: 1.6rem;
   }
@@ -997,9 +1015,7 @@
     position: absolute;
     z-index: 4;
     inset: 0 0 auto;
-    height: 1.65rem;
-    padding: 0;
-    pointer-events: none;
+    height: auto;
   }
 
   .quizScroller {
@@ -1155,8 +1171,8 @@
   .pageDot,
   .pageDotActive,
   .quizOption,
-  .readMoreLink,
-  .readMoreLink::after,
+  .feedAction,
+  .feedAction::after,
   .compactQuizSwiper :global(.swiper-wrapper),
   .compactQuizSwiper :global(.swiper-slide),
   .flipTouchHint,

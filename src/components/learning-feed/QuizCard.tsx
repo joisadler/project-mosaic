@@ -4,7 +4,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperInstance } from "swiper/types";
 import type { QuizCardData } from "@/content/card-types";
 import { CardDecoration } from "./CardDecoration";
-import { CardTypeLabel } from "./CardTypeLabel";
+import { CardHeader } from "./CardHeader";
+import type { CardProgressData } from "./CardProgress";
 import { getCardPresentation } from "./section-presentation";
 import presentationStyles from "./section-presentation.module.scss";
 import { MarkdownContent } from "./MarkdownPage";
@@ -15,6 +16,7 @@ type QuizCardProps = {
   card: QuizCardData;
   cardIndex: number;
   cardCount: number;
+  progress: CardProgressData;
   isActive: boolean;
   selectedOptionId?: string;
   onOptionSelect: (cardId: string, optionId: string) => void;
@@ -28,6 +30,7 @@ export function QuizCard({
   card,
   cardIndex,
   cardCount,
+  progress,
   isActive,
   selectedOptionId,
   onOptionSelect,
@@ -203,16 +206,8 @@ export function QuizCard({
       inert={!isActive}
     >
       <CardDecoration card={card} />
-      <header className={styles.quizHeader}>
-        <CardTypeLabel type="quiz" />
-
-        <span className={styles.cardProgress} aria-hidden="true">
-          {String(cardIndex + 1).padStart(2, "0")} / {String(cardCount).padStart(2, "0")}
-          {isCompactQuiz
-            ? ` · ${activeCompactPanel + 1} / ${compactPanelCount}`
-            : null}
-        </span>
-      </header>
+      <CardHeader type="quiz" cardIndex={cardIndex} cardCount={cardCount} progress={progress} isActive={isActive}
+        quizPagination={isCompactQuiz ? { pageNumber: activeCompactPanel + 1, pageCount: compactPanelCount } : undefined} />
 
       <div className={styles.quizScroller}>
         {isCompactQuiz ? (

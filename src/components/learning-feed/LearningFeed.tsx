@@ -24,7 +24,7 @@ import { InfoCard } from "./InfoCard";
 import { QuizCard } from "./QuizCard";
 import { ReadMoreLink } from "./ReadMoreLink";
 import { UnderstoodControl } from "./UnderstoodControl";
-import { CardProgress } from "./CardProgress";
+import { cardPercentage } from "@/lib/learning-progress/progress";
 import { createDoubleTapDetector } from "@/lib/learning-progress/double-tap";
 import understoodStyles from "./understood-control.module.scss";
 import { AccountLink } from "./AccountLink";
@@ -390,12 +390,14 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
         {shuffledCards.map((card, index) => (
           <SwiperSlide key={entries![index].id} virtualIndex={index} data-card-id={card.id} data-presentation-id={entries![index].id}>
             {({ isActive }) => {
+              const cardProgress = { value: mode === "review" ? 100 : cardPercentage(progress.data, card.id), ready: progress.ready, review: mode === "review" };
               if (card.type === "info") {
                 return (
                   <InfoCard
                     card={card}
                     cardIndex={positions[index].index}
                     cardCount={positions[index].count}
+                    progress={cardProgress}
                     activePage={pageByCard[interactionKey(session, entries![index].id, card.id)] ?? 0}
                     isActive={isActive && active}
                     onPageChange={(cardId, page) => rememberPage(entries![index].id, cardId, page)}
@@ -409,6 +411,7 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
                     card={card}
                     cardIndex={positions[index].index}
                     cardCount={positions[index].count}
+                    progress={cardProgress}
                     isActive={isActive && active}
                     selectedOptionId={selectedOptionByCard[interactionKey(session, entries![index].id, card.id)]}
                     onOptionSelect={(cardId, option) => rememberSelectedOption(entries![index].id, cardId, option)}
@@ -422,6 +425,7 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
                   card={card}
                   cardIndex={positions[index].index}
                   cardCount={positions[index].count}
+                  progress={cardProgress}
                   activeSide={flipSideByCard[interactionKey(session, entries![index].id, card.id)] ?? 0}
                   isActive={isActive && active}
                   onSideChange={(cardId, side) => rememberFlipSide(entries![index].id, cardId, side)}
@@ -438,9 +442,8 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
       >
         {mode === "review" ? (
           <div className={understoodStyles.control}>
-            <CardProgress value={100} review />
-            <Link href="/" scroll={false} className={`${styles.readMoreLink} swiper-no-swiping`} aria-label="Вернуться к обучению" data-tooltip="Вернуться к обучению" data-review-return>
-              <svg className={styles.readMoreIcon} viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="m10 5-7 7 7 7M3 12h18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            <Link href="/" scroll={false} className={`${styles.feedAction} swiper-no-swiping`} aria-label="Вернуться к обучению" data-tooltip="Вернуться к обучению" data-review-return>
+              <svg className={styles.feedActionIcon} viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="m10 5-7 7 7 7M3 12h18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </Link>
           </div>
         ) : activeCard && currentPresentation && session ? (

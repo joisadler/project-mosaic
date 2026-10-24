@@ -21,7 +21,7 @@ export function ReadMoreLink({ url }: ReadMoreLinkProps) {
 
   return (
     <a
-      className={`${styles.readMoreLink} swiper-no-swiping`}
+      className={`${styles.feedAction} swiper-no-swiping`}
       href={safeUrl}
       target="_blank"
       rel="noopener noreferrer"
@@ -34,7 +34,7 @@ export function ReadMoreLink({ url }: ReadMoreLinkProps) {
       onTouchStart={stopGesturePropagation}
     >
       <svg
-        className={styles.readMoreIcon}
+        className={styles.feedActionIcon}
         viewBox="0 0 24 24"
         fill="none"
         aria-hidden="true"

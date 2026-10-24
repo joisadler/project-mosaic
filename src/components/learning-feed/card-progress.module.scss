@@ -1,13 +1,27 @@
 .indicator {
-  position: fixed;
-  z-index: 5;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  display: flex;
+  flex: none;
   pointer-events: none;
 }
 
+.label {
+  display: inline-flex;
+  height: 1.5rem;
+  align-items: center;
+  color: #e9edf5;
+  font-family: inherit;
+  font-size: 0.68rem;
+  font-weight: 400;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
 .track {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
   display: block;
   height: 2px;
   overflow: hidden;
@@ -22,7 +36,17 @@
   transform-origin: left;
 }
 
+@media (max-width: 22.5rem) {
+  .label { font-size: 0.625rem; }
+}
+
+@media (max-width: 20rem) and (min-height: 20.001rem) and (max-height: 35.5rem),
+       (max-width: 39.999rem) and (max-height: 20rem) {
+  .label { height: 1.1rem; }
+}
+
 @media (forced-colors: active) {
+  .label { color: CanvasText; }
   .track { background: Canvas; outline: 1px solid CanvasText; }
   .fill { background: Highlight; forced-color-adjust: none; }
 }
