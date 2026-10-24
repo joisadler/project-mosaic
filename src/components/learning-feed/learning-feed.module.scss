@@ -50,7 +50,6 @@
   a:focus-visible { outline: 3px solid #b2dfff; outline-offset: 4px; }
 }
 .feedShell:has(> .emptyFeed) { overflow-y: auto; overscroll-behavior: contain; }
-.reviewMode { color: #b9c4d6; font-size: 0.6rem; line-height: 1.4; }
 
 
 .feed,

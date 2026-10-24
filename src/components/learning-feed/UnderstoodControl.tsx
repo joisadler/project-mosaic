@@ -6,6 +6,7 @@ import { interactionKey } from "@/lib/study-session/study-queue";
 import { useStudySession } from "@/components/study-shell/StudySessionProvider";
 import { cardPercentage, confirmationStatus } from "@/lib/learning-progress/progress";
 import { useMediaQuery } from "./use-media-query";
+import { CardProgress } from "./CardProgress";
 import styles from "./understood-control.module.scss";
 import feedStyles from "./learning-feed.module.scss";
 
@@ -67,11 +68,7 @@ export function UnderstoodControl({ card, presentationId, poolIds, onToggle }: {
           <path d="m5 12 4.5 4.5L19 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </button>
-      <span className={styles.percentage} aria-hidden="true">{Math.round(visiblePercentage)}%</span>
-      <span className={styles.progress} aria-hidden="true">
-        <span className={styles.fill} style={{ transform: `scaleX(${visiblePercentage / 100})` }} />
-      </span>
-      <progress className={feedStyles.visuallyHidden} max={100} value={percentage} aria-label="Прогресс подтверждений этой карточки" />
+      <CardProgress value={percentage} displayedValue={visiblePercentage} />
       <span id="understood-reason" className={feedStyles.visuallyHidden}>
         {reason || "Повторное нажатие отменяет только это подтверждение."}
         {!progress.storageAvailable ? " Прогресс сейчас не сохраняется после закрытия приложения." : ""}

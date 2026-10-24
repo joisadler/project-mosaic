@@ -4,23 +4,6 @@
   path { stroke-width: 3; }
 }
 .button[aria-disabled="true"] { opacity: 0.58; }
-.percentage { font-size: 0.66rem; font-variant-numeric: tabular-nums; color: #f7f8ff; }
-.progress {
-  display: block;
-  width: 2.5rem;
-  height: 3px;
-  overflow: hidden;
-  border: 0;
-  border-radius: 3px;
-  background: #34404f;
-}
-.fill {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: var(--card-accent);
-  transform-origin: left;
-}
 .notice {
   position: fixed;
   z-index: 7;

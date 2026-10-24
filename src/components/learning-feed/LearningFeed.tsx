@@ -24,6 +24,7 @@ import { InfoCard } from "./InfoCard";
 import { QuizCard } from "./QuizCard";
 import { ReadMoreLink } from "./ReadMoreLink";
 import { UnderstoodControl } from "./UnderstoodControl";
+import { CardProgress } from "./CardProgress";
 import { createDoubleTapDetector } from "@/lib/learning-progress/double-tap";
 import understoodStyles from "./understood-control.module.scss";
 import { AccountLink } from "./AccountLink";
@@ -437,9 +438,7 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
       >
         {mode === "review" ? (
           <div className={understoodStyles.control}>
-            <span className={styles.reviewMode}>Повторение</span>
-            <span className={understoodStyles.percentage} aria-hidden="true">100%</span>
-            <progress className={styles.visuallyHidden} max={100} value={100} aria-label="Завершённая карточка. При повторении прогресс не меняется." />
+            <CardProgress value={100} review />
             <Link href="/" scroll={false} className={`${styles.readMoreLink} swiper-no-swiping`} aria-label="Вернуться к обучению" data-tooltip="Вернуться к обучению" data-review-return>
               <svg className={styles.readMoreIcon} viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="m10 5-7 7 7 7M3 12h18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </Link>
