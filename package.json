@@ -12,6 +12,7 @@
     "generate:icons": "node scripts/generate-app-icons.mjs",
     "lint": "eslint . --max-warnings=0",
     "validate:content": "node scripts/validate-content.mjs",
+    "test:feedback": "node --test scripts/interaction-feedback.test.mjs",
     "test:progress": "node --test scripts/learning-progress.test.mjs",
     "test:sync": "node --test scripts/study-sync.test.mjs",
     "test:ordering": "node --test scripts/study-ordering.test.mjs",

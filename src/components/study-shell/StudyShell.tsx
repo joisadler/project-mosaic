@@ -26,7 +26,8 @@ export function StudyShell({ cards, children, authConfigured }: {
     const frame = requestAnimationFrame(() => {
       const target = feedActive ? "[data-study-feed] [data-account-entry]" : reviewActive ? "[data-review-return]" :
         pathname === "/account" && from === "/learning" ? "[data-learning-entry]" :
-        pathname === "/account" && from === "/review" ? "[data-profile-review-entry]" : "[data-screen-heading]";
+        pathname === "/account" && from === "/review" ? "[data-profile-review-entry]" :
+        pathname === "/account" && from === "/settings" ? "[data-settings-entry]" : "[data-screen-heading]";
       shellRef.current?.querySelector<HTMLElement>(target)?.focus({ preventScroll: true });
     });
     return () => cancelAnimationFrame(frame);

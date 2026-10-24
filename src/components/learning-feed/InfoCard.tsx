@@ -3,6 +3,7 @@ import { A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperInstance } from "swiper/types";
 import type { InfoCardData } from "@/content/card-types";
+import { useNavigationFeedback } from "@/components/interaction-feedback/use-navigation-feedback";
 import { CardDecoration } from "./CardDecoration";
 import { CardHeader } from "./CardHeader";
 import type { CardProgressData } from "./CardProgress";
@@ -18,6 +19,7 @@ type InfoCardProps = {
   progress: CardProgressData;
   activePage: number;
   isActive: boolean;
+  onPageNavigation: () => void;
   onPageChange: (cardId: string, pageIndex: number) => void;
 };
 
@@ -30,13 +32,16 @@ export function InfoCard({
   progress,
   activePage,
   isActive,
+  onPageNavigation,
   onPageChange,
 }: InfoCardProps) {
+  const navigationFeedback = useNavigationFeedback(isActive);
   const pageSwiperRef = useRef<SwiperInstance | null>(null);
   const pageCount = card.pages.length;
   const hasMultiplePages = pageCount > 1;
 
   const handlePageChange = (swiper: SwiperInstance) => {
+    if (navigationFeedback.consume(swiper.initialized, swiper.activeIndex !== activePage, isActive)) onPageNavigation();
     onPageChange(card.id, swiper.activeIndex);
   };
 
@@ -54,10 +59,12 @@ export function InfoCard({
     if (event.key === "ArrowRight") {
       event.preventDefault();
       event.stopPropagation();
+      navigationFeedback.armForEvent();
       swiper.slideNext();
     } else if (event.key === "ArrowLeft") {
       event.preventDefault();
       event.stopPropagation();
+      navigationFeedback.armForEvent();
       swiper.slidePrev();
     }
   };
@@ -69,6 +76,8 @@ export function InfoCard({
       aria-label={`Учебная карточка ${cardIndex + 1} из ${cardCount}`}
       aria-hidden={!isActive}
       inert={!isActive}
+      onPointerCancelCapture={navigationFeedback.cancel}
+      onTouchCancelCapture={navigationFeedback.cancel}
     >
       <CardDecoration card={card} />
       <CardHeader type="info" cardIndex={cardIndex} cardCount={cardCount} progress={progress} isActive={isActive} />
@@ -103,6 +112,8 @@ export function InfoCard({
             onSwiper={(swiper) => {
               pageSwiperRef.current = swiper;
             }}
+            onSliderFirstMove={navigationFeedback.startDrag}
+            onTouchEnd={navigationFeedback.armForEvent}
             onSlideChange={handlePageChange}
           >
             {card.pages.map((markdown, pageIndex) => (

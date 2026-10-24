@@ -3,6 +3,7 @@ import { A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperInstance } from "swiper/types";
 import type { QuizCardData } from "@/content/card-types";
+import { useNavigationFeedback } from "@/components/interaction-feedback/use-navigation-feedback";
 import { CardDecoration } from "./CardDecoration";
 import { CardHeader } from "./CardHeader";
 import type { CardProgressData } from "./CardProgress";
@@ -18,6 +19,7 @@ type QuizCardProps = {
   cardCount: number;
   progress: CardProgressData;
   isActive: boolean;
+  onPageNavigation: () => void;
   selectedOptionId?: string;
   onOptionSelect: (cardId: string, optionId: string) => void;
   onFeedbackReview: (cardId: string, optionId: string) => void;
@@ -32,13 +34,16 @@ export function QuizCard({
   cardCount,
   progress,
   isActive,
+  onPageNavigation,
   selectedOptionId,
   onOptionSelect,
   onFeedbackReview,
 }: QuizCardProps) {
+  const navigationFeedback = useNavigationFeedback(isActive);
   const compactSwiperRef = useRef<SwiperInstance | null>(null);
   const compactFocusTargetRef = useRef<HTMLDivElement | null>(null);
   const [activeCompactPanel, setActiveCompactPanel] = useState(0);
+  const optionIconRef = useRef<HTMLSpanElement | null>(null);
   const [focusedOptionId, setFocusedOptionId] = useState<string>();
   const isCompactQuiz = useMediaQuery(compactQuizQuery);
   const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
@@ -90,6 +95,7 @@ export function QuizCard({
       return;
     }
 
+    navigationFeedback.armForEvent();
     swiper.slideTo(panelIndex, prefersReducedMotion ? 0 : 240);
     setActiveCompactPanel(panelIndex);
 
@@ -111,6 +117,11 @@ export function QuizCard({
       showCompactPanel(activeCompactPanel - 1);
     }
   };
+
+  useEffect(() => {
+    if (!isActive || prefersReducedMotion) optionIconRef.current?.getAnimations().forEach(animation => animation.cancel());
+    return () => { optionIconRef.current?.getAnimations().forEach(animation => animation.cancel()); };
+  }, [isActive, prefersReducedMotion]);
 
   const renderOptions = (showExplanationAction: boolean) => (
     <>
@@ -151,15 +162,24 @@ export function QuizCard({
               data-incorrect={showIncorrect || undefined}
               tabIndex={optionIsFocusable ? 0 : -1}
               onFocus={() => setFocusedOptionId(option.id)}
-              onClick={() => {
+              onClick={(event) => {
                 setFocusedOptionId(option.id);
+                if (isActive && option.id !== selectedOptionId && !prefersReducedMotion) {
+                  optionIconRef.current?.getAnimations().forEach(animation => animation.cancel());
+                  const icon = event.currentTarget.querySelector<HTMLSpanElement>("[data-option-letter]");
+                  optionIconRef.current = icon;
+                  icon?.animate(optionIsCorrect
+                    ? [{ transform: "scale(.92)" }, { transform: "scale(1.08)", offset: .65 }, { transform: "scale(1)" }]
+                    : [{ opacity: .6 }, { opacity: 1 }],
+                    { duration: optionIsCorrect ? 260 : 200, easing: "ease-out" });
+                }
                 onOptionSelect(card.id, option.id);
               }}
               onKeyDownCapture={(event) =>
                 handleOptionKeyDown(event, optionIndex)
               }
             >
-              <span className={styles.optionLetter} aria-hidden="true">
+              <span className={styles.optionLetter} data-option-letter aria-hidden="true">
                 {String.fromCharCode(65 + optionIndex)}
               </span>
               <span className={styles.optionText}>{option.text}</span>
@@ -204,6 +224,8 @@ export function QuizCard({
       aria-label={`Проверочная карточка ${cardIndex + 1} из ${cardCount}`}
       aria-hidden={!isActive}
       inert={!isActive}
+      onPointerCancelCapture={navigationFeedback.cancel}
+      onTouchCancelCapture={navigationFeedback.cancel}
     >
       <CardDecoration card={card} />
       <CardHeader type="quiz" cardIndex={cardIndex} cardCount={cardCount} progress={progress} isActive={isActive}
@@ -243,7 +265,12 @@ export function QuizCard({
               onSwiper={(swiper) => {
                 compactSwiperRef.current = swiper;
               }}
-              onSlideChange={(swiper) => setActiveCompactPanel(swiper.activeIndex)}
+              onSliderFirstMove={navigationFeedback.startDrag}
+              onTouchEnd={navigationFeedback.armForEvent}
+              onSlideChange={(swiper) => {
+                if (navigationFeedback.consume(swiper.initialized, swiper.activeIndex !== activeCompactPanel, isActive)) onPageNavigation();
+                setActiveCompactPanel(swiper.activeIndex);
+              }}
             >
               <SwiperSlide>
                 {({ isActive: isPanelActive }) => (

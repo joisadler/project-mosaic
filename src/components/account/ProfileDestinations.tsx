@@ -29,6 +29,16 @@ export function ProfileDestinations() {
           </span>
           <ChevronRight />
         </Link>
+        <Link href="/settings" scroll={false} className={styles.destination} data-settings-entry>
+          <span className={styles.destinationArtwork}>
+            <svg viewBox="0 0 64 64" fill="none" aria-hidden="true" focusable="false">
+              <path d="M12 18h40M12 32h40M12 46h40" stroke="#85deed" strokeWidth="4" strokeLinecap="round" />
+              <circle cx="24" cy="18" r="6" fill="#b7a0ff" /><circle cx="42" cy="32" r="6" fill="#b7a0ff" /><circle cx="26" cy="46" r="6" fill="#b7a0ff" />
+            </svg>
+          </span>
+          <span className={styles.destinationText}><strong>Настройки</strong><span>Звук и вибрация</span></span>
+          <ChevronRight />
+        </Link>
         {!review.storageAvailable ? <p role="status" className={styles.notice}>Место в повторении сейчас не сохраняется на этом устройстве.</p> : null}
       </nav>
       <p className={styles.guestNotice}><InfoSymbol />Гостевой прогресс хранится отдельно</p>

@@ -24,7 +24,9 @@ import { InfoCard } from "./InfoCard";
 import { QuizCard } from "./QuizCard";
 import { ReadMoreLink } from "./ReadMoreLink";
 import { UnderstoodControl } from "./UnderstoodControl";
-import { cardPercentage } from "@/lib/learning-progress/progress";
+import { useNavigationFeedback } from "@/components/interaction-feedback/use-navigation-feedback";
+import { useInteractionFeedback } from "@/components/interaction-feedback/use-interaction-feedback";
+import { confirmationStatus, cardPercentage } from "@/lib/learning-progress/progress";
 import { createDoubleTapDetector } from "@/lib/learning-progress/double-tap";
 import understoodStyles from "./understood-control.module.scss";
 import { AccountLink } from "./AccountLink";
@@ -41,8 +43,10 @@ const feedModules = [A11y, Keyboard, Mousewheel, Virtual];
 
 export function LearningFeed({ cards, active = true }: LearningFeedProps) {
   const { session, update, progress, reviewCard, toggleConfirmation, mode, sync } = useStudySession();
+  const playFeedback = useInteractionFeedback(active);
   const [notice, setNotice] = useState("");
   const [tapDetector] = useState(createDoubleTapDetector);
+  const navigationFeedback = useNavigationFeedback(active);
   const noticeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const feedSwiperRef = useRef<SwiperInstance | null>(null);
   const feedShellRef = useRef<HTMLElement | null>(null);
@@ -89,11 +93,14 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
 
   const confirmUnderstanding = useCallback(() => {
     if (mode === "review" || !active || !activeCard || !currentPresentation || !session) return;
-    const message = toggleConfirmation(activeCard, currentPresentation, session.order, Date.now(), session.answers[currentKey]);
+    const now = Date.now();
+    const status = confirmationStatus(progress.data, activeCard, currentPresentation, session.order, now, session.answers[currentKey]);
+    const message = toggleConfirmation(activeCard, currentPresentation, session.order, now, session.answers[currentKey]);
+    if (progress.ready && status.eligible && !status.confirmed) playFeedback("confirmed");
     setNotice(message);
     if (noticeTimer.current) clearTimeout(noticeTimer.current);
     noticeTimer.current = setTimeout(() => setNotice(""), 4500);
-  }, [mode, active, activeCard, currentPresentation, currentKey, session, toggleConfirmation]);
+  }, [mode, active, activeCard, currentPresentation, currentKey, session, toggleConfirmation, progress, playFeedback]);
 
   const isTapArea = (target: EventTarget | null) => target instanceof Element &&
     !!target.closest("article") && !target.closest('a,button,input,textarea,select,pre,code,[contenteditable="true"],[role="radio"],[role="radiogroup"]');
@@ -113,11 +120,16 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
   }, [update]);
 
   const rememberSelectedOption = useCallback((entryId: string, cardId: string, optionId: string) => {
+    if (!active || !session) return;
+    const card = cardsById.get(cardId);
+    const key = interactionKey(session, entryId, cardId);
+    if (card?.type !== "quiz" || session.answers[key] === optionId || !card.options.some(option => option.id === optionId)) return;
+    playFeedback(optionId === card.correctOptionId ? "correct" : "incorrect");
     update(current => {
       const key = interactionKey(current, entryId, cardId);
       return current.answers[key] === optionId ? current : { ...current, answers: { ...current.answers, [key]: optionId } };
     });
-  }, [update]);
+  }, [update, active, session, cardsById, playFeedback]);
 
   const resetSystemGestureGuard = useCallback(() => {
     if (!isSystemGestureGuardActiveRef.current) {
@@ -343,14 +355,18 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
       ref={feedShellRef}
       className={styles.feedShell}
       aria-label={mode === "review" ? "Повторение завершённых карточек" : "Учебная лента по frontend"}
+      onWheelCapture={navigationFeedback.armForEvent}
+      onKeyDownCapture={event => {
+        if (["ArrowUp", "ArrowDown", "PageUp", "PageDown"].includes(event.key)) navigationFeedback.armForEvent();
+      }}
       onPointerDownCapture={handlePointerDownCapture}
       onPointerUpCapture={handlePointerUpCapture}
       onPointerMoveCapture={event => tapDetector.move(event.pointerId, event.clientX, event.clientY)}
       onScrollCapture={() => tapDetector.reset()}
-      onPointerCancelCapture={() => { tapDetector.reset(); resetSystemGestureGuard(); }}
+      onPointerCancelCapture={() => { navigationFeedback.cancel(); tapDetector.reset(); resetSystemGestureGuard(); }}
       onTouchStartCapture={handleTouchStartCapture}
       onTouchEndCapture={resetSystemGestureGuard}
-      onTouchCancelCapture={resetSystemGestureGuard}
+      onTouchCancelCapture={() => { navigationFeedback.cancel(); resetSystemGestureGuard(); }}
     >
       <Swiper
         key={`${session?.id}:${entries?.[0]?.id}:${session?.order.join("|")}`}
@@ -371,9 +387,14 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
         onSwiper={(swiper) => {
           feedSwiperRef.current = swiper;
         }}
+        onSliderFirstMove={navigationFeedback.startDrag}
+        onTouchEnd={navigationFeedback.armForEvent}
         onActiveIndexChange={(swiper) => {
           const entry = entries?.[swiper.activeIndex];
           if (active && entry) {
+            if (navigationFeedback.consume(swiper.initialized, entry.id !== currentPresentation, active)) {
+              playFeedback("swipe");
+            }
             setNotice("");
             update(current => (current.queue ? current.currentEntryId === entry.id : current.currentCardId === entry.cardId)
               ? current : { ...current, currentCardId: entry.cardId, ...(current.queue ? { currentEntryId: entry.id } : {}) });
@@ -398,6 +419,7 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
                     cardIndex={positions[index].index}
                     cardCount={positions[index].count}
                     progress={cardProgress}
+                    onPageNavigation={() => playFeedback("page")}
                     activePage={pageByCard[interactionKey(session, entries![index].id, card.id)] ?? 0}
                     isActive={isActive && active}
                     onPageChange={(cardId, page) => rememberPage(entries![index].id, cardId, page)}
@@ -413,6 +435,7 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
                     cardCount={positions[index].count}
                     progress={cardProgress}
                     isActive={isActive && active}
+                    onPageNavigation={() => playFeedback("page")}
                     selectedOptionId={selectedOptionByCard[interactionKey(session, entries![index].id, card.id)]}
                     onOptionSelect={(cardId, option) => rememberSelectedOption(entries![index].id, cardId, option)}
                     onFeedbackReview={(cardId, option) => rememberQuizFeedback(entries![index].id, cardId, option)}
@@ -426,6 +449,7 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
                   cardIndex={positions[index].index}
                   cardCount={positions[index].count}
                   progress={cardProgress}
+                  onSideNavigation={() => playFeedback("flip")}
                   activeSide={flipSideByCard[interactionKey(session, entries![index].id, card.id)] ?? 0}
                   isActive={isActive && active}
                   onSideChange={(cardId, side) => rememberFlipSide(entries![index].id, cardId, side)}
@@ -447,7 +471,7 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
             </Link>
           </div>
         ) : activeCard && currentPresentation && session ? (
-          <UnderstoodControl key={currentPresentation} card={activeCard} presentationId={currentPresentation} poolIds={session.order} onToggle={confirmUnderstanding} />
+          <UnderstoodControl isActive={active} key={currentPresentation} card={activeCard} presentationId={currentPresentation} poolIds={session.order} onToggle={confirmUnderstanding} />
         ) : null}
         <ReadMoreLink url={shuffledCards[activeCardIndex]?.readMoreUrl} />
         <AccountLink />

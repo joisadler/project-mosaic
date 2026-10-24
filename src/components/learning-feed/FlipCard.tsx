@@ -3,6 +3,7 @@ import { A11y, EffectFlip } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperInstance } from "swiper/types";
 import type { FlipCardData } from "@/content/card-types";
+import { useNavigationFeedback } from "@/components/interaction-feedback/use-navigation-feedback";
 import { CardDecoration } from "./CardDecoration";
 import { CardHeader } from "./CardHeader";
 import type { CardProgressData } from "./CardProgress";
@@ -21,6 +22,7 @@ type FlipCardProps = {
   progress: CardProgressData;
   activeSide: FlipSideIndex;
   isActive: boolean;
+  onSideNavigation: () => void;
   onSideChange: (cardId: string, sideIndex: FlipSideIndex) => void;
 };
 
@@ -33,8 +35,10 @@ export function FlipCard({
   progress,
   activeSide,
   isActive,
+  onSideNavigation,
   onSideChange,
 }: FlipCardProps) {
+  const navigationFeedback = useNavigationFeedback(isActive);
   const swiperRef = useRef<SwiperInstance | null>(null);
   const [announcement, setAnnouncement] = useState("");
   const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
@@ -46,6 +50,7 @@ export function FlipCard({
       return;
     }
 
+    navigationFeedback.armForEvent();
     swiper.slideTo(sideIndex, prefersReducedMotion ? 0 : 300);
   };
 
@@ -79,6 +84,8 @@ export function FlipCard({
       aria-label={`Карточка для повторения ${cardIndex + 1} из ${cardCount}`}
       aria-hidden={!isActive}
       inert={!isActive}
+      onPointerCancelCapture={navigationFeedback.cancel}
+      onTouchCancelCapture={navigationFeedback.cancel}
     >
       <CardHeader type="flip" cardIndex={cardIndex} cardCount={cardCount} progress={progress} isActive={isActive} />
 
@@ -115,6 +122,11 @@ export function FlipCard({
           }}
           onSwiper={(swiper) => {
             swiperRef.current = swiper;
+          }}
+          onSliderFirstMove={navigationFeedback.startDrag}
+          onTouchEnd={navigationFeedback.armForEvent}
+          onActiveIndexChange={swiper => {
+            if (navigationFeedback.consume(swiper.initialized, swiper.activeIndex !== activeSide, isActive)) onSideNavigation();
           }}
           onTransitionEnd={handleTransitionEnd}
         >
