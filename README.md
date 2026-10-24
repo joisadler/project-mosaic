@@ -8,7 +8,7 @@ The completed MVP focuses on frontend interview preparation using short explanat
 
 ## Stack
 
-- Next.js 16.4.0 with App Router and React 19.3.0
+- Next.js 16.4.3 with App Router and React 19.3.0
 - TypeScript 6.0.3 with strict checking
 - SCSS Modules and global SCSS (Sass)
 - Swiper for touch, mouse, and keyboard navigation
