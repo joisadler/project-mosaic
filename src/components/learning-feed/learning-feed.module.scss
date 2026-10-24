@@ -6,6 +6,39 @@
   user-select: none;
 }
 
+.loadingShell {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: radial-gradient(ellipse at 100% 0%, rgba(107, 91, 184, 0.14), transparent 60%), #171c2b;
+}
+.loadingFeed {
+  display: grid;
+  grid-template-rows: auto minmax(250px, 1fr) auto;
+  width: min(100%, 560px);
+  min-height: 100%;
+  margin: auto;
+  padding:
+    max(24px, env(safe-area-inset-top))
+    max(24px, env(safe-area-inset-right))
+    max(24px, env(safe-area-inset-bottom))
+    max(24px, env(safe-area-inset-left));
+  color: #f4f3ff;
+  user-select: text;
+  > a {
+    display: inline-flex; align-items: center; justify-self: start; gap: 8px;
+    min-height: 44px; border-radius: 8px; padding-block: 8px;
+    color: #bdc4df; font-size: 0.875rem; text-decoration: none;
+    &:hover { color: #f4f3ff; text-decoration: underline; text-underline-offset: 4px; }
+    &:focus-visible { outline: 3px solid #85deed; outline-offset: 4px; }
+  }
+}
+.loadingBrand { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; font-weight: 700; letter-spacing: -0.04em; }
+.loadingCenter { display: flex; align-items: center; justify-content: center; padding-block: 32px; }
+@media (forced-colors: active) {
+  .loadingShell { background: Canvas; }
+  .loadingFeed, .loadingFeed > a { color: CanvasText; }
+}
+
 .emptyFeed {
   display: flex; flex-direction: column; justify-content: center; gap: 20px;
   width: min(100%, 520px); min-height: 100%; margin: auto;

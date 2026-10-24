@@ -137,9 +137,6 @@ $glass-hover-border: rgba(189, 196, 223, 0.6);
 .notice, .message { color: var(--account-muted); font-size: 0.85rem; line-height: 1.6; }
 .message { margin-top: 18px; }
 .message:empty { display: none; }
-.loading {
-  display: flex; min-height: 44px; align-items: center; color: var(--account-muted); font-size: 0.9rem;
-}
 .sessionCheck { display: flex; min-height: 190px; align-items: flex-end; padding-block: 12px; }
 .destinations { display: grid; gap: 16px; margin-top: 40px; }
 .destination {
@@ -240,6 +237,12 @@ $glass-hover-border: rgba(189, 196, 223, 0.6);
 .summaryArtwork {
   position: absolute; z-index: -1; inset: 0; overflow: hidden; border-radius: inherit; pointer-events: none;
   svg { position: absolute; top: -2px; right: 0; width: 145px; height: 150px; overflow: visible; }
+}
+.overallProgress .progressLoading {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding-right: 120px;
 }
 .resetProgress {
   position: relative; display: inline-flex; align-items: center; gap: 8px; justify-self: start;

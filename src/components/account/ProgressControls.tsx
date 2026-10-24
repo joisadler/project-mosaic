@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useStudySession } from "@/components/study-shell/StudySessionProvider";
 import { summarizeProgress } from "@/lib/learning-progress/progress";
+import { MosaicLoader } from "@/components/loading/MosaicLoader";
 import { MosaicTiles, ResetSymbol } from "./MosaicArtwork";
 import styles from "./account-screen.module.scss";
 
@@ -26,7 +27,8 @@ export function ProgressSummary({ title, cardIds, onReset, prominent = false, re
           </div>
           <progress max={100} value={summary.average} aria-label={`Средний прогресс: ${title}`} />
         </>
-      ) : <p role="status">{sync.status === "unavailable" ? "Прогресс недоступен, пока не удалось проверить аккаунт." : "Загружаем прогресс…"}</p>}
+      ) : sync.status === "unavailable" ? <p role="status">Прогресс недоступен, пока не удалось проверить аккаунт.</p> :
+        prominent ? <MosaicLoader label="Загружаем прогресс…" className={styles.progressLoading} /> : <p role="status">Загружаем прогресс…</p>}
       <button className={styles.resetProgress} type="button" aria-label={`Сбросить прогресс: ${title}`}
         disabled={!progress.ready || !summary.hasHistory || sync.status === "unavailable" || sync.status === "unauthorized"}
         onClick={event => onReset({ title, cardIds, trigger: event.currentTarget })}><ResetSymbol />{resetLabel}</button>

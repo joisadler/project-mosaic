@@ -1,0 +1,62 @@
+.loader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  color: #bdc4df;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.inline { min-height: 44px; }
+.mark {
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 30px;
+  flex: none;
+  margin: 6px;
+  transform: rotate(34deg);
+  > span {
+    --tile-x: -2px;
+    --tile-y: -2px;
+    position: absolute;
+    width: 43%;
+    height: 43%;
+    border-radius: 25%;
+    background: #b7a0ff;
+    animation: assemble 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+  > span:nth-child(1) { left: 4%; top: 4%; }
+  > span:nth-child(2) { --tile-x: 2px; right: 4%; top: 4%; background: #f2bd9d; animation-delay: 0.1s; }
+  > span:nth-child(3) { --tile-y: 2px; left: 4%; bottom: 4%; background: #85deed; animation-delay: 0.2s; }
+  > span:nth-child(4) { --tile-x: 2px; --tile-y: 2px; right: 4%; bottom: 4%; background: #9a86eb; animation-delay: 0.3s; }
+}
+.copy { display: grid; min-width: 0; gap: 8px; overflow-wrap: anywhere; }
+.hero {
+  flex-direction: column;
+  text-align: center;
+  gap: 32px;
+  .mark {
+    width: 74px;
+    height: 74px;
+    margin: 16px;
+    > span { --tile-x: -5px; --tile-y: -5px; }
+    > span:nth-child(2) { --tile-x: 5px; }
+    > span:nth-child(3) { --tile-y: 5px; }
+    > span:nth-child(4) { --tile-x: 5px; --tile-y: 5px; }
+  }
+  .label { color: #f4f3ff; font-size: clamp(1.25rem, 5vw, 1.5rem); font-weight: 700; line-height: 1.25; letter-spacing: -0.035em; }
+}
+.description { color: #bdc4df; font-size: 0.875rem; line-height: 1.5; }
+.still .mark > span { animation: none; transform: none; opacity: 1; }
+@keyframes assemble {
+  0%, 12%, 100% { transform: translate(var(--tile-x), var(--tile-y)) scale(0.96); opacity: 0.8; }
+  34%, 75% { transform: translate(0, 0) scale(1); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mark > span { animation: none; transform: none; opacity: 1; }
+}
+@media (forced-colors: active) {
+  .mark { display: none; }
+  .loader, .hero .label, .description { color: CanvasText; }
+}

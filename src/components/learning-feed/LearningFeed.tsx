@@ -14,6 +14,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
 import type { Swiper as SwiperInstance } from "swiper/types";
 import type { LearningCardData } from "@/content/card-types";
+import { MosaicLoader } from "@/components/loading/MosaicLoader";
+import { MosaicMark } from "@/components/account/MosaicArtwork";
 import { useStudySession } from "@/components/study-shell/StudySessionProvider";
 import { interactionKey, sessionEntries } from "@/lib/study-session/study-queue";
 import { FlipCard, type FlipSideIndex } from "./FlipCard";
@@ -301,13 +303,18 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
     return (
       <main
         ref={feedShellRef}
-        className={styles.feedShell}
+        className={`${styles.feedShell} ${styles.loadingShell}`}
         aria-label={mode === "review" ? "Повторение завершённых карточек" : "Учебная лента по frontend"}
         aria-busy="true"
       >
-        <div className={styles.emptyFeed}>
-          <p role="status">Загружаем карточки…</p>
-          <Link href="/account" scroll={false} data-account-entry>Профиль</Link>
+        <div className={styles.loadingFeed}>
+          <div className={styles.loadingBrand}><MosaicMark />Mosaic</div>
+          <div className={styles.loadingCenter}>
+            <MosaicLoader variant="hero" animate={active}
+              label={mode === "review" ? "Готовим повторение" : "Собираем вашу ленту"}
+              description="Карточки скоро появятся" />
+          </div>
+          <Link href="/account" scroll={false} data-account-entry>Профиль <span aria-hidden="true">→</span></Link>
         </div>
       </main>
     );

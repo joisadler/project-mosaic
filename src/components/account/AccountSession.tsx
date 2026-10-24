@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { authClient } from "@/lib/auth/client";
+import { MosaicLoader } from "@/components/loading/MosaicLoader";
 import { AccountIdentity } from "./AccountIdentity";
 import styles from "./account-screen.module.scss";
 
@@ -55,7 +56,7 @@ export function AccountSession({ callbackFailed, callbackPath = "/sign-in" }: {
         <h1 id="account-title" data-screen-heading tabIndex={-1}>{callbackPath === "/account" ? "Профиль" : user || isPending || error ? "Мой аккаунт" : "Вход в Mosaic"}</h1>
       </header>
       <div className={isPending ? styles.sessionCheck : user && !error ? styles.profileIdentity : styles.card}>
-        {isPending ? <p className={styles.loading} role="status">Проверяем аккаунт…</p> : error ? (
+        {isPending ? <MosaicLoader label="Проверяем аккаунт…" /> : error ? (
           <>
             <p className={styles.notice} role="alert">Не удалось проверить аккаунт. Попробуйте ещё раз или продолжайте без входа.</p>
             <button className={styles.retry} type="button" onClick={() => void refetch()}>Повторить проверку</button>
