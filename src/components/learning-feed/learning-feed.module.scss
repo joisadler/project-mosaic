@@ -6,7 +6,7 @@
   user-select: none;
 }
 
-.loadingShell {
+.loadingShell, .emptyShell {
   overflow-y: auto;
   overscroll-behavior: contain;
   background: radial-gradient(ellipse at 100% 0%, rgba(107, 91, 184, 0.14), transparent 60%), #171c2b;
@@ -35,7 +35,7 @@
 .loadingBrand { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; font-weight: 700; letter-spacing: -0.04em; }
 .loadingCenter { display: flex; align-items: center; justify-content: center; padding-block: 32px; }
 @media (forced-colors: active) {
-  .loadingShell { background: Canvas; }
+  .loadingShell, .emptyShell { background: Canvas; }
   .loadingFeed, .loadingFeed > a { color: CanvasText; }
 }
 

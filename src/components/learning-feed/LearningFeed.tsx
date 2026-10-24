@@ -14,6 +14,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
 import type { Swiper as SwiperInstance } from "swiper/types";
 import type { LearningCardData } from "@/content/card-types";
+import { FeedEmptyState } from "./FeedEmptyState";
 import { MosaicLoader } from "@/components/loading/MosaicLoader";
 import { MosaicMark } from "@/components/account/MosaicArtwork";
 import { useStudySession } from "@/components/study-shell/StudySessionProvider";
@@ -321,17 +322,17 @@ export function LearningFeed({ cards, active = true }: LearningFeedProps) {
   }
 
   if (shuffledCards.length === 0) {
+    const unavailable = sync.status === "unavailable";
     return (
-      <main ref={feedShellRef} className={styles.feedShell} aria-label={mode === "review" ? "Повторение завершённых карточек" : "Учебная лента по frontend"}>
-        <div className={styles.emptyFeed}>
-          <h1>{sync.status === "unavailable" ? "Аккаунт недоступен" : !sync.sections.length ? "Выберите темы для обучения" : mode === "review" ? "Пока нечего повторять" : "Карточки для обучения закончились"}</h1>
-          <p role="status">{sync.status === "unavailable" ? "Не удалось проверить аккаунт. Повторите проверку в профиле." :
-            !sync.sections.length ? "Подразделы не выбраны. Откройте «Моё обучение», чтобы выбрать темы." :
-            mode === "review" ? "В выбранных подразделах пока нет карточек со 100%. Они появятся здесь после завершения обучения." :
-            "В выбранных подразделах нет незавершённых карточек. Можно повторить завершённые или выбрать другой материал."}</p>
-          <Link href={sync.status === "unavailable" ? "/account" : "/learning"} scroll={false} data-account-entry>{sync.status === "unavailable" ? "Открыть профиль" : "Моё обучение"}</Link>
-          {mode === "review" ? <Link href="/" scroll={false} data-review-return>Вернуться к обучению</Link> : <Link href="/review" scroll={false}>Повторить завершённые</Link>}
-        </div>
+      <main ref={feedShellRef} className={`${styles.feedShell} ${unavailable ? "" : styles.emptyShell}`} aria-label={mode === "review" ? "Повторение завершённых карточек" : "Учебная лента по frontend"}>
+        {unavailable ? (
+          <div className={styles.emptyFeed}>
+            <h1>Аккаунт недоступен</h1>
+            <p role="status">Не удалось проверить аккаунт. Повторите проверку в профиле.</p>
+            <Link href="/account" scroll={false} data-account-entry>Открыть профиль</Link>
+            {mode === "review" ? <Link href="/" scroll={false} data-review-return>Вернуться к обучению</Link> : <Link href="/review" scroll={false}>Повторить завершённые</Link>}
+          </div>
+        ) : <FeedEmptyState kind={!sync.sections.length ? "topics" : mode === "review" ? "review" : "complete"} reviewMode={mode === "review"} />}
       </main>
     );
   }
