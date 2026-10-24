@@ -12,6 +12,13 @@ export const metadata: Metadata = {
   title: "Project Mosaic",
   description: "Превращаем скроллинг в обучение.",
   applicationName: "Project Mosaic",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "16x16 32x32 48x48", type: "image/x-icon" },
+      { url: "/icons/mosaic-mark.svg", sizes: "any", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/icons/mosaic-180.png", sizes: "180x180", type: "image/png" }],
+  },
   appleWebApp: { capable: true, title: "Project Mosaic", statusBarStyle: "default" },
 };
 

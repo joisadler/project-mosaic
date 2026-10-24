@@ -52,6 +52,8 @@ Study and review derive disjoint eligible card sets from active confirmations an
 
 ## Aggregate progress and reset controls
 
+The visual hierarchy and decorative artwork are described in [Account and learning presentation](account-presentation.md). The prominent overall summary and compact chapter/subsection summaries reuse the same progress calculation and scoped reset flow.
+
 Chapter groups on My learning start collapsed on each page mount. Their selection count, aggregate progress, completed-card count, and chapter reset remain visible. Each group expands independently; expansion is presentation-only and is not saved or synchronized. Chapter/subsection membership comes from the explicit registry. Empty chapters are omitted.
 
 The chapter checkbox and the heading's disclosure button are separate sibling controls. The checkbox selects all subsections and exposes partial selection through its native indeterminate state and `aria-checked="mixed"`. The disclosure button has `aria-expanded` and `aria-controls` pointing to a stable, unique panel ID. Tab follows normal document order; Enter/Space activate the disclosure; no custom arrow-key navigation is added. Collapsing returns/keeps focus on the disclosure button. Collapsed panels use `hidden`, removing their controls from both the accessibility tree and tab order. Selection and synchronization never expand or collapse a group. Reset-dialog cancellation restores focus to its trigger inside the still-open group; the existing heading fallback handles a disabled trigger after a successful reset.

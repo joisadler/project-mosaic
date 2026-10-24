@@ -3,22 +3,25 @@
 import { useEffect, useRef, useState } from "react";
 import { useStudySession } from "@/components/study-shell/StudySessionProvider";
 import { summarizeProgress } from "@/lib/learning-progress/progress";
+import { MosaicTiles, ResetSymbol } from "./MosaicArtwork";
 import styles from "./account-screen.module.scss";
 
 export type ResetTarget = { title: string; cardIds: string[]; trigger: HTMLButtonElement };
 const percent = new Intl.NumberFormat("ru", { maximumFractionDigits: 2 });
 
-export function ProgressSummary({ title, cardIds, onReset }: {
+export function ProgressSummary({ title, cardIds, onReset, prominent = false, resetLabel = "Сбросить прогресс" }: {
   title: string; cardIds: string[]; onReset: (target: ResetTarget) => void;
+  prominent?: boolean; resetLabel?: string;
 }) {
   const { progress, sync } = useStudySession();
   const summary = summarizeProgress(progress.data, cardIds);
   return (
-    <div className={styles.progressSummary}>
+    <div className={`${styles.progressSummary} ${prominent ? styles.overallProgress : ""}`}>
+      {prominent ? <><div className={styles.summaryArtwork}><MosaicTiles /></div><h3 className={styles.progressHeading}>{title}</h3></> : null}
       {progress.ready && sync.status !== "unavailable" ? (
         <>
           <div className={styles.progressNumbers}>
-            <span>Средний прогресс: <strong>{percent.format(summary.average)}%</strong></span>
+            <span className={styles.progressValue}><span className={styles.visuallyHidden}>Средний прогресс: </span><strong>{percent.format(summary.average)}%</strong></span>
             <span>Завершено {summary.completed} из {summary.total}</span>
           </div>
           <progress max={100} value={summary.average} aria-label={`Средний прогресс: ${title}`} />
@@ -26,7 +29,7 @@ export function ProgressSummary({ title, cardIds, onReset }: {
       ) : <p role="status">{sync.status === "unavailable" ? "Прогресс недоступен, пока не удалось проверить аккаунт." : "Загружаем прогресс…"}</p>}
       <button className={styles.resetProgress} type="button" aria-label={`Сбросить прогресс: ${title}`}
         disabled={!progress.ready || !summary.hasHistory || sync.status === "unavailable" || sync.status === "unauthorized"}
-        onClick={event => onReset({ title, cardIds, trigger: event.currentTarget })}>Сбросить прогресс</button>
+        onClick={event => onReset({ title, cardIds, trigger: event.currentTarget })}><ResetSymbol />{resetLabel}</button>
     </div>
   );
 }

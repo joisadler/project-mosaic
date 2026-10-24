@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useStudySession } from "@/components/study-shell/StudySessionProvider";
+import { ShuffleSymbol } from "./MosaicArtwork";
 import styles from "./account-screen.module.scss";
 
 export function StudySessionControl() {
@@ -29,7 +30,7 @@ export function StudySessionControl() {
           <button className={styles.retry} type="button" onClick={() => { restart(); setConfirming(false); router.push("/", { scroll: false }); }}>Перемешать и начать</button>
           <button className={styles.retry} type="button" onClick={() => setConfirming(false)}>Отмена</button>
         </>
-      ) : <button className={styles.retry} type="button" disabled={!session} onClick={() => setConfirming(true)}>Перемешать ленту</button>}
+      ) : <button className={styles.shuffleButton} type="button" disabled={!session} onClick={() => setConfirming(true)}><ShuffleSymbol />Перемешать ленту</button>}
     </section>
   );
 }

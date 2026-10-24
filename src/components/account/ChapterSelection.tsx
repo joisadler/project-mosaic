@@ -56,15 +56,17 @@ export function ChapterSelection({ number, title, subsections, selected, disable
           </button>
         </h3>
       </div>
-      <p className={styles.chapterCount}>Выбрано подразделов: {selectedCount} из {subsections.length}</p>
-      <ProgressSummary title={label} cardIds={subsections.flatMap(section => section.cards.map(card => card.id))} onReset={onReset} />
+      <div className={styles.chapterSummary}>
+        <p className={styles.chapterCount}>Выбрано подразделов: {selectedCount} из {subsections.length}</p>
+        <ProgressSummary title={label} resetLabel="Сбросить прогресс раздела" cardIds={subsections.flatMap(section => section.cards.map(card => card.id))} onReset={onReset} />
+      </div>
       <div id={`${id}-subsections`} className={styles.subsections} hidden={!expanded}>
         {subsections.map(section => (
-          <div className={styles.subsection} key={section.id}>
+          <div className={styles.subsection} key={section.id} data-section={section.id}>
             <label className={styles.sectionChoice}>
               <input type="checkbox" disabled={disabled} checked={selected.includes(section.id)}
                 onChange={event => onChange(toggleSectionGroup(selected, [section.id], event.target.checked))} />
-              <span><strong>{section.number}</strong>{section.title}</span>
+              <span><strong>{section.number}</strong>{" "}{section.title}</span>
             </label>
             <ProgressSummary title={`Подраздел ${section.number}: ${section.title}`} cardIds={section.cards.map(card => card.id)} onReset={onReset} />
           </div>
