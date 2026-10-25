@@ -95,7 +95,7 @@ let value;
 ~~~js
 const user = { name: "Ada" };
 user.name = "Grace";
-console.log(user.name); // Grace
+console.log(user.name); // "Grace"
 ~~~`,
       `## Новый объект — уже переназначение
 
@@ -150,7 +150,7 @@ console.log(total); // 5
 ~~~js
 function run() {
   if (true) { var message = "ready"; }
-  console.log(message); // ready
+  console.log(message); // "ready"
 }
 run();
 ~~~`,
@@ -187,7 +187,7 @@ console.log(token); // ReferenceError
 
 ~~~js
 const user = { name: "Ada" };
-console.log(user.name); // Ada
+console.log(user.name); // "Ada"
 ~~~
 
 Свойство \`name\` не объявляет отдельную переменную \`name\`.`,
@@ -210,7 +210,7 @@ function run() {
   const role = "admin";
   return read();
 }
-console.log(run()); // guest
+console.log(run()); // "guest"
 ~~~`,
       `## Вызывающий код не становится внешним
 
@@ -233,9 +233,9 @@ console.log(run()); // guest
 let label = "outer";
 {
   let label = "inner";
-  console.log(label); // inner
+  console.log(label); // "inner"
 }
-console.log(label); // outer
+console.log(label); // "outer"
 ~~~`,
       `## Присваивание — другое действие
 
@@ -244,7 +244,7 @@ console.log(label); // outer
 ~~~js
 let label = "outer";
 { label = "updated"; }
-console.log(label); // updated
+console.log(label); // "updated"
 ~~~
 
 Разница — наличие \`let\` внутри блока, а не просто фигурные скобки.`,
@@ -410,9 +410,10 @@ let value = 7;
 Если идентификатор (identifier) вообще не найден, \`typeof\` возвращает строку \`"undefined"\`.
 
 ~~~js
-console.log(typeof mosaicAbsent); // undefined
+console.log(typeof mosaicAbsent);
+// "undefined"
 console.log(typeof typeof mosaicAbsent);
-// string
+// "string"
 ~~~
 
 Вывод консоли может скрывать кавычки. Результат оператора — строка, не значение \`undefined\`.`,
@@ -631,7 +632,7 @@ for (var i = 0; i < 3; i++) {
   readers.push(() => i);
 }
 console.log(readers.map(read => read()).join(","));
-// 3,3,3
+// "3,3,3"
 ~~~`,
       `## let даёт привязки итераций
 
@@ -643,7 +644,7 @@ for (let i = 0; i < 3; i++) {
   readers.push(() => i);
 }
 console.log(readers.map(read => read()).join(","));
-// 0,1,2
+// "0,1,2"
 ~~~`,
       `## Разницу создаёт цикл
 
@@ -723,7 +724,8 @@ function readSecret() {
   const secret = "local";
   return secret;
 }
-console.log(readSecret()); // local
+console.log(readSecret());
+// "local"
 ~~~`,
       `## Возвращённое значение не раскрывает имя
 
@@ -757,7 +759,7 @@ function createReader() {
   return () => role;
 }
 const read = createReader();
-console.log(read()); // admin
+console.log(read()); // "admin"
 ~~~
 
 Полный разбор замыканий относится к следующей теме; здесь важно направление поиска имени.`,
@@ -782,8 +784,8 @@ for (let i = 0; i < 2; i++) {
   let label = "iteration " + i;
   console.log(label);
 }
-// iteration 0
-// iteration 1
+// "iteration 0"
+// "iteration 1"
 ~~~`,
     ],
   },
@@ -807,7 +809,7 @@ function first() {
   second();
   console.log("C");
 }
-first(); // A, B, C
+first(); // "A", "B", "C"
 ~~~`,
     ],
   },
@@ -831,7 +833,7 @@ function caller() {
   const value = "local";
   return read();
 }
-console.log(caller()); // global
+console.log(caller()); // "global"
 ~~~`,
     ],
   },
@@ -864,7 +866,7 @@ console.log(caller()); // global
 ~~~js
 let mode = "idle";
 mode = "ready"; // allowed
-console.log(mode); // ready
+console.log(mode); // "ready"
 ~~~
 
 Второе \`let mode\` в этой области было бы \`SyntaxError\`.`,
@@ -903,7 +905,7 @@ let mode = "outer";
 ~~~js
 var mode = "outer";
 { let mode = "inner"; }
-console.log(mode); // outer
+console.log(mode); // "outer"
 ~~~
 
 Не суди по вложенным скобкам: сначала определи эффективную область каждого объявления.`,
@@ -923,7 +925,7 @@ console.log(mode); // outer
 const outer = function inner(n) {
   return n === 0 ? "done" : inner(n - 1);
 };
-console.log(outer(2)); // done
+console.log(outer(2)); // "done"
 ~~~`,
       `## Внутреннее имя не экспортируется
 
@@ -931,8 +933,10 @@ console.log(outer(2)); // done
 
 ~~~js
 const outer = function inner() {};
-console.log(typeof inner); // undefined
-console.log(typeof outer); // function
+console.log(typeof inner);
+// "undefined"
+console.log(typeof outer);
+// "function"
 ~~~
 
 Функциональное выражение не превращается в внешнее function declaration из-за наличия имени.`,
@@ -971,7 +975,7 @@ ES-модуль (ES module) не публикует собственные ве�
 const api = { version: "1.0" };
 globalThis.mosaicApi = api;
 console.log(globalThis.mosaicApi.version);
-// 1.0
+// "1.0"
 ~~~
 
 Пример иллюстрирует границу JavaScript; TypeScript может потребовать описание типа глобального свойства.`,
@@ -1012,7 +1016,7 @@ for (; i < 3; i++) {
   readers.push(() => i);
 }
 console.log(readers.map(read => read()).join(","));
-// 3,3,3
+// "3,3,3"
 ~~~`,
       `## Смотри на заголовок цикла
 

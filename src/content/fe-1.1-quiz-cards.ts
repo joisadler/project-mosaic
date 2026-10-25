@@ -173,12 +173,12 @@ console.log(user.name);
     options: [
       {
         id: "option-1",
-        text: "Ada",
+        text: "\"Ada\"",
         explanation: "Поле объекта было изменено. Правильный результат: Grace.",
       },
       {
         id: "option-2",
-        text: "Grace",
+        text: "\"Grace\"",
         explanation: "const сохраняет ссылку в привязке, но не запрещает менять поля объекта.",
       },
       {
@@ -327,12 +327,12 @@ run();
     options: [
       {
         id: "option-1",
-        text: "admin",
+        text: "\"admin\"",
         explanation: "read берёт внешнюю role: guest.",
       },
       {
         id: "option-2",
-        text: "guest",
+        text: "\"guest\"",
         explanation: "read замкнута на внешнюю role со значением guest.",
       },
       {
@@ -364,12 +364,12 @@ console.log(label);
     options: [
       {
         id: "option-1",
-        text: "inner",
+        text: "\"inner\"",
         explanation: "Внутренняя label — другая привязка; она не присваивает значение внешней. Правильный результат: outer.",
       },
       {
         id: "option-2",
-        text: "outer",
+        text: "\"outer\"",
         explanation: "После блока читается внешняя label: она осталась outer.",
       },
       {
@@ -659,7 +659,7 @@ let value = 2;
     options: [
       {
         id: "option-1",
-        text: "start, затем SyntaxError",
+        text: "\"start\", затем SyntaxError",
         explanation: "Повторное let обнаруживается до выполнения всего фрагмента. Правильный результат: SyntaxError без логов.",
       },
       {
@@ -669,7 +669,7 @@ let value = 2;
       },
       {
         id: "option-3",
-        text: "start, затем 2",
+        text: "\"start\", затем 2",
         explanation: "Повторное объявление запрещено, это не повторное присваивание. Правильный результат: SyntaxError без логов.",
       },
       {
@@ -696,12 +696,12 @@ console.log(mode);
     options: [
       {
         id: "option-1",
-        text: "outer",
+        text: "\"outer\"",
         explanation: "Отдельная внутренняя var-привязка не создаётся. Правильный результат: SyntaxError.",
       },
       {
         id: "option-2",
-        text: "inner",
+        text: "\"inner\"",
         explanation: "var выходит за обычный блок и конфликтует с внешним let. Правильный результат: SyntaxError.",
       },
       {
@@ -733,12 +733,12 @@ console.log(mode);
     options: [
       {
         id: "option-1",
-        text: "outer",
+        text: "\"outer\"",
         explanation: "Внутренняя let находится в отдельном блоке и не меняет внешний var.",
       },
       {
         id: "option-2",
-        text: "inner",
+        text: "\"inner\"",
         explanation: "Внутреннее значение видно только внутри блока. Правильный результат: outer.",
       },
       {
@@ -772,22 +772,22 @@ console.log(readers.map(read => read()).join(','));
     options: [
       {
         id: "option-1",
-        text: "0,1,2",
+        text: "\"0,1,2\"",
         explanation: "Функции не копируют значения каждой итерации при var. Правильный результат: 3,3,3.",
       },
       {
         id: "option-2",
-        text: "1,2,3",
+        text: "\"1,2,3\"",
         explanation: "Все функции читают общую i уже после цикла. Ответ: 3,3,3.",
       },
       {
         id: "option-3",
-        text: "3,3,3",
+        text: "\"3,3,3\"",
         explanation: "Общая i после цикла равна 3; все три функции читают её.",
       },
       {
         id: "option-4",
-        text: "undefined,undefined,undefined",
+        text: "\"undefined,undefined,undefined\"",
         explanation: "i инициализирована и после цикла содержит 3. Правильный результат: 3,3,3.",
       },
     ],
@@ -811,17 +811,17 @@ console.log(readers.map(read => read()).join(','));
     options: [
       {
         id: "option-1",
-        text: "3,3,3",
+        text: "\"3,3,3\"",
         explanation: "В for с let нет одной общей привязки для всех этих функций. Правильный результат: 0,1,2.",
       },
       {
         id: "option-2",
-        text: "0,1,2",
+        text: "\"0,1,2\"",
         explanation: "Цикл создаёт привязки итераций; функции читают свои 0, 1 и 2.",
       },
       {
         id: "option-3",
-        text: "1,2,3",
+        text: "\"1,2,3\"",
         explanation: "Увеличение цикла не превращает сохранённые привязки тела в 1, 2 и 3. Правильный результат: 0,1,2.",
       },
       {
@@ -1126,22 +1126,22 @@ first();
     options: [
       {
         id: "option-1",
-        text: "A, C, B",
+        text: "\"A\", \"C\", \"B\"",
         explanation: "Вызов second даёт порядок A, B, C.",
       },
       {
         id: "option-2",
-        text: "B, A, C",
+        text: "\"B\", \"A\", \"C\"",
         explanation: "Объявление second не вызывает её; сначала first выводит A.",
       },
       {
         id: "option-3",
-        text: "A, B; C не появится",
+        text: "\"A\", \"B\"; \"C\" не появится",
         explanation: "После возврата из second функция first выводит C.",
       },
       {
         id: "option-4",
-        text: "A, B, C",
+        text: "\"A\", \"B\", \"C\"",
         explanation: "first выводит A, second — B, затем first продолжает с C.",
       },
     ],
@@ -1171,17 +1171,17 @@ switch (1) {
       },
       {
         id: "option-2",
-        text: "Только start",
+        text: "Только \"start\"",
         explanation: "Выбор ветки не отменяет статический конфликт; код не запускается.",
       },
       {
         id: "option-3",
-        text: "start, затем ReferenceError",
+        text: "\"start\", затем ReferenceError",
         explanation: "Повторный let — ранний SyntaxError, поэтому логов не будет.",
       },
       {
         id: "option-4",
-        text: "start, затем SyntaxError при входе во второй case",
+        text: "\"start\", затем SyntaxError во втором case",
         explanation: "Конфликт обнаруживается до выполнения, а не при входе во второй case.",
       },
     ],
@@ -1204,7 +1204,7 @@ class Widget {}
     options: [
       {
         id: "option-1",
-        text: "function",
+        text: "\"function\"",
         explanation: "После объявления class typeof обычно даёт function, но сейчас Widget ещё в TDZ.",
       },
       {
@@ -1214,7 +1214,7 @@ class Widget {}
       },
       {
         id: "option-3",
-        text: "undefined",
+        text: "\"undefined\"",
         explanation: "Widget не отсутствует: его привязка уже существует и не инициализирована.",
       },
       {
@@ -1280,7 +1280,7 @@ console.log(typeof mosaicAccidental);
     options: [
       {
         id: "option-1",
-        text: "false, затем number",
+        text: "false, затем \"number\"",
         explanation: "Свойство configurable: delete вернёт true, затем имя исчезнет.",
       },
       {
@@ -1295,7 +1295,7 @@ console.log(typeof mosaicAccidental);
       },
       {
         id: "option-4",
-        text: "true, затем строка undefined",
+        text: "true, затем строка \"undefined\"",
         explanation: "delete вернёт true; после удаления typeof даст строку \"undefined\".",
       },
     ],
@@ -1359,12 +1359,12 @@ console.log(readers.map(read => read()).join(","));
     options: [
       {
         id: "option-1",
-        text: "0,1,2",
+        text: "\"0,1,2\"",
         explanation: "let объявлена снаружи цикла, поэтому все функции разделяют одну i.",
       },
       {
         id: "option-2",
-        text: "3,3,3",
+        text: "\"3,3,3\"",
         explanation: "Все функции читают одну let i, объявленную перед циклом. После цикла её значение — 3.",
       },
       {
@@ -1374,7 +1374,7 @@ console.log(readers.map(read => read()).join(","));
       },
       {
         id: "option-4",
-        text: "1,2,3",
+        text: "\"1,2,3\"",
         explanation: "Функции вызваны после цикла, а не после каждого увеличения. Все видят итоговое 3.",
       },
     ],

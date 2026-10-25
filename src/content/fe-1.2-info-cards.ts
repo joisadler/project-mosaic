@@ -18,7 +18,8 @@ export const feSection1_2InfoCards: InfoCardData[] = [
 ~~~js
 let result = 42;
 result = "done";
-console.log(typeof result); // string
+console.log(typeof result);
+// "string"
 ~~~`,
       `## Две группы значений
 
@@ -40,7 +41,7 @@ console.log(typeof result); // string
 ~~~js
 const text = "cat";
 text.toUpperCase();
-console.log(text); // cat
+console.log(text); // "cat"
 ~~~`,
       `## Сохранить результат
 
@@ -49,7 +50,7 @@ console.log(text); // cat
 ~~~js
 let text = "cat";
 text = text.toUpperCase();
-console.log(text); // CAT
+console.log(text); // "CAT"
 ~~~`,
     ],
   },
@@ -181,10 +182,14 @@ console.log(item.count); // 3
 \`typeof\` возвращает строку с runtime-категорией. Он не различает все виды объектов.
 
 ~~~js
-console.log(typeof null); // object
-console.log(typeof []); // object
-console.log(typeof NaN); // number
-console.log(typeof (() => {})); // function
+console.log(typeof null);
+// "object"
+console.log(typeof []);
+// "object"
+console.log(typeof NaN);
+// "number"
+console.log(typeof (() => {}));
+// "function"
 ~~~`,
       `## Выбирай точную проверку
 
@@ -258,7 +263,8 @@ console.log(a === b); // true
 
 ~~~js
 const token = Symbol("token");
-console.log(String(token)); // Symbol(token)
+console.log(String(token));
+// "Symbol(token)"
 ~~~
 
 Шаблонная строка и конкатенация с \`""\` используют другие правила.`,
@@ -286,7 +292,7 @@ console.log("" + token); // TypeError
 
 ~~~js
 const id = 9007199254740993n;
-console.log(typeof id); // bigint
+console.log(typeof id); // "bigint"
 console.log(5n / 2n); // 2n
 ~~~
 
@@ -325,7 +331,7 @@ console.log(id); // 9007199254740993n
 \`NaN\` — числовое значение для неудачного числового результата. Оно не равно себе при строгом равенстве (strict equality).
 
 ~~~js
-console.log(typeof NaN); // number
+console.log(typeof NaN); // "number"
 console.log(NaN === NaN); // false
 console.log(Number.isNaN(NaN)); // true
 ~~~`,
@@ -500,8 +506,10 @@ console.log(Boolean(new Boolean(false))); // true
 Результат не обязан быть boolean.
 
 ~~~js
-console.log("Ada" || "Guest"); // Ada
-console.log(0 && "ready"); // 0
+console.log("Ada" || "Guest");
+// "Ada"
+console.log(0 && "ready");
+// 0
 ~~~`,
       `## Правая часть может не выполниться
 
@@ -511,7 +519,7 @@ console.log(0 && "ready"); // 0
 let calls = 0;
 const result = "ready" || ++calls;
 console.log(calls); // 0
-console.log(result); // ready
+console.log(result); // "ready"
 ~~~`,
     ],
   },
@@ -866,7 +874,7 @@ console.log(valid); // false
 Бинарный \`+\` применяет \`ToPrimitive\`. Если хотя бы один результат — строка, выбирается конкатенация (concatenation). Иначе — числовое сложение.
 
 ~~~js
-console.log("1" + 2); // 12
+console.log("1" + 2); // "12"
 console.log(true + 1); // 2
 console.log(null + 1); // 1
 ~~~`,
@@ -874,7 +882,7 @@ console.log(null + 1); // 1
 
 ~~~js
 console.log(1n + 2n); // 3n
-console.log("1" + 2n); // 12
+console.log("1" + 2n); // "12"
 ~~~
 
 Во втором случае выбрана строковая ветка. А \`1n + 2\` вызовет \`TypeError\`: в числовой ветке нельзя смешать \`BigInt\` и \`Number\`.
@@ -894,8 +902,8 @@ console.log("1" + 2n); // 12
 Операции \`+\` группируются слева направо (left associativity).
 
 ~~~js
-console.log(1 + 2 + "3"); // 33
-console.log("1" + 2 + 3); // 123
+console.log(1 + 2 + "3"); // "33"
+console.log("1" + 2 + 3); // "123"
 ~~~
 
 В первом случае числа успевают сложиться. Во втором строковая конкатенация начинается сразу.`,
@@ -959,9 +967,12 @@ const amount = {
   valueOf: () => 7,
   toString: () => "seven",
 };
-console.log(Number(amount)); // 7
-console.log(String(amount)); // seven
-console.log(amount + 1); // 8
+console.log(Number(amount));
+// 7
+console.log(String(amount));
+// "seven"
+console.log(amount + 1);
+// 8
 ~~~`,
       `## Если метод вернул объект
 
@@ -1047,7 +1058,7 @@ console.log([] == ![]); // true
 
 ~~~js
 const values = [1];
-console.log(values + 2); // 12
+console.log(values + 2); // "12"
 ~~~
 
 \`ToPrimitive\` даёт \`"1"\`, затем \`+\` выбирает строковую ветку. В прикладном коде сначала определяй тип данных и явно нормализуй вход, чтобы такой результат был намеренным.`,

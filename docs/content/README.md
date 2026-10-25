@@ -62,6 +62,21 @@ Every learning card may define `readMoreUrl?: string` in the shared `BaseCardDat
 - The UI validates the value again before rendering. Missing, malformed and non-HTTP(S) values produce no action.
 - When a card covers several source sections, choose the section that best matches its main learning objective and record that choice in the package coverage document.
 
+## Result notation in examples and quiz options
+
+Represent JavaScript values rather than copying a console's display formatting. Always quote string results with double quotes, including numeric-looking strings and values returned by `typeof`:
+
+```js
+console.log("1" + 2); // "12"
+console.log(1 + 2); // 3
+console.log(typeof missingName); // "undefined"
+console.log(undefined); // undefined
+```
+
+Apply this convention consistently to expected-result comments, quiz choices (including hypothetical string distractors), and explicit result values in explanations. Do not quote actual numbers, booleans, `null`, `undefined`, BigInt values, or exception names. Type names discussed as categories in prose are not string result literals. If `join()` produces `"3,3,3"`, quote the whole string; if three separate logs produce strings, write `"A", "B", "C"`. Preserve each value's type in mixed outputs such as `7 / "seven"`. Console implementations may display strings without quotes; examples deliberately retain them so learners can distinguish `"12"` from `12` and `"undefined"` from `undefined`.
+
+Check the expression and its actual type before editing; do not infer a string from digits, a method name, or nearby examples alone. Keep card IDs, option IDs and correct-answer identity stable when correcting notation.
+
 ## Shared mobile content contract
 
 The vertical feed is the only vertical gesture surface. Individual cards must not require nested vertical scrolling. Treat content that does not fit at a `320 × 568` CSS viewport as a content error:

@@ -21,7 +21,7 @@ console.log(a);
     options: [
       {
         id: "option-1",
-        text: "CAT",
+        text: "\"CAT\"",
         explanation: "Метод возвращает новую строку. Переменная a не переназначалась.",
       },
       {
@@ -36,7 +36,7 @@ console.log(a);
       },
       {
         id: "option-4",
-        text: "cat",
+        text: "\"cat\"",
         explanation: "Копирование примитива и переназначение b не меняют строку в a.",
       },
     ],
@@ -168,22 +168,22 @@ console.log(typeof null, typeof []);
     options: [
       {
         id: "option-1",
-        text: "null / array",
+        text: "\"null\" / \"array\"",
         explanation: "typeof не возвращает строки null и array.",
       },
       {
         id: "option-2",
-        text: "object / object",
+        text: "\"object\" / \"object\"",
         explanation: "Это результаты typeof. При этом null — примитив, а массив — объект.",
       },
       {
         id: "option-3",
-        text: "undefined / object",
+        text: "\"undefined\" / \"object\"",
         explanation: "null имеет исторический результат typeof: object.",
       },
       {
         id: "option-4",
-        text: "object / array",
+        text: "\"object\" / \"array\"",
         explanation: "Массив для typeof относится к object; для точной проверки есть Array.isArray().",
       },
     ],
@@ -284,7 +284,7 @@ console.log("" + Symbol("x"));
       },
       {
         id: "option-2",
-        text: "Symbol(x)",
+        text: "\"Symbol(x)\"",
         explanation: "Такой результат даст явный String(Symbol(\"x\")), но не конкатенация.",
       },
       {
@@ -348,7 +348,7 @@ console.log(1n + 2);
     options: [
       {
         id: "option-1",
-        text: "12",
+        text: "\"12\"",
         explanation: "Строкового операнда нет. Конкатенация не выбирается.",
       },
       {
@@ -761,12 +761,12 @@ console.log(true && "ready", 0 && "hidden");
     options: [
       {
         id: "option-1",
-        text: "ready / 0",
+        text: "\"ready\" / 0",
         explanation: "&& возвращает правое значение при truthy слева и левое при falsy.",
       },
       {
         id: "option-2",
-        text: "ready / false",
+        text: "\"ready\" / false",
         explanation: "Во второй операции возвращается сам 0, а не false.",
       },
       {
@@ -983,7 +983,7 @@ console.log(api.run?.());
       },
       {
         id: "option-3",
-        text: "later",
+        text: "\"later\"",
         explanation: "Строка не функция, её нельзя вызвать.",
       },
       {
@@ -1187,22 +1187,22 @@ console.log(map.size, map.get(0));
     options: [
       {
         id: "option-1",
-        text: "1 / plus",
+        text: "1 / \"plus\"",
         explanation: "Вторая запись по равному ключу заменяет значение на minus.",
       },
       {
         id: "option-2",
-        text: "2 / plus",
+        text: "2 / \"plus\"",
         explanation: "Map не различает знаки нуля при выборе ключа.",
       },
       {
         id: "option-3",
-        text: "2 / minus",
+        text: "2 / \"minus\"",
         explanation: "Значение minus верно, но ключ остался один.",
       },
       {
         id: "option-4",
-        text: "1 / minus",
+        text: "1 / \"minus\"",
         explanation: "Map объединяет 0 и -0 как ключи; вторая запись заменяет первую.",
       },
     ],
@@ -1430,17 +1430,17 @@ console.log(1 + 2 + "3", "1" + 2 + 3);
     options: [
       {
         id: "option-1",
-        text: "33 / 33",
+        text: "\"33\" / \"33\"",
         explanation: "Во втором выражении конкатенация начинается уже с первого сложения.",
       },
       {
         id: "option-2",
-        text: "123 / 123",
+        text: "\"123\" / \"123\"",
         explanation: "В первом выражении 1 и 2 сначала складываются как числа.",
       },
       {
         id: "option-3",
-        text: "33 / 123",
+        text: "\"33\" / \"123\"",
         explanation: "+ группируется слева направо: в первом случае сначала 3, во втором сразу строка.",
       },
       {
@@ -1466,16 +1466,16 @@ console.log("5" + 2, "5" - 2);
       {
         id: "option-1",
         text: "7 / 3",
-        explanation: "Для + строка выбирает конкатенацию, поэтому первый результат 52.",
+        explanation: "Для + строка выбирает конкатенацию, поэтому первый результат \"52\".",
       },
       {
         id: "option-2",
-        text: "52 / 52",
+        text: "\"52\" / \"52\"",
         explanation: "У - нет строковой ветки конкатенации.",
       },
       {
         id: "option-3",
-        text: "52 / 3",
+        text: "\"52\" / 3",
         explanation: "+ конкатенирует со строкой, а - преобразует строку к числу.",
       },
       {
@@ -1609,7 +1609,7 @@ console.log(Number(x), String(x));
     options: [
       {
         id: "option-1",
-        text: "7 / seven",
+        text: "7 / \"seven\"",
         explanation: "Number начинает с valueOf, String — с toString.",
       },
       {
@@ -1619,12 +1619,12 @@ console.log(Number(x), String(x));
       },
       {
         id: "option-3",
-        text: "7 / 7",
+        text: "7 / \"7\"",
         explanation: "Строковая подсказка заставляет начать с toString.",
       },
       {
         id: "option-4",
-        text: "seven / seven",
+        text: "\"seven\" / \"seven\"",
         explanation: "Number использует числовую подсказку и сначала вызывает valueOf.",
       },
     ],
@@ -1653,7 +1653,7 @@ console.log(Number(x));
       },
       {
         id: "option-2",
-        text: "[object Object]",
+        text: "\"[object Object]\"",
         explanation: "Для Number нужен числовой результат; здесь выбран пользовательский toString.",
       },
       {
@@ -1730,7 +1730,7 @@ console.log(x + 1);
       },
       {
         id: "option-2",
-        text: "number1",
+        text: "\"number1\"",
         explanation: "Бинарный + вызывает ToPrimitive с подсказкой default, а не number.",
       },
       {
@@ -1740,7 +1740,7 @@ console.log(x + 1);
       },
       {
         id: "option-4",
-        text: "default1",
+        text: "\"default1\"",
         explanation: "Метод вернул строку default, после чего + конкатенирует её с 1.",
       },
     ],
