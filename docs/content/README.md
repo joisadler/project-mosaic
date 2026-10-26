@@ -42,6 +42,7 @@ Cards may include `visual?: { motif?: VisualMotif }` in `BaseCardData`. Select a
 | --- | --- | --- | --- |
 | `fe-1.1` | Blue/cyan | `scope`: cropped braces and nested contours | `lifecycle`: connected stages for declaration preparation, initialization, TDZ and execution order |
 | `fe-1.2` | Plum/lilac | `values`: distinct circle, rounded square and diamond | `equality`: paired circular contours for equality/identity semantics; `conversion`: directed paths between shapes for explicit/implicit conversion and operator coercion |
+| `fe-1.3` | Amber/copper | `capture`: function nodes linked to an enclosed binding | `invocation`: call paths converging on a receiver; `composition`: linked operation blocks for HOF/adapters, currying and transformation boundaries |
 
 ```ts
 visual: { motif: "conversion" },

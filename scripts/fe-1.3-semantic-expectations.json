@@ -1,0 +1,2202 @@
+{
+  "version": 1,
+  "examples": {
+    "48beaaa3ab55fe152f0cba1828214fd2182a23c4664abeba0e676e01979e2f47": {
+      "logs": [
+        [
+          1
+        ]
+      ],
+      "environment": "node"
+    },
+    "af3da96c4078a4e0046ae552ca87301b176b27c051070a5f197206ccdb24e51b": {
+      "logs": [],
+      "environment": "node",
+      "error": "ReferenceError"
+    },
+    "d8a1be895e5d25ae6e988cf9b08617148daf568e64574a8ac376c005a2a98594": {
+      "logs": [
+        [
+          [
+            "outer",
+            "inner"
+          ]
+        ]
+      ],
+      "environment": "node"
+    },
+    "bb5d22f45d858b7db539a00ee6b27098fd0ffce5933fe3d5536d668654c77d62": {
+      "logs": [
+        [
+          1
+        ]
+      ],
+      "environment": "node"
+    },
+    "227f13317a1ed0953ed20d9a8fd9dee2000df61ce5bc0723ec038c99346f0830": {
+      "logs": [
+        [
+          2
+        ]
+      ],
+      "environment": "node",
+      "sloppy": true
+    },
+    "dac0037cb78ac5a62de4fdb41d463e3d7345c5c6765f098c8141c09f3920fc54": {
+      "logs": [
+        [
+          10
+        ]
+      ],
+      "environment": "node"
+    },
+    "afb191609c686d035a61b91badf99f1348395aa65a4bc351684afc80aa3a00fc": {
+      "logs": [
+        [
+          2
+        ]
+      ],
+      "environment": "node"
+    },
+    "71f67f2dd5f5f9bbaa5f9da609f7dd27eb25ad3ca4221f10161bb16466cd79f4": {
+      "logs": [
+        [
+          0
+        ]
+      ],
+      "environment": "node"
+    },
+    "439f4c674feabe4f4ff764b3f2a78e98a81b271d08c6785e4b1b82c9e93d5cf8": {
+      "logs": [
+        [
+          0
+        ]
+      ],
+      "environment": "browser"
+    },
+    "250708ddbe553a039fe75802acb74b6ec595ca207a1c8ef4e4e5f86f8e50c99d": {
+      "logs": [
+        [
+          7
+        ]
+      ],
+      "environment": "node"
+    },
+    "cf80d1a847aa9bee11bc000e655865f29b22d02054d22eb920021255d4587575": {
+      "logs": [
+        [
+          "done"
+        ]
+      ],
+      "environment": "node"
+    },
+    "c0d2937fc2209587d9fb99619c1891a48475f0c7fe16d095bda9429aef56047f": {
+      "logs": [
+        [
+          {
+            "$type": "undefined"
+          }
+        ]
+      ],
+      "environment": "node"
+    },
+    "ecc3cd0198571375678b6fd95dd8d224f2e07bbf781b899c046da9d48bc8e613": {
+      "logs": [
+        [
+          0
+        ]
+      ],
+      "environment": "node"
+    },
+    "ca38667d8c102d03a207565ff9db63faef31f54906a4e760b92d0beacadf3eba": {
+      "logs": [
+        [
+          4
+        ]
+      ],
+      "environment": "node"
+    },
+    "9892d4e80676c2687967a87f599eec5d143d3299ef23b1f8da664215e68649da": {
+      "logs": [
+        [
+          1,
+          1
+        ]
+      ],
+      "environment": "node"
+    },
+    "bfaa9fec53d2fc0160082d37baadb72dd4bea3bb53c92b0a4531ddcbe2c2eee0": {
+      "logs": [],
+      "environment": "node",
+      "error": "ReferenceError"
+    },
+    "b756b98b72fb8c7a7425ee465f94e17706e481666519c2b95999a06bf755280c": {
+      "logs": [
+        [
+          3
+        ]
+      ],
+      "environment": "node"
+    },
+    "83ee5fd66c266076261fa72426efe22a28adca63ee801027244f11f7a986cace": {
+      "logs": [],
+      "environment": "node",
+      "error": "TypeError"
+    },
+    "a64232b3340fd357d9eb07a7270be9a6d8359b302c3a3248931e7ec382ee1dc1": {
+      "logs": [
+        [
+          [
+            1,
+            4,
+            2
+          ]
+        ]
+      ],
+      "environment": "node"
+    },
+    "a107de02d6a324a757cdfa51680c7d7755e411d9e913df6345becdb8e4bbca51": {
+      "logs": [
+        [
+          1
+        ]
+      ],
+      "environment": "node"
+    },
+    "6aefd500fee9f85f79529d487642acc61c15c33c5e383a1f797c1d45a99fd75e": {
+      "logs": [
+        [
+          1
+        ]
+      ],
+      "environment": "node"
+    },
+    "880929c847493f73a69b68f65a27f9fa684ed443c27df2b392caee5fed54ec82": {
+      "logs": [
+        [
+          1
+        ]
+      ],
+      "environment": "node",
+      "sloppy": true
+    },
+    "62ae36de1c156cf230447c5ef7cb4810a21bcd4579fd0b1a0456cacbffec7075": {
+      "logs": [
+        [
+          1
+        ]
+      ],
+      "environment": "node"
+    },
+    "1937d921d9f7521c1231176d932df0d434f50ed90394ffa9c4245a002861166f": {
+      "logs": [
+        [
+          "B,A"
+        ]
+      ],
+      "environment": "node"
+    },
+    "6230e83d3bbabfb558fe916bc8917c5f7004038252e75652f4c49d4afd38c5ce": {
+      "logs": [
+        [
+          [
+            10,
+            {
+              "$type": "NaN"
+            },
+            {
+              "$type": "NaN"
+            }
+          ]
+        ]
+      ],
+      "environment": "node"
+    },
+    "815362fde8827c814cdd583799ce6b3bdebd766554c6c9883f0abc4215633e57": {
+      "logs": [
+        [
+          2
+        ]
+      ],
+      "environment": "node"
+    },
+    "af85c92d16048daf725437ea20db4ed764899ef1889e35efbcb9cc21ec8fd93a": {
+      "logs": [],
+      "environment": "node",
+      "error": "TypeError"
+    },
+    "ad43d121996d713ca61f3be594ab6968f488d58706edcb2f6a255e4fd1d9a4ed": {
+      "logs": [
+        [
+          5
+        ]
+      ],
+      "environment": "node"
+    },
+    "fc9e97b53084c87b69fa9561599b49344aa5471dfafe5ccc0394e0491bc11c35": {
+      "logs": [],
+      "environment": "node",
+      "error": "TypeError"
+    },
+    "fc86ef9884de68ad52d089124c3e1f9551c49f524babfd3766ffbfe1061df8d3": {
+      "logs": [
+        [
+          null
+        ]
+      ],
+      "environment": "node"
+    },
+    "4a81962fc6c513e917e3b26120f6dd4bc14f48bff5596eda572a9e3e87c16d93": {
+      "logs": [
+        [
+          true
+        ]
+      ],
+      "environment": "node",
+      "sloppy": true
+    },
+    "b953fe4cc946b7b75d36f9438cdd75a02125719f21fb387c470068b728a24b3b": {
+      "logs": [
+        [
+          0,
+          "function"
+        ]
+      ],
+      "environment": "node"
+    },
+    "0a37acbfd193377a18c4e54393749ce22fa54205b6f292a98a08b703697da00a": {
+      "logs": [
+        [
+          1
+        ]
+      ],
+      "environment": "node"
+    },
+    "b0c85a366a57aaf38bab86fc21583124cc7ca86f4f86627ecb87e4cb61af1f16": {
+      "logs": [
+        [
+          "A,B,C"
+        ]
+      ],
+      "environment": "node"
+    },
+    "68ba7d4c5fc54dfa14fad5097685bfb18e0705f52f943bb1d5bb0659987ff9c1": {
+      "logs": [
+        [
+          2,
+          "bound task"
+        ]
+      ],
+      "environment": "node"
+    },
+    "847c88e96cda13073c4ec62368a0a4250c8ab03f303601744de490858884a512": {
+      "logs": [
+        [
+          false
+        ]
+      ],
+      "environment": "node"
+    },
+    "bf208da3ad16a3cb882483eadfb062fc47cee832d3b86631f012e4693bca8b85": {
+      "logs": [
+        [
+          3
+        ]
+      ],
+      "environment": "node"
+    },
+    "196090e5c1c92ab2247564fafc803ba73a96ce7130b12f4264931c24a95599ab": {
+      "logs": [
+        [
+          1,
+          2
+        ]
+      ],
+      "environment": "node"
+    },
+    "5a1e0cd000b0c2f3e25cc69e999fdbee3ee9c763e1e4ae42d001ce1d5f210f4a": {
+      "logs": [
+        [
+          1
+        ]
+      ],
+      "environment": "node"
+    },
+    "893ccb18d3d3eeb20e1bcf5807b1b26140b1dd387a26a6ac32b7a0b8ed56f693": {
+      "logs": [
+        [
+          9
+        ]
+      ],
+      "environment": "node"
+    },
+    "192ff1b492a97f1d81340b76042068a04f97f3c706f1b2e1fa0ed79fe9021d40": {
+      "logs": [],
+      "environment": "node",
+      "error": "TypeError"
+    },
+    "8238a1be2b4fa9446e781f99b9830eb23f8fbf0850ac435d0b97ea045e08f646": {
+      "logs": [
+        [
+          2,
+          9
+        ]
+      ],
+      "environment": "node"
+    },
+    "428e4a68631ffbc19c8c685943323c7ad3d9ee47738a59abe0c033ebaff3f7d4": {
+      "logs": [],
+      "environment": "node",
+      "error": "TypeError"
+    },
+    "59fc44d7057257af6bd5c1c1f69e67db0a2a74acecbb028846393bee8588d8f7": {
+      "logs": [
+        [
+          2
+        ]
+      ],
+      "environment": "node"
+    },
+    "f8b5c11bf15ec0622c669fd2debdb2489fe9b33c3a4af8b829079bc3ee524eca": {
+      "logs": [
+        [
+          1
+        ]
+      ],
+      "environment": "node"
+    },
+    "d09817863bfa954f838ca0c8a9dcadb26ed26f8dcf04b0fbe2cd6ec79dbb5b2f": {
+      "logs": [
+        [
+          "light"
+        ]
+      ],
+      "environment": "node"
+    },
+    "04b26e57273ce21774d43d65a98b2c5631e698e2cea93998e57fc9135667c25a": {
+      "logs": [
+        [
+          2,
+          3
+        ]
+      ],
+      "environment": "node"
+    },
+    "6b2bf35e90f603c9c4ce1d8dc6203b585b530ebc3e98528c112ccea546d42b87": {
+      "logs": [
+        [
+          true,
+          {
+            "$type": "undefined"
+          }
+        ]
+      ],
+      "environment": "node"
+    },
+    "210bae5f5fb533f4068e75c5e7fe3e9c56eaf5363d26ad8b9680727a23ae2970": {
+      "logs": [
+        [
+          7
+        ]
+      ],
+      "environment": "node"
+    },
+    "908df4b577ee5d315c55f0aaeb0c4c98f1b04f298cea89af3eebda6fb4123f41": {
+      "logs": [
+        [
+          {
+            "$type": "undefined"
+          }
+        ]
+      ],
+      "environment": "node"
+    },
+    "1d2474cdb8a5178f461b612a719609d3952ccd6df8e3ca2ae66455839757e184": {
+      "logs": [
+        [
+          6
+        ]
+      ],
+      "environment": "node"
+    },
+    "424e244ed19a98240421da628078ea88a83560edc07e680d11e835455186b0a2": {
+      "logs": [
+        [
+          1
+        ]
+      ],
+      "environment": "browser"
+    },
+    "28ff3f3fcfdad467341dcff5567889164a2a34094a89170b8509f77954094251": {
+      "logs": [
+        [
+          3
+        ],
+        [
+          5
+        ]
+      ],
+      "environment": "node"
+    },
+    "0cb87e0f86d117861cb7d84ae70b477d7e60460cce96685689899464e381d222": {
+      "logs": [
+        [
+          7
+        ]
+      ],
+      "environment": "node"
+    },
+    "69661f9c1f0335fcf5f376f50335ef579c3eb3c56e9b6d415dede219a8b5342c": {
+      "logs": [
+        [
+          7
+        ]
+      ],
+      "environment": "node"
+    },
+    "02602af1f7cd2dc8ef40fcf8e5f4eb0cc7c28b0f9ed66f3a664e26f02b7531fe": {
+      "logs": [
+        [
+          8
+        ]
+      ],
+      "environment": "node"
+    },
+    "306b8caca240a9904163dd13fc12adfee98148b8b16a028bedc4f64d006c33c1": {
+      "logs": [
+        [
+          6
+        ],
+        [
+          true
+        ]
+      ],
+      "environment": "node"
+    },
+    "e2237d1875f69d8925e34b43ca705f23bb70122a7c5d430d04883673451197b7": {
+      "logs": [
+        [
+          "function"
+        ]
+      ],
+      "environment": "node"
+    },
+    "902e9141df1807c4d0282261c682aaf364a55d68795c6a3c5aa8769fe7bf686a": {
+      "logs": [
+        [
+          "internal"
+        ]
+      ],
+      "environment": "node"
+    },
+    "abd27ed5caeb224eafc4659d40963fb179177509aff048dbca41e083808f666c": {
+      "logs": [
+        [
+          {
+            "$type": "undefined"
+          }
+        ],
+        [
+          7
+        ]
+      ],
+      "environment": "node"
+    },
+    "3f2b899d9cd94f683ffd8dcff45483d01852bb51d591088ef3b3a2f2661524ff": {
+      "logs": [
+        [
+          "new"
+        ],
+        [
+          null
+        ]
+      ],
+      "environment": "node"
+    },
+    "55943ff12e0dc3a8d7db3dfe7a3a3aec08f01338410994ff9238fddf9b314a68": {
+      "logs": [
+        [
+          1
+        ],
+        [
+          9
+        ],
+        [
+          2
+        ]
+      ],
+      "environment": "node"
+    },
+    "be5c4561bc2350758ee82356117ab6afb392c1ce4074ad8c31850377483a96c0": {
+      "logs": [
+        [
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "environment": "node"
+    },
+    "c8b5809a15e33abbb0533f7c45468954d49606684f0c2aa43387f590185f41db": {
+      "logs": [
+        [
+          3
+        ],
+        [
+          0
+        ]
+      ],
+      "environment": "node"
+    },
+    "d0931f46a8cce7158651e552b99366d0f48f753a8a09433fcdd24402d3d5d9f9": {
+      "logs": [
+        [
+          [
+            2,
+            3
+          ]
+        ],
+        [
+          true
+        ]
+      ],
+      "environment": "node"
+    },
+    "8dd2afd8796155545140c75c0614ab5e636353722e9391455b50434124f0bc76": {
+      "logs": [
+        [
+          [
+            10,
+            {
+              "$type": "NaN"
+            }
+          ]
+        ]
+      ],
+      "environment": "node"
+    },
+    "f04fe9bb5b01b7cf521193d76a3670686a428a59588be2beaa21edb42a52fb8f": {
+      "logs": [
+        [
+          [
+            10,
+            20
+          ]
+        ]
+      ],
+      "environment": "node"
+    },
+    "5bb3c33d2443355d9d83b9f2fe92ffd4f2f09096598f59320a88821b5bf7f988": {
+      "logs": [
+        [
+          {
+            "$type": "undefined"
+          }
+        ]
+      ],
+      "environment": "node"
+    },
+    "d8cc36c4eac6f04b4655661bc3f7dc265ad2e9ecaaac82cb710d41342d7787b8": {
+      "logs": [
+        [
+          7
+        ]
+      ],
+      "environment": "node"
+    },
+    "6e8d667b3f0028b63bceb0969ce0e0b00cb85e42c34a5366b587d0c9f809eaa6": {
+      "logs": [
+        [
+          7
+        ]
+      ],
+      "environment": "node"
+    },
+    "c11c91c65da1f6aa60b75f39079afedbe1c2eafc0c9fb9f8ad9c0a43238a7f07": {
+      "logs": [
+        [
+          null
+        ]
+      ],
+      "environment": "node"
+    },
+    "54ece2bde0d49574dad69706efe3ac28d119dcae0359340833a615e2e93a3592": {
+      "logs": [
+        [
+          false
+        ]
+      ],
+      "environment": "node"
+    },
+    "f3b8dd29e6a2aa92e8b5e9a46560dc97331320362310c9a9eea7d52cfbd2f5bd": {
+      "logs": [
+        [
+          [
+            "A",
+            "B",
+            "C"
+          ]
+        ]
+      ],
+      "environment": "node"
+    },
+    "759da43ed4ef089575f20f913d4c807e1259b11afff9e37e3784d118cfc5bbe3": {
+      "logs": [
+        [
+          5
+        ]
+      ],
+      "environment": "node"
+    },
+    "c7be882e3a2d9e2ed232601f44cf29cdc2f143c37127d52f82d852d75ebc166a": {
+      "logs": [
+        [
+          2
+        ],
+        [
+          9
+        ]
+      ],
+      "environment": "node"
+    },
+    "346595da59c84b04f6141ff4145e6586f2010dbcaea0730cd682b7fa4d663c42": {
+      "logs": [
+        [
+          "Hi, Ada"
+        ]
+      ],
+      "environment": "node"
+    },
+    "5d7cd323f8249e91bb8b370ed2a2d730a05731435869959fa1266975e217d480": {
+      "logs": [
+        [
+          3,
+          2
+        ]
+      ],
+      "environment": "node"
+    },
+    "ca6921c4a11f49e9dec1604a1f6bab5f07634029a92f6012eef506fda1999303": {
+      "logs": [
+        [
+          [
+            2,
+            4
+          ]
+        ]
+      ],
+      "environment": "node"
+    },
+    "3512a589f06d8fb46c88bfc859945eae8211f16e3b8590cfcd66263927a5b05c": {
+      "logs": [
+        [
+          6
+        ]
+      ],
+      "environment": "node"
+    },
+    "a97d26062c667cd5e62dff570d69f81945f345948d01f7ce10ea63e493648db3": {
+      "logs": [
+        [
+          6
+        ]
+      ],
+      "environment": "node"
+    },
+    "4eb636fd9b867b826b4540817026d9adffea50a95e8afd854c33bbb45be27246": {
+      "logs": [
+        [
+          8
+        ]
+      ],
+      "environment": "node"
+    },
+    "d56601901a03269c4234c2ab20c5996c7123f25daaffb6810d8032ae02a50cc0": {
+      "logs": [
+        [
+          true,
+          false
+        ]
+      ],
+      "environment": "node"
+    },
+    "dce4b224531e972b9bea6bc603c0a4d3bf314b2e4ef86c5be4cd6e6a9017a205": {
+      "logs": [
+        [
+          3,
+          null
+        ]
+      ],
+      "environment": "node"
+    },
+    "06136a320b01bb7aa550cc85bbcef03f4b9d0bcee9e6e1b7cea2fd17b792f675": {
+      "logs": [
+        [
+          8
+        ]
+      ],
+      "environment": "node"
+    },
+    "809326db9a07774a50cef5b7a1cb351b6b5468006b24abc608e7fb476196e387": {
+      "logs": [
+        [
+          1
+        ]
+      ],
+      "environment": "node"
+    },
+    "9f2e9aa83980ef0b67d4a8b361b8e22cbd00af220c37afe44434def32e697bc5": {
+      "logs": [
+        [
+          "Ada"
+        ],
+        [
+          "Lin"
+        ]
+      ],
+      "environment": "node"
+    }
+  },
+  "quizChecks": {
+    "fe-1.3-quiz-named-after-reassignment": {
+      "mode": "output",
+      "correctOptionId": "option-2",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "saved хранит исходную функцию."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Переназначение f не меняет saved."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "null записан только в f."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "saved вызывает функцию с return 7."
+        }
+      ]
+    },
+    "fe-1.3-quiz-internal-recursion": {
+      "mode": "output",
+      "correctOptionId": "option-3",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Внутренняя самоссылка не читает f."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "self остаётся ссылкой на функцию."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Рекурсия использует внутреннее имя self."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Возвращается строка из базового случая."
+        }
+      ]
+    },
+    "fe-1.3-quiz-arrow-object-block": {
+      "mode": "output",
+      "correctOptionId": "option-2",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "n: 1 здесь метка в теле функции."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "У тела в фигурных скобках нет return."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Функцию можно вызвать."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Код не возвращает строку."
+        }
+      ]
+    },
+    "fe-1.3-quiz-default-null": {
+      "mode": "output",
+      "correctOptionId": "option-3",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "null не запускает default."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "undefined запускает default."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Default срабатывает только для undefined."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Здесь нет операций над null."
+        }
+      ]
+    },
+    "fe-1.3-quiz-default-lazy": {
+      "mode": "output",
+      "correctOptionId": "option-4",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Явный аргумент отключает default."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "n не получает значение аргумента."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "n инициализирована числом."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Выражение ++n не вычислялось."
+        }
+      ]
+    },
+    "fe-1.3-quiz-default-live-outer": {
+      "mode": "output",
+      "correctOptionId": "option-1",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Default читает n при вызове."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Default не является снимком при создании."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "n доступна и содержит 4."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "n уже инициализирована."
+        }
+      ]
+    },
+    "fe-1.3-quiz-default-fresh-object": {
+      "mode": "output",
+      "correctOptionId": "option-3",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Массив default не общий для вызовов."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "push добавляет элемент."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Каждый вызов создаёт свой массив."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Массив поддерживает push."
+        }
+      ]
+    },
+    "fe-1.3-quiz-parameter-tdz": {
+      "mode": "decision",
+      "correctOptionId": "option-2",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "b ещё не инициализирован при чтении."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Параметры инициализируются слева направо."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Чтение b не является чтением готового undefined."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Синтаксис допустим; ошибка при вызове."
+        }
+      ]
+    },
+    "fe-1.3-quiz-default-body-scope": {
+      "mode": "output",
+      "correctOptionId": "option-4",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Область тела не окружает default."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Внешняя n доступна и готова."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Default получает внешнее число."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Default читает n вне тела функции."
+        }
+      ]
+    },
+    "fe-1.3-quiz-destructure-null": {
+      "mode": "decision",
+      "correctOptionId": "option-3",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "null не заменяется объектом default."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Из null нельзя извлечь свойство."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Деструктуризация null недопустима."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Имя параметра здесь не проблема."
+        }
+      ]
+    },
+    "fe-1.3-quiz-three-lengths": {
+      "mode": "output",
+      "correctOptionId": "option-1",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "length, все аргументы и rest различаются."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Счёт length останавливается перед b."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Явный undefined тоже передан."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "rest начинается после параметра b."
+        }
+      ]
+    },
+    "fe-1.3-quiz-destructuring-length": {
+      "mode": "output",
+      "correctOptionId": "option-2",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Свойства шаблона не считаются отдельно."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Шаблон — один параметр; rest не считается."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Первый параметр не имеет default."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "rest не увеличивает length."
+        }
+      ]
+    },
+    "fe-1.3-quiz-strict-arguments": {
+      "mode": "output",
+      "correctOptionId": "option-3",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "В strict mode параметр не связан с arguments."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Исходный аргумент передан."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "arguments сохраняет переданное значение."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Переназначение параметра разрешено."
+        }
+      ]
+    },
+    "fe-1.3-quiz-non-simple-arguments": {
+      "mode": "output",
+      "correctOptionId": "option-2",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Default-параметр отключает связь с arguments."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Список параметров здесь непростой."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Передан 1, default не срабатывал."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Такой список параметров допустим."
+        }
+      ]
+    },
+    "fe-1.3-quiz-arrow-outer-arguments": {
+      "mode": "output",
+      "correctOptionId": "option-3",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "У стрелки нет собственного arguments."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Внешний arguments доступен."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Читается arguments обычной функции outer."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "arguments найден во внешней функции."
+        }
+      ]
+    },
+    "fe-1.3-quiz-hof-identification": {
+      "mode": "decision",
+      "correctOptionId": "option-1",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Это определение HOF."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Время вызова не определяет HOF."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Рекурсия не является условием."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Количество параметров не определяет HOF."
+        }
+      ]
+    },
+    "fe-1.3-quiz-callback-sync": {
+      "mode": "output",
+      "correctOptionId": "option-2",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "map вызывает колбэк синхронно."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Колбэк выполняется до push(\"A\")."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Колбэк действительно вызывается."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "После map выполнение продолжается."
+        }
+      ]
+    },
+    "fe-1.3-quiz-callback-radix": {
+      "mode": "output",
+      "correctOptionId": "option-3",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Индекс передаётся как radix."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "На первом шаге radix 0 допускается."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Индексы 1 и 2 меняют смысл parseInt."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "parseInt возвращает числа или NaN."
+        }
+      ]
+    },
+    "fe-1.3-quiz-pass-or-call": {
+      "mode": "decision",
+      "correctOptionId": "option-3",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Это вызовет save при регистрации."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Строка не является обработчиком."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Передаётся функция для будущего события."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Финальные скобки сразу вызывают обёртку."
+        }
+      ]
+    },
+    "fe-1.3-quiz-method-receiver": {
+      "mode": "output",
+      "correctOptionId": "option-2",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Функция не закреплена за a."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Получатель текущего вызова — b."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "У b есть свойство n."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "read остаётся вызываемой функцией."
+        }
+      ]
+    },
+    "fe-1.3-quiz-detached-strict": {
+      "mode": "decision",
+      "correctOptionId": "option-4",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Форма вызова obj.read() не сохранена."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Чтение свойства у undefined бросает ошибку."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Имя read найдено."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "В обычном strict-вызове this — undefined."
+        }
+      ]
+    },
+    "fe-1.3-quiz-call-result": {
+      "mode": "output",
+      "correctOptionId": "option-1",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "call вызывает функцию с явным this."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Аргумент x тоже передаётся."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "В функции есть return."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Оба операнда — числа."
+        }
+      ]
+    },
+    "fe-1.3-quiz-apply-arraylike": {
+      "mode": "output",
+      "correctOptionId": "option-3",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "apply допускает массивоподобный объект."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Оба индексных значения — числа."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "apply передаёт значения по индексам."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "length задаёт число аргументов."
+        }
+      ]
+    },
+    "fe-1.3-quiz-spread-not-iterable": {
+      "mode": "decision",
+      "correctOptionId": "option-2",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "У объекта нет механизма итерации."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Spread требует итерируемое значение."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Передача аргументов не завершится."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Синтаксис допустим, ошибка при выполнении."
+        }
+      ]
+    },
+    "fe-1.3-quiz-strict-thisarg": {
+      "mode": "output",
+      "correctOptionId": "option-4",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Передан именно null."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Преобразования в строку нет."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Функция не читает свойств null."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Strict-функция не преобразует thisArg."
+        }
+      ]
+    },
+    "fe-1.3-quiz-sloppy-thisarg": {
+      "mode": "output",
+      "correctOptionId": "option-1",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "null заменяется глобальным объектом среды."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Это не строгая функция."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Функция возвращает результат сравнения."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Такой нестрогий вызов допустим."
+        }
+      ]
+    },
+    "fe-1.3-quiz-bind-does-not-call": {
+      "mode": "output",
+      "correctOptionId": "option-2",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "bind не выполняет тело run."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Создана функция для будущего вызова."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "bind возвращает новую функцию."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Вызова run не было."
+        }
+      ]
+    },
+    "fe-1.3-quiz-rebind-receiver": {
+      "mode": "output",
+      "correctOptionId": "option-3",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Второй bind не меняет закреплённый this."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Получатель не исчезает."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Первый bind закрепил this."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Повторное связывание допустимо."
+        }
+      ]
+    },
+    "fe-1.3-quiz-rebind-arguments": {
+      "mode": "output",
+      "correctOptionId": "option-4",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Ранее закреплённый аргумент A сохраняется."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Новые bound-аргументы идут до вызовных."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Порядок аргументов не разворачивается."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Сначала старые, затем новые и вызовные."
+        }
+      ]
+    },
+    "fe-1.3-quiz-bound-length-name": {
+      "mode": "output",
+      "correctOptionId": "option-1",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Один аргумент закреплён; имя с префиксом."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "У обёртки другие length и name."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "thisArg не считается аргументом task."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Имя bind не берётся из переменной f."
+        }
+      ]
+    },
+    "fe-1.3-quiz-bound-identity": {
+      "mode": "output",
+      "correctOptionId": "option-2",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Одинаковая настройка не даёт общей identity."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Каждый bind создаёт другую функцию."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Сравнение возвращает boolean."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Сравнивать функции разрешено."
+        }
+      ]
+    },
+    "fe-1.3-quiz-arrow-thisarg": {
+      "mode": "output",
+      "correctOptionId": "option-3",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "call не заменяет лексический this стрелки."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "У внешнего получателя n равно 2."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Стрелка читает this вызова make."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "call передаёт аргумент стрелке."
+        }
+      ]
+    },
+    "fe-1.3-quiz-bound-versus-adapter": {
+      "mode": "output",
+      "correctOptionId": "option-4",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "bind сохранил прежний объект."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Адаптер читает новую obj."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Контракты здесь обратные."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "bind хранит объект; адаптер читает привязку."
+        }
+      ]
+    },
+    "fe-1.3-quiz-constructor-primitive": {
+      "mode": "output",
+      "correctOptionId": "option-2",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Возвращённый примитив не заменяет экземпляр."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "new возвращает созданный объект."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "У экземпляра записано n."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Обычная функция здесь — конструктор."
+        }
+      ]
+    },
+    "fe-1.3-quiz-constructor-object": {
+      "mode": "output",
+      "correctOptionId": "option-3",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Явно возвращённый объект заменяет экземпляр."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Результат содержит n."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Конструктор вернул другой объект."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Возврат объекта допустим."
+        }
+      ]
+    },
+    "fe-1.3-quiz-arrow-constructor": {
+      "mode": "decision",
+      "correctOptionId": "option-1",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "У стрелки нет возможности конструирования."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Обычный вызов работал бы без new."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Синтаксис new допустим."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Вызов через new не выполняется успешно."
+        }
+      ]
+    },
+    "fe-1.3-quiz-bound-constructor": {
+      "mode": "output",
+      "correctOptionId": "option-4",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "new не меняет привязанный объект old."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Закреплённый аргумент 2 сохраняется."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Исходная Box поддерживает new."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Новый экземпляр получает n = 2."
+        }
+      ]
+    },
+    "fe-1.3-quiz-bound-arrow-constructor": {
+      "mode": "decision",
+      "correctOptionId": "option-2",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "bind не добавляет стрелке конструктора."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Исходная стрелка не поддерживает new."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Код синтаксически корректен."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "thisArg не является результатом new."
+        }
+      ]
+    },
+    "fe-1.3-quiz-shared-closure": {
+      "mode": "output",
+      "correctOptionId": "option-3",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Оба замыкания разделяют n."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Выполнены два увеличения."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "read читает изменённую общую привязку."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Замыкание сохраняет доступ к n."
+        }
+      ]
+    },
+    "fe-1.3-quiz-independent-factories": {
+      "mode": "output",
+      "correctOptionId": "option-1",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Вызовы make создают разные привязки."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "У a и b нет общего n."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "b увеличивает своё n перед возвратом."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Обе возвращённые функции вызываемы."
+        }
+      ]
+    },
+    "fe-1.3-quiz-snapshot-difference": {
+      "mode": "output",
+      "correctOptionId": "option-4",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "read захватывает snapshot, а не mode."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "snapshot уже инициализирована."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "snapshot остаётся доступна."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Отдельная привязка сохранила строку."
+        }
+      ]
+    },
+    "fe-1.3-quiz-captured-object-replacement": {
+      "mode": "output",
+      "correctOptionId": "option-2",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Старый объект успели изменить."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "old хранит объект; read читает переменную."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Переназначение не меняет старый объект."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "read видит новое значение state."
+        }
+      ]
+    },
+    "fe-1.3-quiz-loop-repair-choice": {
+      "mode": "decision",
+      "correctOptionId": "option-3",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Отсрочка не создаёт привязку i."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Форма функции не разделяет внешний var."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Так создаются привязки по итерациям."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Переименование не меняет область."
+        }
+      ]
+    },
+    "fe-1.3-quiz-cached-undefined": {
+      "mode": "output",
+      "correctOptionId": "option-4",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "has проверяет наличие, а не значение."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Сохранено настоящее undefined."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Ключ есть; null не записывали."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "undefined является допустимым результатом."
+        }
+      ]
+    },
+    "fe-1.3-quiz-cache-object-key": {
+      "mode": "output",
+      "correctOptionId": "option-2",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Мутация поля не меняет identity ключа."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Map всё ещё видит тот же объект-ключ."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "n не является сохранённым результатом."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Объект можно использовать как ключ."
+        }
+      ]
+    },
+    "fe-1.3-quiz-cache-distinct-key": {
+      "mode": "output",
+      "correctOptionId": "option-3",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Одинаковые поля не делают объекты одним ключом."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "get для отсутствующего ключа даёт undefined."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "При чтении создан другой объект-ключ."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Такое чтение допустимо."
+        }
+      ]
+    },
+    "fe-1.3-quiz-cache-dependency": {
+      "mode": "output",
+      "correctOptionId": "option-1",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Ключ не учитывает изменившийся factor."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Попадание в кеш пропускает вычисление."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Для ключа 3 уже сохранён результат."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Ошибка контракта не вызывает исключение."
+        }
+      ]
+    },
+    "fe-1.3-quiz-lru-policy": {
+      "mode": "decision",
+      "correctOptionId": "option-4",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Чтение A сделало её недавней."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Новая запись используется сейчас."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Лимит две записи требует удаления."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "B дольше остальных не использовалась."
+        }
+      ]
+    },
+    "fe-1.3-quiz-listener-identity": {
+      "mode": "output",
+      "correctOptionId": "option-2",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Второй bind дал другую функцию."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Исходный обработчик остался."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Отправлено одно событие."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Оба bind допустимы."
+        }
+      ]
+    },
+    "fe-1.3-quiz-cleanup-repeat": {
+      "mode": "decision",
+      "correctOptionId": "option-3",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Новый bind не совпадёт с регистрацией."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Это не отменяет внешние регистрации."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Сохрани ссылки и сделай stop повторяемым."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Таймер сам от этого не прекращается."
+        }
+      ]
+    },
+    "fe-1.3-quiz-closure-leak-evidence": {
+      "mode": "decision",
+      "correctOptionId": "option-2",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Замыкание — нормальный механизм."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Проверь повторяемость и цепочку удержания."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "const не определяет достижимость объектов."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Имя не определяет время жизни."
+        }
+      ]
+    },
+    "fe-1.3-quiz-local-mutation-purity": {
+      "mode": "decision",
+      "correctOptionId": "option-4",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Важна наблюдаемая внешняя мутация."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Чистота не требует общей identity результата."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Заморозка не является условием чистоты."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Свежий результат ещё не разделяется."
+        }
+      ]
+    },
+    "fe-1.3-quiz-hidden-state-purity": {
+      "mode": "output",
+      "correctOptionId": "option-2",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Функция читает изменяемый fee."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Результат зависит от внешнего состояния."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Первый вызов выполнен до изменения."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Замыкание может читать fee."
+        }
+      ]
+    },
+    "fe-1.3-quiz-nested-ownership": {
+      "mode": "decision",
+      "correctOptionId": "option-1",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Нужна новая identity изменяемого уровня."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "const не запрещает мутацию свойств."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Вложенная ссылка останется общей."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Сравнение ничего не копирует."
+        }
+      ]
+    },
+    "fe-1.3-quiz-effect-boundary": {
+      "mode": "decision",
+      "correctOptionId": "option-3",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Эффект станет менее очевидным."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Глобальная зависимость остаётся скрытой."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Преобразование и эффект видны отдельно."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Имя не меняет поведение."
+        }
+      ]
+    },
+    "fe-1.3-quiz-partial-not-currying": {
+      "mode": "decision",
+      "correctOptionId": "option-2",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Сохранение результатов здесь не описано."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Закреплена только часть аргументов."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Объектный граф не копируется."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Цепочка одноаргументных функций не создана."
+        }
+      ]
+    },
+    "fe-1.3-quiz-curried-result": {
+      "mode": "output",
+      "correctOptionId": "option-4",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Второй вызов тоже участвует."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Оба аргумента — числа."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "add(2) возвращает функцию."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Возвращённая функция помнит a = 2."
+        }
+      ]
+    },
+    "fe-1.3-quiz-compose-direction": {
+      "mode": "output",
+      "correctOptionId": "option-2",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Сначала выполняется twice."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "3 → 6 → 7."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "После twice выполняется add."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Этапы принимают и возвращают числа."
+        }
+      ]
+    },
+    "fe-1.3-quiz-pipe-direction": {
+      "mode": "output",
+      "correctOptionId": "option-3",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Здесь порядок слева направо."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Результат add передаётся twice."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "3 → 4 → 8."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Входы и результаты совместимы."
+        }
+      ]
+    },
+    "fe-1.3-quiz-composition-contract": {
+      "mode": "decision",
+      "correctOptionId": "option-1",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Число не имеет строкового trim."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Имена параметров могут различаться."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Синхронная композиция допустима."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Форма функции не решает этот контракт."
+        }
+      ]
+    },
+    "fe-1.3-quiz-factory-bounds": {
+      "mode": "decision",
+      "correctOptionId": "option-3",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Второму вызову уже не хватает токена."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Первому вызову доступен токен."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Неуспех не должен уводить остаток ниже нуля."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Контракт take возвращает boolean."
+        }
+      ]
+    },
+    "fe-1.3-quiz-memoized-throw": {
+      "mode": "decision",
+      "correctOptionId": "option-2",
+      "distractorReview": [
+        {
+          "optionId": "option-1",
+          "reason": "Исключение в этот кеш не записано."
+        },
+        {
+          "optionId": "option-2",
+          "reason": "Для ключа ещё нет успешной записи."
+        },
+        {
+          "optionId": "option-3",
+          "reason": "Отсутствие записи не является результатом."
+        },
+        {
+          "optionId": "option-4",
+          "reason": "Исключение не меняет вызываемость."
+        }
+      ]
+    }
+  },
+  "supplemental": [
+    {
+      "cardId": "fe-1.3-quiz-lru-policy",
+      "code": "const c = new Map();\nfunction get(k) { const v=c.get(k); c.delete(k); c.set(k,v); return v; }\nfunction put(k,v) { c.delete(k); c.set(k,v); if(c.size>2)c.delete(c.keys().next().value); }\nput(\"A\",1); put(\"B\",2); get(\"A\"); put(\"C\",3);\nconsole.log(c.has(\"B\"), [...c.keys()]);",
+      "logs": [
+        [
+          false,
+          [
+            "A",
+            "C"
+          ]
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.3-quiz-factory-bounds",
+      "code": "function make(n) { return () => n>0 ? (--n,true) : false; }\nconst take=make(1); console.log(take(),take());",
+      "logs": [
+        [
+          true,
+          false
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.3-quiz-memoized-throw",
+      "code": "let calls=0; const cache=new Map();\nfunction operation() { calls++; throw new Error(\"expected\"); }\nfunction read(k) { if(cache.has(k))return cache.get(k); const value=operation(k); cache.set(k,value); return value; }\nfor(let i=0;i<2;i++) { try { read(\"x\"); } catch(error) { if(error.name!==\"Error\")throw error; } }\nconsole.log(calls,cache.size);",
+      "logs": [
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.3-quiz-loop-repair-choice",
+      "code": "const shared = [];\nfor (var i = 0; i < 3; i++) shared.push(() => i);\nconst separate = [];\nfor (let j = 0; j < 3; j++) separate.push(() => j);\nconsole.log(shared.map(read => read()), separate.map(read => read()));",
+      "logs": [
+        [
+          [
+            3,
+            3,
+            3
+          ],
+          [
+            0,
+            1,
+            2
+          ]
+        ]
+      ],
+      "environment": "node"
+    },
+    {
+      "cardId": "fe-1.3-quiz-nested-ownership",
+      "code": "const user = { settings: { theme: \"light\" } };\nconst copy = { ...user };\ncopy.settings.theme = \"dark\";\nconsole.log(user.settings.theme);\nconst next = { ...user, settings: { ...user.settings } };\nnext.settings.theme = \"blue\";\nconsole.log(user.settings.theme, next.settings.theme);",
+      "logs": [
+        [
+          "dark"
+        ],
+        [
+          "dark",
+          "blue"
+        ]
+      ],
+      "environment": "node"
+    },
+    {
+      "cardId": "fe-1.3-quiz-composition-contract",
+      "code": "const first = () => 1;\nconst next = value => value.trim();\nnext(first());",
+      "logs": [],
+      "environment": "node",
+      "error": "TypeError"
+    }
+  ]
+}

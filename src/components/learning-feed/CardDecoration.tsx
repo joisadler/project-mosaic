@@ -35,6 +35,23 @@ const artwork = {
     <circle cx="310" cy="245" r="65" />
     <path d="m322 172 18 18 18-18M310 310v90" />
   </>,
+  capture: <>
+    <path d="M380 65H205a115 115 0 0 0 0 230h175M380 110H210a70 70 0 0 0 0 140h170M50 95h60v85h75M50 300h60V180" />
+    <circle cx="50" cy="95" r="22" />
+    <circle cx="50" cy="300" r="22" />
+    <circle cx="210" cy="180" r="25" />
+  </>,
+  invocation: <>
+    <circle cx="290" cy="180" r="70" />
+    <circle cx="290" cy="180" r="40" />
+    <path d="M15 60h90q35 0 35 35v55q0 30 30 30h50M15 300h90q35 0 35-35v-55q0-30 30-30M25 180h195m-18-18 18 18-18 18M290 250v140" />
+  </>,
+  composition: <>
+    <rect x="20" y="265" width="80" height="80" rx="18" />
+    <rect x="160" y="155" width="80" height="80" rx="18" />
+    <rect x="300" y="45" width="80" height="80" rx="18" />
+    <path d="M100 305h45q55 0 55-55v-15m-14 14 14-14 14 14M240 195h45q55 0 55-55v-15m-14 14 14-14 14 14" />
+  </>,
   neutral: <circle cx="290" cy="290" r="150" />,
 };
 

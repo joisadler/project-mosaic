@@ -77,9 +77,9 @@ In the restricted agent environment, the configured Turbopack build can fail whi
 
 The project owner accepted the existing application as the completed MVP on October 11, 2026. Linear issue [MOS-1](https://linear.app/joisadler/issue/MOS-1) records that acceptance. Remaining backlog items are post-MVP improvements and do not prevent the MVP from being complete.
 
-The MVP implements a full-screen virtualized educational feed that mixes multi-page InfoCards, accessible multiple-choice QuizCards, and swipe-driven question-and-answer FlipCards. Markdown content is stored locally, the inventory contains 220 cards from the Frontend Interview Preparation `fe-1.1` and `fe-1.2` packs. Normal study continuously generates unique-card rounds with a soft new/partial mix and subsection/type balance. Session order, position, and card interactions resume from device-local storage.
+The MVP implements a full-screen virtualized educational feed that mixes multi-page InfoCards, accessible multiple-choice QuizCards, and swipe-driven question-and-answer FlipCards. Markdown content is stored locally, the inventory contains 356 cards from the Frontend Interview Preparation `fe-1.1`, `fe-1.2` and `fe-1.3` packs. Normal study continuously generates unique-card rounds with a soft new/partial mix and subsection/type balance. Session order, position, and card interactions resume from device-local storage.
 
-Both packs use the explicit learning-section registry. Blue/cyan scope and declaration-lifecycle compositions identify fe-1.1; plum/lilac value, equality, and conversion compositions identify fe-1.2. Shared section presets apply across all three card types, with optional typed motifs and safe fallbacks. See the [content authoring contract](docs/content/README.md#optional-visual-motifs).
+All three packs use the explicit learning-section registry. Blue/cyan scope and declaration-lifecycle compositions identify fe-1.1; plum/lilac value, equality, and conversion compositions identify fe-1.2. Amber capture, invocation and composition motifs identify fe-1.3. Its content is registered; content/device acceptance remains pending in [MOS-39](https://linear.app/joisadler/issue/MOS-39). The owner accepted minor icon overlap on October 26, 2026; other shared compact-mode limitations are documented in [the package notes](docs/content/fe-1.3/README.md#verification-results) and [MOS-203](https://linear.app/joisadler/issue/MOS-203). Shared section presets apply across all three card types, with optional typed motifs and safe fallbacks. See the [content authoring contract](docs/content/README.md#optional-visual-motifs).
 
 The core controls support visible keyboard focus and accessible names. Multi-page InfoCards use Left/Right navigation, FlipCards expose their two sides as a named keyboard surface, and QuizCard arrows move focus without submitting an answer; click, Space or Enter makes the selection and reveals textual feedback. Reduced-motion preferences disable the relevant feed, page and flip transitions. Extreme zoom/reflow uses compact horizontal presentation without changing the authored InfoCard pages, QuizCard data or two-sided FlipCard structure.
 
@@ -97,7 +97,7 @@ Each chapter link opens its own subsection contents. Availability refers only to
 
 | Handbook chapter | Available in Mosaic |
 | --- | --- |
-| [1. JavaScript & Async Programming](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/README.md) | Subsections 1.1–1.2: 220 cards |
+| [1. JavaScript & Async Programming](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/README.md) | Subsections 1.1–1.3: 356 cards |
 | [2. TypeScript](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/02-typescript/README.md) | Not integrated |
 | [3. React](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/03-react/README.md) | Not integrated |
 | [4. Next.js](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/04-next-js/README.md) | Not integrated |
@@ -125,7 +125,7 @@ The [source chapter contents](https://github.com/joisadler/frontend-interview-pr
 | --- | --- |
 | [1.1. Execution Model, Declarations & Scope](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/01-execution-model-declarations-and-scope.md) | Integrated as `fe-1.1`: 100 cards |
 | [1.2. Values, Types, Equality & Coercion](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/02-values-types-equality-and-coercion.md) | Integrated as `fe-1.2`: 120 cards |
-| [1.3. Functions, Closures & Functional Patterns](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/03-functions-closures-and-functional-patterns.md) | Not integrated |
+| [1.3. Functions, Closures & Functional Patterns](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/03-functions-closures-and-functional-patterns.md) | Registered as `fe-1.3`: 136 cards; acceptance pending |
 | [1.4. `this`, Invocation & Object Model](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/04-this-invocation-and-object-model.md) | Not integrated |
 | [1.5. Arrays, Transformations & Copying](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/05-arrays-transformations-and-copying.md) | Not integrated |
 | [1.6. Collections, Symbols & Iteration](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/06-collections-symbols-and-iteration.md) | Not integrated |
@@ -136,7 +136,7 @@ The [source chapter contents](https://github.com/joisadler/frontend-interview-pr
 | [1.11. Async Coordination Patterns](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/11-async-coordination-patterns.md) | Not integrated |
 | [1.12. JavaScript Implementation Practice](https://github.com/joisadler/frontend-interview-preparation/blob/main/handbook/01-javascript-and-async-programming/12-javascript-implementation-practice.md) | Not integrated |
 
-Only `fe-1.1` and `fe-1.2` are registered in [the application's learning sections](src/content/learning-sections.ts): 220 cards in total. A source chapter's existence or approval does not mean its content has been integrated into the app. Package notes and card-to-source coverage are in [fe-1.1](docs/content/fe-1.1/README.md), [fe-1.2](docs/content/fe-1.2/README.md), and the [shared content authoring contract](docs/content/README.md).
+`fe-1.1`, `fe-1.2` and `fe-1.3` are registered in [the application's learning sections](src/content/learning-sections.ts): 356 cards in total. A source chapter's existence or approval does not mean its content has been integrated into the app. Package notes and card-to-source coverage are in [fe-1.1](docs/content/fe-1.1/README.md), [fe-1.2](docs/content/fe-1.2/README.md), [fe-1.3](docs/content/fe-1.3/README.md), and the [shared content authoring contract](docs/content/README.md).
 
 ## Post-MVP work
 

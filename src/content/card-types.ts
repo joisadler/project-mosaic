@@ -1,4 +1,5 @@
-export type VisualMotif = "scope" | "lifecycle" | "values" | "equality" | "conversion";
+export type VisualMotif = "scope" | "lifecycle" | "values" | "equality" | "conversion"
+  | "capture" | "invocation" | "composition";
 
 export type BaseCardData = {
   id: string;
