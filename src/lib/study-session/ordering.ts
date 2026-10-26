@@ -19,6 +19,11 @@ export function orderStudyRound(
     tie: random(),
   }]));
   const sectionCounts = new Map<string, number>();
+  const sectionSizes = new Map<string, number>();
+  for (const card of remaining) {
+    const section = sections.get(card.id)!;
+    sectionSizes.set(section, (sectionSizes.get(section) ?? 0) + 1);
+  }
   const typeCounts = new Map<string, number>();
   const history = [...recent];
   const result: string[] = [];
@@ -36,7 +41,7 @@ export function orderStudyRound(
     const last = cards.find(card => card.id === history.at(-1));
     const score = (card: LearningCardData) => [
       metadata.get(card.id)!.due ? 0 : 1,
-      sectionCounts.get(sections.get(card.id)!) ?? 0,
+      (sectionCounts.get(sections.get(card.id)!) ?? 0) / sectionSizes.get(sections.get(card.id)!)!,
       sections.get(card.id) === (last && sections.get(last.id)) ? 1 : 0,
       typeCounts.get(card.type) ?? 0,
       card.type === last?.type ? 1 : 0,

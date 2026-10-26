@@ -12,6 +12,8 @@ export type StudySession = {
   sides: Record<string, 0 | 1>;
   queue?: StudyEntry[];
   currentEntryId?: string;
+  // Planning metadata never replaces the saved preference/progress source of truth.
+  queuePlan?: { version?: 1; sections: string[]; eligible: string[]; reconciled: string[] };
 };
 
 export function sessionStorageKey(owner: string, scope = "study:all") {
@@ -101,9 +103,22 @@ export function restoreSession(raw: string | null, cards: readonly LearningCardD
       if (side === 0 || side === 1) sides[key] = side;
     }
   }
+  let queuePlan: StudySession["queuePlan"];
+  if (queue && record(saved.queuePlan)) {
+    const { sections, eligible, reconciled } = saved.queuePlan;
+    if ([sections, eligible, reconciled].every(value => Array.isArray(value) && value.every(id => typeof id === "string"))) {
+      const rounds = new Set(queue.map(entry => entry.id.slice(0, 36)));
+      queuePlan = {
+        ...(saved.queuePlan.version === 1 ? { version: 1 as const } : {}),
+        sections: [...new Set((sections as string[]).slice(0, cards.length))].sort(),
+        eligible: [...new Set((eligible as string[]).filter(id => available.has(id)))].sort(),
+        reconciled: [...new Set((reconciled as string[]).filter(id => rounds.has(id)))],
+      };
+    }
+  }
   const entry = queue?.find(entry => entry.id === saved.currentEntryId) ?? queue?.find(entry => entry.cardId === currentCardId) ?? queue?.[0];
   return { version: 1, id: saved.id, order, currentCardId: queue ? entry?.cardId ?? null : currentCardId, pages, answers, sides,
-    ...(queue ? { queue, currentEntryId: entry?.id } : {}) };
+    ...(queue ? { queue, currentEntryId: entry?.id, ...(queuePlan ? { queuePlan } : {}) } : {}) };
 }
 
 export function createSessionStore(

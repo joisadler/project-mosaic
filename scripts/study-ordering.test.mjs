@@ -38,6 +38,63 @@ test('section/type balance, recent boundary spacing, and random tie breaks prese
   assert.deepEqual(new Set(other),new Set(result));
 });
 
+const unequalCards = [100,120,136].flatMap((count,section)=>Array.from({length:count},(_,index)=>({
+  id:`section-${section}-card-${index}`,type:'info',pages:['one','two'],
+})));
+const unequalSections = new Map(unequalCards.map(card=>[card.id,card.id.split('-').slice(0,2).join('-')]));
+const unequalSelected = ['section-0','section-1','section-2'];
+function assertSpread(ids) {
+  for(let index=0;index+15<=ids.length;index++) {
+    assert.equal(new Set(ids.slice(index,index+15).map(id=>unequalSections.get(id))).size,3,`subsection missing from slots ${index+1}–${index+15}`);
+  }
+}
+
+test('unequal subsection inventories remain distributed through the entire round, including its tail',()=>{
+  const result=orderStudyRound(unequalCards,unequalSections,unequalSelected,empty(),[],0,()=>0.5);
+  assert.equal(result.length,356);assert.equal(new Set(result).size,356);
+  assertSpread(result);
+});
+
+test('legacy migration and an already marked blocked round rebalance upcoming sections once without losing state',()=>{
+  const oldCards=unequalCards.filter(card=>unequalSections.get(card.id)!=='section-2');
+  const oldOrder=orderStudyRound(oldCards,unequalSections,unequalSelected,empty(),[],0,()=>0.5);
+  const id=crypto.randomUUID(), currentCardId=oldOrder[7], currentEntryId=`${id}:${currentCardId}`;
+  const blocked=[...oldOrder,...unequalCards.filter(card=>unequalSections.get(card.id)==='section-2').map(card=>card.id)];
+  for(const queued of [false,true]) {
+    const original={version:1,id,order:queued?blocked:oldOrder,currentCardId,
+      pages:{[queued?currentEntryId:currentCardId]:1},answers:{},sides:{},
+      ...(queued?{queue:blocked.map(cardId=>({id:`${id}:${cardId}`,cardId})),currentEntryId,
+        queuePlan:{sections:unequalSelected,eligible:[...blocked].sort(),reconciled:[id]}}:{}),
+    };
+    const restored=restoreSession(JSON.stringify(original),unequalCards);
+    const repaired=ensureStudyQueue(restored,unequalCards,unequalSections,unequalSelected,empty(),queued);
+    const index=repaired.queue.findIndex(entry=>entry.id===currentEntryId);
+    assert.equal(repaired.id,id);assert.equal(repaired.currentEntryId,currentEntryId);
+    assert.equal(repaired.pages[currentEntryId],1);
+    assert.deepEqual(repaired.queue.slice(0,index+1).map(entry=>entry.cardId),oldOrder.slice(0,8));
+    assert.deepEqual(new Set(repaired.queue.map(entry=>entry.cardId)),new Set(blocked));
+    assert.equal(new Set(repaired.queue.map(entry=>entry.id)).size,356);
+    assertSpread(repaired.queue.slice(index+1).map(entry=>entry.cardId));
+    assert.equal(ensureStudyQueue(repaired,unequalCards,unequalSections,unequalSelected,empty()),repaired);
+    const reloaded=restoreSession(JSON.stringify(repaired),unequalCards);
+    assert.deepEqual(ensureStudyQueue(reloaded,unequalCards,unequalSections,unequalSelected,empty()),repaired);
+  }
+});
+
+test('an old prefetched blocked round is repaired once when it becomes current',()=>{
+  const id=crypto.randomUUID(), nextId=crypto.randomUUID();
+  const blocked=unequalCards.map(card=>card.id);
+  const queue=[id,nextId].flatMap(round=>blocked.map(cardId=>({id:`${round}:${cardId}`,cardId})));
+  const original={version:1,id,order:blocked,queue,currentCardId:blocked[0],currentEntryId:queue[0].id,pages:{},answers:{},sides:{},
+    queuePlan:{sections:unequalSelected,eligible:[...blocked].sort(),reconciled:[id,nextId]}};
+  const repaired=ensureStudyQueue(original,unequalCards,unequalSections,unequalSelected,empty());
+  const entry=queue[356];
+  const arrived=ensureStudyQueue({...repaired,currentCardId:entry.cardId,currentEntryId:entry.id},unequalCards,unequalSections,unequalSelected,empty());
+  assert.equal(arrived.currentEntryId,entry.id);
+  assertSpread(arrived.queue.filter(e=>e.id.startsWith(`${nextId}:`)).slice(1).map(e=>e.cardId));
+  assert.equal(ensureStudyQueue(arrived,unequalCards,unequalSections,unequalSelected,empty()),arrived);
+});
+
 test('completion, canceled history, selection, empty and one-card pools are safe',()=>{
   const data=empty(); award(data,'c0',10);award(data,'c1',1,false);
   assert.ok(!order(data).includes('c0'));assert.ok(order(data).includes('c1'));
@@ -122,4 +179,96 @@ test('discarding old exposure history preserves awards and repeat-spacing eviden
   store.retainReviews(new Set([next]));const after=store.getSnapshot().data;
   assert.deepEqual(Object.keys(after.reviews),[next]);
   assert.deepEqual(after.confirmations,before.confirmations);assert.equal(after.visit,before.visit);assert.deepEqual(after.lastSeen,before.lastSeen);
+});
+
+function advanceSelected(state, chosen, count) {
+  for (let i=0;i<count;i++) {
+    const view=filterSession(state,chosen,sections);
+    const index=view.queue.findIndex(entry=>entry.id===view.currentEntryId);
+    const next=view.queue[index+1];
+    state=ensureStudyQueue({...state,currentEntryId:next.id,currentCardId:next.cardId},cards,sections,chosen,empty());
+  }
+  return state;
+}
+
+test('expanding a restored narrow round mixes newly selected sections without replacing presentations',()=>{
+  let narrow=ensureStudyQueue(createSession(cards),cards,sections,['one'],empty(),true);
+  narrow=advanceSelected(narrow,['one'],7);
+  const current=narrow.currentEntryId, index=narrow.queue.findIndex(entry=>entry.id===current);
+  const round=current.slice(0,36);
+  const planned=narrow.queue.slice(index+1).filter(entry=>entry.id.startsWith(round+':'));
+  for (const entry of narrow.queue) {
+    const card=cards.find(card=>card.id===entry.cardId);
+    if (card.type==='info') narrow.pages[entry.id]=1;
+    if (card.type==='quiz') narrow.answers[entry.id]='b';
+    if (card.type==='flip') narrow.sides[entry.id]=1;
+  }
+  // Existing installations have no queue-selection metadata.
+  delete narrow.queuePlan;
+  const restored=restoreSession(JSON.stringify(narrow),cards);
+  const expanded=ensureStudyQueue(restored,cards,sections,selected,empty());
+  const currentRound=expanded.queue.filter(entry=>entry.id.startsWith(round+':'));
+  assert.deepEqual(new Set(currentRound.map(entry=>entry.cardId)),new Set(cards.map(card=>card.id)));
+  assert.equal(expanded.id,narrow.id);assert.equal(expanded.currentEntryId,current);
+  assert.deepEqual(expanded.queue.slice(0,index+1),narrow.queue.slice(0,index+1));
+  assert.deepEqual(new Set(currentRound.filter(entry=>planned.some(saved=>saved.id===entry.id)).map(entry=>entry.id)),new Set(planned.map(entry=>entry.id)));
+  assert.deepEqual(expanded.pages,narrow.pages);assert.deepEqual(expanded.answers,narrow.answers);assert.deepEqual(expanded.sides,narrow.sides);
+  assert.ok(expanded.queue.slice(index+1,index+4).some(entry=>sections.get(entry.cardId)==='two'));
+  assert.equal(ensureStudyQueue(expanded,cards,sections,selected,empty()),expanded);
+  const partial=empty();award(partial,expanded.currentCardId);
+  assert.equal(ensureStudyQueue(expanded,cards,sections,selected,partial),expanded);
+  assert.deepEqual(restoreSession(JSON.stringify(expanded),cards),expanded);
+  const invalidPlan=restoreSession(JSON.stringify({...expanded,queuePlan:{sections:[],eligible:'invalid',reconciled:[]}}),cards);
+  assert.equal(invalidPlan.id,expanded.id);assert.equal(invalidPlan.currentEntryId,current);
+  assert.deepEqual(invalidPlan.queue,expanded.queue);assert.equal(invalidPlan.queuePlan,undefined);
+});
+
+test('expanding a fresh selection interleaves retained hidden entries with their original presentation IDs',()=>{
+  const narrow=ensureStudyQueue(createSession(cards),cards,sections,['one'],empty(),true);
+  const index=narrow.queue.findIndex(entry=>entry.id===narrow.currentEntryId);
+  const planned=narrow.queue.slice(index+1).filter(entry=>sections.get(entry.cardId)==='one');
+  const expanded=ensureStudyQueue(narrow,cards,sections,selected,empty());
+  assert.equal(expanded.currentEntryId,narrow.currentEntryId);
+  assert.deepEqual(new Set(expanded.queue.map(entry=>entry.id)),new Set(narrow.queue.map(entry=>entry.id)));
+  assert.deepEqual(expanded.queue.slice(index+1).filter(entry=>sections.get(entry.cardId)==='one'),planned);
+  assert.ok(expanded.queue.slice(index+1,index+4).some(entry=>sections.get(entry.cardId)==='two'));
+  const narrowed=ensureStudyQueue(expanded,cards,sections,['one'],empty());
+  assert.deepEqual(narrowed.queue,expanded.queue);
+});
+
+test('new inventory and reset eligibility join the current round while completed cards remain excluded',()=>{
+  const state=ensureStudyQueue(createSession(cards),cards,sections,selected,empty(),true);
+  const added=[{id:'added',type:'info',pages:['new']},{id:'done',type:'flip'}];
+  const inventory=[...cards,...added], membership=new Map([...sections,['added','three'],['done','three']]);
+  const data=empty();award(data,'done',10);
+  const restored=restoreSession(JSON.stringify(state),inventory);
+  const expanded=ensureStudyQueue(restored,inventory,membership,[...selected,'three'],data);
+  const view=filterSession(expanded,[...selected,'three'],membership,new Set(inventory.filter(card=>cardPercentage(data,card.id)<100).map(card=>card.id)));
+  assert.equal(expanded.currentEntryId,state.currentEntryId);
+  assert.ok(view.queue.some(entry=>entry.cardId==='added'));assert.ok(!view.queue.some(entry=>entry.cardId==='done'));
+  const reset=ensureStudyQueue(expanded,inventory,membership,[...selected,'three'],empty());
+  assert.ok(reset.queue.some(entry=>entry.cardId==='done'));
+  assert.equal(new Set(reset.queue.map(entry=>entry.id)).size,reset.queue.length);
+  assert.equal(ensureStudyQueue(reset,inventory,membership,[...selected,'three'],empty()),reset);
+});
+
+test('expanding a one-card buffer stays bounded through later narrow rounds and reloads',()=>{
+  const membership=new Map(cards.map((card,index)=>[card.id,index===0?'one':'two']));
+  let state=ensureStudyQueue(createSession(cards),cards,membership,['one'],empty(),true);
+  const narrow=filterSession(state,['one'],membership);
+  const next=narrow.queue[narrow.queue.findIndex(entry=>entry.id===narrow.currentEntryId)+1];
+  state=ensureStudyQueue({...state,currentEntryId:next.id,currentCardId:next.cardId},cards,membership,selected,empty());
+  for(let i=0;i<100;i++) {
+    const current=state.queue.findIndex(entry=>entry.id===state.currentEntryId);
+    assert.ok(state.queue[current+1]);
+    assert.equal(new Set(state.queue.map(entry=>entry.id)).size,state.queue.length);
+    assert.ok(state.queue.length<=Math.max(cards.length,20)+2*cards.length+2);
+    const restored=restoreSession(JSON.stringify(state),cards);
+    assert.deepEqual(restored,state);
+    const following=state.queue[current+1];
+    state=ensureStudyQueue({...restored,currentEntryId:following.id,currentCardId:following.cardId},cards,membership,selected,empty());
+  }
+  const earliest=state.queue[0];
+  const back=ensureStudyQueue({...state,currentEntryId:earliest.id,currentCardId:earliest.cardId},cards,membership,selected,empty());
+  assert.deepEqual(back.queue,state.queue);
 });
