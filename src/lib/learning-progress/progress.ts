@@ -60,16 +60,7 @@ export function restoreProgress(raw: string | null, cards: readonly LearningCard
       active: event.active, createdAt: event.createdAt, updatedAt: event.updatedAt, visit: event.visit,
     };
   }
-  if (record(parsed.reviews)) for (const [key, review] of Object.entries(parsed.reviews)) {
-    if (!record(review) || typeof review.cardId !== "string") continue;
-    const card = byId.get(review.cardId);
-    if (!card) continue;
-    const pages = card.type === "info" && Array.isArray(review.pages)
-      ? [...new Set(review.pages.filter((page): page is number => positiveInteger(page) && page < card.pages.length))] : [];
-    const feedbackOptionId = card.type === "quiz" && typeof review.feedbackOptionId === "string" &&
-      card.options.some(option => option.id === review.feedbackOptionId) ? review.feedbackOptionId : undefined;
-    result.reviews[key] = { cardId: card.id, pages, answerSeen: card.type === "flip" && review.answerSeen === true, feedbackOptionId };
-  }
+  // Per-presentation exposure belongs to the current runtime, never a restored feed.
   return result;
 }
 
@@ -138,7 +129,10 @@ export function createProgressStore(
   const listeners = new Set<() => void>();
   const publish = (data: ProgressData) => {
     let storageAvailable = snapshot.storageAvailable;
-    if (key) try { storage().setItem(key, JSON.stringify(data)); } catch { storageAvailable = false; }
+    if (key) try {
+      const { version, confirmations, visit, lastCardId, lastSeen } = data;
+      storage().setItem(key, JSON.stringify({ version, confirmations, visit, lastCardId, lastSeen }));
+    } catch { storageAvailable = false; }
     snapshot = { data, ready: true, storageAvailable };
     listeners.forEach(listener => listener());
   };

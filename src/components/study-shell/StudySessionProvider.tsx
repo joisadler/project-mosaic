@@ -14,7 +14,6 @@ type SessionContext = {
   session: StudySession | null;
   update: (change: (current: StudySession) => StudySession) => void;
   restart: () => void;
-  storageAvailable: boolean;
   progress: ReturnType<ReturnType<typeof createProgressStore>["getSnapshot"]>;
   reviewCard: ReturnType<typeof createProgressStore>["review"];
   toggleConfirmation: ReturnType<typeof createProgressStore>["toggle"];
@@ -24,7 +23,6 @@ type SessionContext = {
   resetProgress: ReturnType<typeof createProgressSync>["reset"];
   review: {
     session: StudySession | null;
-    storageAvailable: boolean;
     update: (change: (current: StudySession) => StudySession) => void;
     restart: () => void;
   };
@@ -43,7 +41,7 @@ type ProviderProps = { cards: readonly LearningCardData[]; children: ReactNode }
 function OwnerSession({ cards, children, owner }: ProviderProps & { owner: string | null }) {
   const [store] = useState(() => createSessionStore(cards, owner));
   const snapshot = useSyncExternalStore(store.subscribe, store.getSnapshot, store.getServerSnapshot);
-  const [reviewStore] = useState(() => createSessionStore(cards, owner, undefined, "review:all"));
+  const [reviewStore] = useState(() => createSessionStore(cards, owner));
   const reviewSnapshot = useSyncExternalStore(reviewStore.subscribe, reviewStore.getSnapshot, reviewStore.getServerSnapshot);
   const [progressStore] = useState(() => createProgressStore(cards, learningSectionIdByCardId, owner));
   const progress = useSyncExternalStore(progressStore.subscribe, progressStore.getSnapshot, progressStore.getServerSnapshot);
@@ -62,17 +60,17 @@ function OwnerSession({ cards, children, owner }: ProviderProps & { owner: strin
     return ensureStudyQueue(merged, cards, learningSectionIdByCardId, sync.sections, progress.data);
   }), [store, sync.sections, studyIds, cards, progress.data]);
   useEffect(() => {
-    const waitingForFirstAccountRead = owner?.startsWith("account:") && !store.wasRestored() && !snapshot.session?.queue &&
+    const waitingForFirstAccountRead = owner?.startsWith("account:") && !snapshot.session?.queue &&
       (sync.status === "loading" || sync.status === "syncing");
     if (progress.ready && !waitingForFirstAccountRead)
-      store.update(current => ensureStudyQueue(current, cards, learningSectionIdByCardId, sync.sections, progress.data, !store.wasRestored()));
+      store.update(current => ensureStudyQueue(current, cards, learningSectionIdByCardId, sync.sections, progress.data));
   }, [store, cards, owner, snapshot.session, sync.status, sync.sections, progress.ready, progress.data]);
   useEffect(() => {
     if (snapshot.session?.queue) progressStore.retainReviews(new Set(snapshot.session.queue.map(entry => entry.id)));
   }, [snapshot.session?.queue, progressStore]);
   const restartStudy = useCallback(() => {
     store.restart();
-    store.update(current => ensureStudyQueue(current, cards, learningSectionIdByCardId, sync.sections, progress.data, true));
+    store.update(current => ensureStudyQueue(current, cards, learningSectionIdByCardId, sync.sections, progress.data));
   }, [store, cards, sync.sections, progress.data]);
   const updateReview = useCallback((change: (current: StudySession) => StudySession) => reviewStore.update(current => {
     const visible = filterSession(current, sync.sections, learningSectionIdByCardId, completed);
@@ -115,8 +113,11 @@ export function ReviewSessionProvider({ children }: { children: ReactNode }) {
 
 function AuthenticatedSession(props: ProviderProps) {
   const { data, isPending, error } = authClient.useSession();
+  const [verifiedGuest, setVerifiedGuest] = useState(false);
+  if (!isPending && !error && verifiedGuest !== !data?.user) setVerifiedGuest(!data?.user);
+  // Guest refetches report pending with null data; keep the verified public scope mounted.
   // Never restore a cached account's learning state before identity is confirmed.
-  const owner = error ? "unavailable" : isPending ? null : data?.user ? `account:${data.user.id}` : "guest";
+  const owner = error ? "unavailable" : isPending ? verifiedGuest ? "guest" : null : data?.user ? `account:${data.user.id}` : "guest";
   return <OwnerSession key={owner ?? "pending"} {...props} owner={owner} />;
 }
 

@@ -1,7 +1,8 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { createSession, presentationId, restoreSession, sessionStorageKey } from "../src/lib/study-session/session.ts";
+import { createSession, presentationId } from "../src/lib/study-session/session.ts";
 import { createSessionStore } from "../src/lib/study-session/session.ts";
+import { createProgressStore, cardPercentage, repeatEligibility, REPEAT_DELAY_MS } from "../src/lib/learning-progress/progress.ts";
 
 const cards = [
   { id: "info", type: "info", pages: ["one", "two"] },
@@ -9,65 +10,59 @@ const cards = [
   { id: "flip", type: "flip" },
 ];
 
-test("resume retains order, position, interactions and presentation identities", () => {
-  const session = { ...createSession(cards), currentCardId: "quiz", pages: { info: 1 }, answers: { quiz: "b" }, sides: { flip: 1 } };
-  const restored = restoreSession(JSON.stringify(session), cards);
-  assert.deepEqual(restored, session);
-  assert.equal(presentationId(restored, "quiz"), presentationId(session, "quiz"));
-  assert.notEqual(createSession(cards).id, session.id);
+test("same-runtime subscriptions retain navigation and interactions; a fresh runtime clears presentation state", () => {
+  const store = createSessionStore(cards, "guest");
+  assert.equal(store.getServerSnapshot().session, null);
+  const stop = store.subscribe(() => {});
+  store.update(s => ({ ...s, currentCardId: "quiz", pages: { info: 1 }, answers: { quiz: "b" }, sides: { flip: 1 } }));
+  const current = store.getSnapshot().session;
+  stop(); store.subscribe(() => {});
+  assert.equal(store.getSnapshot().session, current);
+  const next = createSessionStore(cards, "guest"); next.subscribe(() => {});
+  assert.notEqual(next.getSnapshot().session.id, current.id);
+  assert.deepEqual(next.getSnapshot().session.pages, {});
+  assert.deepEqual(next.getSnapshot().session.answers, {});
+  assert.deepEqual(next.getSnapshot().session.sides, {});
 });
 
-test("reconcile removals, additions, shorter content, and invalid option IDs", () => {
-  const session = { ...createSession(cards), order: ["flip", "quiz", "info", "info"], currentCardId: "quiz", pages: { info: 8 }, answers: { quiz: "removed" }, sides: { flip: 7 } };
-  const changedCards = [cards[0], cards[2], { id: "new", type: "info", pages: ["new"] }];
-  const restored = restoreSession(JSON.stringify(session), changedCards);
-  assert.deepEqual(restored.order, ["flip", "info", "new"]);
-  assert.equal(restored.currentCardId, "info");
-  assert.deepEqual(restored.pages, { info: 1 });
-  assert.deepEqual(restored.answers, {});
-  assert.deepEqual(restored.sides, {});
-  assert.equal(restored.id, session.id);
-  assert.deepEqual(restoreSession(JSON.stringify(session), cards).answers, {});
-});
-
-test("missing, corrupt and unsupported snapshots recover; empty feed is valid", () => {
-  for (const raw of [null, "{", "null", "[]", '{"version":2}', '{"version":1,"id":"bad","order":[]}', JSON.stringify({ ...createSession(cards), order: [null] })]) {
-    const restored = restoreSession(raw, cards);
-    assert.equal(new Set(restored.order).size, cards.length);
-    assert.ok(restored.order.includes(restored.currentCardId));
+test("legacy navigation snapshots are neither read nor overwritten", () => {
+  const legacy = new Map([["mosaic:session:v1:guest:study%3Aall", JSON.stringify({ ...createSession(cards), currentCardId: "quiz" })]]);
+  const before = new Map(legacy), descriptor = Object.getOwnPropertyDescriptor(globalThis, "localStorage");
+  let calls = 0;
+  Object.defineProperty(globalThis, "localStorage", { configurable: true, get() { calls++; throw new Error("Navigation must not access storage"); } });
+  try {
+    const store = createSessionStore(cards, "guest"); store.subscribe(() => {});
+    store.update(s => ({ ...s, currentCardId: "flip" })); store.restart();
+    assert.equal(calls, 0); assert.deepEqual(legacy, before);
+  } finally {
+    if (descriptor) Object.defineProperty(globalThis, "localStorage", descriptor);
+    else delete globalThis.localStorage;
   }
-  const empty = restoreSession(null, []);
+});
+
+test("a new runtime uses the current inventory and an empty feed remains valid", () => {
+  const changedCards = [cards[0], cards[2], { id: "new", type: "info", pages: ["new"] }];
+  const store = createSessionStore(changedCards, "guest"); store.subscribe(() => {});
+  assert.deepEqual(new Set(store.getSnapshot().session.order), new Set(["info", "flip", "new"]));
+  const empty = createSession([]);
   assert.deepEqual(empty.order, []);
   assert.equal(empty.currentCardId, null);
 });
 
-test("guest, accounts and future filter/mode scopes have independent keys", () => {
-  assert.notEqual(sessionStorageKey("guest"), sessionStorageKey("account:a"));
-  assert.notEqual(sessionStorageKey("account:a"), sessionStorageKey("account:b"));
-  assert.notEqual(sessionStorageKey("account:a", "study:fe-1.1"), sessionStorageKey("account:a", "review:fe-1.1"));
-  const devices = [new Map(), new Map()];
-  const key = sessionStorageKey("account:a");
-  const a = createSession(cards), b = createSession(cards);
-  devices[0].set(key, JSON.stringify(a)); devices[1].set(key, JSON.stringify(b));
-  assert.notEqual(restoreSession(devices[0].get(key), cards).id, restoreSession(devices[1].get(key), cards).id);
-});
-
-test("stores isolate owners and devices; restarting never changes another namespace", () => {
-  const records = new Map();
-  const storage = () => ({ getItem: key => records.get(key) ?? null, setItem: (key, value) => records.set(key, value) });
-  const guest = createSessionStore(cards, "guest", storage);
+test("runtime instances and owners stay independent and manual shuffle only replaces its own session", () => {
+  const guest = createSessionStore(cards, "guest");
   guest.subscribe(() => {});
   const original = guest.getSnapshot().session;
   guest.update(current => ({ ...current, currentCardId: "quiz", answers: { quiz: "b" } }));
-  const account = createSessionStore(cards, "account:a", storage);
+  const account = createSessionStore(cards, "account:a");
   account.subscribe(() => {});
   assert.deepEqual(account.getSnapshot().session.answers, {});
-  const guestAgain = createSessionStore(cards, "guest", storage);
+  const guestAgain = createSessionStore(cards, "guest");
   guestAgain.subscribe(() => {});
-  assert.equal(guestAgain.getSnapshot().session.currentCardId, "quiz");
-  assert.equal(guestAgain.getSnapshot().session.id, original.id);
+  assert.deepEqual(guestAgain.getSnapshot().session.answers, {});
+  assert.notEqual(guestAgain.getSnapshot().session.id, original.id);
   account.restart();
-  assert.equal(JSON.parse(records.get(sessionStorageKey("guest"))).id, original.id);
+  assert.equal(guest.getSnapshot().session.id, original.id);
   const before = guest.getSnapshot().session;
   guest.restart();
   assert.notEqual(guest.getSnapshot().session.id, before.id);
@@ -75,22 +70,40 @@ test("stores isolate owners and devices; restarting never changes another namesp
   assert.deepEqual(guest.getSnapshot().session.answers, {});
 });
 
-test("storage denial/quota and unresolved identity never block or expose prior state", () => {
-  const broken = () => { throw new Error("Storage denied"); };
-  const store = createSessionStore(cards, "guest", broken);
+test("unresolved identity stays empty and unavailable authentication gets an isolated temporary session", () => {
+  const store = createSessionStore(cards, "guest");
   store.subscribe(() => {});
-  assert.equal(store.getSnapshot().storageAvailable, false);
   store.update(current => ({ ...current, currentCardId: "flip" }));
   assert.equal(store.getSnapshot().session.currentCardId, "flip");
   store.restart();
   assert.ok(store.getSnapshot().session);
-  const pending = createSessionStore(cards, null, broken);
+  const pending = createSessionStore(cards, null);
   pending.subscribe(() => {});
   assert.equal(pending.getSnapshot().session, null);
-  const unavailable = createSessionStore(cards, "unavailable", broken);
+  const unavailable = createSessionStore(cards, "unavailable");
   unavailable.subscribe(() => {});
-  assert.equal(unavailable.getSnapshot().storageAvailable, false);
   assert.ok(unavailable.getSnapshot().session);
+  assert.notEqual(unavailable.getSnapshot().session.id, store.getSnapshot().session.id);
+});
+
+test("durable progress and repetition gates survive new runtime presentation IDs", () => {
+  const records = new Map(), sections = new Map(cards.map(card => [card.id, "one"]));
+  const storage = () => ({ getItem: key => records.get(key) ?? null, setItem: (key, value) => records.set(key, value) });
+  const openProgress = () => { const p = createProgressStore(cards, sections, "guest", storage); p.subscribe(() => {}); return p; };
+  const first = createSession(cards), progress = openProgress(), key = presentationId(first, "info");
+  progress.review("info", key, { pages: [0, 1] });
+  progress.toggle(cards[0], key, cards.map(card => card.id), 1000);
+  const confirmations = structuredClone(progress.getSnapshot().data.confirmations);
+  const second = createSession(cards), reloaded = openProgress();
+  assert.notEqual(presentationId(second, "info"), key);
+  assert.deepEqual(reloaded.getSnapshot().data.confirmations, confirmations);
+  assert.deepEqual(reloaded.getSnapshot().data.reviews, {});
+  assert.ok([...records.values()].every(raw => !Object.hasOwn(JSON.parse(raw), "reviews")));
+  assert.equal(cardPercentage(reloaded.getSnapshot().data, "info"), 10);
+  assert.equal(repeatEligibility(reloaded.getSnapshot().data, "info", cards.map(card => card.id), 1001).eligible, false);
+  assert.equal(repeatEligibility(reloaded.getSnapshot().data, "info", cards.map(card => card.id), 1000 + REPEAT_DELAY_MS).eligible, false);
+  for (const card of cards.slice(1)) reloaded.review(card.id, presentationId(second, card.id), {});
+  assert.equal(repeatEligibility(reloaded.getSnapshot().data, "info", cards.map(card => card.id), 1000 + REPEAT_DELAY_MS).eligible, true);
 });
 
 test("section filtering retains presentation IDs, hidden pages and canonical order across empty/reselected views", async () => {
@@ -144,17 +157,15 @@ test("study and review inventories are disjoint, section-filtered views with sta
   assert.deepEqual(filterSession(study,['one','two'],sections,new Set(cards.map(card => card.id))), study);
 });
 
-test("review reload, interactions, and restart never replace the study snapshot or another owner's review", () => {
-  const records = new Map();
-  const storage = () => ({ getItem: key => records.get(key) ?? null, setItem: (key,value) => records.set(key,value) });
-  const open = (owner, scope) => { const store = createSessionStore(cards, owner, storage, scope); store.subscribe(() => {}); return store; };
-  const study = open('guest','study:all'), review = open('guest','review:all');
+test("study and review retain independent live state and both get fresh identities in a new runtime", () => {
+  const open = owner => { const store = createSessionStore(cards, owner); store.subscribe(() => {}); return store; };
+  const study = open('guest'), review = open('guest');
   study.update(current => ({...current,currentCardId:'flip',sides:{flip:1}}));
   const original = structuredClone(study.getSnapshot().session);
   review.update(current => ({...current,currentCardId:'quiz',pages:{info:1},answers:{quiz:'b'},sides:{flip:1}}));
-  assert.deepEqual(open('guest','review:all').getSnapshot().session, review.getSnapshot().session);
-  assert.deepEqual(open('guest','study:all').getSnapshot().session, original);
-  assert.notEqual(open('account:one','review:all').getSnapshot().session.id, review.getSnapshot().session.id);
+  assert.notEqual(open('guest').getSnapshot().session.id, review.getSnapshot().session.id);
+  assert.notEqual(open('guest').getSnapshot().session.id, original.id);
+  assert.notEqual(open('account:one').getSnapshot().session.id, review.getSnapshot().session.id);
   review.restart();
   assert.deepEqual(study.getSnapshot().session, original);
   assert.deepEqual(study.getSnapshot().session.sides, {flip:1});

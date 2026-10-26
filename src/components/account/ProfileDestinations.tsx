@@ -39,7 +39,6 @@ export function ProfileDestinations() {
           <span className={styles.destinationText}><strong>Настройки</strong><span>Звук и вибрация</span></span>
           <ChevronRight />
         </Link>
-        {!review.storageAvailable ? <p role="status" className={styles.notice}>Место в повторении сейчас не сохраняется на этом устройстве.</p> : null}
       </nav>
       <p className={styles.guestNotice}><InfoSymbol />Гостевой прогресс хранится отдельно</p>
     </>
