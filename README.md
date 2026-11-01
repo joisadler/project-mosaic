@@ -64,6 +64,7 @@ In the restricted agent environment, the configured Turbopack build can fail whi
 - `src/components/account/`: sign-in/profile/sign-out controls, subsection selection, progress/reset controls, and review entry.
 - `src/app/sign-in/`: independently testable legacy authentication page.
 - `docs/content/`: shared content rules and source-specific package documentation.
+- `docs/content/section-integration-workflow.md`: reusable handbook subsection integration, approval and verification workflow, selected by `TARGET_SECTION`.
 - `docs/authentication.md`: environments, OAuth/MongoDB setup, session ownership, and auth validation.
 - `docs/study-sessions.md`: device-local study/review navigation and recovery.
 - `docs/study-ordering.md`: continuous rounds, soft new/partial mixing, spacing, limits, and tuning parameters.

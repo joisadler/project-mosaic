@@ -2,6 +2,8 @@
 
 Project Mosaic learning content is organized against the structure of the Frontend Interview Preparation handbook. Shared rules live in this document; package directories contain only source-specific context, verification notes and coverage.
 
+For an integration requested by `TARGET_SECTION`, follow the [handbook subsection integration workflow](section-integration-workflow.md). It defines source discovery, approval gates, implementation, verification, owner review and saving. This document remains the shared authoring and rendering contract; the workflow links to it rather than replacing it.
+
 ## Package namespace
 
 Use `fe-<section>.<subsection>` as the canonical package identifier. Preserve the dot so sections above 9 remain unambiguous: `fe-1.1`, `fe-1.12` and `fe-11.3` are distinct packages. Do not collapse section numbers into forms such as `fe11`.
