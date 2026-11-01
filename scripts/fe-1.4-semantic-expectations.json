@@ -1,0 +1,2144 @@
+{
+  "version": 1,
+  "examples": {
+    "c7a7b43049924cf6a7cbe291af802f5b5cd7989be6558ef4c51a7c871ff89489": {
+      "logs": [
+        [
+          7
+        ],
+        [
+          {
+            "$type": "undefined"
+          }
+        ]
+      ],
+      "environment": "node"
+    },
+    "3ecd67849eb30ec28a2befd67fd950bfca4bb7a7be8a6a55f4af33b8dad2de1f": {
+      "logs": [
+        [
+          []
+        ]
+      ],
+      "environment": "node"
+    },
+    "ccccb587beb84f006c345785e9e5cb1fb9f8e9082862c27ccdb36640ee60f226": {
+      "logs": [
+        [
+          "Lin"
+        ]
+      ],
+      "environment": "node"
+    },
+    "972416394df691e6b4ea5aa97a4dbf7fd240716421715936f9e3a064fbe0d064": {
+      "logs": [
+        [
+          2
+        ]
+      ],
+      "environment": "node"
+    },
+    "d4025438fdc4d0000a65d05bd553ee10158a7072df1eb73da2adad5881197957": {
+      "logs": [
+        [
+          true
+        ]
+      ],
+      "environment": "node"
+    },
+    "2b3b9f83a2c69660047b40657d380dcb1093e7e292b759ed5542db6646b1b795": {
+      "logs": [
+        [
+          false
+        ]
+      ],
+      "environment": "node"
+    },
+    "ff9a8a1fedcbd0c6d0699ed7fcf8e0eee961c6fefe98b309b4d95cfc38f85d25": {
+      "logs": [
+        [
+          true
+        ]
+      ],
+      "environment": "node"
+    },
+    "928be8138410c51d4cc2169b65331fc0029184d034f203883029a86e1feeb77f": {
+      "logs": [
+        [
+          true
+        ],
+        [
+          true
+        ]
+      ],
+      "environment": "node"
+    },
+    "c7f75afbcc48df8c5af57c6843968e346f67027ac040f484e8e443e22b0a2f2b": {
+      "logs": [
+        [
+          {
+            "$type": "undefined"
+          }
+        ],
+        [
+          "light"
+        ]
+      ],
+      "environment": "node"
+    },
+    "6f54ee750a62dec54a72f29d1b1563d3a9e01a0d3b2ead2da5ed65cc05d7d965": {
+      "logs": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "environment": "node"
+    },
+    "588d2a313cee5659412fa32a450eddaf83c2534722eeb24ee244757faced8bbb": {
+      "logs": [
+        [
+          true
+        ]
+      ],
+      "environment": "node"
+    },
+    "3638cae840f084569a3c532796e7b5f966670a8449d89154edcf6ec2f4af65ed": {
+      "logs": [
+        [
+          "value"
+        ],
+        [
+          null
+        ]
+      ],
+      "environment": "node"
+    },
+    "98dca9edfe6add5eff6e3138113198b3fa157b2c1b95e5c7c9e760c7c3b6b680": {
+      "logs": [
+        [
+          false
+        ],
+        [
+          false
+        ]
+      ],
+      "environment": "node"
+    },
+    "4d7594042b45d3be4f6f543f1f7fe7d48ac3c9b244a8d1fdaa7181a79afaa25b": {
+      "logs": [
+        [
+          true
+        ],
+        [
+          false
+        ]
+      ],
+      "environment": "node"
+    },
+    "2d65027defaab866daa4035184234488ef2ba1587972f7692aaab35f82400a87": {
+      "logs": [
+        [
+          {
+            "$type": "undefined"
+          }
+        ]
+      ],
+      "environment": "node"
+    },
+    "e3b9497d7d2db40308109dd3afc8c1a87e07e28bcf1f9720208b4cd7af42c364": {
+      "logs": [
+        [
+          true
+        ],
+        [
+          true
+        ]
+      ],
+      "environment": "node"
+    },
+    "32dc45f1e82446a63126fc87b587cec0f56ba1bf7d6d0fe302a4603da4b3e64b": {
+      "logs": [
+        [
+          "child"
+        ]
+      ],
+      "environment": "node"
+    },
+    "d4c63c2e783ae4146a82b7da7caef1312c73014b56a9c1d4cad5d1b50a1346ff": {
+      "logs": [
+        [
+          2
+        ]
+      ],
+      "environment": "node"
+    },
+    "ed571481ff4b9a287ebfa9543d96ae92525c9003cb5e6a4ca875c0d651e6f8b4": {
+      "logs": [],
+      "environment": "node",
+      "error": "TypeError"
+    },
+    "c5c86353f7cae1bec9f555dabf3e79a1b2d3b6927e8fe1a031f18635508ae605": {
+      "logs": [
+        [
+          6
+        ]
+      ],
+      "environment": "node"
+    },
+    "2267a93965e8c79acea832435fc89301590a11a4c8b82c125a171d7e3b75d78d": {
+      "logs": [
+        [
+          []
+        ],
+        [
+          1
+        ]
+      ],
+      "environment": "node"
+    },
+    "a091efb693684b56b0de2efe199bded05d1f7787fcadac4f2f74fe34b6c9e1bc": {
+      "logs": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      "environment": "node"
+    },
+    "c21622535c4f4ad653dca038a64871804c71239a106f505cb6e23f7ddc2ac279": {
+      "logs": [
+        [
+          [
+            "id"
+          ]
+        ]
+      ],
+      "environment": "node"
+    },
+    "135ddbf1cf4c0465ed59a3aeba9594293505c7c10ffe40462e05a4da8e299afe": {
+      "logs": [
+        [
+          "Ada"
+        ]
+      ],
+      "environment": "node"
+    },
+    "bf8d8be497456ceef8049f9518644010c8dad9ff2e942bbd3eeb2767a4ecda50": {
+      "logs": [
+        [
+          1
+        ],
+        [
+          false
+        ]
+      ],
+      "environment": "node"
+    },
+    "1cef7afb40eb6afb4c16baee16276d89c89e86d039acd2b300d8d86c71273342": {
+      "logs": [
+        [
+          7
+        ],
+        [
+          true
+        ]
+      ],
+      "environment": "node"
+    },
+    "b298b8c86e71181fcc4b9938f9ec952b1ef390062636d14f83b717a64392a76e": {
+      "logs": [
+        [
+          1
+        ]
+      ],
+      "environment": "node"
+    },
+    "170b4ddac2ecb1c9bf4ab94b1adf5ee4a2240426f15d4fc87cf877039d541e38": {
+      "logs": [
+        [
+          "object"
+        ]
+      ],
+      "environment": "node"
+    },
+    "7f0d85b78bbd174ed375f3b6e70e877b76f8de8770aa0735d5d8a994984fbacb": {
+      "logs": [
+        [
+          "child"
+        ]
+      ],
+      "environment": "node"
+    },
+    "35dae007a4e555ac00b08ae5331c805a763b89099c243bcdd42595f7ca50a631": {
+      "logs": [],
+      "environment": "node",
+      "error": "TypeError"
+    },
+    "6f6131669aed9e69b51d2d8059c30e50fd4d20a638065cfbe591952710172bca": {
+      "logs": [
+        [
+          "own"
+        ]
+      ],
+      "environment": "node"
+    },
+    "d8775887918f4546700525f26ac50c20295cab1ca2d718efd31868d683553596": {
+      "logs": [
+        [
+          0
+        ]
+      ],
+      "environment": "node"
+    },
+    "688ba501a515d7ff0b8870bb1b274e189f39f8516ac7c6472fbb1808beea9a46": {
+      "logs": [
+        [
+          true
+        ]
+      ],
+      "environment": "node"
+    },
+    "c458c3018993119f18ec55da5d3f6064724259666291d3dbb23c425a104f6d5c": {
+      "logs": [
+        [
+          false
+        ]
+      ],
+      "environment": "node"
+    },
+    "ca7cf74d9451d811c5245369f711fc1d6141544eaf562999181d9e2f647a0e45": {
+      "logs": [
+        [
+          true
+        ]
+      ],
+      "environment": "node"
+    },
+    "32ad67fb1dd7b54eba16203a64471e286cb35ecd86d049e1bbeb0a1d6394422f": {
+      "logs": [
+        [
+          {
+            "$type": "undefined"
+          }
+        ]
+      ],
+      "environment": "node"
+    },
+    "8e3bc8be1f96a4ae43affb7d83908fc0800dce9982dc6dcefd2d7814d7172c24": {
+      "logs": [
+        [
+          "base"
+        ]
+      ],
+      "environment": "node"
+    },
+    "d2eeeacf5486bdc280344452d137ff88015efc2156786d1c9981c9b8de40d0df": {
+      "logs": [
+        [
+          1,
+          4
+        ]
+      ],
+      "environment": "node"
+    },
+    "523370b1ba770cd1902fababc697b48d47eae61a7469e374dabedb3b5beeb65a": {
+      "logs": [],
+      "environment": "node",
+      "error": "TypeError"
+    },
+    "846e430f2b46f1cc43a42fda8640d551a794253e268acfd5dc01e8cd19519455": {
+      "logs": [
+        [
+          5,
+          {
+            "$type": "undefined"
+          }
+        ]
+      ],
+      "environment": "node"
+    },
+    "e4ce621f79cb93799b4b203c7ddb6deee48becfa03ae589d50cd038d0af79435": {
+      "logs": [
+        [
+          true
+        ]
+      ],
+      "environment": "node"
+    },
+    "4a2c7c268a7ee3b91ef994b0e0110fdec8dc794b2b294b8b6b3406d05c7e23d3": {
+      "logs": [
+        [
+          false
+        ]
+      ],
+      "environment": "node"
+    },
+    "2973e3be0c96e6f62eab5dbddb55af267617aa24a8c7e7f6c921652c876c3b33": {
+      "logs": [
+        [
+          null
+        ]
+      ],
+      "environment": "node"
+    },
+    "d21a869c9a082cd8abf6414d8a7d27f564eaef4800c5912ca82db4d24d9f6f68": {
+      "logs": [
+        [
+          false
+        ]
+      ],
+      "environment": "node"
+    },
+    "552ec3ae6f4781979343d8c9151c7edeca62cd9f45831d74864d396ea59b3e8e": {
+      "logs": [],
+      "environment": "node",
+      "error": "TypeError"
+    },
+    "9ff1203c1ef77d48f82f5e728cf9e181b414388dff1c5f223f8a380cb902cae1": {
+      "logs": [],
+      "environment": "node",
+      "error": "ReferenceError"
+    },
+    "566705caaa0e41ab0ef7a043ce172085c62a16e4f8b6d8b4a15d280eaa9afc1c": {
+      "logs": [
+        [
+          false
+        ]
+      ],
+      "environment": "node"
+    },
+    "bbddd4cfa449c222406fe24c0f2a4f12e0038a15cd98cb43f14f68fb1adf3562": {
+      "logs": [
+        [
+          {
+            "$type": "undefined"
+          }
+        ]
+      ],
+      "environment": "node"
+    },
+    "df2f7e350e6d8304458b8abbbc371507a9044d542a54da48e6496d28a64cd35b": {
+      "logs": [
+        [
+          9
+        ]
+      ],
+      "environment": "node"
+    },
+    "b81e67f79a187df2bf37b39457523dbf5cc7d3dcac4b36bf46a8d7ebe3d41d26": {
+      "logs": [],
+      "environment": "node",
+      "error": "ReferenceError"
+    },
+    "1388ca3487f13ca46d46f53a0b17d9edf63af1e2faf17d5fee4a4bd6d3991170": {
+      "logs": [
+        [
+          {
+            "$type": "undefined"
+          }
+        ]
+      ],
+      "environment": "node"
+    },
+    "dbf593b9e3b0cce1fc4cb97c86fd6d6a9b25fd22f61c8490b35945e8e46e9258": {
+      "logs": [
+        [
+          "other"
+        ]
+      ],
+      "environment": "node"
+    },
+    "9a9a1b1d24e091ce84f4de22f35164807375686cbb6f540cfe99c1dd3c622615": {
+      "logs": [
+        [
+          4
+        ]
+      ],
+      "environment": "node"
+    },
+    "9acbfab70941864fd68f7e1035997574516c6f45d522029462db493cb92c1809": {
+      "logs": [],
+      "environment": "node",
+      "error": "TypeError"
+    },
+    "37386082f9ee730e09d31c000a7b937477604cbdd6b1f13394d360d48fbe65bf": {
+      "logs": [
+        [
+          1,
+          2
+        ]
+      ],
+      "environment": "node"
+    },
+    "3b5a024e07e7e0f5973a42f9d4adced910717f864ed68b13b1140143df7ba147": {
+      "logs": [],
+      "environment": "node",
+      "error": "TypeError"
+    },
+    "8f7bb9189c9a0bc2a5b08bde71ab28305d3544f9133e5207115543ce274dff5f": {
+      "logs": [
+        [
+          false,
+          true
+        ]
+      ],
+      "environment": "node"
+    },
+    "12176fe86b35246c3e50072a1cf0a6b9e04bee21ebfcf22a1b8d6a644b2baa00": {
+      "logs": [
+        [
+          []
+        ]
+      ],
+      "environment": "node"
+    },
+    "bd4ee7ee072246ae5d8f227e574a12ca242c4269ee205a81726c402e16b73c8a": {
+      "logs": [
+        [
+          1
+        ]
+      ],
+      "environment": "node"
+    },
+    "01243732ae32412741b92ad84e3b63f97aac8120a6b1a0d1818e67a570da5032": {
+      "logs": [
+        [
+          []
+        ]
+      ],
+      "environment": "node"
+    },
+    "4a2d28a275e36d98fbee9019851d91b14b6f267d708469d4cdd9c8ca126168f8": {
+      "logs": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      "environment": "node"
+    },
+    "e67b4892938e7457aa75195764457737303a7351a39c22eb992c3fe8bef38df4": {
+      "logs": [],
+      "environment": "node",
+      "error": "TypeError"
+    },
+    "ae889fd1f6f8b4b3f5a8d5fc27d5f21f8a746f60ef463d261215701989719772": {
+      "logs": [
+        [
+          true
+        ]
+      ],
+      "environment": "node"
+    },
+    "c680bfd93050747aeb25224589a2b6c801f21b5843415c3a4c0d5eab8ee8d267": {
+      "logs": [],
+      "environment": "node",
+      "error": "TypeError"
+    },
+    "97dc72f20dbedc1766272431e6152d7d757b8eb899bf80e67688a7f23a2ba127": {
+      "logs": [
+        [
+          8
+        ]
+      ],
+      "environment": "node"
+    },
+    "097bac194233c1fede0737accb296317eb9955160978f95ffe362839a12342ec": {
+      "logs": [],
+      "environment": "node",
+      "error": "TypeError"
+    },
+    "d36279403fa11923b2e68f9b06842f0533644b4c88929ba4b3d3cb6f3376f86b": {
+      "logs": [
+        [
+          false
+        ]
+      ],
+      "environment": "node"
+    },
+    "0ad3511787ae790268903bd1accc49721a96a7202a5e6793098033cfa162eeb2": {
+      "logs": [
+        [
+          2
+        ]
+      ],
+      "environment": "node"
+    },
+    "f82fe32756172d600f2f25c683799707b438bff0499f64422eda012d97882b29": {
+      "logs": [
+        [
+          2
+        ]
+      ],
+      "environment": "node"
+    },
+    "8a885d42b9f59c3d357fdd01698839ba5e7370097ede4caf6cc99912a1069a96": {
+      "logs": [
+        [
+          7
+        ]
+      ],
+      "environment": "node"
+    },
+    "243e25d16e2abc3636a9f24dd5e81572d471eaa12abdf7b96386c3697b8c7efb": {
+      "logs": [
+        [
+          1
+        ]
+      ],
+      "environment": "node"
+    },
+    "a7c75bbf6cc9ba2e5cfca5144a08c0c43ac93e22f48e6bc1d1eb1337b2e59455": {
+      "logs": [
+        [
+          false
+        ]
+      ],
+      "environment": "node"
+    },
+    "5e78f36231e0501bc407934ea532daf0c4b0031608b57d8dff93ddf45e05d0d8": {
+      "logs": [
+        [
+          "child"
+        ]
+      ],
+      "environment": "node"
+    },
+    "355d64720d8d38db9417995009a6a7913d469bd447516deb6db4e5289961ad0e": {
+      "logs": [],
+      "environment": "node",
+      "error": "TypeError"
+    },
+    "88487b692b0cc0bd6d849549e8058f2b0c9a684b25380a64cbe2c46552085cb3": {
+      "logs": [],
+      "environment": "node",
+      "error": "TypeError"
+    },
+    "81eff0bc5e22d7eda0bdbaeddd555df652dafce3b7d256bf1aa48b28c58a556b": {
+      "logs": [
+        [
+          "object"
+        ]
+      ],
+      "environment": "node"
+    },
+    "fe27d6f2c737f23eea39ed4f1e28f21355f105326fc9c52b6b80874a3df70d62": {
+      "logs": [
+        [
+          1
+        ]
+      ],
+      "environment": "node"
+    },
+    "82c72cfa0fbba6f5b26cd124f1543a1a7adf484f77a6e2b0082f3960257a66a5": {
+      "logs": [
+        [
+          -1
+        ]
+      ],
+      "environment": "node"
+    }
+  },
+  "quizChecks": {
+    "fe-1.4-quiz-descriptor-defaults": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Ключ id собственный, но неперечислимый: новый defineProperty не включает enumerable."
+        },
+        {
+          "id": "b",
+          "rationale": "У нового свойства пропущенный enumerable равен false. Object.keys пропускает такой ключ."
+        },
+        {
+          "id": "c",
+          "rationale": "Object.keys возвращает ключи, а не значения. Значение 7 не становится ключом."
+        },
+        {
+          "id": "d",
+          "rationale": "Дескриптор только с value допустим. Остальные атрибуты получают значения по умолчанию."
+        }
+      ]
+    },
+    "fe-1.4-quiz-inherited-call": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Метод найден в p, но это не закрепляет p как this."
+        },
+        {
+          "id": "b",
+          "rationale": "У получателя c есть собственное name, поэтому значение определено."
+        },
+        {
+          "id": "c",
+          "rationale": "Вызов c.read() передаёт c как this, хотя функция найдена в прототипе."
+        },
+        {
+          "id": "d",
+          "rationale": "Метод вызывается с корректным получателем c; потери контекста нет."
+        }
+      ]
+    },
+    "fe-1.4-quiz-class-detached": {
+      "correctOptionId": "d",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Сохранённая функция не хранит экземпляр как постоянный this."
+        },
+        {
+          "id": "b",
+          "rationale": "Чтение value у undefined бросает, а не возвращает undefined."
+        },
+        {
+          "id": "c",
+          "rationale": "Привязка read существует; ошибка связана с получателем вызова."
+        },
+        {
+          "id": "d",
+          "rationale": "Метод класса строгий. Обычный вызов получает undefined как this и бросает при чтении value."
+        }
+      ]
+    },
+    "fe-1.4-quiz-class-arrow-owner": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Стрелочное поле захватило this экземпляра; call его не меняет."
+        },
+        {
+          "id": "b",
+          "rationale": "Так получил бы this обычный метод, но read здесь стрелочная функция."
+        },
+        {
+          "id": "c",
+          "rationale": "На экземпляре есть name; лексический this определён при инициализации поля."
+        },
+        {
+          "id": "d",
+          "rationale": "Вызов стрелки через call допустим, хотя новый thisArg игнорируется."
+        }
+      ]
+    },
+    "fe-1.4-quiz-create-no-constructor": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Object.create не вызывает C; передан только объект прототипа."
+        },
+        {
+          "id": "b",
+          "rationale": "Object.create задаёт цепочку нового объекта без выполнения конструктора."
+        },
+        {
+          "id": "c",
+          "rationale": "calls явно инициализирован числом 0 и не изменился."
+        },
+        {
+          "id": "d",
+          "rationale": "C.prototype — допустимый объект для Object.create."
+        }
+      ]
+    },
+    "fe-1.4-quiz-shared-method": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Методы здесь не создаются отдельно при каждом new."
+        },
+        {
+          "id": "b",
+          "rationale": "Оба чтения находят функцию в C.prototype."
+        },
+        {
+          "id": "c",
+          "rationale": "Экземпляры делегируют одному прототипу и находят один объект-функцию."
+        },
+        {
+          "id": "d",
+          "rationale": "Сравнение двух найденных методов допустимо."
+        }
+      ]
+    },
+    "fe-1.4-quiz-replacement-topology": {
+      "correctOptionId": "d",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Возвращённый литерал заменил экземпляр с C.prototype."
+        },
+        {
+          "id": "b",
+          "rationale": "C — обычный конструктор, возврат объекта разрешён."
+        },
+        {
+          "id": "c",
+          "rationale": "instanceof возвращает boolean, а не undefined."
+        },
+        {
+          "id": "d",
+          "rationale": "Явно возвращённый объект стал результатом new и не наследует от C.prototype."
+        }
+      ]
+    },
+    "fe-1.4-quiz-new-target-derived": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Конструирование начато как new D(), поэтому база видит D в new.target."
+        },
+        {
+          "id": "b",
+          "rationale": "Выполнение кода B не заменяет фактическую цель конструирования."
+        },
+        {
+          "id": "c",
+          "rationale": "new.target определён при конструировании и сохранён в kind."
+        },
+        {
+          "id": "d",
+          "rationale": "Неявный конструктор D корректно вызывает super; раннего доступа к this нет."
+        }
+      ]
+    },
+    "fe-1.4-quiz-prototype-two-links": {
+      "correctOptionId": "b",
+      "mode": "decision",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Это прототип объекта-функции, обычно Function.prototype, а не прототип экземпляров User."
+        },
+        {
+          "id": "b",
+          "rationale": "Экземпляры User ищут общие методы через User.prototype."
+        },
+        {
+          "id": "c",
+          "rationale": "Так метод будет собственным для каждого объекта и перестанет быть одной общей функцией."
+        },
+        {
+          "id": "d",
+          "rationale": "name — строка для диагностики, а не объект общего поведения."
+        }
+      ]
+    },
+    "fe-1.4-quiz-own-undefined": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Собственное x найдено раньше свойства прототипа."
+        },
+        {
+          "id": "b",
+          "rationale": "undefined не преобразуется в null при поиске свойства."
+        },
+        {
+          "id": "c",
+          "rationale": "Присутствующее собственное undefined останавливает поиск по цепочке."
+        },
+        {
+          "id": "d",
+          "rationale": "И c, и свойство существуют; чтение значения undefined допустимо."
+        }
+      ]
+    },
+    "fe-1.4-quiz-delete-shadow": {
+      "correctOptionId": "d",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Удалено только собственное свойство; в прототипе x остаётся."
+        },
+        {
+          "id": "b",
+          "rationale": "Собственное x было конфигурируемым и удалилось."
+        },
+        {
+          "id": "c",
+          "rationale": "Новое свойство от обычного присваивания можно удалить."
+        },
+        {
+          "id": "d",
+          "rationale": "После удаления затенения чтение снова находит x в p."
+        }
+      ]
+    },
+    "fe-1.4-quiz-writable-own": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Запись создаёт собственное x у c; изменяемое свойство p остаётся равным 1."
+        },
+        {
+          "id": "b",
+          "rationale": "Присваивание не меняет найденное свойство прототипа на месте."
+        },
+        {
+          "id": "c",
+          "rationale": "Объект c расширяемый, а унаследованное x изменяемо: запись разрешена."
+        },
+        {
+          "id": "d",
+          "rationale": "Ограничений записи в этом примере нет."
+        }
+      ]
+    },
+    "fe-1.4-quiz-inherited-readonly": {
+      "correctOptionId": "b",
+      "mode": "decision",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Унаследованное неизменяемое свойство блокирует обычное присваивание."
+        },
+        {
+          "id": "b",
+          "rationale": "Отклонённое обычное присваивание в strict mode бросает TypeError."
+        },
+        {
+          "id": "c",
+          "rationale": "Унаследованное x неизменяемо; присваивание не обходит этот флаг."
+        },
+        {
+          "id": "d",
+          "rationale": "Тихий отказ характерен для такой записи в sloppy mode, но здесь режим строгий."
+        }
+      ]
+    },
+    "fe-1.4-quiz-setter-receiver": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Setter не дублирует запись на прототип и экземпляр."
+        },
+        {
+          "id": "b",
+          "rationale": "Расположение setter на p не делает p получателем."
+        },
+        {
+          "id": "c",
+          "rationale": "Запись начата через c; this в setter равен c, поэтому p.x не появляется."
+        },
+        {
+          "id": "d",
+          "rationale": "Setter существует и принимает значение без ограничений."
+        }
+      ]
+    },
+    "fe-1.4-quiz-instanceof-without-call": {
+      "correctOptionId": "d",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Стандартный instanceof проверяет цепочку, а не историю вызова конструктора."
+        },
+        {
+          "id": "b",
+          "rationale": "Результат проверки — boolean."
+        },
+        {
+          "id": "c",
+          "rationale": "C — допустимая правая сторона, а C.prototype является объектом."
+        },
+        {
+          "id": "d",
+          "rationale": "C.prototype есть в цепочке c, хотя тело C не выполнялось."
+        }
+      ]
+    },
+    "fe-1.4-quiz-prototype-replacement": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Старая цепочка не меняется; новое C.prototype в ней отсутствует."
+        },
+        {
+          "id": "b",
+          "rationale": "Замена C.prototype не переподключает уже созданные объекты."
+        },
+        {
+          "id": "c",
+          "rationale": "instanceof возвращает boolean, даже после замены прототипа."
+        },
+        {
+          "id": "d",
+          "rationale": "Новое C.prototype — допустимый объект; проверка просто даёт false."
+        }
+      ]
+    },
+    "fe-1.4-quiz-null-proto-key": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Без унаследованного accessor имя __proto__ — обычный собственный ключ."
+        },
+        {
+          "id": "b",
+          "rationale": "Присваивание обычному ключу не меняет внутренний прототип словаря."
+        },
+        {
+          "id": "c",
+          "rationale": "Object.create(null) не добавляет Object.prototype."
+        },
+        {
+          "id": "d",
+          "rationale": "Расширяемый словарь допускает собственное свойство с таким именем."
+        }
+      ]
+    },
+    "fe-1.4-quiz-class-method-enumerability": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Публичное поле перечислимо, но run — обычный метод прототипа класса."
+        },
+        {
+          "id": "b",
+          "rationale": "Дескриптор найден и имеет атрибут enumerable."
+        },
+        {
+          "id": "c",
+          "rationale": "Обычные методы класса по умолчанию неперечислимы."
+        },
+        {
+          "id": "d",
+          "rationale": "Метод является собственным свойством C.prototype; дескриптор существует."
+        }
+      ]
+    },
+    "fe-1.4-quiz-class-call": {
+      "correctOptionId": "d",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Класс отклоняет обычный вызов, а не возвращает undefined."
+        },
+        {
+          "id": "b",
+          "rationale": "Экземпляр класса создаётся через конструирование, а не обычный вызов."
+        },
+        {
+          "id": "c",
+          "rationale": "Имя Model уже инициализировано, TDZ закончилась."
+        },
+        {
+          "id": "d",
+          "rationale": "Class constructor требует new; обычный вызов бросает TypeError."
+        }
+      ]
+    },
+    "fe-1.4-quiz-class-tdz": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Имя класса находится в TDZ до инициализации; typeof не обходит эту проверку."
+        },
+        {
+          "id": "b",
+          "rationale": "Так typeof ведёт себя для необъявленного имени, но Model имеет лексическую привязку в TDZ."
+        },
+        {
+          "id": "c",
+          "rationale": "После инициализации typeof класса даёт \"function\", но здесь чтение раньше."
+        },
+        {
+          "id": "d",
+          "rationale": "Ошибка вызвана доступом к неинициализированной привязке, а не неверным типом операции."
+        }
+      ]
+    },
+    "fe-1.4-quiz-field-identity": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "У методов прототипа может быть одна функция, но run — поле экземпляра."
+        },
+        {
+          "id": "b",
+          "rationale": "Инициализатор поля создаёт отдельную стрелочную функцию для каждого экземпляра."
+        },
+        {
+          "id": "c",
+          "rationale": "Оба поля содержат функции; сравнение даёт boolean."
+        },
+        {
+          "id": "d",
+          "rationale": "Стрелочные поля и сравнение их идентичности допустимы."
+        }
+      ]
+    },
+    "fe-1.4-quiz-field-bypasses-setter": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Поле определяется напрямую, поэтому унаследованный setter не срабатывает."
+        },
+        {
+          "id": "b",
+          "rationale": "Ничто не присваивает seen значение null."
+        },
+        {
+          "id": "c",
+          "rationale": "Стандартная инициализация поля создаёт собственное x без setter базы."
+        },
+        {
+          "id": "d",
+          "rationale": "Определение нового собственного поля разрешено."
+        }
+      ]
+    },
+    "fe-1.4-quiz-super-call-receiver": {
+      "correctOptionId": "d",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "super меняет начало поиска, но this остаётся экземпляром D с полем x."
+        },
+        {
+          "id": "b",
+          "rationale": "Вызов базового метода с текущим получателем корректен."
+        },
+        {
+          "id": "c",
+          "rationale": "В коде нет значения 0; отдельный базовый экземпляр не создаётся."
+        },
+        {
+          "id": "d",
+          "rationale": "Базовый read вызывается с this экземпляра D и читает его собственное x."
+        }
+      ]
+    },
+    "fe-1.4-quiz-this-before-super": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "В производном конструкторе this не инициализирован до super()."
+        },
+        {
+          "id": "b",
+          "rationale": "Ошибка связана с неинициализированным this, а не типом записываемого значения."
+        },
+        {
+          "id": "c",
+          "rationale": "Ранний доступ к this прерывает конструктор до записи и super()."
+        },
+        {
+          "id": "d",
+          "rationale": "Код синтаксически допустим; ошибка возникает во время выполнения."
+        }
+      ]
+    },
+    "fe-1.4-quiz-field-init-order": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Поля наследника ещё не инициализированы во время тела конструктора базы."
+        },
+        {
+          "id": "b",
+          "rationale": "Поле ready появится после возвращения из super(), а сейчас свойства нет."
+        },
+        {
+          "id": "c",
+          "rationale": "Отсутствующее свойство читается как undefined, а не false."
+        },
+        {
+          "id": "d",
+          "rationale": "Базовый конструктор уже имеет this; проблема здесь в готовности поля наследника."
+        }
+      ]
+    },
+    "fe-1.4-quiz-borrowed-super": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Поиск super найдёт read в base, а получатель имеет name."
+        },
+        {
+          "id": "b",
+          "rationale": "Имя переменной base не является значением поля name."
+        },
+        {
+          "id": "c",
+          "rationale": "Начало поиска super осталось связано с obj, но call передал другой this."
+        },
+        {
+          "id": "d",
+          "rationale": "Метод можно заимствовать; наличие super не запрещает call."
+        }
+      ]
+    },
+    "fe-1.4-quiz-static-inherited": {
+      "correctOptionId": "d",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Метод найден в B, но вызов D.read() передаёт D как this."
+        },
+        {
+          "id": "b",
+          "rationale": "На D явно создано собственное статическое x."
+        },
+        {
+          "id": "c",
+          "rationale": "Здесь публичное static-поле, проверка приватной метки не нужна."
+        },
+        {
+          "id": "d",
+          "rationale": "Унаследованный метод получает D и читает его собственное x."
+        }
+      ]
+    },
+    "fe-1.4-quiz-private-imitation": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "У fake есть цепочка, но нет приватной метки C. Доступ к #x бросает TypeError."
+        },
+        {
+          "id": "b",
+          "rationale": "Object.create не выполняет конструктор и не создаёт приватные элементы C."
+        },
+        {
+          "id": "c",
+          "rationale": "Неудачная проверка приватной метки бросает, а не возвращает undefined."
+        },
+        {
+          "id": "d",
+          "rationale": "Имя #x корректно объявлено; ошибка связана с получателем во время выполнения."
+        }
+      ]
+    },
+    "fe-1.4-quiz-private-inherited": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Приватное имя наследника не переопределяет приватное имя базы."
+        },
+        {
+          "id": "b",
+          "rationale": "У одного экземпляра два разных приватных элемента, каждый доступен коду своего класса."
+        },
+        {
+          "id": "c",
+          "rationale": "Метод b обращается к приватному полю D, инициализированному значением 2."
+        },
+        {
+          "id": "d",
+          "rationale": "Разные классы могут объявлять одинаково написанные приватные имена."
+        }
+      ]
+    },
+    "fe-1.4-quiz-private-static": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "D наследует публичный метод, но не приватную метку статического поля B."
+        },
+        {
+          "id": "b",
+          "rationale": "Неудачная проверка метки бросает исключение вместо undefined."
+        },
+        {
+          "id": "c",
+          "rationale": "Вызов передаёт D как this, а приватный static-элемент принадлежит B."
+        },
+        {
+          "id": "d",
+          "rationale": "Приватное имя объявлено; это ошибка получателя, а не необъявленного имени."
+        }
+      ]
+    },
+    "fe-1.4-quiz-composition-choice": {
+      "correctOptionId": "d",
+      "mode": "decision",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Дерево комбинаций связывает независимые обязанности и быстро разрастается."
+        },
+        {
+          "id": "b",
+          "rationale": "Глобальное состояние усложняет изоляцию и проверку разных конфигураций."
+        },
+        {
+          "id": "c",
+          "rationale": "Динамическая цепочка скрывает контракт и не выражает независимость операций."
+        },
+        {
+          "id": "d",
+          "rationale": "Композиция явно передаёт независимые операции и позволяет проверять их отдельно."
+        }
+      ]
+    },
+    "fe-1.4-quiz-hasown-in": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "x унаследован, поэтому hasOwn даёт false, а проверка всей цепочки in — true."
+        },
+        {
+          "id": "b",
+          "rationale": "Наследование не делает свойство собственным."
+        },
+        {
+          "id": "c",
+          "rationale": "Значение undefined не означает отсутствия свойства."
+        },
+        {
+          "id": "d",
+          "rationale": "in видит как собственные, так и унаследованные свойства: такой результат здесь невозможен."
+        }
+      ]
+    },
+    "fe-1.4-quiz-hidden-key": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "x собственное, но Object.keys пропускает неперечислимые свойства."
+        },
+        {
+          "id": "b",
+          "rationale": "Неперечислимый строковый ключ не входит в Object.keys."
+        },
+        {
+          "id": "c",
+          "rationale": "Object.keys возвращает ключи, а не значения."
+        },
+        {
+          "id": "d",
+          "rationale": "API возвращает массив ключей, в этом случае пустой."
+        }
+      ]
+    },
+    "fe-1.4-quiz-symbol-ownkeys": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Reflect.ownKeys включает ключи Symbol, даже если Object.keys их пропускает."
+        },
+        {
+          "id": "b",
+          "rationale": "Описание Symbol не создаёт отдельный строковый ключ x."
+        },
+        {
+          "id": "c",
+          "rationale": "Свойство с ключом s собственное; Reflect.ownKeys возвращает этот единственный ключ."
+        },
+        {
+          "id": "d",
+          "rationale": "Symbol — допустимый ключ свойства и результата Reflect.ownKeys."
+        }
+      ]
+    },
+    "fe-1.4-quiz-enumeration-match": {
+      "correctOptionId": "d",
+      "mode": "decision",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Object.keys выбирает только собственные перечислимые строковые ключи."
+        },
+        {
+          "id": "b",
+          "rationale": "Этот API включает неперечислимые строки, но не Symbol."
+        },
+        {
+          "id": "c",
+          "rationale": "for...in рассматривает строковые перечислимые ключи по цепочке, а не все собственные."
+        },
+        {
+          "id": "d",
+          "rationale": "Reflect.ownKeys включает все собственные строки и Symbol независимо от enumerable."
+        }
+      ]
+    },
+    "fe-1.4-quiz-forin-shadow": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Собственный неперечислимый x скрывает одноимённый перечислимый ключ прототипа."
+        },
+        {
+          "id": "b",
+          "rationale": "for...in не является простым объединением перечислимых ключей всех уровней."
+        },
+        {
+          "id": "c",
+          "rationale": "Один и тот же строковый ключ не добавляется дважды из-за разных уровней цепочки."
+        },
+        {
+          "id": "d",
+          "rationale": "Цикл добавляет имена ключей, а не значения свойств."
+        }
+      ]
+    },
+    "fe-1.4-quiz-keys-vs-values": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "У обычного объекта keys не читает значение accessor-свойства."
+        },
+        {
+          "id": "b",
+          "rationale": "keys перечисляет имена, а values читает значение и вызывает getter один раз."
+        },
+        {
+          "id": "c",
+          "rationale": "Object.values должен получить значение собственного перечислимого x."
+        },
+        {
+          "id": "d",
+          "rationale": "Первый getter ещё не вызывался во время Object.keys."
+        }
+      ]
+    },
+    "fe-1.4-quiz-mixed-descriptor": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Язык не выбирает value при конфликте видов дескриптора."
+        },
+        {
+          "id": "b",
+          "rationale": "Getter не имеет приоритета над value в смешанном дескрипторе."
+        },
+        {
+          "id": "c",
+          "rationale": "Нельзя смешивать value/writable с get/set в одном дескрипторе."
+        },
+        {
+          "id": "d",
+          "rationale": "Синтаксис объекта допустим; отказ происходит при преобразовании дескриптора."
+        }
+      ]
+    },
+    "fe-1.4-quiz-redefine-flags": {
+      "correctOptionId": "d",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "У нового свойства пропущенные флаги false, но здесь переопределяется существующее."
+        },
+        {
+          "id": "b",
+          "rationale": "writable является атрибутом найденного дескриптора данных."
+        },
+        {
+          "id": "c",
+          "rationale": "Исходное свойство конфигурируемое, изменение value разрешено."
+        },
+        {
+          "id": "d",
+          "rationale": "Пропущенный writable сохраняется от существующего свойства литерала: true."
+        }
+      ]
+    },
+    "fe-1.4-quiz-immutable-back": {
+      "correctOptionId": "a",
+      "mode": "decision",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "configurable остался false. После выключения writable включить его обратно нельзя."
+        },
+        {
+          "id": "b",
+          "rationale": "Переход writable true → false допустим, обратный для неконфигурируемого свойства — нет."
+        },
+        {
+          "id": "c",
+          "rationale": "Ни одно определение не запрашивает изменение enumerable."
+        },
+        {
+          "id": "d",
+          "rationale": "Object.defineProperty при недопустимом определении бросает независимо от strict mode."
+        }
+      ]
+    },
+    "fe-1.4-quiz-reflect-getter": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Getter получит переданный receiver r, у которого есть value."
+        },
+        {
+          "id": "b",
+          "rationale": "Reflect начинает поиск в base и вызывает найденный getter с this === r."
+        },
+        {
+          "id": "c",
+          "rationale": "Ключ x выбирает свойство, но результат getter — значение r.value."
+        },
+        {
+          "id": "d",
+          "rationale": "Getter не требует приватной метки; объект r подходит как получатель."
+        }
+      ]
+    },
+    "fe-1.4-quiz-getteronly-write": {
+      "correctOptionId": "c",
+      "mode": "decision",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Унаследованный accessor без setter не разрешает обычное присваивание."
+        },
+        {
+          "id": "b",
+          "rationale": "Присваивание не заменяет функцию getter новым значением."
+        },
+        {
+          "id": "c",
+          "rationale": "Accessor не имеет setter, поэтому обычная запись отклоняется и в strict mode бросает."
+        },
+        {
+          "id": "d",
+          "rationale": "Здесь явно задан строгий режим; тихого отказа не будет."
+        }
+      ]
+    },
+    "fe-1.4-quiz-prevent-delete": {
+      "correctOptionId": "d",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "preventExtensions не запрещает удалять существующее конфигурируемое свойство."
+        },
+        {
+          "id": "b",
+          "rationale": "x осталось конфигурируемым, поэтому удаление допустимо даже в strict mode."
+        },
+        {
+          "id": "c",
+          "rationale": "Object.hasOwn всегда возвращает boolean при таком аргументе."
+        },
+        {
+          "id": "d",
+          "rationale": "Свойство удалено: запрет расширения касается добавления, а не этой операции."
+        }
+      ]
+    },
+    "fe-1.4-quiz-sealed-write": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "seal не выключает writable у существующего изменяемого свойства данных."
+        },
+        {
+          "id": "b",
+          "rationale": "Запись разрешена и меняет значение."
+        },
+        {
+          "id": "c",
+          "rationale": "Свойство x всё ещё writable: true; запрещены добавление и удаление."
+        },
+        {
+          "id": "d",
+          "rationale": "Свойство не удалялось и получает числовое значение 2."
+        }
+      ]
+    },
+    "fe-1.4-quiz-frozen-nested": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "freeze не обходит вложенный граф автоматически."
+        },
+        {
+          "id": "b",
+          "rationale": "Вложенный объект остаётся изменяемым; неизменной стала ссылка obj.nested."
+        },
+        {
+          "id": "c",
+          "rationale": "Свойство nested не переназначается, меняется поле другого объекта."
+        },
+        {
+          "id": "d",
+          "rationale": "Вложенное x существует и успешно изменено."
+        }
+      ]
+    },
+    "fe-1.4-quiz-frozen-setter": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Заморозка не удаляет существующий setter и не запрещает исполнять его код."
+        },
+        {
+          "id": "b",
+          "rationale": "Setter выполняется и меняет внешнюю привязку saved."
+        },
+        {
+          "id": "c",
+          "rationale": "Accessor-дескриптор фиксирован, но его setter продолжает менять saved."
+        },
+        {
+          "id": "d",
+          "rationale": "saved инициализирован и получает число 7."
+        }
+      ]
+    },
+    "fe-1.4-quiz-frozen-private": {
+      "correctOptionId": "d",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Приватное поле не входит в обычные дескрипторы, ограничиваемые freeze."
+        },
+        {
+          "id": "b",
+          "rationale": "Получатель — настоящий экземпляр C; приватная метка присутствует."
+        },
+        {
+          "id": "c",
+          "rationale": "Метод возвращает результат предынкремента числа."
+        },
+        {
+          "id": "d",
+          "rationale": "Заморозка обычных свойств не делает приватное поле неизменяемым."
+        }
+      ]
+    },
+    "fe-1.4-quiz-reflect-frozen": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Обычная запись не разрешена; Reflect.set сообщает false вместо ошибки строгого присваивания."
+        },
+        {
+          "id": "b",
+          "rationale": "Здесь прямой вызов Reflect.set, а не синтаксис строгого присваивания obj.x = 2."
+        },
+        {
+          "id": "c",
+          "rationale": "Собственное x неизменяемо, так что успех не может быть объявлен."
+        },
+        {
+          "id": "d",
+          "rationale": "Reflect.set возвращает boolean успеха, а не записанное значение."
+        }
+      ]
+    },
+    "fe-1.4-quiz-proxy-getreceiver": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Перехватчик сохранил c как receiver, поэтому getter найдёт c.name."
+        },
+        {
+          "id": "b",
+          "rationale": "Reflect.get сохраняет исходного получателя c через цепочку Proxy и getter."
+        },
+        {
+          "id": "c",
+          "rationale": "На t нет поля name со значением \"target\"; getter не закреплён за t."
+        },
+        {
+          "id": "d",
+          "rationale": "Приватных полей и ограничивающих инвариантов здесь нет."
+        }
+      ]
+    },
+    "fe-1.4-quiz-set-forgot-return": {
+      "correctOptionId": "c",
+      "mode": "scenario",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Изменение состоялось, но trap вернул undefined, что означает неуспех."
+        },
+        {
+          "id": "b",
+          "rationale": "Код trap выполнился, а строгий синтаксис присваивания не допускает тихого отказа."
+        },
+        {
+          "id": "c",
+          "rationale": "После изменения trap сообщил неуспех через undefined; strict mode бросает без отката."
+        },
+        {
+          "id": "d",
+          "rationale": "Ошибка после возврата trap не откатывает уже выполненное t[k] = v."
+        }
+      ]
+    },
+    "fe-1.4-quiz-proxy-invariant": {
+      "correctOptionId": "d",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Trap не может подменить значение такого фиксированного собственного свойства."
+        },
+        {
+          "id": "b",
+          "rationale": "Язык не исправляет результат trap на значение target: он отклоняет противоречие."
+        },
+        {
+          "id": "c",
+          "rationale": "Нарушение инварианта бросает исключение, а не возвращает undefined."
+        },
+        {
+          "id": "d",
+          "rationale": "Новый дескриптор имеет writable: false и configurable: false; get нарушает инвариант."
+        }
+      ]
+    },
+    "fe-1.4-quiz-revoked-typeof": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "typeof не обращается к отозванным внутренним методам этого объектного Proxy."
+        },
+        {
+          "id": "b",
+          "rationale": "Чтение proxy.x бросило бы, но здесь выполняется typeof."
+        },
+        {
+          "id": "c",
+          "rationale": "Отзыв не удаляет переменную и не превращает Proxy в undefined."
+        },
+        {
+          "id": "d",
+          "rationale": "typeof возвращает строку, а объект не заменяется на null."
+        }
+      ]
+    },
+    "fe-1.4-quiz-proxy-choice": {
+      "correctOptionId": "b",
+      "mode": "decision",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Общий перехват добавляет вопросы receiver, идентичности и инвариантов без требования задачи."
+        },
+        {
+          "id": "b",
+          "rationale": "Явный API выражает две известные операции, их проверку и ошибки напрямую."
+        },
+        {
+          "id": "c",
+          "rationale": "Место хранения одного поля само по себе не определяет нужные операции и обработку ошибок."
+        },
+        {
+          "id": "d",
+          "rationale": "Динамическая цепочка не решает проверку аргументов и делает контракт менее предсказуемым."
+        }
+      ]
+    },
+    "fe-1.4-quiz-diagnose-shared-state": {
+      "correctOptionId": "a",
+      "mode": "decision",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Оба объекта находят одну изменяемую ссылку base.state. Собственное состояние изолирует их."
+        },
+        {
+          "id": "b",
+          "rationale": "Перечисляемость не меняет чтение общей вложенной ссылки."
+        },
+        {
+          "id": "c",
+          "rationale": "Вид привязки имени не меняет прототипы и владение объектом state."
+        },
+        {
+          "id": "d",
+          "rationale": "Здесь нет потери this; проблема в общем месте хранения данных."
+        }
+      ]
+    },
+    "fe-1.4-quiz-choose-property-operation": {
+      "correctOptionId": "c",
+      "mode": "decision",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Обычное присваивание встретит accessor без setter и будет отклонено."
+        },
+        {
+          "id": "b",
+          "rationale": "Object.assign использует запись в целевой объект, поэтому не обходит унаследованный getter без setter."
+        },
+        {
+          "id": "c",
+          "rationale": "Прямое определение собственного свойства не следует алгоритму обычного присваивания по прототипам."
+        },
+        {
+          "id": "d",
+          "rationale": "Reflect.set использует семантику записи и сообщит отказ, а не определит требуемое свойство напрямую."
+        }
+      ]
+    },
+    "fe-1.4-quiz-validate-before-write": {
+      "correctOptionId": "a",
+      "mode": "decision",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Сначала проверьте вход, затем меняйте состояние. При отклонении прежнее значение останется."
+        },
+        {
+          "id": "b",
+          "rationale": "Код после throw не выполнится; общее значение 1 также не заменяет сохранённое предыдущее состояние."
+        },
+        {
+          "id": "c",
+          "rationale": "Место хранения не исправляет порядок проверки и изменения."
+        },
+        {
+          "id": "d",
+          "rationale": "freeze не запрещает выполнять код существующего setter."
+        }
+      ]
+    },
+    "fe-1.4-quiz-proxy-validation-rule": {
+      "correctOptionId": "b",
+      "mode": "decision",
+      "alternatives": [
+        {
+          "id": "a",
+          "rationale": "Это пропускает дроби, NaN и некоторые значения другого типа."
+        },
+        {
+          "id": "b",
+          "rationale": "Условие отклоняет нецелые значения любого типа и отрицательные целые; 0 остаётся допустимым."
+        },
+        {
+          "id": "c",
+          "rationale": "Нужно отклонить любой неверный признак, а не требовать одновременно другой тип и отрицательность."
+        },
+        {
+          "id": "d",
+          "rationale": "Так допустимый 0 будет отклонён, а многие неподходящие значения останутся допустимыми."
+        }
+      ]
+    }
+  },
+  "supplemental": [
+    {
+      "cardId": "fe-1.4-quiz-set-forgot-return",
+      "code": "const t = {};\nconst p = new Proxy(t, { set(t,k,v) { t[k] = v; } });\ntry { p.x = 7; } catch (e) { console.log(e.name); }\nconsole.log(t.x);",
+      "logs": [
+        [
+          "TypeError"
+        ],
+        [
+          7
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.4-flip-proxy-identity",
+      "code": "const target = {}; const proxy = new Proxy(target, {}); const map = new Map([[target, 1]]); console.log(proxy === target, map.get(proxy));",
+      "logs": [
+        [
+          false,
+          {
+            "$type": "undefined"
+          }
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.4-info-construction-topology",
+      "code": "function C() {} C.prototype = 1; const c = new C(); console.log(Object.getPrototypeOf(c) === Object.prototype);",
+      "logs": [
+        [
+          true
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.4-info-prototype-changes",
+      "code": "const p = {}; const a = {__proto__:p}; const b = {[\"__proto__\"]:p}; console.log(Object.getPrototypeOf(a) === p, Object.hasOwn(a, \"__proto__\"), Object.hasOwn(b, \"__proto__\")); Object.preventExtensions(a); console.log(Object.setPrototypeOf(a,p) === a); try { Object.setPrototypeOf(a,{}); } catch(e) { console.log(e.name); }",
+      "logs": [
+        [
+          true,
+          false,
+          true
+        ],
+        [
+          true
+        ],
+        [
+          "TypeError"
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.4-info-prototype-changes",
+      "code": "const a = {}, b = Object.create(a); Object.setPrototypeOf(a,b);",
+      "logs": [],
+      "error": "TypeError"
+    },
+    {
+      "cardId": "fe-1.4-info-descriptor-redefinition",
+      "code": "const o = {}; Object.defineProperty(o,\"x\",{value:1,writable:true}); Object.defineProperty(o,\"x\",{value:9}); console.log(o.x); Object.defineProperty(o,\"x\",{writable:false}); console.log(Reflect.defineProperty(o,\"x\",{writable:true}));",
+      "logs": [
+        [
+          9
+        ],
+        [
+          false
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.4-info-descriptor-redefinition",
+      "code": "const o = {}; Object.defineProperty(o,\"fixed\",{value:1}); try { Object.defineProperties(o,{first:{value:2},fixed:{value:3}}); } catch(e) { console.log(e.name); } console.log(o.first);",
+      "logs": [
+        [
+          "TypeError"
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.4-info-accessor-receiver",
+      "code": "const base = {set x(n){this.saved=n;}}; const r = {}; console.log(Reflect.set(base,\"x\",3,r), r.saved, Object.hasOwn(base,\"saved\"));",
+      "logs": [
+        [
+          true,
+          3,
+          false
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.4-info-integrity-levels",
+      "code": "const o = Object.freeze({x:1}); o.x = 2; console.log(o.x);",
+      "logs": [
+        [
+          1
+        ]
+      ],
+      "sloppy": true
+    },
+    {
+      "cardId": "fe-1.4-info-integrity-levels",
+      "code": "const o = Object.freeze({x:1}); o.x = 2;",
+      "logs": [],
+      "error": "TypeError"
+    },
+    {
+      "cardId": "fe-1.4-info-frozen-private-state",
+      "code": "const m = Object.freeze(new Map()); m.set(\"x\",1); console.log(m.get(\"x\"), Object.isFrozen(m));",
+      "logs": [
+        [
+          1,
+          true
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.4-info-proxy-receiver",
+      "code": "class C { #x = 1; read(){return this.#x;} } const p = new Proxy(new C(),{}); p.read();",
+      "logs": [],
+      "error": "TypeError"
+    },
+    {
+      "cardId": "fe-1.4-info-proxy-invariants",
+      "code": "const target = {}; Object.defineProperty(target,\"x\",{value:1}); Reflect.ownKeys(new Proxy(target,{ownKeys(){return [];}}));",
+      "logs": [],
+      "error": "TypeError"
+    },
+    {
+      "cardId": "fe-1.4-info-proxy-revocation",
+      "code": "const {proxy,revoke} = Proxy.revocable({x:1},{}); revoke(); console.log(typeof proxy, proxy === proxy); proxy.x;",
+      "logs": [
+        [
+          "object",
+          true
+        ]
+      ],
+      "error": "TypeError"
+    },
+    {
+      "cardId": "fe-1.4-info-class-contract",
+      "code": "const C = class Internal { static self(){return Internal;} }; console.log(C.self() === C, typeof Internal);",
+      "logs": [
+        [
+          true,
+          "undefined"
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.4-info-enumeration-getters",
+      "code": "let n=0; const o={get x(){n++;return 1;}}; Object.getOwnPropertyDescriptors(o); console.log(n); Object.entries(o); console.log(n);",
+      "logs": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.4-quiz-choose-property-operation",
+      "code": "const p={get x(){return 1;}}; const c=Object.create(p); console.log(Reflect.set(c,\"x\",2)); try {Object.assign(c,{x:2});}catch(e){console.log(e.name);} Object.defineProperty(c,\"x\",{value:2}); console.log(c.x,Object.hasOwn(c,\"x\"));",
+      "logs": [
+        [
+          false
+        ],
+        [
+          "TypeError"
+        ],
+        [
+          2,
+          true
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.4-info-private-brand",
+      "code": "class C { read(){return this.#missing;} }",
+      "logs": [],
+      "error": "SyntaxError"
+    },
+    {
+      "cardId": "fe-1.4-info-proxy-operations",
+      "code": "const t={}; const p=new Proxy(t,{set(t,k,v,r){return Reflect.set(t,k,v,r);}}); p.x=3; console.log(t.x); const fn=new Proxy(()=>1,{}); new fn();",
+      "logs": [
+        [
+          3
+        ]
+      ],
+      "error": "TypeError"
+    },
+    {
+      "cardId": "fe-1.4-quiz-validate-before-write",
+      "code": "let saved=1; const obj={set x(n){if(n<0)throw RangeError();saved=n;}}; try{obj.x=-1;}catch{} console.log(saved); obj.x=2;console.log(saved);",
+      "logs": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.4-quiz-proxy-validation-rule",
+      "code": "const valid=n=>!(!Number.isInteger(n)||n<0); console.log([-1,1.5,NaN,\"2\",0,2].map(valid));",
+      "logs": [
+        [
+          [
+            false,
+            false,
+            false,
+            false,
+            true,
+            true
+          ]
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.4-quiz-proxy-validation-rule",
+      "code": "const t={count:1}; const p=new Proxy(t,{set(t,k,n,r){if(k===\"count\"&&(!Number.isInteger(n)||n<0))throw RangeError();return Reflect.set(t,k,n,r);}}); try{p.count=-1;}catch(e){console.log(e.name);} console.log(t.count); p.count=0;console.log(t.count);",
+      "logs": [
+        [
+          "RangeError"
+        ],
+        [
+          1
+        ],
+        [
+          0
+        ]
+      ]
+    }
+  ]
+}

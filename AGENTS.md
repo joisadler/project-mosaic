@@ -16,6 +16,7 @@ Mobile-first educational microlearning feed. The completed MVP focuses on fronte
 - Run `nvm use` before npm commands; `.nvmrc` pins the project Node.js version.
 - Run `npm run lint`, `npm run typecheck`, and `npm run build` after relevant changes.
 - Keep dependencies compatible and reproducible through `package-lock.json`.
+- For browser verification on macOS, always start a temporary `caffeinate -d -t 1800` process to keep the display awake. Renew it if verification lasts longer, track the process started for this task, and stop it when browser work ends. The owner has authorized this as the default; do not ask again or change persistent sleep settings.
 
 ## Scope and principles
 

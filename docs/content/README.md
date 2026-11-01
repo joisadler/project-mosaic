@@ -45,6 +45,7 @@ Cards may include `visual?: { motif?: VisualMotif }` in `BaseCardData`. Select a
 | `fe-1.1` | Blue/cyan | `scope`: cropped braces and nested contours | `lifecycle`: connected stages for declaration preparation, initialization, TDZ and execution order |
 | `fe-1.2` | Plum/lilac | `values`: distinct circle, rounded square and diamond | `equality`: paired circular contours for equality/identity semantics; `conversion`: directed paths between shapes for explicit/implicit conversion and operator coercion |
 | `fe-1.3` | Amber/copper | `capture`: function nodes linked to an enclosed binding | `invocation`: call paths converging on a receiver; `composition`: linked operation blocks for HOF/adapters, currying and transformation boundaries |
+| `fe-1.4` | Jade/sage | `prototype`: linked separate object contours for delegation | `descriptor`: divided property-attribute panel; `interception`: separate wrapper/target contours with a routed operation |
 
 ```ts
 visual: { motif: "conversion" },
@@ -79,6 +80,8 @@ console.log(undefined); // undefined
 Apply this convention consistently to expected-result comments, quiz choices (including hypothetical string distractors), and explicit result values in explanations. Do not quote actual numbers, booleans, `null`, `undefined`, BigInt values, or exception names. Type names discussed as categories in prose are not string result literals. If `join()` produces `"3,3,3"`, quote the whole string; if three separate logs produce strings, write `"A", "B", "C"`. Preserve each value's type in mixed outputs such as `7 / "seven"`. Console implementations may display strings without quotes; examples deliberately retain them so learners can distinguish `"12"` from `12` and `"undefined"` from `undefined`.
 
 Check the expression and its actual type before editing; do not infer a string from digits, a method name, or nearby examples alone. Keep card IDs, option IDs and correct-answer identity stable when correcting notation.
+
+The shared semantic runner accepts a package ID: `node scripts/check-content-semantics.mjs fe-1.4`. Package wrappers preserve existing commands; hash-bound expectations and quiz review rationale live in `scripts/fe-<section>.<subsection>-semantic-expectations.json`. Reuse the runner when its execution model fits rather than copying a separate engine. Supplementary scenarios can verify repairs and state after an expected failure; report these separately from authored fenced examples.
 
 ## Shared mobile content contract
 

@@ -97,6 +97,8 @@ For asynchronous examples, verify actual order and completion. Do not replace ti
 
 Keep a reproducible semantic check and brief run instructions. Inspect and reuse existing tools first; otherwise add a simple script consistent with the project. Do not introduce dependencies, a complex framework or a separate verification infrastructure per package without discussion.
 
+For compatible JavaScript packages, reuse `scripts/check-content-semantics.mjs` with a package ID and package-specific expectations; see the [shared semantic-check convention](README.md#result-notation-in-examples-and-quiz-options). Preserve existing wrapper commands when extracting or extending a shared runner.
+
 Keep necessary verification code and concise documentation in Git. Store screenshots, raw measurements, logs, temporary pages and diagnostic output outside the working tree, for example in an OS temporary directory. Do not add `verification`, `artifacts` or similar output directories without separate approval. For durable evidence use available Linear attachments or another agreed location; do not add dependencies for uploads or imply temporary files are permanent/cross-device links.
 
 Report evidence separately as execution-backed, primary-source-backed, manually checked or unverified.
@@ -150,6 +152,10 @@ Audit every new card at both `320 × 568` and `375 × 667` CSS pixels:
 
 Combine visual inspection with `scrollWidth/clientWidth` and `scrollHeight/clientHeight` measurements. Check text/code/options/feedback are not clipped, no horizontal overflow (including code), no nested vertical scrolling, applicable typography floors and touch targets, the QuizCard bottom safe gap, action/header/indicator conflicts, long identifiers/Markdown/wrapping, motif readability and meaningful contrast. Follow current [mobile and compact-layout requirements](README.md#shared-mobile-content-contract), including landscape, text enlargement and reflow. One convenient screenshot is insufficient.
 
+Confirm that evidence writes/uploads actually succeed and that the saved report contains the expected states before relying on it.
+
+Record the observed active page/side and selected option as well as the requested state. An attempted navigation or a fixture parameter does not establish that the intended state actually rendered. Report exact dimension mismatches, including one-pixel discrepancies; distinguish intrinsic/fractional geometry from clipped or scrollable learning content without silently treating a tolerance as a strict pass.
+
 Fix authored overflow by shortening, reformatting or splitting content. Never conceal learning text with clipping/line-clamp, lower fonts below applicable requirements or alter global typography to accommodate a long example.
 
 For a visual deviation, first determine whether new content introduced it or existing cards already exhibit it. Fix new-content problems in the content first. Do not automatically declare existing behavior a blocker. Before proposing shared repairs, show the exact card/state, viewport and screenshot, explain practical impact and the minimum change, and obtain separate approval for shared typography/components/control placement.
@@ -157,6 +163,8 @@ For a visual deviation, first determine whether new content introduced it or exi
 Respect documented owner-accepted compromises. Minor text overlap by a transparent action icon was accepted on October 26, 2026 and does not alone justify rearranging the layout. Do not generalize that acceptance to other problems. Record actual requirement failures honestly: an accepted exception is not a clean pass.
 
 Use ordinary owner Chrome through the available connection. Do not create alternate profiles, modify profile settings or close owner tabs. Isolate synthetic progress/preferences from owner origins/accounts. Remove temporary pages/probes/backend or auth fixtures before completion; they must not survive in the final diff or review environment.
+
+On macOS, always start a temporary `caffeinate -d -t 1800` process before browser verification, as authorized in `AGENTS.md`. Renew it when needed and stop only the process started for this task after browser work. Keep persistent sleep settings unchanged. Preventing sleep cannot unlock an already locked session; verify that the browser surface is available before continuing.
 
 Before starting servers, inspect existing processes/ports, the owner's active server and the ngrok upstream/address if present. Prefer the existing environment. Keep the normal dev server and established ngrok access working. Isolated testing must not replace the owner's app with a fixture, restricted inventory or mock backend. Explain any separate technical hostname/port and its purpose.
 

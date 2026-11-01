@@ -52,6 +52,22 @@ const artwork = {
     <rect x="300" y="45" width="80" height="80" rx="18" />
     <path d="M100 305h45q55 0 55-55v-15m-14 14 14-14 14 14M240 195h45q55 0 55-55v-15m-14 14 14-14 14 14" />
   </>,
+  prototype: <>
+    <rect x="185" y="65" width="165" height="82" rx="17" />
+    <rect x="120" y="205" width="165" height="82" rx="17" />
+    <rect x="40" y="340" width="165" height="82" rx="17" />
+    <path d="M205 205v-27q0-25 25-25h37v-6m-10 10 10-10 10 10M120 340v-27q0-25 25-25h56m-10-10 10 10-10 10" />
+  </>,
+  descriptor: <>
+    <rect x="150" y="125" width="225" height="240" rx="22" />
+    <path d="M150 185h225M225 185v180M300 185v180M150 245h225M150 305h225" />
+    <rect x="185" y="145" width="90" height="18" rx="8" />
+  </>,
+  interception: <>
+    <rect x="155" y="90" width="220" height="285" rx="28" />
+    <rect x="210" y="145" width="110" height="175" rx="19" />
+    <path d="M30 230h80q25 0 25-25v-40q0-25 25-25h80m-12-12 12 12-12 12M265 320v55m-12-12 12 12 12-12" />
+  </>,
   neutral: <circle cx="290" cy="290" r="150" />,
 };
 

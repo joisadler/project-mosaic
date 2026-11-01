@@ -28,6 +28,13 @@
     --card-base: #2b2117;
     --card-floor: #17120d;
   }
+
+  &[data-section="fe-1.4"] {
+    --card-accent: #a8d5ba;
+    --card-glow: rgba(73, 126, 93, 0.16);
+    --card-base: #152b23;
+    --card-floor: #0b1712;
+  }
 }
 
 .decoration {
@@ -98,6 +105,17 @@
     width: clamp(24rem, 60vw, 38rem);
     opacity: 0.18;
   }
+
+  &[data-motif="prototype"],
+  &[data-motif="descriptor"],
+  &[data-motif="interception"] {
+    right: 0;
+    bottom: 0;
+    width: clamp(22rem, 54vw, 34rem);
+    max-width: 100%;
+    max-height: 100%;
+    opacity: 0.17;
+  }
 }
 
 @media (max-width: 23rem), (max-height: 32rem) {
@@ -107,7 +125,10 @@
     &[data-motif="lifecycle"],
     &[data-motif="conversion"],
     &[data-motif="invocation"],
-    &[data-motif="composition"] {
+    &[data-motif="composition"],
+    &[data-motif="prototype"],
+    &[data-motif="descriptor"],
+    &[data-motif="interception"] {
       opacity: 0.09;
     }
   }
