@@ -27,6 +27,16 @@ Use the Node.js version in `.nvmrc`. Run `nvm use` before npm commands; explicit
 
 When resuming after an interruption, reconstruct completed, approved, verified and committed work from Git, Linear and available evidence. Identify changes since the last successful checks. Do not restart implementation or repeat unchanged stages just because the conversation resumed. Repeat affected or stale checks; repeat the full rendered audit when shared rendering changes could affect the whole package. Associate results with a commit or an identifiable working-tree state so their applicability is clear.
 
+### Efficient execution and handoff
+
+Use scripts for deterministic enumeration, measurement and capture instead of asking the model to perform one browser action per state. Reuse the existing semantic runner and any suitable browser audit runner. When browser automation needs extending, keep one reusable runner parameterized by section/card IDs, viewports and output directory; do not rebuild a package-specific audit system each cycle. Keep necessary reusable verification code in Git and raw evidence outside the worktree.
+
+Return bounded results to the model: counts, failed assertions, affected card/state IDs and evidence paths. Keep full queues, raw API objects, server logs and measurements in temporary files. Project only needed fields from tool responses, including Linear. Inspect tool schemas selectively. Supply screenshots in manageable contact-sheet batches; enlarge individual captures only when needed to resolve a finding. File size or a truncated tool result is not proof that the entire output reached the model.
+
+At the authoring-to-verification boundary or before an interruption, save a short handoff outside Git: target scope and approvals; base commit and changed files; remaining work; test commands, results and evidence paths; applicable content/rendering fingerprints; server/port and task-owned process details. Exclude credentials and owner session data. A verification phase can continue from this handoff in a fresh conversation rather than replaying the authoring history. Recheck live Git state and evidence availability before reuse. A fresh conversation does not reset the usage allowance.
+
+Keep the existing approval gates. This handoff is a compact continuation record, not another tracker or a reason to repeat completed work.
+
 ## 2. Synchronize Linear and keep authorization boundaries
 
 Find the existing issue for `TARGET_SECTION`; read its description, acceptance criteria, parent and material comments. Do not create a duplicate. Move it to the appropriate working status when implementation begins. Record the approved scope and significant decisions.
@@ -144,17 +154,32 @@ Preserve the current lifecycle: a true reload/new runtime produces a fresh balan
 
 ## 8. Audit every rendered state and preserve owner access
 
-Audit every new card at both `320 × 568` and `375 × 667` CSS pixels:
+For initial integration, audit every new card at both `320 × 568` and `375 × 667` CSS pixels. Existing packages need only relevant regression samples and mixed-feed verification, not another full inventory audit:
 
 - Every authored InfoCard page.
 - Each QuizCard unanswered and after selecting each of its four options.
 - Both FlipCard sides.
 
+### Reuse evidence and rerun only affected states
+
+Preserve a coverage manifest associating each checked card/state and viewport with the card-content fingerprint, relevant rendering/style/fixture fingerprint, observed state, result and evidence path. A commit or working-tree reference alone is insufficient to decide which evidence a later change invalidates. Hash only relevant dependencies; including the whole changing content registry in every rendering fingerprint would unnecessarily invalidate all cards.
+
+- If only individual cards' text, code, options or answers change, rerun their affected semantic assertions and rendered states at the applicable viewports. For a Quiz option/explanation change, include unanswered and all selected-option states of that card; for a page/side-local edit, include that page/side and any affected navigation or pagination states. Do not repeat other cards or packages merely because the package file or commit changed.
+- A section palette/motif change invalidates the affected section's visual evidence. Shared typography, Markdown, card components, layout or rendering-fixture changes expand the audit to the states those changes can affect, including relevant existing packages. If the impact cannot be bounded reliably, broaden the check and explain why.
+- Registry/selection/ordering changes require appropriate integration and mixed-feed checks; they do not by themselves invalidate unchanged card-layout evidence. Continue running required structural, lint, type and build checks for the final tree.
+- Missing, unreliable or incompatible evidence requires checking the uncovered states. Otherwise combine valid earlier results with targeted reruns; the final report should state initial coverage, rerun scope and the reason for any broader audit. Do not present reused evidence as a fresh execution.
+
+### Batch capture and inspect actual components
+
+Prefer a reusable gallery/contact-sheet view that renders several real card components and states on one page. Give every tile the exact target viewport, the production layout/styles and an unambiguous card/state label outside the measured area. Batch state enumeration, assertions and capture in the runner; wait for fonts, rendering and transitions to settle, and verify the observed page/side/selected option before capture. Inspect every required state, using readable contact sheets and full-size captures for dense or suspicious tiles. Batch presentation does not reduce the required coverage.
+
+A gallery must not replace ordinary-feed integration and interaction checks. If its surrounding layout, transforms or scaling differ from production, confirm affected geometry in the actual feed before drawing conclusions. Scope temporary fixture routes to isolated verification and remove them before final build/review; reuse the runner rather than retaining test UI in the product.
+
 Combine visual inspection with `scrollWidth/clientWidth` and `scrollHeight/clientHeight` measurements. Check text/code/options/feedback are not clipped, no horizontal overflow (including code), no nested vertical scrolling, applicable typography floors and touch targets, the QuizCard bottom safe gap, action/header/indicator conflicts, long identifiers/Markdown/wrapping, motif readability and meaningful contrast. Follow current [mobile and compact-layout requirements](README.md#shared-mobile-content-contract), including landscape, text enlargement and reflow. One convenient screenshot is insufficient.
 
 Confirm that evidence writes/uploads actually succeed and that the saved report contains the expected states before relying on it.
 
-Record the observed active page/side and selected option as well as the requested state. An attempted navigation or a fixture parameter does not establish that the intended state actually rendered. Report exact dimension mismatches, including one-pixel discrepancies; distinguish intrinsic/fractional geometry from clipped or scrollable learning content without silently treating a tolerance as a strict pass. If accessibility snapshots advance while screenshots remain stale, do not count the unseen states as visually reviewed. Restore reliable capture or use an owner-authorized alternative, then inspect the missing states.
+Record the observed active page/side and selected option as well as the requested state. An attempted navigation or a fixture parameter does not establish that the intended state actually rendered. Report exact dimension mismatches, including one-pixel discrepancies; distinguish intrinsic/fractional geometry from clipped or scrollable learning content without silently treating a tolerance as a strict pass. If accessibility snapshots advance while screenshots remain stale, do not count the unseen states as visually reviewed. Restore reliable capture or switch to another available, permitted tool, then inspect only the missing or invalidated states.
 
 Fix authored overflow by shortening, reformatting or splitting content. Never conceal learning text with clipping/line-clamp, lower fonts below applicable requirements or alter global typography to accommodate a long example.
 
@@ -162,7 +187,13 @@ For a visual deviation, first determine whether new content introduced it or exi
 
 Respect documented owner-accepted compromises. Minor text overlap by a transparent action icon was accepted on October 26, 2026 and does not alone justify rearranging the layout. Do not generalize that acceptance to other problems. Record actual requirement failures honestly: an accepted exception is not a clean pass.
 
-Use ordinary owner Chrome through the available connection. Do not create alternate profiles, modify profile settings or close owner tabs. Isolate synthetic progress/preferences from owner origins/accounts. Remove temporary pages/probes/backend or auth fixtures before completion; they must not survive in the final diff or review environment.
+### Browser choice and owner visibility
+
+The owner authorizes choosing the fastest reliable available browser tool, including Playwright from the start; automated checks do not have to use owner Chrome. Prefer headed mode with a visible browser window so the owner can observe progress. Use headless mode only when a visible surface is unavailable or unsuitable, and state this limitation. An isolated Playwright browser context for synthetic checks is allowed; do not change the owner's persistent browser profile/settings or close owner tabs. Tool permissions still apply; tool choice does not authorize public exposure, uploads or owner-data changes.
+
+Preflight browser availability, reliable capture and state observation before a long audit. After at most two recovery attempts for the same stale capture/control failure, switch to a reliable permitted alternative. If none is available, report the concrete blocker rather than continuing a blind retry loop. Keep valid earlier evidence and resume missing states.
+
+Isolate synthetic progress/preferences from owner origins/accounts. Remove temporary pages/probes/backend or auth fixtures before completion; they must not survive in the final diff or review environment.
 
 On macOS, always start a temporary `caffeinate -d -t 1800` process before browser verification, as authorized in `AGENTS.md`. Renew it when needed and stop only the process started for this task after browser work. Keep persistent sleep settings unchanged. Preventing sleep cannot unlock an already locked session; verify that the browser surface is available before continuing.
 
@@ -186,7 +217,7 @@ npm run typecheck
 npm run build
 ```
 
-Also run semantic checks, the complete new-package visual audit, mixed-feed checks, applicable existing tests for changed application code, `git diff --check`, and registry/COVERAGE/README/count consistency checks. Repeat affected checks after fixes; retain valid results for unchanged stages. Final evidence must apply to the final tree.
+Also run semantic checks, mixed-feed checks, applicable existing tests for changed application code, `git diff --check`, and registry/COVERAGE/README/count consistency checks. Establish complete new-package visual coverage through the initial audit plus targeted reruns under section 8; do not restart the full audit as a final-check ritual. Repeat affected checks after fixes and retain valid results for unchanged stages. Final evidence must apply to the final tree.
 
 If the standard build is environment-blocked, report the exact reason and alternative validation. Do not change project configuration merely to bypass an environment limitation.
 
