@@ -154,7 +154,7 @@ Combine visual inspection with `scrollWidth/clientWidth` and `scrollHeight/clien
 
 Confirm that evidence writes/uploads actually succeed and that the saved report contains the expected states before relying on it.
 
-Record the observed active page/side and selected option as well as the requested state. An attempted navigation or a fixture parameter does not establish that the intended state actually rendered. Report exact dimension mismatches, including one-pixel discrepancies; distinguish intrinsic/fractional geometry from clipped or scrollable learning content without silently treating a tolerance as a strict pass.
+Record the observed active page/side and selected option as well as the requested state. An attempted navigation or a fixture parameter does not establish that the intended state actually rendered. Report exact dimension mismatches, including one-pixel discrepancies; distinguish intrinsic/fractional geometry from clipped or scrollable learning content without silently treating a tolerance as a strict pass. If accessibility snapshots advance while screenshots remain stale, do not count the unseen states as visually reviewed. Restore reliable capture or use an owner-authorized alternative, then inspect the missing states.
 
 Fix authored overflow by shortening, reformatting or splitting content. Never conceal learning text with clipping/line-clamp, lower fonts below applicable requirements or alter global typography to accommodate a long example.
 
@@ -167,6 +167,8 @@ Use ordinary owner Chrome through the available connection. Do not create altern
 On macOS, always start a temporary `caffeinate -d -t 1800` process before browser verification, as authorized in `AGENTS.md`. Renew it when needed and stop only the process started for this task after browser work. Keep persistent sleep settings unchanged. Preventing sleep cannot unlock an already locked session; verify that the browser surface is available before continuing.
 
 Before starting servers, inspect existing processes/ports, the owner's active server and the ngrok upstream/address if present. Prefer the existing environment. Keep the normal dev server and established ngrok access working. Isolated testing must not replace the owner's app with a fixture, restricted inventory or mock backend. Explain any separate technical hostname/port and its purpose.
+
+For long audits, route task-started server logs to a temporary file and inspect bounded excerpts. Unconsumed tool output, including repeated browser-extension hydration warnings, can stall the server; do not change the owner's browser extensions or persistent logging settings to suppress it.
 
 For owner acceptance provide the ordinary working ngrok app URL, with full registered content subject to real selection/progress, no diagnostic UI or test restrictions. Verify the address serves the current implementation. Leave the review tab open. Save representative screenshots and measurements outside Git; attach accessible evidence to the report/Linear when supported.
 

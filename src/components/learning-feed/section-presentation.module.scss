@@ -29,6 +29,13 @@
     --card-floor: #17120d;
   }
 
+  &[data-section="fe-1.5"] {
+    --card-accent: #efad9f;
+    --card-glow: rgba(117, 73, 62, 0.16);
+    --card-base: #302025;
+    --card-floor: #170f13;
+  }
+
   &[data-section="fe-1.4"] {
     --card-accent: #a8d5ba;
     --card-glow: rgba(73, 126, 93, 0.16);
@@ -106,6 +113,9 @@
     opacity: 0.18;
   }
 
+  &[data-motif="slots"],
+  &[data-motif="transformation"],
+  &[data-motif="sharing"],
   &[data-motif="prototype"],
   &[data-motif="descriptor"],
   &[data-motif="interception"] {
@@ -126,6 +136,9 @@
     &[data-motif="conversion"],
     &[data-motif="invocation"],
     &[data-motif="composition"],
+    &[data-motif="slots"],
+    &[data-motif="transformation"],
+    &[data-motif="sharing"],
     &[data-motif="prototype"],
     &[data-motif="descriptor"],
     &[data-motif="interception"] {

@@ -4,6 +4,7 @@ import os from "node:os";
 import vm from "node:vm";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
+import { spawnSync } from "node:child_process";
 import ts from "typescript";
 
 const packageId = process.argv[2] ?? path.basename(process.argv[1]).match(/^check-(fe-\d+\.\d+)-semantics\.mjs$/)?.[1];
@@ -51,6 +52,28 @@ function format(value) {
 }
 
 function execute(code, expected) {
+  // Native host APIs must run in a real Node realm, not a VM with injected globals.
+  if (expected.environment === "node-process") {
+    const source = `
+      const vm = require("node:vm");
+      const encode = ${encode.toString()};
+      const logs = [];
+      console.log = (...args) => logs.push(args.map(encode));
+      let error;
+      try { vm.runInThisContext(${JSON.stringify(`${expected.sloppy ? "" : '"use strict";\n'}${code}`)}, { timeout: 1000 }); }
+      catch (caught) { error = caught.name; }
+      process.stdout.write(JSON.stringify({ logs, error }));
+    `;
+    const child = spawnSync(process.execPath, ["--input-type=commonjs", "-e", source], {
+      encoding: "utf8", timeout: 3000, maxBuffer: 1024 * 1024,
+    });
+    assert.ifError(child.error);
+    assert.equal(child.status, 0, child.stderr);
+    const result = JSON.parse(child.stdout);
+    assert.equal(result.error, expected.error, `Exception mismatch for:\n${code}`);
+    assert.deepEqual(result.logs, expected.logs, `Value/type mismatch for:\n${code}`);
+    return result;
+  }
   const logs = [];
   let error;
   const context = vm.createContext({ console: { log: (...args) => logs.push(args.map(encode)) } });

@@ -1,0 +1,2636 @@
+{
+  "examples": {
+    "1324098c860d0af8b3353f64801c3d1a9761115b09c473fd5c72b2eaeb34cb60": {
+      "environment": "node",
+      "logs": [
+        [
+          false
+        ],
+        [
+          true
+        ]
+      ]
+    },
+    "52a9ce1abd514bd250bd94449127259ca92fd735b5a19c43641ef55b76c6c7b7": {
+      "environment": "node",
+      "logs": [
+        [
+          [
+            3,
+            {
+              "$type": "undefined"
+            },
+            1
+          ]
+        ]
+      ]
+    },
+    "7a086b35ecfa1354a36677bbb389bec688a3fa66b604f24a99f777c2f24ffa4f": {
+      "environment": "node",
+      "logs": [
+        [
+          true
+        ],
+        [
+          false
+        ],
+        [
+          false
+        ]
+      ]
+    },
+    "363736659b042316fc8a0bd1215d9a4bc781ac7f55ce9ec847dc5b4704919768": {
+      "environment": "node",
+      "logs": [
+        [
+          false
+        ],
+        [
+          1,
+          false
+        ]
+      ]
+    },
+    "e16c35167a7b463ee35979cee0692d0eea1d31a1f12f564961f7cd064cb0196c": {
+      "environment": "node",
+      "logs": [
+        [
+          0
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "fcc2811112d04950f6b3df66317c70d63542a71f9a1662d11f0f6e1bb02ce46c": {
+      "environment": "node",
+      "logs": [
+        [
+          false
+        ],
+        [
+          3,
+          false
+        ]
+      ]
+    },
+    "a9bdbb6f07739eb272962cd0eed6e5ccb987b85763ff09bc4ea08462b9449663": {
+      "environment": "node",
+      "logs": [
+        [
+          true
+        ],
+        [
+          false
+        ],
+        [
+          true
+        ]
+      ]
+    },
+    "8c6bb5a0b107ca488b5c8a1f3996d30677ae6353357f13526188715ff1bc3dd8": {
+      "environment": "node",
+      "logs": [
+        [
+          3,
+          2
+        ],
+        [
+          [
+            "b"
+          ]
+        ]
+      ]
+    },
+    "4fdf76970caad77a85318c547c8b2112f515c471b5cb1a4cb1a7005070da75ec": {
+      "environment": "node",
+      "logs": [
+        [
+          2,
+          3
+        ],
+        [
+          false
+        ],
+        [
+          [
+            1,
+            3
+          ]
+        ]
+      ]
+    },
+    "84ba5df3bc7c9ba2e28db801ac6307d7229f4b5e0ae82a76769abc179c05dddd": {
+      "environment": "node",
+      "logs": [
+        [
+          [
+            {
+              "$type": "undefined"
+            },
+            7,
+            {
+              "$type": "undefined"
+            }
+          ]
+        ],
+        [
+          true
+        ],
+        [
+          false
+        ]
+      ]
+    },
+    "261be00d69e5bd4d8130425fe42a15343a49807a523947472a0f51bebcbd832c": {
+      "environment": "node",
+      "logs": [
+        [
+          3
+        ],
+        [
+          true
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    "7a0f90db757da7dfdff5db4c5ac0cd9db31b7e1307b1df26de97672301f3eb4c": {
+      "environment": "node",
+      "logs": [
+        [
+          7
+        ],
+        [
+          true
+        ]
+      ]
+    },
+    "ec82f1546e3b26a53275dc6b75c250b20d27d9440595280fb050b804c3e72cad": {
+      "environment": "node",
+      "logs": [
+        [
+          [
+            "b",
+            "c"
+          ]
+        ],
+        [
+          [
+            "b",
+            "c"
+          ]
+        ],
+        [
+          [
+            "a",
+            "x",
+            "d"
+          ]
+        ]
+      ]
+    },
+    "3d8de293d4cfcaa0984393db3b207e98e6d5eb6eb05ea1c659732b91d3af833f": {
+      "environment": "node",
+      "logs": [
+        [
+          [
+            3,
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            2,
+            3
+          ]
+        ]
+      ]
+    },
+    "acb8d11a7a9f137e4f60635c7905cdf7a6f4d7b5fabaf131a9981ab4ef7df658": {
+      "environment": "node",
+      "logs": [
+        [
+          [
+            1,
+            2,
+            9
+          ]
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ]
+        ]
+      ]
+    },
+    "ff08c53247ba69d1ccf1a66ee02ba3aa9379357b459058cf2f93482e8e95c6c8": {
+      "environment": "node",
+      "logs": [
+        [
+          [
+            {
+              "$type": "undefined"
+            },
+            {
+              "$type": "undefined"
+            }
+          ]
+        ],
+        [
+          [
+            2,
+            4
+          ]
+        ]
+      ]
+    },
+    "38ba6d15380d9df69b10611af4c520aa7043b2c160e0c17a2657bb994f3516eb": {
+      "environment": "node",
+      "logs": [
+        [
+          [
+            10,
+            10,
+            10
+          ]
+        ]
+      ]
+    },
+    "0f5001d60bab3cc6be4ce42038b936040851b6098e3aa57e659080b6cb404503": {
+      "environment": "node",
+      "logs": [
+        [
+          [
+            0,
+            false,
+            ""
+          ]
+        ]
+      ]
+    },
+    "770f1f0b2bbaafd06f0478404f842f58d1f5c1b09261e7f5b45598d9f1ed2e58": {
+      "environment": "node",
+      "logs": [
+        [
+          {
+            "$type": "undefined"
+          }
+        ],
+        [
+          0
+        ],
+        [
+          -1
+        ]
+      ]
+    },
+    "56bd4f5f7567f91599654d3e2af89fa41f9b9d6e7b75b6f2ac77cdd231d186e5": {
+      "environment": "node",
+      "logs": [
+        [
+          false
+        ],
+        [
+          true
+        ],
+        [
+          true
+        ]
+      ]
+    },
+    "a2d8e880cc2d939a287f890f0d27577b997244cc31e028b6f07277cdb3e21859": {
+      "environment": "node",
+      "logs": [
+        [
+          0
+        ],
+        [
+          7,
+          0
+        ]
+      ]
+    },
+    "c75a97083c7d7caf4dbced091316ffc164c043deffba8ecf54f597e985c22dc8": {
+      "environment": "node",
+      "logs": [
+        [
+          {
+            "$type": "undefined"
+          }
+        ]
+      ]
+    },
+    "25c82699b1a99d4603c78b0ef1b74311c2c303e1940f3be6157d72cf0645b555": {
+      "environment": "node",
+      "logs": [
+        [
+          [
+            1,
+            9
+          ]
+        ]
+      ]
+    },
+    "bd0b70c1622c431a2d7ce10223e405922a3df99de33e76ae0e099a5ae7d83f66": {
+      "environment": "node",
+      "logs": [
+        [
+          [
+            1,
+            10,
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            2,
+            10
+          ]
+        ]
+      ]
+    },
+    "c99ce817ee938b5fc788f6ef4e612dc512415153fcf69c81a010b901a03320ee": {
+      "environment": "node",
+      "logs": [
+        [
+          true
+        ],
+        [
+          true
+        ],
+        [
+          0
+        ]
+      ]
+    },
+    "8986b5d6c5bb88c7afc211b934cebd48bbb69829c426c7bc3a24390c7e48f18b": {
+      "environment": "node",
+      "logs": [
+        [
+          "bac"
+        ]
+      ]
+    },
+    "f7f584a905844700868720eea3eb8c24ebd2651940af6b1d81bef1d014069b2c": {
+      "environment": "node",
+      "logs": [
+        [
+          true
+        ],
+        [
+          false
+        ],
+        [
+          true
+        ]
+      ]
+    },
+    "724a68d404f89ee4a1fabb66c34110e1fc65aabc41c09cfc29a3111543eb7a43": {
+      "environment": "node",
+      "logs": [
+        [
+          7,
+          null,
+          0
+        ]
+      ]
+    },
+    "6ad98595119633a01e1821803319c560dbb6cb996b42176abef1e91ebc2de3d4": {
+      "environment": "node",
+      "logs": [
+        [
+          1,
+          2
+        ],
+        [
+          true
+        ]
+      ]
+    },
+    "8c32dd4486a494a48cff0c8a95055849ced8fa4d38092b00ffcf52314b220d2f": {
+      "environment": "node",
+      "logs": [
+        [
+          [
+            "0",
+            "2"
+          ]
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "58d4773d8d100e42a1950db54961575fcc65a2bbf2cdb40687499c03f61f7860": {
+      "environment": "node",
+      "logs": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    "1821db925c3901968952ed95a7b98acb7744e0f9175d3c7f8b9da06c7076369c": {
+      "environment": "node",
+      "logs": [
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "669e302f27799defa58caf958bc046ed23a3fa4e10d19fb6cace44201278e0af": {
+      "environment": "node",
+      "logs": [
+        [
+          false,
+          true
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    "b66d9ee9cb27c4605acf5c6dc2ea19b922b4c0b476f0b7fb145575e1abeddf9b": {
+      "environment": "node",
+      "logs": [
+        [
+          true,
+          true
+        ],
+        [
+          true,
+          1
+        ]
+      ]
+    },
+    "b2b9067326f1669b86ceba816c10790815da137799b1570d5a5e84e4f11d2374": {
+      "environment": "node-process",
+      "logs": [
+        [
+          true,
+          true
+        ],
+        [
+          false
+        ]
+      ]
+    },
+    "cc107823460a686e25c9e7d43e7e6903c881fd41bb7d42e255755d237248e9fd": {
+      "environment": "node-process",
+      "logs": [
+        [
+          "Ada",
+          "undefined"
+        ]
+      ]
+    },
+    "191feb983b76b9a9eb33eeeb43f34a44c5d2730e9454742693d3a6e16c83d105": {
+      "environment": "node-process",
+      "logs": [
+        [
+          0,
+          8
+        ],
+        [
+          42
+        ]
+      ]
+    },
+    "bb38ed9d2dc9b33bd06a496751b758c7ff955aef1cd1fbffd9f668f772f911fb": {
+      "environment": "node",
+      "logs": [
+        [
+          false
+        ],
+        [
+          [
+            null
+          ]
+        ]
+      ]
+    },
+    "0e790936f68c43bc49a983b2765d82333612ac308eb1eeb9c86d64aedecbadcf": {
+      "environment": "node",
+      "logs": [
+        [
+          false
+        ]
+      ]
+    },
+    "fc3d0016ac23ec46cf9cb058bea706b9e01159456505232b8a10d347ccd93afe": {
+      "environment": "node",
+      "logs": [
+        [
+          false
+        ]
+      ]
+    },
+    "f8fefd0e5f1af8524c7e17d189da24c202f1f5adec0c91a65d55642f1b0d7d66": {
+      "environment": "node",
+      "logs": [
+        [
+          5,
+          1
+        ]
+      ]
+    },
+    "b9c30131e31d289745167c4981608cc3f1815749279d2ae17d567b55ac8bd45c": {
+      "environment": "node",
+      "logs": [
+        [
+          0
+        ]
+      ]
+    },
+    "510368ea59d0274446a6a118a82e8d4db0118640794a5982173fdea948cf18f9": {
+      "environment": "node",
+      "logs": [
+        [
+          {
+            "$type": "undefined"
+          },
+          false
+        ]
+      ]
+    },
+    "34970ba46f8f29df8d1f039a6dbe546d70dcfc76edb1889c5a62da1901503e63": {
+      "environment": "node",
+      "logs": [
+        [
+          false
+        ]
+      ]
+    },
+    "186a52bee9adfa9e01bcf5024d2bd0287fd5d7d3bf9754fade087a7f4ef5ac06": {
+      "environment": "node",
+      "logs": [
+        [
+          true,
+          1
+        ]
+      ]
+    },
+    "4ae17e331fe0af867b5543bd747120e416908200ee6752b3e623b35a0f08c900": {
+      "environment": "node",
+      "logs": [
+        [
+          3,
+          false
+        ]
+      ]
+    },
+    "2e820f78f001cd63045f2f24a22584fe15f788199eb56fbc9b13d7cbff9a23c0": {
+      "environment": "node",
+      "logs": [
+        [
+          3,
+          false
+        ]
+      ]
+    },
+    "eea0eeadbc9e32acd200890efe2e88e337df36c37218ef62ea77d27b2994d8ef": {
+      "environment": "node",
+      "logs": [
+        [
+          [
+            1,
+            3
+          ]
+        ]
+      ]
+    },
+    "0a411f52b9512092962b7aff8ae4b501b633c7eb11a987f42477da27947f02dc": {
+      "environment": "node",
+      "logs": [
+        [
+          0
+        ]
+      ]
+    },
+    "b67a92ae249df5721bee74e8efb0d774f68c42df33b7094eea233d84083f060f": {
+      "environment": "node",
+      "logs": [
+        [
+          1,
+          true
+        ]
+      ]
+    },
+    "0ea93943e3fac27f2d8e1118c2c70d89c1320d486c28566a68e38ec3be1acf86": {
+      "environment": "node",
+      "logs": [
+        [
+          {
+            "$type": "undefined"
+          },
+          true
+        ]
+      ]
+    },
+    "fa0a81b2e2b9e52efdf394ef6493f8598bf4ec7007cb18657526f6339d0c06d6": {
+      "environment": "node",
+      "logs": [
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    "b976041a4af0d214329a396a202e6b3b5ef1c559c2098bdf915f783b2b0ea8f0": {
+      "environment": "node",
+      "logs": [
+        [
+          {
+            "$type": "undefined"
+          },
+          0
+        ]
+      ]
+    },
+    "aee59aef4485aa361bc351dabf55c7851a2b92ba7974e1d9eb9f9b34bac74fd9": {
+      "environment": "node",
+      "logs": [
+        [
+          [
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            9,
+            3
+          ]
+        ]
+      ]
+    },
+    "3d125827da583a6cbe1f389a6935f9db820b0a1c64ee7ab90c8084fd24b1e643": {
+      "environment": "node",
+      "logs": [
+        [
+          [
+            1,
+            2
+          ],
+          4
+        ]
+      ]
+    },
+    "575f051508651d99a2632ffd266a7ffe1c2f699d01bd96f6a51db48ec46da66e": {
+      "environment": "node",
+      "logs": [
+        [
+          true,
+          2
+        ]
+      ]
+    },
+    "9b7158ffc5c5dc2a6df20b22e90ef082c1fdf32595238ce0d5230dc69586e963": {
+      "environment": "node",
+      "logs": [
+        [
+          [
+            1,
+            9,
+            3
+          ]
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ]
+        ]
+      ]
+    },
+    "54e4ff34a84cf4d4587bf4aed2058a3dc38c0d5f0e6472a60a226e297bde498b": {
+      "environment": "node",
+      "logs": [
+        [
+          [
+            1,
+            2,
+            8
+          ],
+          3
+        ]
+      ]
+    },
+    "d44d15bd05d2231ff830e353b49982fb30603335d28f622431959681ec63902c": {
+      "environment": "node",
+      "logs": [],
+      "error": "RangeError"
+    },
+    "274ff4fcccc7d565b636e510083b8f7fcf7257f8126a8fe010625a536b233007": {
+      "environment": "node",
+      "logs": [
+        [
+          4
+        ]
+      ]
+    },
+    "a6cfadc4097f0f8def29d21323093d55065e428b2bad1a968cc61c97c095c683": {
+      "environment": "node",
+      "logs": [
+        [
+          3,
+          false
+        ]
+      ]
+    },
+    "1241e263e33b318b80a9e1c5133636ebbe9196598787328e11bfc8d36a12ee50": {
+      "environment": "node",
+      "logs": [
+        [
+          [
+            {
+              "$type": "undefined"
+            },
+            {
+              "$type": "undefined"
+            }
+          ]
+        ]
+      ]
+    },
+    "687479ff20e0a38cd913bf0796186982a21967f2f07ab04c0055ae6a27839be1": {
+      "environment": "node",
+      "logs": [
+        [
+          {
+            "$type": "undefined"
+          }
+        ]
+      ]
+    },
+    "4cf28b1b3abf761100002b2b9cac1c022929f85c82aa702f19ebd541bfc256de": {
+      "environment": "node",
+      "logs": [
+        [
+          [
+            1,
+            2
+          ]
+        ]
+      ]
+    },
+    "220340915622ff4fe751337433e077f335037e97ebd651d5708dd4f23b031f10": {
+      "environment": "node",
+      "logs": [
+        [
+          [
+            0,
+            false
+          ]
+        ]
+      ]
+    },
+    "6f44a9b1ce0ba1d0bc8acf40daec47ba97160d6a94d7279432945ef762126781": {
+      "environment": "node",
+      "logs": [
+        [
+          true
+        ]
+      ]
+    },
+    "6562c1c5467e93ec4c2a8a343ec2034594376bf451fc87e6a7f77271352c97aa": {
+      "environment": "node",
+      "logs": [
+        [
+          false
+        ]
+      ]
+    },
+    "e731ca7ea4d7174190431b9159fae5b528443657d3227752a1ae969762bb94fe": {
+      "environment": "node",
+      "logs": [],
+      "error": "TypeError"
+    },
+    "2c0a9a9e68842fa2af2fca1cf0a1edbfc8c1416aa278e263bab5475dd06ddbcc": {
+      "environment": "node",
+      "logs": [
+        [
+          7,
+          0
+        ]
+      ]
+    },
+    "babc73c9fe8736c49d3c7b54dce807bb57ea941cc5fe60e82aa2450c593a8e52": {
+      "environment": "node",
+      "logs": [
+        [
+          16
+        ]
+      ]
+    },
+    "257b8f6485323daf42d92ff1f3dfb01e1f4a39549687e67e1b98622fc8b896a8": {
+      "environment": "node",
+      "logs": [
+        [
+          2,
+          4
+        ]
+      ]
+    },
+    "a4fdff2e2f76cba4f3968ccfbf27919bcd89ee566f4d80612dba39b0fa99f1e6": {
+      "environment": "node",
+      "logs": [
+        [
+          [
+            1,
+            2
+          ]
+        ]
+      ]
+    },
+    "6405056a2578a83da5c638b87e374f08935c7731a1bca2238e1091575e40cddd": {
+      "environment": "node",
+      "logs": [
+        [
+          [
+            10,
+            2
+          ]
+        ]
+      ]
+    },
+    "d6d8ef645e11ddd7f7b5fe6d43be4ed6878319cc0d62f3a678fe1e5aa4ad3b65": {
+      "environment": "node",
+      "logs": [
+        [
+          [
+            2,
+            7,
+            10
+          ]
+        ]
+      ]
+    },
+    "12b7ba48ad69cc06844803a874f3bd27bff71a48a4950edc79cac2ea7a19c469": {
+      "environment": "node",
+      "logs": [
+        [
+          "bac"
+        ]
+      ]
+    },
+    "72826cb20b13fdabbb0d5f6a578881ceab9a00f6003d4d0a64b79ddc95c509c8": {
+      "environment": "node",
+      "logs": [
+        [
+          [
+            1,
+            2
+          ]
+        ]
+      ]
+    },
+    "9eed71d0cbd4924d6667f61385a0028acb14964a4e3653f29feda47417f5927f": {
+      "environment": "node",
+      "logs": [
+        [
+          true
+        ],
+        [
+          false
+        ]
+      ]
+    },
+    "3eb65ed23603126ead43fb9d30a07461cd413bf4c75c043242d37d1e59e24577": {
+      "environment": "node",
+      "logs": [
+        [
+          [
+            2,
+            {
+              "$type": "undefined"
+            }
+          ],
+          true
+        ]
+      ]
+    },
+    "012baf3472a918353b158e0d93fc5dc6f02713404d6b46b69fa85bca4fbd5e6d": {
+      "environment": "node",
+      "logs": [
+        [
+          7,
+          null
+        ]
+      ]
+    },
+    "3cff29f3d92405cf75dc4ba537bf7c89d3f805815e5ff7614915a2f8c45ddd58": {
+      "environment": "node",
+      "logs": [
+        [
+          2,
+          true
+        ]
+      ]
+    },
+    "ac3f6b3bf5dba41f1cca3f098eb9818802d78e027816f5890c4424e608ba2fd4": {
+      "environment": "node",
+      "logs": [
+        [
+          "0,2"
+        ]
+      ]
+    },
+    "ae92e84778d53c37afcdcaea610a96947503888faa818296eccfc970454b248d": {
+      "environment": "node",
+      "logs": [
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "798bb5b59548d16e89ad93fc937c81786f9742d23a89706d566ef81667109f49": {
+      "environment": "node",
+      "logs": [
+        [
+          1
+        ]
+      ]
+    },
+    "c8e2b98ee89ddcfd3955a598a3d576d044b4b1943b05be579609e0d9e5421e72": {
+      "environment": "node",
+      "logs": [
+        [
+          false,
+          true
+        ]
+      ]
+    },
+    "8c2a7a719ac7fb429295cb91293ba954568afa9eae09af99ab39a5ecb739bf68": {
+      "environment": "node",
+      "logs": [
+        [
+          false,
+          true
+        ]
+      ]
+    },
+    "83e9f27a1c7512ae77fc27e1cf1fccddbc6cb593dd8ff468d619ec574405567d": {
+      "environment": "node-process",
+      "logs": [
+        [
+          true,
+          true
+        ]
+      ]
+    },
+    "8eaf5e2503bedfd512cfe8dbfc0f59b3d2335ba509d15d1b8299af568556ea1b": {
+      "environment": "node-process",
+      "logs": [
+        [
+          true,
+          false
+        ]
+      ]
+    },
+    "09b290b0c1ac250c07c8f01cc7ea43454435565eb87efd749439849fe66cbbe9": {
+      "environment": "node-process",
+      "logs": [
+        [
+          "undefined"
+        ]
+      ]
+    },
+    "f12195c906a875d9ab7888b0d3c169709ec520991e1442ed64bbebaada247807": {
+      "environment": "node-process",
+      "logs": [
+        [
+          0,
+          8
+        ]
+      ]
+    },
+    "65a05f8e8d48b4c97ee036590fe323fbab6b51d4dfc21a235c71412dcc80c570": {
+      "environment": "node",
+      "logs": [
+        [
+          [
+            null,
+            null
+          ]
+        ]
+      ]
+    },
+    "16cde950d65baed37ee99b4777f53927b024e798f4a87940cd4d7d9f503a5921": {
+      "environment": "node",
+      "logs": [],
+      "error": "TypeError"
+    },
+    "fecdeb4c5789f3cf4f03fc22727ba7f13e91f20287da3067394b390d4fa00184": {
+      "environment": "node-process",
+      "logs": [],
+      "error": "DataCloneError"
+    },
+    "eb6e358ab99f885df8f3ca3485398c7ce7b424ddebd486cd4e3ce68a7daead47": {
+      "environment": "node",
+      "logs": [
+        [
+          false
+        ]
+      ]
+    },
+    "0997b6ddc3a9408e078d9e201dd589dce2b0a8dc6d92218e8ffee0b69035971e": {
+      "environment": "node-process",
+      "logs": [
+        [
+          0
+        ]
+      ]
+    },
+    "88315141ddc52a9442be7871bf462f09eb79068cb67e76d91ae55beaa976ae78": {
+      "environment": "browser",
+      "logs": [
+        [
+          true
+        ],
+        [
+          false
+        ]
+      ]
+    },
+    "79601be87db8a00567eb304243eba87f2c76b3f516fa92966c65a94332f0bd4e": {
+      "environment": "browser",
+      "logs": [],
+      "error": "DataCloneError"
+    }
+  },
+  "quizChecks": {
+    "fe-1.5-quiz-copy-reverse-hole": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "toReversed создаёт новый плотный массив. Пустой слот становится явным undefined."
+        },
+        {
+          "optionId": "b",
+          "reason": "Позиция сохраняется: метод читает её как undefined, а не удаляет."
+        },
+        {
+          "optionId": "c",
+          "reason": "Метод меняет порядок в новой копии. Исходный массив остаётся прежним."
+        },
+        {
+          "optionId": "d",
+          "reason": "Метод возвращает новый массив, а не undefined."
+        }
+      ]
+    },
+    "fe-1.5-quiz-typed-array-brand": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Индексированность не делает Uint8Array обычным Array."
+        },
+        {
+          "optionId": "b",
+          "reason": "Uint8Array — типизированный массив, а не объект Array."
+        },
+        {
+          "optionId": "c",
+          "reason": "Это результат typeof, но здесь вызван Array.isArray."
+        },
+        {
+          "optionId": "d",
+          "reason": "Объект допустим для проверки; метод вернёт boolean."
+        }
+      ]
+    },
+    "fe-1.5-quiz-fake-array-brand": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Array.prototype в цепочке недостаточно для Array.isArray."
+        },
+        {
+          "optionId": "b",
+          "reason": "Array.isArray возвращает boolean для этого значения."
+        },
+        {
+          "optionId": "c",
+          "reason": "Прототип не создаёт внутренний вид Array. Проверка даёт false."
+        },
+        {
+          "optionId": "d",
+          "reason": "Создать обычный объект с таким прототипом допустимо."
+        }
+      ]
+    },
+    "fe-1.5-quiz-index-growth": {
+      "correctOptionId": "d",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Промежуточные индексные свойства автоматически не создаются."
+        },
+        {
+          "optionId": "b",
+          "reason": "length задаёт диапазон индексов, а не число свойств."
+        },
+        {
+          "optionId": "c",
+          "reason": "Граница length на единицу больше максимального индекса."
+        },
+        {
+          "optionId": "d",
+          "reason": "Индекс 4 расширяет границу до 5, но создаёт одно собственное свойство."
+        }
+      ]
+    },
+    "fe-1.5-quiz-non-index": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Ключ \"01\" не является каноническим индексом массива."
+        },
+        {
+          "optionId": "b",
+          "reason": "Обычное свойство не увеличивает length."
+        },
+        {
+          "optionId": "c",
+          "reason": "Числовое чтение строки как 1 здесь не применяется."
+        },
+        {
+          "optionId": "d",
+          "reason": "Такое свойство допустимо у массива."
+        }
+      ]
+    },
+    "fe-1.5-quiz-length-truncate": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Элемент за новой границей удалён."
+        },
+        {
+          "optionId": "b",
+          "reason": "Сокращение удаляет собственное свойство 1; в примере его нет и в прототипе."
+        },
+        {
+          "optionId": "c",
+          "reason": "Свойство удалено, а не перезаписано значением undefined."
+        },
+        {
+          "optionId": "d",
+          "reason": "Обычный массив разрешает такое сокращение."
+        }
+      ]
+    },
+    "fe-1.5-quiz-length-refusal": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Запись не смогла выполнить требуемое сокращение."
+        },
+        {
+          "optionId": "b",
+          "reason": "Reflect.set возвращает boolean, а не заданную длину."
+        },
+        {
+          "optionId": "c",
+          "reason": "Неконфигурируемый индекс нельзя удалить. Reflect.set сообщает отказ через false."
+        },
+        {
+          "optionId": "d",
+          "reason": "Reflect.set сообщает этот отказ через false; strict-присваивание вызвало бы TypeError."
+        }
+      ]
+    },
+    "fe-1.5-quiz-explicit-undefined": {
+      "correctOptionId": "d",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "undefined как значение не означает отсутствие свойства."
+        },
+        {
+          "optionId": "b",
+          "reason": "Существующий индекс 0 входит в диапазон длины 1."
+        },
+        {
+          "optionId": "c",
+          "reason": "Object.hasOwn возвращает boolean, а не значение свойства."
+        },
+        {
+          "optionId": "d",
+          "reason": "Свойство существует, даже если его значение undefined."
+        }
+      ]
+    },
+    "fe-1.5-quiz-delete-length": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "delete удаляет свойство, сохраняя границу length."
+        },
+        {
+          "optionId": "b",
+          "reason": "Сдвиг и уменьшение длины выполняет splice, а не delete."
+        },
+        {
+          "optionId": "c",
+          "reason": "Свойство удалено; это не запись undefined."
+        },
+        {
+          "optionId": "d",
+          "reason": "Длина сохраняется, хотя свойство исчезает."
+        }
+      ]
+    },
+    "fe-1.5-quiz-map-hole": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "map не уплотняет результат, как filter."
+        },
+        {
+          "optionId": "b",
+          "reason": "map пропускает callback для пустого слота и сохраняет позицию без свойства."
+        },
+        {
+          "optionId": "c",
+          "reason": "map не материализует пустой слот как undefined."
+        },
+        {
+          "optionId": "d",
+          "reason": "Длина результата остаётся равной исходной длине."
+        }
+      ]
+    },
+    "fe-1.5-quiz-filter-hole": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "filter не добавляет значение для отсутствующего индекса."
+        },
+        {
+          "optionId": "b",
+          "reason": "null автоматически не появляется: это другая операция, чем JSON-сериализация."
+        },
+        {
+          "optionId": "c",
+          "reason": "Метод пропускает пустой слот, а выбранные элементы записываются подряд."
+        },
+        {
+          "optionId": "d",
+          "reason": "filter возвращает новый массив выбранных элементов."
+        }
+      ]
+    },
+    "fe-1.5-quiz-find-hole": {
+      "correctOptionId": "d",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Этот метод не пропускает пустую позицию."
+        },
+        {
+          "optionId": "b",
+          "reason": "Значение на индексе 1 равно 7, а не undefined."
+        },
+        {
+          "optionId": "c",
+          "reason": "findIndex возвращает индекс либо -1, а не значение элемента."
+        },
+        {
+          "optionId": "d",
+          "reason": "findIndex читает пустую позицию как undefined и находит совпадение на индексе 0."
+        }
+      ]
+    },
+    "fe-1.5-quiz-spread-hole": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Итерация читает пустой слот как undefined; spread создаёт свойство с этим значением."
+        },
+        {
+          "optionId": "b",
+          "reason": "Так сохраняет разреженность slice, но не spread."
+        },
+        {
+          "optionId": "c",
+          "reason": "Позиция не пропускается."
+        },
+        {
+          "optionId": "d",
+          "reason": "Разреженный массив остаётся итерируемым."
+        }
+      ]
+    },
+    "fe-1.5-quiz-with-dense": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Метод не переносит пустой слот как отсутствующее свойство."
+        },
+        {
+          "optionId": "b",
+          "reason": "with создаёт плотный результат: сохранённый пустой слот становится явным undefined."
+        },
+        {
+          "optionId": "c",
+          "reason": "JSON здесь не используется; null не появляется."
+        },
+        {
+          "optionId": "d",
+          "reason": "Исходный индекс 0 пуст, а значение 2 находилось на индексе 1."
+        }
+      ]
+    },
+    "fe-1.5-quiz-push-return": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Возвращается длина, а не массив."
+        },
+        {
+          "optionId": "b",
+          "reason": "Успешное добавление увеличило длину входа."
+        },
+        {
+          "optionId": "c",
+          "reason": "push меняет массив и возвращает новую длину."
+        },
+        {
+          "optionId": "d",
+          "reason": "push возвращает число, а не undefined."
+        }
+      ]
+    },
+    "fe-1.5-quiz-pop-empty": {
+      "correctOptionId": "d",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Контракт pop не использует null как признак пустоты."
+        },
+        {
+          "optionId": "b",
+          "reason": "Длина массива не становится отрицательной."
+        },
+        {
+          "optionId": "c",
+          "reason": "Вызов pop у пустого обычного массива допустим."
+        },
+        {
+          "optionId": "d",
+          "reason": "У пустого массива pop возвращает undefined и сохраняет длину 0."
+        }
+      ]
+    },
+    "fe-1.5-quiz-splice-result": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "splice возвращает удалённый элемент в массиве, а во вход вставляет 9."
+        },
+        {
+          "optionId": "b",
+          "reason": "Это не копирующий метод: вход изменён, результат содержит удалённые значения."
+        },
+        {
+          "optionId": "c",
+          "reason": "Возвращаются удалённые значения, а не вставленные."
+        },
+        {
+          "optionId": "d",
+          "reason": "Третий аргумент вставляет 9 на место удалённого элемента."
+        }
+      ]
+    },
+    "fe-1.5-quiz-slice-end": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Правая граница диапазона исключается."
+        },
+        {
+          "optionId": "b",
+          "reason": "end не включён. Исходный массив остаётся длины 4."
+        },
+        {
+          "optionId": "c",
+          "reason": "slice не меняет исходную длину."
+        },
+        {
+          "optionId": "d",
+          "reason": "Копирование начинается с индекса 1."
+        }
+      ]
+    },
+    "fe-1.5-quiz-reverse-identity": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Для копии предназначен toReversed; reverse возвращает исходный массив."
+        },
+        {
+          "optionId": "b",
+          "reason": "reverse возвращает исходный массив и меняет его порядок: первым становится 2."
+        },
+        {
+          "optionId": "c",
+          "reason": "reverse меняет вход и возвращает ту же ссылку."
+        },
+        {
+          "optionId": "d",
+          "reason": "Первым после разворота становится 2."
+        }
+      ]
+    },
+    "fe-1.5-quiz-to-spliced": {
+      "correctOptionId": "d",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Такой контракт у splice, а не toSpliced."
+        },
+        {
+          "optionId": "b",
+          "reason": "Возвращается вся новая последовательность, а не только вставка."
+        },
+        {
+          "optionId": "c",
+          "reason": "После удаления метод также вставляет третий аргумент 9."
+        },
+        {
+          "optionId": "d",
+          "reason": "toSpliced возвращает итоговую копию и сохраняет вход."
+        }
+      ]
+    },
+    "fe-1.5-quiz-with-negative": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "-1 указывает на последний элемент копии. Вход не изменяется."
+        },
+        {
+          "optionId": "b",
+          "reason": "with не записывает новое значение в исходник."
+        },
+        {
+          "optionId": "c",
+          "reason": "Отрицательный индекс отсчитывается с конца."
+        },
+        {
+          "optionId": "d",
+          "reason": "-1 входит в допустимый диапазон для длины 3."
+        }
+      ]
+    },
+    "fe-1.5-quiz-with-outside": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Такое расширение возможно при присваивании индекса, но не через with."
+        },
+        {
+          "optionId": "b",
+          "reason": "Индекс 2 за границей длины 2. with не расширяет массив."
+        },
+        {
+          "optionId": "c",
+          "reason": "Индекс 2 не означает последний элемент."
+        },
+        {
+          "optionId": "d",
+          "reason": "Категория отказа для такого индекса — RangeError."
+        }
+      ]
+    },
+    "fe-1.5-quiz-fill-shared": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "fill не создаёт отдельные копии объекта."
+        },
+        {
+          "optionId": "b",
+          "reason": "В общем объекте существует свойство n."
+        },
+        {
+          "optionId": "c",
+          "reason": "Обе позиции содержат ссылку на один объект, переданный в fill."
+        },
+        {
+          "optionId": "d",
+          "reason": "Запись разрешена и изменяет общий объект."
+        }
+      ]
+    },
+    "fe-1.5-quiz-copy-within-hole": {
+      "correctOptionId": "d",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "copyWithin сохраняет отсутствие свойства, а не записывает undefined."
+        },
+        {
+          "optionId": "b",
+          "reason": "copyWithin не сокращает массив."
+        },
+        {
+          "optionId": "c",
+          "reason": "Перенести пустую позицию через copyWithin допустимо."
+        },
+        {
+          "optionId": "d",
+          "reason": "Копируется отсутствующее свойство: целевой индекс удаляется, длина сохраняется."
+        }
+      ]
+    },
+    "fe-1.5-quiz-map-missing-return": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Блок стрелки требует явного return; оба callback возвращают undefined."
+        },
+        {
+          "optionId": "b",
+          "reason": "Выражение внутри блока вычислено, но не возвращено."
+        },
+        {
+          "optionId": "c",
+          "reason": "Существующие позиции не удаляются из результата map."
+        },
+        {
+          "optionId": "d",
+          "reason": "Сам map возвращает новый массив, даже если значения undefined."
+        }
+      ]
+    },
+    "fe-1.5-quiz-foreach-result": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Для массива результатов нужен map."
+        },
+        {
+          "optionId": "b",
+          "reason": "forEach игнорирует значения callback и сам возвращает undefined."
+        },
+        {
+          "optionId": "c",
+          "reason": "Исходный массив не является результатом forEach."
+        },
+        {
+          "optionId": "d",
+          "reason": "Последнее значение callback не становится результатом метода."
+        }
+      ]
+    },
+    "fe-1.5-quiz-filter-boolean": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Ноль тоже ложное значение и не проходит Boolean."
+        },
+        {
+          "optionId": "b",
+          "reason": "Ложные значения не проходят предикат."
+        },
+        {
+          "optionId": "c",
+          "reason": "Boolean отвергает и 0, и false. filter сохраняет сами выбранные значения."
+        },
+        {
+          "optionId": "d",
+          "reason": "filter не заменяет элементы результатами предиката."
+        }
+      ]
+    },
+    "fe-1.5-quiz-filter-nullish": {
+      "correctOptionId": "d",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Это не фильтрация по truthiness: 0 и false сохраняются."
+        },
+        {
+          "optionId": "b",
+          "reason": "Ноль не равен null при таком сравнении."
+        },
+        {
+          "optionId": "c",
+          "reason": "null не проходит указанное условие."
+        },
+        {
+          "optionId": "d",
+          "reason": "Условие x != null исключает только null и undefined в этом наборе."
+        }
+      ]
+    },
+    "fe-1.5-quiz-find-distinction": {
+      "correctOptionId": "a",
+      "mode": "decision",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "findIndex сообщает позицию совпадения либо -1."
+        },
+        {
+          "optionId": "b",
+          "reason": "find возвращает undefined и при совпадении, и при его отсутствии."
+        },
+        {
+          "optionId": "c",
+          "reason": "Boolean удаляет само искомое значение undefined."
+        },
+        {
+          "optionId": "d",
+          "reason": "every проверяет все элементы, а не позицию первого совпадения."
+        }
+      ]
+    },
+    "fe-1.5-quiz-every-empty": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "every на пустом массиве возвращает true."
+        },
+        {
+          "optionId": "b",
+          "reason": "В пустом наборе нет нарушителя. Callback не вызывается."
+        },
+        {
+          "optionId": "c",
+          "reason": "Метод возвращает boolean, а не значение callback."
+        },
+        {
+          "optionId": "d",
+          "reason": "Пустой массив допустим для every."
+        }
+      ]
+    },
+    "fe-1.5-quiz-some-empty": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Callback не вызывается, поэтому его тело не даёт совпадение."
+        },
+        {
+          "optionId": "b",
+          "reason": "some возвращает boolean."
+        },
+        {
+          "optionId": "c",
+          "reason": "В пустом массиве нет элемента, удовлетворяющего условию."
+        },
+        {
+          "optionId": "d",
+          "reason": "Пустой массив не делает вызов ошибочным."
+        }
+      ]
+    },
+    "fe-1.5-quiz-reduce-empty": {
+      "correctOptionId": "d",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Нулевой аккумулятор нужно передать явно."
+        },
+        {
+          "optionId": "b",
+          "reason": "У этого вызова предусмотрен отказ, а не результат undefined."
+        },
+        {
+          "optionId": "c",
+          "reason": "reduce не создаёт пустой массив автоматически."
+        },
+        {
+          "optionId": "d",
+          "reason": "Нет ни initialValue, ни существующего первого элемента для аккумулятора."
+        }
+      ]
+    },
+    "fe-1.5-quiz-reduce-single": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Единственный элемент становится аккумулятором; callback не нужен."
+        },
+        {
+          "optionId": "b",
+          "reason": "Без initialValue первый элемент не передаётся в callback как очередной элемент."
+        },
+        {
+          "optionId": "c",
+          "reason": "Единственный элемент не складывается сам с собой."
+        },
+        {
+          "optionId": "d",
+          "reason": "Результат reduce — найденный начальный аккумулятор 7."
+        }
+      ]
+    },
+    "fe-1.5-quiz-reduce-initial": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Переданное initialValue участвует в свёртке."
+        },
+        {
+          "optionId": "b",
+          "reason": "Начальный аккумулятор 10, затем прибавляются 1, 2 и 3."
+        },
+        {
+          "optionId": "c",
+          "reason": "Существующие элементы тоже обрабатываются."
+        },
+        {
+          "optionId": "d",
+          "reason": "Аккумулятор и элементы — числа, строкового сложения нет."
+        }
+      ]
+    },
+    "fe-1.5-quiz-async-foreach-return": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Callback не превращает forEach в map."
+        },
+        {
+          "optionId": "b",
+          "reason": "Сам forEach не возвращает Promise."
+        },
+        {
+          "optionId": "c",
+          "reason": "forEach не использует Promise callback и возвращает undefined."
+        },
+        {
+          "optionId": "d",
+          "reason": "Массив Promise мог бы вернуть map(async ...), но не forEach."
+        }
+      ]
+    },
+    "fe-1.5-quiz-traversal-append": {
+      "correctOptionId": "d",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Добавленные за исходной границей элементы не посещаются."
+        },
+        {
+          "optionId": "b",
+          "reason": "Мутация происходит, хотя новые элементы не посещаются."
+        },
+        {
+          "optionId": "c",
+          "reason": "Обход не бесконечный: начальная длина фиксируется."
+        },
+        {
+          "optionId": "d",
+          "reason": "forEach ограничен начальной длиной 2; два вызова добавляют два элемента."
+        }
+      ]
+    },
+    "fe-1.5-quiz-traversal-delete": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "К достижению индекса 2 свойства уже нет; callback пропускается."
+        },
+        {
+          "optionId": "b",
+          "reason": "Значения будущих индексов не снимались в копию заранее."
+        },
+        {
+          "optionId": "c",
+          "reason": "forEach пропускает отсутствующее свойство, а не передаёт undefined."
+        },
+        {
+          "optionId": "d",
+          "reason": "Индекс 1 существует и тоже посещается."
+        }
+      ]
+    },
+    "fe-1.5-quiz-sort-default": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Строковый порядок отличается от числового."
+        },
+        {
+          "optionId": "b",
+          "reason": "Без comparator сравниваются строковые представления; сами числа остаются числами."
+        },
+        {
+          "optionId": "c",
+          "reason": "Для сравнения используются строки, но элементы не заменяются строками."
+        },
+        {
+          "optionId": "d",
+          "reason": "Числа можно сортировать и без comparator, но порядок будет строковым."
+        }
+      ]
+    },
+    "fe-1.5-quiz-sort-numeric": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Явный comparator заменяет сравнение строковых представлений."
+        },
+        {
+          "optionId": "b",
+          "reason": "Для убывания нужен противоположный знак."
+        },
+        {
+          "optionId": "c",
+          "reason": "Для конечных чисел знак a - b задаёт возрастающий числовой порядок."
+        },
+        {
+          "optionId": "d",
+          "reason": "Элементы не преобразуются в строки."
+        }
+      ]
+    },
+    "fe-1.5-quiz-comparator-boolean": {
+      "correctOptionId": "d",
+      "mode": "decision",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "При a < b нужен минус, а false превращается в 0."
+        },
+        {
+          "optionId": "b",
+          "reason": "Возвращается 0 или 1; убывание не гарантировано."
+        },
+        {
+          "optionId": "c",
+          "reason": "sort не проверяет согласованность comparator."
+        },
+        {
+          "optionId": "d",
+          "reason": "Boolean даёт только 0 или 1 и нарушает согласованность сравнения."
+        }
+      ]
+    },
+    "fe-1.5-quiz-stable-order": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "b идёт первым; равные по n элементы a и c сохраняют взаимный порядок."
+        },
+        {
+          "optionId": "b",
+          "reason": "Стабильность сохраняет a перед c при равных ключах."
+        },
+        {
+          "optionId": "c",
+          "reason": "Элемент b с меньшим n должен быть раньше a."
+        },
+        {
+          "optionId": "d",
+          "reason": "Порядок не соответствует возрастающим значениям n."
+        }
+      ]
+    },
+    "fe-1.5-quiz-multi-field": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Равенство первого ключа не завершает сравнение: используется второй."
+        },
+        {
+          "optionId": "b",
+          "reason": "При равном p разность равна 0, поэтому сравнивается второй ключ n."
+        },
+        {
+          "optionId": "c",
+          "reason": "map возвращает n, а не результаты comparator."
+        },
+        {
+          "optionId": "d",
+          "reason": "Логическое ИЛИ допустимо для числовых разностей этих конечных ключей."
+        }
+      ]
+    },
+    "fe-1.5-quiz-sort-hole-order": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Пустые слоты оказываются после явных undefined."
+        },
+        {
+          "optionId": "b",
+          "reason": "sort сохраняет число пустых слотов, а не уплотняет результат."
+        },
+        {
+          "optionId": "c",
+          "reason": "После числа идёт собственное undefined, затем отсутствующий индекс."
+        },
+        {
+          "optionId": "d",
+          "reason": "Собственное свойство с undefined не исчезает."
+        }
+      ]
+    },
+    "fe-1.5-quiz-sorted-dense": {
+      "correctOptionId": "d",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "У результата есть собственное свойство с undefined."
+        },
+        {
+          "optionId": "b",
+          "reason": "undefined помещается после определённых значений."
+        },
+        {
+          "optionId": "c",
+          "reason": "Длина результата сохраняется."
+        },
+        {
+          "optionId": "d",
+          "reason": "toSorted читает пустую позицию как undefined и создаёт плотный массив."
+        }
+      ]
+    },
+    "fe-1.5-quiz-destructure-default": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Пустой слот даёт undefined и включает default. null остаётся значением."
+        },
+        {
+          "optionId": "b",
+          "reason": "Default не заменяет null."
+        },
+        {
+          "optionId": "c",
+          "reason": "Полученный undefined включает значение по умолчанию 7."
+        },
+        {
+          "optionId": "d",
+          "reason": "Первое значение не превращается в null, а второе не включает default."
+        }
+      ]
+    },
+    "fe-1.5-quiz-rest-dense": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Rest массива не сохраняет отсутствие индексного свойства."
+        },
+        {
+          "optionId": "b",
+          "reason": "Rest собирает два оставшихся значения; пустой слот читается как undefined."
+        },
+        {
+          "optionId": "c",
+          "reason": "Пустая позиция тоже даёт значение при итерации."
+        },
+        {
+          "optionId": "d",
+          "reason": "Первый элемент уже извлечён отдельно."
+        }
+      ]
+    },
+    "fe-1.5-quiz-object-spread-array": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Встроенная итерация здесь не используется."
+        },
+        {
+          "optionId": "b",
+          "reason": "Object.keys возвращает ключи, а не значения."
+        },
+        {
+          "optionId": "c",
+          "reason": "Object spread переносит собственные перечисляемые свойства; индекса 1 нет."
+        },
+        {
+          "optionId": "d",
+          "reason": "length у массива неперечислим и не переносится через object spread."
+        }
+      ]
+    },
+    "fe-1.5-quiz-spread-getter": {
+      "correctOptionId": "d",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Accessor не переносится как живая функция getter."
+        },
+        {
+          "optionId": "b",
+          "reason": "Копирование перечисляемого свойства читает его значение."
+        },
+        {
+          "optionId": "c",
+          "reason": "Значение свойства переносится после вызова getter."
+        },
+        {
+          "optionId": "d",
+          "reason": "Getter источника считан один раз; в копии обычное свойство данных."
+        }
+      ]
+    },
+    "fe-1.5-quiz-assign-target-setter": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Object.assign выполняет обычную запись в цель, вызывая setter."
+        },
+        {
+          "optionId": "b",
+          "reason": "Прямое определение свойства характерно для object spread, а не assign."
+        },
+        {
+          "optionId": "c",
+          "reason": "hits считает вызовы, а не принимает присвоенное значение."
+        },
+        {
+          "optionId": "d",
+          "reason": "Наличие setter делает такую запись допустимой."
+        }
+      ]
+    },
+    "fe-1.5-quiz-shallow-identity": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Spread не клонирует вложенные объекты."
+        },
+        {
+          "optionId": "b",
+          "reason": "Внешний массив новый, вложенный объект общий."
+        },
+        {
+          "optionId": "c",
+          "reason": "Новый литерал массива создаёт другую внешнюю идентичность."
+        },
+        {
+          "optionId": "d",
+          "reason": "Контейнеры различаются, а объект внутри общий."
+        }
+      ]
+    },
+    "fe-1.5-quiz-sharing-update": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Неизменившуюся y не копировали."
+        },
+        {
+          "optionId": "b",
+          "reason": "Для x создан новый объект с изменённым n."
+        },
+        {
+          "optionId": "c",
+          "reason": "Путь x скопирован, ветвь y намеренно разделяется."
+        },
+        {
+          "optionId": "d",
+          "reason": "Изменённый путь новый, неизменённая ветвь общая."
+        }
+      ]
+    },
+    "fe-1.5-quiz-clone-cycle": {
+      "correctOptionId": "d",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Ссылка self должна указывать на новый корень."
+        },
+        {
+          "optionId": "b",
+          "reason": "Клон не является исходным объектом."
+        },
+        {
+          "optionId": "c",
+          "reason": "Циклы обычных данных поддерживаются structuredClone."
+        },
+        {
+          "optionId": "d",
+          "reason": "Создаётся новый объект, а цикл восстанавливается внутри нового графа."
+        }
+      ]
+    },
+    "fe-1.5-quiz-clone-aliases": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Внутри клона повторная ссылка сохраняется, но новый узел отделён от исходного."
+        },
+        {
+          "optionId": "b",
+          "reason": "Один исходный объект не превращается в два независимых узла клона."
+        },
+        {
+          "optionId": "c",
+          "reason": "Клон не разделяет этот обычный объект с исходником."
+        },
+        {
+          "optionId": "d",
+          "reason": "Внутри нового графа ссылка общая, с исходником — разная."
+        }
+      ]
+    },
+    "fe-1.5-quiz-clone-class": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "structuredClone переносит данные, а не пользовательский прототип с методом."
+        },
+        {
+          "optionId": "b",
+          "reason": "Метод пользовательского прототипа не восстанавливается; typeof даёт строку."
+        },
+        {
+          "optionId": "c",
+          "reason": "Результат typeof — строка \"undefined\", а не значение undefined."
+        },
+        {
+          "optionId": "d",
+          "reason": "Метод на прототипе этого экземпляра не является клонируемым собственным значением."
+        }
+      ]
+    },
+    "fe-1.5-quiz-transfer-detach": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Это был бы результат копирования без transfer."
+        },
+        {
+          "optionId": "b",
+          "reason": "Данные остаются доступны через новый буфер."
+        },
+        {
+          "optionId": "c",
+          "reason": "Ресурс перенесён: исходный буфер отсоединён, новый сохраняет 8 байт."
+        },
+        {
+          "optionId": "d",
+          "reason": "ArrayBuffer поддерживает перенос."
+        }
+      ]
+    },
+    "fe-1.5-quiz-json-null": {
+      "correctOptionId": "d",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "JSON не сохраняет эти значения как JavaScript-специальные значения."
+        },
+        {
+          "optionId": "b",
+          "reason": "Позиции массива сохраняются, а не пропускаются."
+        },
+        {
+          "optionId": "c",
+          "reason": "Эти значения в массиве не вызывают TypeError при stringify."
+        },
+        {
+          "optionId": "d",
+          "reason": "В массиве undefined и нечисловое значение NaN сериализуются как null."
+        }
+      ]
+    },
+    "fe-1.5-quiz-json-cycle": {
+      "correctOptionId": "a",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Циклический граф не представим обычным JSON.stringify без отдельного преобразования."
+        },
+        {
+          "optionId": "b",
+          "reason": "Свойство self не пропускается автоматически."
+        },
+        {
+          "optionId": "c",
+          "reason": "Цикл вызывает исключение, а не такой результат."
+        },
+        {
+          "optionId": "d",
+          "reason": "DataCloneError относится к structuredClone; здесь ошибка JSON — TypeError."
+        }
+      ]
+    },
+    "fe-1.5-quiz-clone-function": {
+      "correctOptionId": "b",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Функция не пропускается молча, как при JSON-сериализации свойства."
+        },
+        {
+          "optionId": "b",
+          "reason": "Собственное значение-функция не поддерживается structuredClone."
+        },
+        {
+          "optionId": "c",
+          "reason": "Операция завершается исключением, а не undefined."
+        },
+        {
+          "optionId": "d",
+          "reason": "Предусмотренная категория ошибки клонирования — DataCloneError."
+        }
+      ]
+    },
+    "fe-1.5-quiz-json-aliases": {
+      "correctOptionId": "c",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "JSON не кодирует идентичность общей ссылки."
+        },
+        {
+          "optionId": "b",
+          "reason": "Сравнение идентичности возвращает boolean."
+        },
+        {
+          "optionId": "c",
+          "reason": "Два JSON-представления разобраны в два независимых объекта."
+        },
+        {
+          "optionId": "d",
+          "reason": "Здесь нет цикла: повторная ссылка сама по себе допустима для JSON."
+        }
+      ]
+    },
+    "fe-1.5-quiz-clone-regexp": {
+      "correctOptionId": "d",
+      "mode": "output",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Состояние lastIndex не входит в сохраняемые данные RegExp."
+        },
+        {
+          "optionId": "b",
+          "reason": "У нового RegExp существует lastIndex."
+        },
+        {
+          "optionId": "c",
+          "reason": "Сам тип RegExp поддерживается алгоритмом."
+        },
+        {
+          "optionId": "d",
+          "reason": "RegExp поддерживается, но его lastIndex не сохраняется и начинается с 0."
+        }
+      ]
+    }
+  },
+  "supplemental": [
+    {
+      "cardId": "fe-1.5-flip-length-boundary",
+      "code": "const a = []; a[3] = \"x\"; console.log(a.length, Object.keys(a).length);",
+      "logs": [
+        [
+          4,
+          1
+        ]
+      ],
+      "environment": "node"
+    },
+    {
+      "cardId": "fe-1.5-info-own-hole",
+      "code": "const p = Object.create(Array.prototype); p[0] = 7; const a = [,]; Object.setPrototypeOf(a, p); console.log(a[0], 0 in a, Object.hasOwn(a, 0)); console.log(a.map(x => x * 2));",
+      "logs": [
+        [
+          7,
+          true,
+          false
+        ],
+        [
+          [
+            14
+          ]
+        ]
+      ],
+      "environment": "node"
+    },
+    {
+      "cardId": "fe-1.5-info-copy-api",
+      "code": "const x = {}; const a = [x]; const b = a.concat([]); const c = Array.from(a); console.log(a !== b, a !== c, b[0] === x, c[0] === x);",
+      "logs": [
+        [
+          true,
+          true,
+          true,
+          true
+        ]
+      ],
+      "environment": "node"
+    },
+    {
+      "cardId": "fe-1.5-info-assign-setter",
+      "code": "let hits = 0; const t = {set n(v){hits++}}; const b = {...t, n:8}; console.log(hits, b.n);",
+      "logs": [
+        [
+          0,
+          8
+        ]
+      ],
+      "environment": "node"
+    },
+    {
+      "cardId": "fe-1.5-info-getter-copy",
+      "code": "const a = {}; Object.defineProperty(a, \"n\", {get(){return 7}, enumerable:true}); const b = {...a}; const d = Object.getOwnPropertyDescriptor(b, \"n\"); console.log(d.value, d.writable, d.get);",
+      "logs": [
+        [
+          7,
+          true,
+          {
+            "$type": "undefined"
+          }
+        ]
+      ],
+      "environment": "node"
+    },
+    {
+      "cardId": "fe-1.5-info-getter-copy",
+      "code": "const a = {}; Object.defineProperty(a, \"n\", {get(){return 7}}); const b = Object.defineProperties({}, Object.getOwnPropertyDescriptors(a)); console.log(typeof Object.getOwnPropertyDescriptor(b, \"n\").get, b.n);",
+      "logs": [
+        [
+          "function",
+          7
+        ]
+      ],
+      "environment": "node"
+    },
+    {
+      "cardId": "fe-1.5-info-reduce-seed",
+      "code": "new Array(3).reduce((sum,x) => sum+x);",
+      "logs": [],
+      "environment": "node",
+      "error": "TypeError"
+    },
+    {
+      "cardId": "fe-1.5-info-default-sort",
+      "code": "const a = [1,2]; const b = a.toSorted((x,y)=>y-x); console.log(a,b,a!==b);",
+      "logs": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          true
+        ]
+      ],
+      "environment": "node"
+    },
+    {
+      "cardId": "fe-1.5-info-clone-limits",
+      "code": "let reads = 0; const a = {get n(){return ++reads}}; const b = structuredClone(a); const d = Object.getOwnPropertyDescriptor(b,\"n\"); console.log(reads,d.value,d.get,d.writable);",
+      "logs": [
+        [
+          1,
+          1,
+          {
+            "$type": "undefined"
+          },
+          true
+        ]
+      ],
+      "environment": "node-process"
+    },
+    {
+      "cardId": "fe-1.5-info-clone-limits",
+      "code": "const key = Symbol(\"key\"); const a = {[key]:7}; const b = structuredClone(a); console.log(Reflect.ownKeys(b).length);",
+      "logs": [
+        [
+          0
+        ]
+      ],
+      "environment": "node-process"
+    },
+    {
+      "cardId": "fe-1.5-info-clone-limits",
+      "code": "structuredClone(Promise.resolve(1));",
+      "logs": [],
+      "environment": "node-process",
+      "error": "DataCloneError"
+    },
+    {
+      "cardId": "fe-1.5-info-clone-graph",
+      "code": "const a = {date:new Date(\"2026-01-01T00:00:00Z\"), map:new Map([[\"x\",1]]), set:new Set([2])}; const b = structuredClone(a); console.log(b.date.toISOString(),b.map.get(\"x\"),b.set.has(2));",
+      "logs": [
+        [
+          "2026-01-01T00:00:00.000Z",
+          1,
+          true
+        ]
+      ],
+      "environment": "node-process"
+    },
+    {
+      "cardId": "fe-1.5-info-transfer-buffer",
+      "code": "const a = new ArrayBuffer(4); const b = structuredClone({},{transfer:[a]}); console.log(a.byteLength,Object.hasOwn(b,\"a\"));",
+      "logs": [
+        [
+          0,
+          false
+        ]
+      ],
+      "environment": "node-process"
+    },
+    {
+      "cardId": "fe-1.5-info-json-copy",
+      "code": "JSON.stringify(1n);",
+      "logs": [],
+      "environment": "node",
+      "error": "TypeError"
+    },
+    {
+      "cardId": "fe-1.5-info-json-copy",
+      "code": "const a = {date:new Date(\"2026-01-01T00:00:00Z\"), n:Infinity, map:new Map(), set:new Set()}; const b=JSON.parse(JSON.stringify(a)); console.log(typeof b.date,b.n,Object.keys(b.map).length,Object.keys(b.set).length);",
+      "logs": [
+        [
+          "string",
+          null,
+          0,
+          0
+        ]
+      ],
+      "environment": "node"
+    },
+    {
+      "cardId": "fe-1.5-info-json-copy",
+      "code": "const a={toJSON(){return \"replacement\"}}; console.log(JSON.parse(JSON.stringify(a)));",
+      "logs": [
+        [
+          "replacement"
+        ]
+      ],
+      "environment": "node"
+    },
+    {
+      "cardId": "fe-1.5-info-comparator-contract",
+      "code": "const compare=(a,b)=>a>b; console.log(compare(1,2),compare(2,1));",
+      "logs": [
+        [
+          false,
+          true
+        ]
+      ],
+      "environment": "node"
+    },
+    {
+      "cardId": "fe-1.5-info-structural-sharing",
+      "code": "const a={user:{n:1},config:{}}; const b={...a,user:{...a.user,n:2}}; console.log(a.user.n,b.user.n,a.config===b.config);",
+      "logs": [
+        [
+          1,
+          2,
+          true
+        ]
+      ],
+      "environment": "node"
+    },
+    {
+      "cardId": "fe-1.5-info-length-failure",
+      "code": "const a = [0,1,2]; Object.defineProperty(a,\"2\",{configurable:false}); a.length=1;",
+      "logs": [],
+      "environment": "node",
+      "error": "TypeError"
+    },
+    {
+      "cardId": "fe-1.5-info-fill-alias",
+      "code": "const a = Array.from({length:2},()=>({n:0})); a[0].n=9; console.log(a[0]===a[1],a[1].n);",
+      "logs": [
+        [
+          false,
+          0
+        ]
+      ],
+      "environment": "node"
+    },
+    {
+      "cardId": "fe-1.5-info-foreach-async",
+      "code": "const a = [1].map(async x=>x*2); console.log(a.length,typeof a[0].then);",
+      "logs": [
+        [
+          1,
+          "function"
+        ]
+      ],
+      "environment": "node"
+    }
+  ]
+}

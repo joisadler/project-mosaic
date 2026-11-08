@@ -1,6 +1,7 @@
 export type VisualMotif = "scope" | "lifecycle" | "values" | "equality" | "conversion"
   | "capture" | "invocation" | "composition"
-  | "prototype" | "descriptor" | "interception";
+  | "prototype" | "descriptor" | "interception"
+  | "slots" | "transformation" | "sharing";
 
 export type BaseCardData = {
   id: string;

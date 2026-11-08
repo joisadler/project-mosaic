@@ -68,6 +68,27 @@ const artwork = {
     <rect x="210" y="145" width="110" height="175" rx="19" />
     <path d="M30 230h80q25 0 25-25v-40q0-25 25-25h80m-12-12 12 12-12 12M265 320v55m-12-12 12 12 12-12" />
   </>,
+  slots: <>
+    <rect x="90" y="240" width="70" height="70" rx="14" />
+    <rect x="180" y="240" width="70" height="70" rx="14" strokeDasharray="5 7" />
+    <rect x="270" y="240" width="70" height="70" rx="14" />
+    <path d="M40 340h335m-250-18v36m90-36v36m90-36v36" />
+  </>,
+  transformation: <>
+    <rect x="160" y="80" width="48" height="48" rx="10" />
+    <rect x="225" y="80" width="48" height="48" rx="10" />
+    <rect x="290" y="80" width="48" height="48" rx="10" />
+    <path d="M315 145v45H125v45m-12-12 12 12 12-12" />
+    <rect x="65" y="265" width="48" height="48" rx="10" />
+    <rect x="130" y="265" width="48" height="48" rx="10" />
+    <rect x="195" y="265" width="48" height="48" rx="10" />
+  </>,
+  sharing: <>
+    <rect x="65" y="125" width="100" height="60" rx="14" />
+    <rect x="245" y="125" width="100" height="60" rx="14" />
+    <path d="M115 185v55l90 55m90-110v55l-90 55" />
+    <rect x="170" y="295" width="70" height="50" rx="12" />
+  </>,
   neutral: <circle cx="290" cy="290" r="150" />,
 };
 

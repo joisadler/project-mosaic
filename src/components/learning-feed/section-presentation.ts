@@ -6,6 +6,7 @@ const sectionPresets = {
   "fe-1.2": { defaultMotif: "values", motifs: ["values", "equality", "conversion"] },
   "fe-1.3": { defaultMotif: "capture", motifs: ["capture", "invocation", "composition"] },
   "fe-1.4": { defaultMotif: "prototype", motifs: ["prototype", "descriptor", "interception"] },
+  "fe-1.5": { defaultMotif: "slots", motifs: ["slots", "transformation", "sharing"] },
 } as const satisfies Record<LearningSectionId, {
   defaultMotif: VisualMotif;
   motifs: readonly VisualMotif[];
