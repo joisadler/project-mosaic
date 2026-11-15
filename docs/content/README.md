@@ -47,6 +47,7 @@ Cards may include `visual?: { motif?: VisualMotif }` in `BaseCardData`. Select a
 | `fe-1.3` | Amber/copper | `capture`: function nodes linked to an enclosed binding | `invocation`: call paths converging on a receiver; `composition`: linked operation blocks for HOF/adapters, currying and transformation boundaries |
 | `fe-1.4` | Jade/sage | `prototype`: linked separate object contours for delegation | `descriptor`: divided property-attribute panel; `interception`: separate wrapper/target contours with a routed operation |
 | `fe-1.5` | Muted coral | `slots`: separate array cells with an outlined empty position | `transformation`: offset input/output rows; `sharing`: two containers linked to one nested object |
+| `fe-1.6` | Periwinkle/ink | `entries`: paired collection nodes | `tokens`: distinct notched symbol contours; `cursor`: a position marker on a dotted traversal path |
 
 ```ts
 visual: { motif: "conversion" },
@@ -84,7 +85,7 @@ Check the expression and its actual type before editing; do not infer a string f
 
 The shared semantic runner accepts a package ID: `node scripts/check-content-semantics.mjs fe-1.4`. Package wrappers preserve existing commands; hash-bound expectations and quiz review rationale live in `scripts/fe-<section>.<subsection>-semantic-expectations.json`. Reuse the runner when its execution model fits rather than copying a separate engine. Supplementary scenarios can verify repairs and state after an expected failure; report these separately from authored fenced examples.
 
-The default `node` environment uses an isolated VM. Use the opt-in `node-process` environment for real Node host APIs such as `structuredClone` and transfer: the shared runner starts a bounded child process with native globals rather than injecting host functions into another realm. Browser-specific fences use `browser` and must pass in the generated ordinary-Chrome harness. Preserve sparse-array structure through explicit presence/length assertions; the current log encoder alone does not distinguish holes from explicit undefined.
+The default `node` environment uses an isolated VM. Use the opt-in `node-process` environment for real Node host APIs such as `structuredClone` and transfer: the shared runner starts a bounded child process with native globals rather than injecting host functions into another realm. For asynchronous examples, use `node-process` with `async: true`; the bounded child process awaits completion and records asynchronous rejection categories. Do not treat an unawaited Promise as completed evidence. Browser-specific fences use `browser` and must pass in the generated ordinary-Chrome harness. Preserve sparse-array structure through explicit presence/length assertions; the current log encoder alone does not distinguish holes from explicit undefined.
 
 ## Shared mobile content contract
 

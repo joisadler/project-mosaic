@@ -1,7 +1,8 @@
 export type VisualMotif = "scope" | "lifecycle" | "values" | "equality" | "conversion"
   | "capture" | "invocation" | "composition"
   | "prototype" | "descriptor" | "interception"
-  | "slots" | "transformation" | "sharing";
+  | "slots" | "transformation" | "sharing"
+  | "entries" | "tokens" | "cursor";
 
 export type BaseCardData = {
   id: string;

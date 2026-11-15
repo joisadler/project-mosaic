@@ -89,6 +89,25 @@ const artwork = {
     <path d="M115 185v55l90 55m90-110v55l-90 55" />
     <rect x="170" y="295" width="70" height="50" rx="12" />
   </>,
+  entries: <>
+    <rect x="155" y="160" width="65" height="45" rx="12" />
+    <rect x="285" y="160" width="65" height="45" rx="12" />
+    <rect x="155" y="240" width="65" height="45" rx="12" />
+    <rect x="285" y="240" width="65" height="45" rx="12" />
+    <rect x="155" y="320" width="65" height="45" rx="12" />
+    <rect x="285" y="320" width="65" height="45" rx="12" />
+    <path d="M220 182h65m-65 80h65m-65 80h65" />
+  </>,
+  tokens: <>
+    <path d="M230 160h85l35 35v105l-35 35h-85l-35-35V195l35-35Z" />
+    <path d="M180 210h85l35 35v105l-35 35h-85l-35-35V245l35-35Z" strokeDasharray="5 7" />
+    <path d="M230 160v25h25m-75 25v25h25" />
+  </>,
+  cursor: <>
+    <path d="m40 330 130-55m65-28 125-55" strokeDasharray="3 10" />
+    <circle cx="202" cy="261" r="30" />
+    <path d="m350 185 16 4-7 15" />
+  </>,
   neutral: <circle cx="290" cy="290" r="150" />,
 };
 

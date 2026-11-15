@@ -54,7 +54,18 @@ function format(value) {
 function execute(code, expected) {
   // Native host APIs must run in a real Node realm, not a VM with injected globals.
   if (expected.environment === "node-process") {
-    const source = `
+    const source = expected.async ? `
+      const vm = require("node:vm");
+      const encode = ${encode.toString()};
+      const logs = [];
+      console.log = (...args) => logs.push(args.map(encode));
+      (async () => {
+        let error;
+        try { await vm.runInThisContext(${JSON.stringify(`(async () => {"use strict";\n${code}\n})()`)}, { timeout: 1000 }); }
+        catch (caught) { error = caught.name; }
+        process.stdout.write(JSON.stringify({ logs, error }));
+      })().catch(() => process.exit(1));
+    ` : `
       const vm = require("node:vm");
       const encode = ${encode.toString()};
       const logs = [];
