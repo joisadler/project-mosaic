@@ -8,6 +8,7 @@ const sectionPresets = {
   "fe-1.4": { defaultMotif: "prototype", motifs: ["prototype", "descriptor", "interception"] },
   "fe-1.5": { defaultMotif: "slots", motifs: ["slots", "transformation", "sharing"] },
   "fe-1.6": { defaultMotif: "entries", motifs: ["entries", "tokens", "cursor"] },
+  "fe-1.7": { defaultMotif: "boundary", motifs: ["boundary", "causes", "payload"] },
 } as const satisfies Record<LearningSectionId, {
   defaultMotif: VisualMotif;
   motifs: readonly VisualMotif[];

@@ -43,6 +43,13 @@
     --card-floor: #101322;
   }
 
+  &[data-section="fe-1.7"] {
+    --card-accent: #d8afbf;
+    --card-glow: rgba(132, 85, 106, 0.15);
+    --card-base: #2a2229;
+    --card-floor: #141115;
+  }
+
   &[data-section="fe-1.4"] {
     --card-accent: #a8d5ba;
     --card-glow: rgba(73, 126, 93, 0.16);
@@ -64,7 +71,10 @@
 
   &[data-motif="entries"],
   &[data-motif="tokens"],
-  &[data-motif="cursor"] {
+  &[data-motif="cursor"],
+  &[data-motif="boundary"],
+  &[data-motif="causes"],
+  &[data-motif="payload"] {
     max-width: 100%;
     max-height: 100%;
     right: -1rem;

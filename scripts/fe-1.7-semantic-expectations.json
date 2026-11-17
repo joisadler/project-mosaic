@@ -1,0 +1,1839 @@
+{
+  "examples": {
+    "b013f01f5d59343d2ee0389a957cfb71e3d381695cf44c50407eee19bb11eeeb": {
+      "logs": [],
+      "environment": "node-module"
+    },
+    "004382a167c38d2323143c443e6d889377e5e9f13d0c5dd78305f5dd1815f8a9": {
+      "logs": [
+        [
+          1,
+          0
+        ]
+      ],
+      "environment": "node-module",
+      "files": {
+        "counter.mjs": {
+          "sourceHash": "b013f01f5d59343d2ee0389a957cfb71e3d381695cf44c50407eee19bb11eeeb"
+        }
+      }
+    },
+    "b9a89b803e9d1e2cc290af913e87a9e6e18038e1ed89e13329ece2230477edda": {
+      "logs": [
+        [
+          {
+            "$type": "undefined"
+          }
+        ]
+      ]
+    },
+    "6c8fd3d254454ece75b801d1ce94c9bd66020322aab20d05dfd98fa63a06e894": {
+      "logs": [
+        [
+          {
+            "$type": "undefined"
+          }
+        ],
+        [
+          "undefined"
+        ]
+      ],
+      "environment": "node-module"
+    },
+    "0292407686484bb5754bdd65f88b3cc22cfa710b81e2dbd210748769c09b1208": {
+      "logs": [],
+      "environment": "node-module"
+    },
+    "2dec3d828c71012be1cbac2339b0c2ea7da168641ec993ba17b8c28f00fd79ce": {
+      "logs": [
+        [
+          5
+        ],
+        [
+          true
+        ]
+      ],
+      "environment": "node-module",
+      "files": {
+        "math.mjs": {
+          "sourceHash": "0292407686484bb5754bdd65f88b3cc22cfa710b81e2dbd210748769c09b1208"
+        }
+      }
+    },
+    "74d1b3255952f195b2f7449e65af787c80e6ebc0ccae22a857b859694b57d0c8": {
+      "logs": [
+        [
+          "dep"
+        ],
+        [
+          "main"
+        ]
+      ],
+      "environment": "node-module",
+      "files": {
+        "dep.mjs": "console.log(\"dep\");"
+      }
+    },
+    "1981e7c4cdf01b1777061db8692e60440371b72702efef93c85b88862df9beed": {
+      "logs": [],
+      "environment": "node-module",
+      "files": {
+        "math.mjs": "export const step = 2;\nexport default (a, b) => a + b;"
+      }
+    },
+    "dfbabd1160a37c0f844c61232c607d5aa81296bb41d734be4a88629b949b11b0": {
+      "logs": [],
+      "environment": "node-module"
+    },
+    "ed5066b79691c90ff232462532b3af456d9f40ca37a7042a8b5d17d2fd0cfb3e": {
+      "logs": [
+        [
+          1,
+          2
+        ]
+      ],
+      "environment": "node-module",
+      "files": {
+        "source.mjs": {
+          "sourceHash": "dfbabd1160a37c0f844c61232c607d5aa81296bb41d734be4a88629b949b11b0"
+        }
+      }
+    },
+    "524e6568e69ffac96268000993ce251f32f80594f4afd2907556894b6b43173c": {
+      "logs": [
+        [
+          {
+            "$type": "undefined"
+          }
+        ]
+      ],
+      "environment": "node-module"
+    },
+    "244b1acfd946a94919ee3bab633987c89c76895a5dfafb22a05b11f59f07923f": {
+      "logs": [
+        [
+          "function"
+        ]
+      ],
+      "environment": "node-module",
+      "files": {
+        "math.mjs": "export const step = 2;\nexport default (a, b) => a + b;"
+      }
+    },
+    "c36b8a6fe55b6c2514ca6a2015d866d9d1fedd3eacd7540bc1d1aee103a2cdbe": {
+      "logs": [
+        [
+          2
+        ]
+      ],
+      "environment": "node-module",
+      "files": {
+        "math.mjs": "export const step = 2;\nexport default (a, b) => a + b;"
+      }
+    },
+    "9ce23c0cb50775831802eb2699818f92d45c541cba7cb3dde8edebcdf6f07fc2": {
+      "logs": [
+        [
+          1,
+          0
+        ]
+      ],
+      "environment": "node-module",
+      "files": {
+        "counter.mjs": {
+          "sourceHash": "b013f01f5d59343d2ee0389a957cfb71e3d381695cf44c50407eee19bb11eeeb"
+        }
+      }
+    },
+    "0326d43ebf92da9606463452173a78a405d64b7ace7ccd4d4ae6efbb12d9c34d": {
+      "logs": [],
+      "environment": "node-module",
+      "files": {
+        "counter.mjs": {
+          "sourceHash": "b013f01f5d59343d2ee0389a957cfb71e3d381695cf44c50407eee19bb11eeeb"
+        }
+      },
+      "error": "TypeError"
+    },
+    "318f89865388e30e694a31c028fcd619880c7e37704d8f4f31e8da55adc79db3": {
+      "logs": [
+        [
+          1,
+          2
+        ]
+      ],
+      "environment": "node-module",
+      "files": {
+        "source.mjs": "let n=1; export default n; export {n as current}; n=2;"
+      }
+    },
+    "727a5b57e6210a713e90033e908bb553138c452a5f3bbada970ee4379f3c9b2e": {
+      "logs": [],
+      "environment": "node-module",
+      "files": {
+        "math.mjs": "export const step = 2;\nexport default (a, b) => a + b;"
+      },
+      "error": "ReferenceError"
+    },
+    "72bed00f231d75d388297660cfbd69c742451188ac6c0bf8ca53bac8d424f277": {
+      "logs": [],
+      "environment": "node-module",
+      "entry": "a.mjs",
+      "files": {
+        "b.mjs": "import { a } from \"./a.mjs\";\nexport const b = a + 1;"
+      },
+      "error": "ReferenceError"
+    },
+    "fc7ff8f1996ea78865593874f6ea9ed9e838fb144c89edb6db1a2df76b81c592": {
+      "logs": [
+        [
+          7
+        ]
+      ],
+      "environment": "node-module",
+      "files": {
+        "feature.mjs": "export default 7;"
+      }
+    },
+    "10acb7fed4b214b76f43242419c2d9d492157863412929de32b7a95a5b1042c1": {
+      "logs": [],
+      "environment": "node-module"
+    },
+    "c474ce9f0cfe01d280b75e9041f9d3640772eaedcd256188884e51293a10cd00": {
+      "logs": [
+        [
+          "registered"
+        ],
+        [
+          7
+        ]
+      ],
+      "environment": "node-module",
+      "files": {
+        "library.mjs": "console.log(\"registered\");\nexport const used=7;\nexport function unused(){return 9;}"
+      }
+    },
+    "7b263116c4d80730335a637fa4593a7a5f9dfb7b91605cdc244efba2656f1760": {
+      "logs": [
+        [
+          "ERR_MODULE_NOT_FOUND"
+        ]
+      ],
+      "environment": "node-module"
+    },
+    "1b42ce01e295f1fce8df6ccfed85f8e8b87141d6ed7a4c88888a8e2cc8e33ff8": {
+      "logs": [
+        [
+          true
+        ]
+      ],
+      "environment": "node-module",
+      "files": {
+        "feature.mjs": "export const value=1;"
+      }
+    },
+    "2e06e0161f780377ae34df20828ad957e88325b1d7a32a2f07bbd887deb94616": {
+      "logs": [
+        [
+          7
+        ]
+      ],
+      "environment": "node-module",
+      "files": {
+        "config.mjs": "export const config = await Promise.resolve(7);"
+      }
+    },
+    "2762f8b15b0ae03ad43603be633cad5d102f173d592fb08f71d22c6fb46c562d": {
+      "logs": [],
+      "environment": "node-module",
+      "entry": "main.cjs",
+      "error": "SyntaxError"
+    },
+    "a850bba99b32de771b77bde308eb7795634136c79fa67c8cdcd1508f8308ca89": {
+      "logs": [],
+      "environment": "node-module",
+      "entry": "legacy.cjs"
+    },
+    "f5d4dcdfd5ca12782331c6e1409f5be01dec191b96e4215f89f4c6309c784997": {
+      "logs": [
+        [
+          1
+        ]
+      ],
+      "environment": "node-module",
+      "entry": "main.cjs",
+      "files": {
+        "legacy.cjs": {
+          "sourceHash": "a850bba99b32de771b77bde308eb7795634136c79fa67c8cdcd1508f8308ca89"
+        }
+      }
+    },
+    "b5e1ceb0e4aedefc635daa41e847b62a7c8078d9062cf32833f03f41a86b7ff6": {
+      "logs": [
+        [
+          1,
+          0
+        ]
+      ],
+      "environment": "node-module",
+      "files": {
+        "legacy.cjs": "exports.count = 0;\nexports.inc = () => {\n  exports.count++;\n};"
+      }
+    },
+    "f1aaf559e42b82128f59c39abbc85ecaff55fd7da52569fc1046dc72a5e9a444": {
+      "logs": [
+        [
+          "ERR_REQUIRE_ASYNC_MODULE"
+        ]
+      ],
+      "environment": "node-module",
+      "entry": "main.cjs",
+      "files": {
+        "config.mjs": "export const n = await Promise.resolve(1);"
+      }
+    },
+    "6cda43cc736664d521d357f0d0b3c16933a86a06ee4b0c116551920d28b2f1ab": {
+      "logs": [
+        [
+          false
+        ]
+      ],
+      "environment": "node-module",
+      "entry": "main.cjs"
+    },
+    "c6de4166f11c889e67a0ee3f31948518e5acb3943cb0fbb282163d24c6de35c2": {
+      "logs": [
+        [
+          0,
+          2
+        ]
+      ],
+      "environment": "node-module",
+      "entry": "main.cjs",
+      "files": {
+        "api.cjs": "module.exports={n:0};"
+      }
+    },
+    "8661465770f87fdb72981c055233e1418a35d40593b6cb846e7c755010bc7bc8": {
+      "logs": [
+        [
+          true
+        ]
+      ],
+      "environment": "node-module",
+      "files": {
+        "legacy.cjs": "module.exports={ready:true};"
+      }
+    },
+    "4fa8a63308f6361938d99396df29c555154c0a70bb99f90e6c3727bffff56e53": {
+      "logs": [
+        [
+          0,
+          1
+        ]
+      ],
+      "environment": "node-module",
+      "files": {
+        "legacy.cjs": "exports.count = 0;\nexports.inc = () => {\n  exports.count++;\n};"
+      }
+    },
+    "56df53129b538d25c324e425b320c2184e1dec17393a7745e95dc07bff2e95ce": {
+      "logs": [
+        [
+          7
+        ]
+      ],
+      "environment": "node-module",
+      "entry": "main.cjs",
+      "files": {
+        "value.mjs": "export const n=7;"
+      }
+    },
+    "182f79da00a004e1960fb81848f7a3dac4482557e5c8e73959b71a3fcd4d14d0": {
+      "logs": [
+        [
+          "ERR_REQUIRE_ASYNC_MODULE"
+        ]
+      ],
+      "environment": "node-module",
+      "entry": "main.cjs",
+      "files": {
+        "entry.mjs": "import \"./dep.mjs\"; export const n=7;",
+        "dep.mjs": "await Promise.resolve();"
+      }
+    },
+    "75611082394327fe1e58af51ba51f8ea4d18c7fb03a739e74b4f394ef3c27355": {
+      "logs": [
+        [
+          [
+            "start",
+            7
+          ]
+        ]
+      ]
+    },
+    "a20985bf64ac6dac720b4b08a93a255c6376c658f541fafeb07eae50b956510e": {
+      "logs": [
+        [
+          7
+        ]
+      ]
+    },
+    "d419dc1e5d4e7a3a015878bc51fdc8cd1661d5aaf02648fb2d578f77f0cedb76": {
+      "logs": [
+        [
+          1
+        ]
+      ]
+    },
+    "ee3d1a114244974adb23c86ff13d3b0f5f5715232450c1d4caad64db06446186": {
+      "logs": [
+        [
+          2
+        ]
+      ]
+    },
+    "1eacc496948959fafd1514a87457e3da9b1e804ede555bba1c8bed42c1bd2861": {
+      "logs": [
+        [
+          7
+        ]
+      ],
+      "environment": "node-process",
+      "async": true
+    },
+    "64ca0909631f437280921a9f28239d0d7ebfdeffa1564d4401be275be8d666ef": {
+      "logs": [
+        [
+          7
+        ]
+      ]
+    },
+    "58076b034b897c7fca3ca0829ba6b840c94cff37b3ce343ea7a50e03cc81c7a7": {
+      "logs": [
+        [
+          [
+            1,
+            3,
+            4
+          ]
+        ]
+      ]
+    },
+    "e5eefafdf338ff96a6ec2622b38b426c42c5753f7e53ffb9dac2f52db4f10efc": {
+      "logs": [
+        [
+          7
+        ]
+      ]
+    },
+    "deea2d7b8516d6b7084b9fe54a0b8c8b152839748b4ef6052d4012e257adaccb": {
+      "logs": [
+        [
+          1
+        ]
+      ]
+    },
+    "e13a53ca812c9936dffb51eab16f06fdee3a8f61268ee944dbda98d24fa2741b": {
+      "logs": [
+        [
+          2
+        ]
+      ]
+    },
+    "6b181d28c8855d19ef875a4de71a00481a7a9ae9e464c4a652ef5341bf9d83f5": {
+      "logs": [
+        [
+          7
+        ]
+      ],
+      "environment": "node-process",
+      "async": true
+    },
+    "87dcbe0a4916dea9d50b623f210147f6eda76f19ead27b725a30ebe119394700": {
+      "logs": [
+        [
+          true
+        ]
+      ]
+    },
+    "e5adf1ff37338c86f3ad8f8128c44276311f8f1846389760356844ab339d1fcd": {
+      "logs": []
+    },
+    "d4753e588b8b5c25053220087a27322d65f89de9db50dfbe505371bd8dd9eafc": {
+      "logs": [
+        [
+          true
+        ]
+      ]
+    },
+    "3b48902db8dbb9f2138d330d0754946d487f2da393fa389fa27a6affb736031a": {
+      "logs": [
+        [
+          false,
+          true
+        ]
+      ]
+    },
+    "a3811ad65c49c777be79e531677d7ea3c8475d725c251dc1d53e23896fc171f1": {
+      "logs": [
+        [
+          true
+        ]
+      ]
+    },
+    "34becbddac3a2c1d6af7f9bb2a97a8f0db24650a981947b120c9aaf6376550db": {
+      "logs": [
+        [
+          "number"
+        ],
+        [
+          42
+        ]
+      ]
+    },
+    "f10957a245dfb057f79c526f0d1a6a76d126b3cd488d3fb46fab742c1f454d64": {
+      "logs": [
+        [
+          "{}"
+        ],
+        [
+          "[null]"
+        ],
+        [
+          {
+            "$type": "undefined"
+          }
+        ]
+      ]
+    },
+    "5a6262196068795a96e7b13170538a2cdcbf268fa568293324b694fa816c43db": {
+      "logs": [
+        [
+          "{\"id\":7}"
+        ]
+      ]
+    },
+    "7ae5b18ad8e150311fdb06cc563e14b9f05feabe97a306925f573b717651bb89": {
+      "logs": [
+        [
+          "14"
+        ]
+      ]
+    },
+    "61f7dba823ec083ee8d02a58152c77cd4849ca41b353908eef0c5d22484cbd34": {
+      "logs": [
+        [
+          [
+            "n",
+            ""
+          ]
+        ]
+      ]
+    },
+    "ec6cede2402873528530909e9f8a612bea975d1a56716f34a85e8a5b9545b70d": {
+      "logs": [
+        [
+          "number"
+        ]
+      ]
+    },
+    "41acb32cef5be2edd761cb16ac80a99876b8ef9bfc132724ddb656ee4b4b9a4d": {
+      "logs": [
+        [
+          "{\"a\":[null]}"
+        ]
+      ]
+    },
+    "00c1f563a520c6ea465dcd8550f7dbb16e29ec7b23e44f05b7e96fd3ec3f32e5": {
+      "logs": [],
+      "error": "TypeError"
+    },
+    "4d261fd2be29513d018260719e0dbd32b18285658a8a2ef2e75c3915c0bdef2d": {
+      "logs": [],
+      "error": "TypeError"
+    },
+    "62a34a6c730c39069d118b306863fee468b5cddfbb4c75cef64b4f64ad639965": {
+      "logs": [
+        [
+          {
+            "$type": "undefined"
+          }
+        ]
+      ]
+    },
+    "6808a2a640295b305971cf96b84f8e745d370ff2d70f1c59b0f2be7030c074fe": {
+      "logs": [
+        [
+          "8"
+        ]
+      ]
+    },
+    "2d2ae168ad521d4ecc4ce14c800f8dd265bb243bb912d134006bf5d9e7f0fb13": {
+      "logs": [
+        [
+          2
+        ],
+        [
+          false
+        ]
+      ]
+    },
+    "ecf8145558cf4b4138d0b682f3a1998a2b9c5785df22b39f88f939f61e070fe1": {
+      "logs": [
+        [
+          "9007199254740993"
+        ]
+      ]
+    },
+    "0088c387d24a30eefb8b4bba7c79962a0a6b23df38a14f6945cec6da913a0413": {
+      "logs": [
+        [
+          [
+            false,
+            false,
+            true
+          ]
+        ]
+      ]
+    },
+    "f18ace5913ecb412023207ee8800e48c9b1127a451cbbaa40b22993de4a86357": {
+      "logs": [
+        [
+          true
+        ],
+        [
+          false
+        ]
+      ]
+    },
+    "c222ed5c6d20f9b4b9e897a9db273ca566942fc4ad1e6b0802da4f53e28ab0cd": {
+      "logs": [],
+      "error": "SyntaxError"
+    },
+    "49b20fffc80fa2bb55f9204413b895d21de2fe4f05b2fe3ad3e09e8134eb20ba": {
+      "logs": [
+        [
+          false
+        ]
+      ]
+    },
+    "32ee73c44fa77390f1d53211d5626b7f806f975b21d91b114305e12038a730be": {
+      "logs": [
+        [
+          true
+        ],
+        [
+          false
+        ]
+      ]
+    }
+  },
+  "quizChecks": {
+    "fe-1.7-quiz-reviver-root": {
+      "mode": "output",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Поле n изменилось, но для корня reviver ничего не вернул. Итогом стал undefined."
+        },
+        {
+          "optionId": "b",
+          "reason": "Reviver не оставляет все значения без изменений автоматически. Нужен общий return value."
+        },
+        {
+          "optionId": "c",
+          "reason": "Последний вызов относится к корню с ключом \"\". Отсутствующий return заменяет весь результат на undefined."
+        },
+        {
+          "optionId": "d",
+          "reason": "Текст корректен. Отсутствие return у reviver не является синтаксической ошибкой."
+        }
+      ]
+    },
+    "fe-1.7-quiz-module-this": {
+      "mode": "output",
+      "correctOptionId": "a",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Верхнеуровневый this в ESM равен undefined."
+        },
+        {
+          "optionId": "b",
+          "reason": "В ESM верхнеуровневый this не указывает на глобальный объект."
+        },
+        {
+          "optionId": "c",
+          "reason": "Это не CommonJS-обёртка с module.exports."
+        },
+        {
+          "optionId": "d",
+          "reason": "Чтение this здесь разрешено и не выбрасывает ошибку."
+        }
+      ]
+    },
+    "fe-1.7-quiz-namespace-default": {
+      "mode": "output",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Пространство имён — объект, но его свойство default содержит функцию."
+        },
+        {
+          "optionId": "b",
+          "reason": "Default входит в пространство имён."
+        },
+        {
+          "optionId": "c",
+          "reason": "Чтение существующего свойства не вызывает ошибку."
+        },
+        {
+          "optionId": "d",
+          "reason": "Пространство имён включает экспорт default; здесь это функция."
+        }
+      ]
+    },
+    "fe-1.7-quiz-named-alias": {
+      "mode": "output",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "as не возвращает строку с именем экспорта."
+        },
+        {
+          "optionId": "b",
+          "reason": "Имя step действительно экспортируется."
+        },
+        {
+          "optionId": "c",
+          "reason": "as меняет локальное имя импортируемой привязки."
+        },
+        {
+          "optionId": "d",
+          "reason": "Локальная привязка называется local и существует."
+        }
+      ]
+    },
+    "fe-1.7-quiz-dependency-order": {
+      "mode": "output",
+      "correctOptionId": "b",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Положение статического импорта не откладывает выполнение зависимости."
+        },
+        {
+          "optionId": "b",
+          "reason": "Зависимость выполняется перед телом этого ациклического потребителя."
+        },
+        {
+          "optionId": "c",
+          "reason": "Побочный эффект зависимости выполняется."
+        },
+        {
+          "optionId": "d",
+          "reason": "Статический импорт разрешён ниже других инструкций на верхнем уровне."
+        }
+      ]
+    },
+    "fe-1.7-quiz-live-snapshot": {
+      "mode": "output",
+      "correctOptionId": "a",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Импорт видит 1; сохранённый до изменения снимок остаётся 0."
+        },
+        {
+          "optionId": "b",
+          "reason": "Локальное число copy не становится живым импортом."
+        },
+        {
+          "optionId": "c",
+          "reason": "Импорт читает обновлённую привязку count."
+        },
+        {
+          "optionId": "d",
+          "reason": "Изменяется исходная привязка, а не ранее сохранённое число."
+        }
+      ]
+    },
+    "fe-1.7-quiz-import-assignment": {
+      "mode": "output",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Потребитель не имеет права переназначать импортированное имя."
+        },
+        {
+          "optionId": "b",
+          "reason": "Привязка найдена и инициализирована; проблема в присваивании."
+        },
+        {
+          "optionId": "c",
+          "reason": "Сам синтаксис присваивания допускает разбор; ошибка возникает при выполнении."
+        },
+        {
+          "optionId": "d",
+          "reason": "Присваивание импортированной привязке приводит к TypeError."
+        }
+      ]
+    },
+    "fe-1.7-quiz-default-expression": {
+      "mode": "output",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Export default n сохраняет результат выражения, а не эту привязку n."
+        },
+        {
+          "optionId": "b",
+          "reason": "Именованный current остаётся живой привязкой."
+        },
+        {
+          "optionId": "c",
+          "reason": "Default-выражение сохраняет 1; current читает обновлённое 2."
+        },
+        {
+          "optionId": "d",
+          "reason": "В модуле есть действительный экспорт default."
+        }
+      ]
+    },
+    "fe-1.7-quiz-reexport-local": {
+      "mode": "output",
+      "correctOptionId": "b",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Переэкспорт сам не создаёт локального step."
+        },
+        {
+          "optionId": "b",
+          "reason": "У переэкспорта нет локальной привязки step; её чтение даёт ReferenceError."
+        },
+        {
+          "optionId": "c",
+          "reason": "Отсутствующее локальное имя не читается как undefined."
+        },
+        {
+          "optionId": "d",
+          "reason": "Ошибка возникает при поиске имени, а не при вызове значения."
+        }
+      ]
+    },
+    "fe-1.7-quiz-cycle-repair": {
+      "mode": "decision",
+      "correctOptionId": "b",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Связи графа существуют до выполнения тела."
+        },
+        {
+          "optionId": "b",
+          "reason": "Оба модуля зависят от общего договора, а не друг от друга."
+        },
+        {
+          "optionId": "c",
+          "reason": "Это не удаляет ребро графа и может сохранить TDZ."
+        },
+        {
+          "optionId": "d",
+          "reason": "Форма экспорта сама не исправляет зависимость."
+        }
+      ]
+    },
+    "fe-1.7-quiz-import-failure": {
+      "mode": "output",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Это код отсутствующего файла, а не ошибка синтаксиса найденного модуля."
+        },
+        {
+          "optionId": "b",
+          "reason": "Код ошибки наблюдается внутри catch."
+        },
+        {
+          "optionId": "c",
+          "reason": "Неуспешная загрузка не возвращает успешный результат."
+        },
+        {
+          "optionId": "d",
+          "reason": "Promise динамического импорта отклоняется; await позволяет обработать отказ."
+        }
+      ]
+    },
+    "fe-1.7-quiz-import-cache": {
+      "mode": "output",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "В этом процессе одинаково разрешённый модуль использует тот же экземпляр."
+        },
+        {
+          "optionId": "b",
+          "reason": "Оба успешных импорта возвращают пространства имён."
+        },
+        {
+          "optionId": "c",
+          "reason": "Один и тот же разрешённый модуль возвращает то же пространство имён."
+        },
+        {
+          "optionId": "d",
+          "reason": "Сравнение этих объектов разрешено."
+        }
+      ]
+    },
+    "fe-1.7-quiz-conditional-load": {
+      "mode": "decision",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Статический import не размещают внутри блока if."
+        },
+        {
+          "optionId": "b",
+          "reason": "Переименование не откладывает загрузку."
+        },
+        {
+          "optionId": "c",
+          "reason": "Динамический импорт — выражение; его Promise нужно наблюдать."
+        },
+        {
+          "optionId": "d",
+          "reason": "Положение статической связи не превращает её в условную."
+        }
+      ]
+    },
+    "fe-1.7-quiz-tla-value": {
+      "mode": "output",
+      "correctOptionId": "a",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Потребитель выполняется после готовности асинхронной зависимости."
+        },
+        {
+          "optionId": "b",
+          "reason": "Зависимый модуль ждёт завершения TLA, а не получает строку Promise."
+        },
+        {
+          "optionId": "c",
+          "reason": "Экспорт готов до выполнения тела этого потребителя."
+        },
+        {
+          "optionId": "d",
+          "reason": "Это ациклическая успешно завершившаяся зависимость."
+        }
+      ]
+    },
+    "fe-1.7-quiz-cjs-top-await": {
+      "mode": "output",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Top-level await не разрешён в обычном CommonJS-файле."
+        },
+        {
+          "optionId": "b",
+          "reason": "Код не доходит до console.log."
+        },
+        {
+          "optionId": "c",
+          "reason": "Ошибка относится к синтаксису await в этом формате."
+        },
+        {
+          "optionId": "d",
+          "reason": "В main.cjs top-level await является SyntaxError."
+        }
+      ]
+    },
+    "fe-1.7-quiz-shake-side-effect": {
+      "mode": "decision",
+      "correctOptionId": "b",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Маленький bundle может содержать сломанную программу."
+        },
+        {
+          "optionId": "b",
+          "reason": "Метаданные должны сохранять инициализацию; поведение проверяют вместе с удалением лишнего кода."
+        },
+        {
+          "optionId": "c",
+          "reason": "Форма имени не описывает эффект регистрации."
+        },
+        {
+          "optionId": "d",
+          "reason": "Проблема связана с разрешением исключить модуль из сборки."
+        }
+      ]
+    },
+    "fe-1.7-quiz-file-format": {
+      "mode": "decision",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Расширение .cjs однозначно выбирает CommonJS."
+        },
+        {
+          "optionId": "b",
+          "reason": "Это формат данных, а не обычный ESM-файл JavaScript."
+        },
+        {
+          "optionId": "c",
+          "reason": "Для .js важны настройки пакета и правила версии Node."
+        },
+        {
+          "optionId": "d",
+          "reason": "Расширение .mjs явно указывает ESM."
+        }
+      ]
+    },
+    "fe-1.7-quiz-exports-rebind": {
+      "mode": "output",
+      "correctOptionId": "a",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Изменена локальная ссылка exports; возвращаемый объект сохранился."
+        },
+        {
+          "optionId": "b",
+          "reason": "Переназначение exports не заменило module.exports."
+        },
+        {
+          "optionId": "c",
+          "reason": "У исходного экспортируемого объекта осталось ready=false."
+        },
+        {
+          "optionId": "d",
+          "reason": "Локальную переменную exports можно переназначать."
+        }
+      ]
+    },
+    "fe-1.7-quiz-cjs-destructure": {
+      "mode": "output",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Деструктуризация сохранила числовой снимок n."
+        },
+        {
+          "optionId": "b",
+          "reason": "Свойство общего объекта было изменено."
+        },
+        {
+          "optionId": "c",
+          "reason": "Снимок не обновляется, а объект получает 2."
+        },
+        {
+          "optionId": "d",
+          "reason": "Обычная деструктуризация не создаёт живой импорт."
+        }
+      ]
+    },
+    "fe-1.7-quiz-cjs-default": {
+      "mode": "output",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Default соответствует module.exports, а не пустому объекту."
+        },
+        {
+          "optionId": "b",
+          "reason": "Значение свойства — boolean, не строка."
+        },
+        {
+          "optionId": "c",
+          "reason": "Default-импорт CommonJS даёт экспортируемый объект."
+        },
+        {
+          "optionId": "d",
+          "reason": "Такой default-импорт CJS поддерживается нативным Node."
+        }
+      ]
+    },
+    "fe-1.7-quiz-cjs-named-snapshot": {
+      "mode": "output",
+      "correctOptionId": "b",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Выделенное CJS-имя не обновляется как живая ESM-привязка."
+        },
+        {
+          "optionId": "b",
+          "reason": "Обнаруженное имя остаётся снимком; свойство default-объекта стало 1."
+        },
+        {
+          "optionId": "c",
+          "reason": "Объект module.exports изменён вызовом inc()."
+        },
+        {
+          "optionId": "d",
+          "reason": "Обновляется свойство объекта, а не выделенное имя."
+        }
+      ]
+    },
+    "fe-1.7-quiz-require-sync-esm": {
+      "mode": "output",
+      "correctOptionId": "a",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "На указанной версии require возвращает пространство имён синхронного ESM."
+        },
+        {
+          "optionId": "b",
+          "reason": "На указанной сборке синхронный ESM-граф допускает require."
+        },
+        {
+          "optionId": "c",
+          "reason": "Пространство имён содержит именованный экспорт n."
+        },
+        {
+          "optionId": "d",
+          "reason": "require остаётся синхронным вызовом, а не import()."
+        }
+      ]
+    },
+    "fe-1.7-quiz-require-transitive-tla": {
+      "mode": "output",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "На этой сборке причина — асинхронный граф, а не любой ESM."
+        },
+        {
+          "optionId": "b",
+          "reason": "Наличие TLA в зависимости тоже проверяется."
+        },
+        {
+          "optionId": "c",
+          "reason": "Синхронная загрузка не может пропустить TLA зависимости."
+        },
+        {
+          "optionId": "d",
+          "reason": "Ограничение относится ко всему загружаемому графу."
+        }
+      ]
+    },
+    "fe-1.7-quiz-throw-value": {
+      "mode": "output",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Числовой выброс не превращается автоматически в строку."
+        },
+        {
+          "optionId": "b",
+          "reason": "Движок не оборачивает каждый выброс в Error."
+        },
+        {
+          "optionId": "c",
+          "reason": "Catch получает то же значение, которое было передано throw."
+        },
+        {
+          "optionId": "d",
+          "reason": "Catch получает само выброшенное значение."
+        }
+      ]
+    },
+    "fe-1.7-quiz-throw-skips": {
+      "mode": "output",
+      "correctOptionId": "b",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "После throw инструкция push(2) не выполняется."
+        },
+        {
+          "optionId": "b",
+          "reason": "Throw пропускает остаток try; затем выполняются catch и finally."
+        },
+        {
+          "optionId": "c",
+          "reason": "Finally выполняется и после перехвата."
+        },
+        {
+          "optionId": "d",
+          "reason": "Push(1) произошёл до выброса."
+        }
+      ]
+    },
+    "fe-1.7-quiz-finally-hides-throw": {
+      "mode": "output",
+      "correctOptionId": "a",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Return в finally заменяет прежний выброс."
+        },
+        {
+          "optionId": "b",
+          "reason": "Возврат в finally заменяет ожидавшийся выброс."
+        },
+        {
+          "optionId": "c",
+          "reason": "В finally есть явный return 7."
+        },
+        {
+          "optionId": "d",
+          "reason": "Конструкция синтаксически допустима, хотя скрывает отказ."
+        }
+      ]
+    },
+    "fe-1.7-quiz-finally-primitive": {
+      "mode": "output",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Return уже вычислил числовое значение до finally."
+        },
+        {
+          "optionId": "b",
+          "reason": "Обычное завершение finally не стирает return."
+        },
+        {
+          "optionId": "c",
+          "reason": "Переменная n объявлена через let, менять её разрешено."
+        },
+        {
+          "optionId": "d",
+          "reason": "Finally меняет локальную переменную, но не уже вычисленное число возврата."
+        }
+      ]
+    },
+    "fe-1.7-quiz-finally-object": {
+      "mode": "output",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Возвращается общая ссылка, и её объект изменён в finally."
+        },
+        {
+          "optionId": "b",
+          "reason": "Объект содержит собственное свойство n."
+        },
+        {
+          "optionId": "c",
+          "reason": "Свойство того же возвращаемого объекта изменилось до выхода."
+        },
+        {
+          "optionId": "d",
+          "reason": "Const запрещает переназначение x, но не эту запись свойства."
+        }
+      ]
+    },
+    "fe-1.7-quiz-return-rejection": {
+      "mode": "output",
+      "correctOptionId": "b",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Локальный try не ожидает Promise и не ловит его отклонение."
+        },
+        {
+          "optionId": "b",
+          "reason": "Отклонение наблюдает внешний await; локальный catch не выполняется."
+        },
+        {
+          "optionId": "c",
+          "reason": "Внешний await получает отклонение и передаёт 7 в catch."
+        },
+        {
+          "optionId": "d",
+          "reason": "В асинхронной функции такой возврат синтаксически допустим."
+        }
+      ]
+    },
+    "fe-1.7-quiz-cause-identity": {
+      "mode": "output",
+      "correctOptionId": "a",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Cause хранит ссылку на тот же исходный объект."
+        },
+        {
+          "optionId": "b",
+          "reason": "Cause сохраняет исходный объект, не клонирует его."
+        },
+        {
+          "optionId": "c",
+          "reason": "Проверяется идентичность, а не чтение сообщения."
+        },
+        {
+          "optionId": "d",
+          "reason": "Опция cause была явно передана."
+        }
+      ]
+    },
+    "fe-1.7-quiz-cause-presence": {
+      "mode": "output",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Явная опция cause создаёт поле даже при значении undefined."
+        },
+        {
+          "optionId": "b",
+          "reason": "Без опции cause это поле не создаётся."
+        },
+        {
+          "optionId": "c",
+          "reason": "Наличие зависит от передачи опции, а не от truthiness значения."
+        },
+        {
+          "optionId": "d",
+          "reason": "Отсутствующее поле отличается от собственного поля со значением undefined."
+        }
+      ]
+    },
+    "fe-1.7-quiz-rethrow-identity": {
+      "mode": "output",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Повторный throw не создаёт новый Error автоматически."
+        },
+        {
+          "optionId": "b",
+          "reason": "Печатается сравнение объектов, а не сообщение."
+        },
+        {
+          "optionId": "c",
+          "reason": "Throw того же значения сохраняет его идентичность."
+        },
+        {
+          "optionId": "d",
+          "reason": "Внешний catch получает исходный объект."
+        }
+      ]
+    },
+    "fe-1.7-quiz-unknown-error": {
+      "mode": "decision",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Это может скрыть отказ обязательной операции."
+        },
+        {
+          "optionId": "b",
+          "reason": "Текст сообщения не является устойчивым договором о типе."
+        },
+        {
+          "optionId": "c",
+          "reason": "Если здесь нет осмысленного обработчика, нужно сохранить отказ."
+        },
+        {
+          "optionId": "d",
+          "reason": "Так потеряется исходная причина без полезного контекста."
+        }
+      ]
+    },
+    "fe-1.7-quiz-json-number-root": {
+      "mode": "output",
+      "correctOptionId": "a",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "JSON допускает числовое корневое значение."
+        },
+        {
+          "optionId": "b",
+          "reason": "Корневое JSON-значение не обязано быть объектом."
+        },
+        {
+          "optionId": "c",
+          "reason": "Разбор возвращает число, описанное текстом."
+        },
+        {
+          "optionId": "d",
+          "reason": "42 — корректный JSON-текст."
+        }
+      ]
+    },
+    "fe-1.7-quiz-json-position": {
+      "mode": "output",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Непредставимое поле объекта пропускается, а не становится null."
+        },
+        {
+          "optionId": "b",
+          "reason": "Позиция массива сохраняется через null."
+        },
+        {
+          "optionId": "c",
+          "reason": "Корень здесь — представимый объект, а не undefined."
+        },
+        {
+          "optionId": "d",
+          "reason": "Поле x пропущено, позиция массива a сохранена через null."
+        }
+      ]
+    },
+    "fe-1.7-quiz-json-bigint": {
+      "mode": "output",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "BigInt без явного преобразования не сериализуется как число."
+        },
+        {
+          "optionId": "b",
+          "reason": "Строковое представление нужно задать явно."
+        },
+        {
+          "optionId": "c",
+          "reason": "Без пользовательского преобразования BigInt вызывает TypeError."
+        },
+        {
+          "optionId": "d",
+          "reason": "BigInt вызывает ошибку, а не правило корневого undefined."
+        }
+      ]
+    },
+    "fe-1.7-quiz-json-cycle": {
+      "mode": "output",
+      "correctOptionId": "b",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Собственная перечисляемая циклическая ссылка не пропускается молча."
+        },
+        {
+          "optionId": "b",
+          "reason": "Обычный stringify не умеет представить циклический граф и выбрасывает TypeError."
+        },
+        {
+          "optionId": "c",
+          "reason": "Цикл не превращается автоматически в null."
+        },
+        {
+          "optionId": "d",
+          "reason": "Корень не является undefined; проблема в цикле."
+        }
+      ]
+    },
+    "fe-1.7-quiz-replacer-root": {
+      "mode": "output",
+      "correctOptionId": "a",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Замена корня на undefined означает отсутствие JSON-строки."
+        },
+        {
+          "optionId": "b",
+          "reason": "Replacer удаляет корневой результат целиком, а не только поле."
+        },
+        {
+          "optionId": "c",
+          "reason": "Первый вызов с пустым ключом относится к корню."
+        },
+        {
+          "optionId": "d",
+          "reason": "Undefined для корня не преобразуется в JSON null."
+        }
+      ]
+    },
+    "fe-1.7-quiz-tojson-before-replacer": {
+      "mode": "output",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Replacer вызывается после toJSON и добавляет 1."
+        },
+        {
+          "optionId": "b",
+          "reason": "JSON.stringify возвращает строку, не число 8."
+        },
+        {
+          "optionId": "c",
+          "reason": "Оба преобразования допустимы."
+        },
+        {
+          "optionId": "d",
+          "reason": "ToJSON возвращает 7, replacer меняет его на 8, stringify выдаёт строку."
+        }
+      ]
+    },
+    "fe-1.7-quiz-reviver-hole": {
+      "mode": "output",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Удаление позиции не сдвигает остальные элементы."
+        },
+        {
+          "optionId": "b",
+          "reason": "Reviver удалил собственное свойство с индексом 0."
+        },
+        {
+          "optionId": "c",
+          "reason": "Undefined из reviver оставляет пустой слот при прежней длине массива."
+        },
+        {
+          "optionId": "d",
+          "reason": "Длина не сокращается автоматически при удалении элемента."
+        }
+      ]
+    },
+    "fe-1.7-quiz-large-id-string": {
+      "mode": "output",
+      "correctOptionId": "b",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "ID передан строкой и не округляется как Number."
+        },
+        {
+          "optionId": "b",
+          "reason": "Строковый договор сохраняет цифры внешнего ID без преобразования в Number."
+        },
+        {
+          "optionId": "c",
+          "reason": "Результат остаётся строкой, а не числом."
+        },
+        {
+          "optionId": "d",
+          "reason": "JSON-строка с таким содержимым допустима."
+        }
+      ]
+    },
+    "fe-1.7-quiz-valid-shape": {
+      "mode": "decision",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Синтаксис корректен, но корень не является нужным объектом."
+        },
+        {
+          "optionId": "b",
+          "reason": "Массив не соответствует требуемой форме полей."
+        },
+        {
+          "optionId": "c",
+          "reason": "Имена, типы, версия и набор полей соответствуют договору."
+        },
+        {
+          "optionId": "d",
+          "reason": "Версия передана строкой; схема требует число 1."
+        }
+      ]
+    },
+    "fe-1.7-quiz-schema-no-coercion": {
+      "mode": "output",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Успешный JSON.parse не преобразует строковую версию в число."
+        },
+        {
+          "optionId": "b",
+          "reason": "Сравнение возвращает boolean, не строку."
+        },
+        {
+          "optionId": "c",
+          "reason": "Исходный текст синтаксически корректен."
+        },
+        {
+          "optionId": "d",
+          "reason": "Версия остаётся строкой; === не выполняет числовую коэрсию."
+        }
+      ]
+    },
+    "fe-1.7-quiz-own-required": {
+      "mode": "output",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "In видит унаследованное поле, Object.hasOwn — нет."
+        },
+        {
+          "optionId": "b",
+          "reason": "В цепочке прототипов version действительно существует."
+        },
+        {
+          "optionId": "c",
+          "reason": "Наследуемое свойство не выполняет требование собственного поля."
+        },
+        {
+          "optionId": "d",
+          "reason": "Собственного version у x нет; оно у прототипа."
+        }
+      ]
+    },
+    "fe-1.7-quiz-syntaxerror-source": {
+      "mode": "decision",
+      "correctOptionId": "b",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "SyntaxError мог выбросить пользовательский reviver."
+        },
+        {
+          "optionId": "b",
+          "reason": "Один класс исключения не доказывает этап; разделённые стадии дают ясную причину."
+        },
+        {
+          "optionId": "c",
+          "reason": "Схема могла вообще ещё не проверяться."
+        },
+        {
+          "optionId": "d",
+          "reason": "Это зависит от договора; обязательный отказ нельзя скрывать."
+        }
+      ]
+    },
+    "fe-1.7-quiz-mandatory-import": {
+      "mode": "decision",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Он скрывает потерю обязательных данных."
+        },
+        {
+          "optionId": "b",
+          "reason": "Успешная загрузка не исправляет несоответствие схеме."
+        },
+        {
+          "optionId": "c",
+          "reason": "Так обходится сама граница формата."
+        },
+        {
+          "optionId": "d",
+          "reason": "Слой сообщает этап и сохраняет контекст для обработчика."
+        }
+      ]
+    }
+  },
+  "supplemental": [
+    {
+      "cardId": "fe-1.7-info-cycle-timing",
+      "code": "import { readA } from \"./b.mjs\";\nexport const a=1;\nconsole.log(readA());",
+      "environment": "node-module",
+      "entry": "a.mjs",
+      "files": {
+        "b.mjs": "import { a } from \"./a.mjs\"; export function readA(){return a;}"
+      },
+      "logs": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.7-info-reexport",
+      "code": "import * as api from \"./barrel.mjs\";\nconsole.log(Object.hasOwn(api,\"default\"),api.step);",
+      "environment": "node-module",
+      "files": {
+        "barrel.mjs": "export * from \"./math.mjs\";",
+        "math.mjs": "export const step = 2;\nexport default (a, b) => a + b;"
+      },
+      "logs": [
+        [
+          false,
+          2
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.7-info-dual-package",
+      "code": "import * as a from \"demo\";\nimport {createRequire} from \"node:module\";\nconst require=createRequire(import.meta.url);\nconst b=require(\"demo\");\na.inc();\nconsole.log(a.n,b.n,a.Box===b.Box,new a.Box() instanceof b.Box);",
+      "environment": "node-module",
+      "files": {
+        "node_modules/demo/package.json": "{\"name\": \"demo\", \"exports\": {\".\": {\"import\": \"./index.mjs\", \"require\": \"./index.cjs\", \"default\": \"./index.mjs\"}}}",
+        "node_modules/demo/index.mjs": "export let n=0; export function inc(){n++;} export class Box {}",
+        "node_modules/demo/index.cjs": "exports.n=0; exports.Box=class Box {};",
+        "node_modules/demo/private.mjs": "export const n=99;"
+      },
+      "logs": [
+        [
+          1,
+          0,
+          false,
+          false
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.7-info-dual-package",
+      "code": "try { await import(\"demo/private.mjs\"); } catch(e) {console.log(e.code);}",
+      "environment": "node-module",
+      "files": {
+        "node_modules/demo/package.json": "{\"name\": \"demo\", \"exports\": {\".\": {\"import\": \"./index.mjs\", \"require\": \"./index.cjs\", \"default\": \"./index.mjs\"}}}",
+        "node_modules/demo/index.mjs": "export let n=0; export function inc(){n++;} export class Box {}",
+        "node_modules/demo/index.cjs": "exports.n=0; exports.Box=class Box {};",
+        "node_modules/demo/private.mjs": "export const n=99;"
+      },
+      "logs": [
+        [
+          "ERR_PACKAGE_PATH_NOT_EXPORTED"
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.7-info-require-esm",
+      "code": "import load from \"./bridge.cjs\"; console.log(await load());",
+      "environment": "node-module",
+      "files": {
+        "bridge.cjs": "module.exports=async function(){return (await import(\"./async.mjs\")).n;};",
+        "async.mjs": "export const n=await Promise.resolve(7);"
+      },
+      "logs": [
+        [
+          7
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.7-info-custom-error",
+      "code": "class ConfigError extends Error {\n  constructor(cause) {\n    super(\"Invalid config\",\n      { cause });\n    this.name = \"ConfigError\";\n    this.code = \"INVALID_CONFIG\";\n  }\n}\nconst source=new Error(\"bad\");const e=new ConfigError(source);console.log(e.name,e.code,e.cause===source,e instanceof Error);",
+      "logs": [
+        [
+          "ConfigError",
+          "INVALID_CONFIG",
+          true,
+          true
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.7-info-finally-completion",
+      "code": "try {try {throw new Error(\"first\");} finally {throw new RangeError(\"cleanup\");}} catch(e){console.log(e.name,e.message);}",
+      "logs": [
+        [
+          "RangeError",
+          "cleanup"
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.7-info-tojson-order",
+      "code": "const seen=[];const text=JSON.stringify({when:new Date(\"2026-01-01T00:00:00Z\")},(k,v)=>{if(k===\"when\")seen.push(typeof v);return v;});console.log(seen,text);",
+      "logs": [
+        [
+          [
+            "string"
+          ],
+          "{\"when\":\"2026-01-01T00:00:00.000Z\"}"
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.7-info-replacer-contract",
+      "code": "console.log(JSON.stringify({user:{id:7,name:\"Ada\"},id:1},[\"user\",\"id\"]));",
+      "logs": [
+        [
+          "{\"user\":{\"id\":7},\"id\":1}"
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.7-info-explicit-dto",
+      "code": "const x=JSON.parse(\"9007199254740993\",(k,v,context)=>BigInt(context.source));console.log(x);",
+      "logs": [
+        [
+          {
+            "$type": "bigint",
+            "value": "9007199254740993"
+          }
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.7-info-syntax-schema",
+      "environment": "node-module",
+      "files": {
+        "format.mjs": "export function readSettings(text) {\n if(typeof text!==\"string\")throw new TypeError(\"Expected text\");\n let x;\n try {x=JSON.parse(text);} catch(cause){throw Object.assign(new Error(\"Not JSON\",{cause}),{code:\"SYNTAX\"});}\n if(x===null||typeof x!==\"object\"||Array.isArray(x)||!Object.hasOwn(x,\"version\")||!Object.hasOwn(x,\"theme\")||Object.keys(x).length!==2||x.version!==1||![\"light\",\"dark\"].includes(x.theme))throw Object.assign(new Error(\"Bad shape\"),{code:\"SCHEMA\"});\n return {version:1,theme:x.theme};\n}"
+      },
+      "code": "import {readSettings} from \"./format.mjs\";\nfor(const text of [\"{\",\"null\",\"[]\",'{\"version\":\"1\",\"theme\":\"dark\"}','{\"version\":1,\"theme\":\"dark\",\"__proto__\":{}}','{\"version\":1,\"theme\":\"dark\"}']) {\n try {console.log(readSettings(text).theme);} catch(e){console.log(e.code,e.cause instanceof SyntaxError);}\n}",
+      "logs": [
+        [
+          "SYNTAX",
+          true
+        ],
+        [
+          "SCHEMA",
+          false
+        ],
+        [
+          "SCHEMA",
+          false
+        ],
+        [
+          "SCHEMA",
+          false
+        ],
+        [
+          "SCHEMA",
+          false
+        ],
+        [
+          "dark"
+        ]
+      ]
+    },
+    {
+      "cardId": "fe-1.7-info-import-contract",
+      "environment": "node-module",
+      "files": {
+        "format.mjs": "export function readSettings(text) {\n if(typeof text!==\"string\")throw new TypeError(\"Expected text\");\n let x;\n try {x=JSON.parse(text);} catch(cause){throw Object.assign(new Error(\"Not JSON\",{cause}),{code:\"SYNTAX\"});}\n if(x===null||typeof x!==\"object\"||Array.isArray(x)||!Object.hasOwn(x,\"version\")||!Object.hasOwn(x,\"theme\")||Object.keys(x).length!==2||x.version!==1||![\"light\",\"dark\"].includes(x.theme))throw Object.assign(new Error(\"Bad shape\"),{code:\"SCHEMA\"});\n return {version:1,theme:x.theme};\n}"
+      },
+      "code": "async function load(text,path=\"./format.mjs\") {\n let mod;\n try {mod=await import(path);} catch(cause){throw Object.assign(new Error(\"Load\",{cause}),{code:\"LOAD\"});}\n try {return mod.readSettings(text);} catch(cause){throw Object.assign(new Error(\"Import\",{cause}),{code:\"IMPORT\"});}\n}\nfor(const [text,path] of [[\"{}\",\"./missing.mjs\"],[\"{\"],[\"null\"],['{\"version\":1,\"theme\":\"dark\"}']]) {\n try {console.log((await load(text,path)).theme);} catch(e){console.log(e.code,e.cause.code);}\n}",
+      "logs": [
+        [
+          "LOAD",
+          "ERR_MODULE_NOT_FOUND"
+        ],
+        [
+          "IMPORT",
+          "SYNTAX"
+        ],
+        [
+          "IMPORT",
+          "SCHEMA"
+        ],
+        [
+          "dark"
+        ]
+      ]
+    }
+  ]
+}

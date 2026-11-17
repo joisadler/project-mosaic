@@ -34,6 +34,16 @@ const cards = ["Info", "Quiz", "Flip"].flatMap(type => readLiteral(
   `${exportPrefix}${type}Cards`, { [`${exportPrefix}ReadMoreUrls`]: urls },
 ));
 
+function markdownFields(card) {
+  return card.type === "info" ? card.pages.map((text, i) => [`page-${i + 1}`, text])
+    : card.type === "quiz" ? [["question", card.question]] : [["question", card.question], ["answer", card.answer]];
+}
+
+// Module dependencies can refer to an authored fence by hash instead of copying it.
+const fencedSources = new Map(cards.flatMap(card => markdownFields(card).flatMap(([, text]) =>
+  [...text.matchAll(/~~~js\n([\s\S]*?)\n~~~/g)].map(match => [createHash("sha256").update(match[1]).digest("hex"), match[1]]),
+)));
+
 // Preserve values at log time, including undefined, NaN, negative zero and array entries.
 function encode(value) {
   if (value === undefined) return { $type: "undefined" };
@@ -52,6 +62,47 @@ function format(value) {
 }
 
 function execute(code, expected) {
+  if (expected.environment === "node-module") {
+    const directory = fs.mkdtempSync(path.join(os.tmpdir(), "mosaic-modules-"));
+    try {
+      const write = (name, source) => {
+        assert.ok(!path.isAbsolute(name) && !name.split(/[\\/]/).includes(".."), "Fixture path must stay inside its temporary directory");
+        const target = path.join(directory, name);
+        fs.mkdirSync(path.dirname(target), { recursive: true });
+        fs.writeFileSync(target, source);
+      };
+      const entry = expected.entry ?? "main.mjs";
+      for (const [name, fixture] of Object.entries(expected.files ?? {})) {
+        assert.notEqual(name, entry, "A dependency must not replace the authored entry");
+        const source = typeof fixture === "string" ? fixture : fencedSources.get(fixture.sourceHash);
+        assert.equal(typeof source, "string", `Missing authored dependency ${name}`);
+        write(name, source);
+      }
+      write(entry, code);
+      const harness = `
+        import { pathToFileURL } from "node:url";
+        const encode = ${encode.toString()};
+        const logs = [];
+        console.log = (...args) => logs.push(args.map(encode));
+        let error, errorCode;
+        try { await import(pathToFileURL(${JSON.stringify(path.join(directory, entry))}).href); }
+        catch (caught) { error = caught.name; errorCode = caught.code; }
+        process.stdout.write(JSON.stringify({logs, error, errorCode}));
+      `;
+      const child = spawnSync(process.execPath, ["--input-type=module", "-e", harness], {
+        encoding: "utf8", timeout: 3000, maxBuffer: 1024 * 1024,
+      });
+      assert.ifError(child.error);
+      assert.equal(child.status, 0, child.stderr);
+      const result = JSON.parse(child.stdout);
+      assert.equal(result.error, expected.error, `Module exception mismatch for:\n${code}`);
+      if (expected.errorCode) assert.equal(result.errorCode, expected.errorCode);
+      assert.deepEqual(result.logs, expected.logs, `Module value/type mismatch for:\n${code}`);
+      return result;
+    } finally {
+      fs.rmSync(directory, { recursive: true, force: true });
+    }
+  }
   // Native host APIs must run in a real Node realm, not a VM with injected globals.
   if (expected.environment === "node-process") {
     const source = expected.async ? `
@@ -106,8 +157,7 @@ const decisionCards = [];
 let nodeExecutions = 0;
 for (const card of cards) {
   assert.ok(Object.values(urls).includes(card.readMoreUrl), `${card.id}: unknown source URL`);
-  const fields = card.type === "info" ? card.pages.map((text, i) => [`page-${i + 1}`, text])
-    : card.type === "quiz" ? [["question", card.question]] : [["question", card.question], ["answer", card.answer]];
+  const fields = markdownFields(card);
   const ownCases = [];
   for (const [field, markdown] of fields) {
     const fences = [...markdown.matchAll(/~~~js\n([\s\S]*?)\n~~~/g)];

@@ -108,6 +108,23 @@ const artwork = {
     <circle cx="202" cy="261" r="30" />
     <path d="m350 185 16 4-7 15" />
   </>,
+  boundary: <>
+    <path d="M110 170h60l20 20v125h-80Zm60 0v20h20M250 145h60l20 20v150h-80Zm60 0v20h20" />
+    <path d="M190 240h60" />
+    <circle cx="190" cy="240" r="6" />
+    <circle cx="250" cy="240" r="6" />
+  </>,
+  causes: <>
+    <rect x="135" y="150" width="115" height="50" rx="10" />
+    <rect x="180" y="225" width="115" height="50" rx="10" />
+    <rect x="225" y="300" width="115" height="50" rx="10" />
+    <path d="M195 200v15h45v10m0 50v15h45v10" strokeDasharray="3 5" />
+  </>,
+  payload: <>
+    <path d="M160 190h-15v35l-12 12 12 12v35h15m20-94h15v35l12 12-12 12v35h-15m40-47h30m-8-8 8 8-8 8" />
+    <rect x="270" y="160" width="80" height="150" rx="10" />
+    <path d="M285 185h50m-50 25h33m-33 25h46m-46 25h33m-33 25h45" />
+  </>,
   neutral: <circle cx="290" cy="290" r="150" />,
 };
 

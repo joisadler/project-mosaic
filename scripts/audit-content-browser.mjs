@@ -61,7 +61,7 @@ export default async function audit(page, options) {
         requestedKeys.add(key);
         const content = hash(JSON.stringify(card));
         const previous = prior.find(x => x.key === key && x.content === content && x.rendering === rendering && fs.existsSync(x.evidence));
-        if (reuse && previous)
+        if (reuse && previous && Object.hasOwn(previous, "onePixelExcess"))
           retained.push(previous);
         else
           pending.push({ key, content, rendering, cardId: card.id, type: card.type, width, height, state });
@@ -96,6 +96,7 @@ export default async function audit(page, options) {
         const visible = el => { const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0 && r.right > 0 && r.left < innerWidth && r.bottom > 0 && r.top < innerHeight && !el.closest('[aria-hidden="true"]'); };
         const candidates = [...document.querySelectorAll('[class*="__markdown"],pre,[class*="__quizContent"],[class*="__quizResult"],[class*="__optionText"],[class*="__flipSideScroller"]')].filter(visible);
         const overflows = candidates.filter(el => el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1).map(el => ({ class: el.className, client: [el.clientWidth, el.clientHeight], scroll: [el.scrollWidth, el.scrollHeight] }));
+        const onePixelExcess = candidates.filter(el => (el.scrollWidth > el.clientWidth || el.scrollHeight > el.clientHeight) && el.scrollWidth <= el.clientWidth + 1 && el.scrollHeight <= el.clientHeight + 1).map(el => ({class: el.className, client:[el.clientWidth,el.clientHeight], scroll:[el.scrollWidth,el.scrollHeight]}));
         const outside = candidates.filter(el => { const r = el.getBoundingClientRect(); return r.bottom > innerHeight + 1 || r.right > innerWidth + 1 || r.left < -1 || r.top < -1; }).map(el => el.className);
         const text = [...document.querySelectorAll('p,li,h2,pre,button,[class*="__optionText"]')].filter(visible);
         const floors = text.filter(el => { const n = parseFloat(getComputedStyle(el).fontSize); return n < (el.matches('pre') ? 12 : el.matches('h2') ? 14 : 14) - .1; }).map(el => ({ tag: el.tagName, size: getComputedStyle(el).fontSize, text: el.textContent.slice(0, 35) }));
@@ -105,7 +106,7 @@ export default async function audit(page, options) {
         const belowBaseline = floors.filter(item => !typographyExceptions.includes(item));
         const targets = [...document.querySelectorAll('[role="radio"],button,a')].filter(visible).map(el => ({ label: el.getAttribute('aria-label') ?? el.textContent.slice(0, 30), width: el.getBoundingClientRect().width, height: el.getBoundingClientRect().height }));
         const decoration = [...document.querySelectorAll('[data-motif]')].filter(visible).map(el => ({ motif: el.dataset.motif, hidden: el.getAttribute('aria-hidden'), pointerEvents: getComputedStyle(el).pointerEvents }));
-        return { observed: { card: host.dataset.auditCard, page: host.dataset.auditPage, side: host.dataset.auditSide, option: host.dataset.auditOption }, errors, overflows, outside, floors: belowBaseline, standardTypographyExceptions: typographyExceptions, targets, decoration, quizBottomGap: type === 'quiz' ? Math.round(innerHeight - contentBottom) : null };
+        return { observed: { card: host.dataset.auditCard, page: host.dataset.auditPage, side: host.dataset.auditSide, option: host.dataset.auditOption }, errors, overflows, onePixelExcess, outside, floors: belowBaseline, standardTypographyExceptions: typographyExceptions, targets, decoration, quizBottomGap: type === 'quiz' ? Math.round(innerHeight - contentBottom) : null };
       }, { expected: s.cardId, state: s.state, type: s.type });
     }));
     const evidence = path.join(output, `sheet-${Date.now()}-${batches}.png`);
