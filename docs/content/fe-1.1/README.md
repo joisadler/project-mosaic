@@ -60,4 +60,4 @@ Use `COVERAGE.md` to locate the source subsection behind each card. It documents
 
 ## Visual identity
 
-Blue/cyan with cropped braces and nested contours (`scope`) by default. Cards centered on declaration preparation, initialization, TDZ or execution phases explicitly select `lifecycle`. The connected stages do not represent event-loop scheduling, which remains outside this package. See the shared [optional motif contract](../README.md#optional-visual-motifs) for supported identifiers and fallback behavior. No learning text, IDs or source links are changed by these assignments.
+Blue/cyan with cropped braces and nested contours (`scope`) by default. Cards centered on declaration preparation, initialization, TDZ or execution phases explicitly select `lifecycle`. The connected stages do not represent event-loop scheduling, which remains outside this package. See the shared [optional motif contract](../presentation.md#optional-visual-motifs) for supported identifiers and fallback behavior. No learning text, IDs or source links are changed by these assignments.

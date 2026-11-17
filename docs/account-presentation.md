@@ -14,7 +14,7 @@ Signed-out screens rely on the Google sign-in button's label without a duplicate
 
 My learning shows an overall progress summary, then independent chapter accordions and indented subsections. Full registry titles, chapter/subsection membership, separate selection/disclosure actions, and chapter aggregate values are preserved. Overall, chapter, and subsection resets remain distinct visible actions with the existing scoped confirmation dialog. The first subsection's cyan accent uses an explicit `data-section="fe-1.1"` presentation rule; other groups retain the default lilac accent. Colors do not determine membership or progress.
 
-Percentages and completed counts remain data-derived. Native progress elements expose values immediately; this increment adds no animation or new award behavior. Reset, selection, synchronization, auth, and shuffle semantics remain as described in [Learning progress](learning-progress.md), [Study sessions](study-sessions.md), and [Authentication](authentication.md). The existing Google sign-in route shares the same presentation primitives and keeps the existing Google button branding, recovery states, and callback behavior.
+Percentages and completed counts remain data-derived. Native progress elements expose values immediately; account summary presentation does not change award behavior. Reset, selection, synchronization, auth, and shuffle semantics remain as described in [Learning progress](learning-progress.md), [Study sessions](study-sessions.md), and [Authentication](authentication.md). The existing Google sign-in route shares the same presentation primitives and keeps the existing Google button branding, recovery states, and callback behavior.
 
 ## Accessibility and review
 
@@ -24,7 +24,7 @@ Contrast checks must cover foreground/background pairs and adjacent progress/foc
 
 Glass surfaces require checks against the composited backdrop rather than the old opaque slate swatches. Keep secondary text over quiet dark regions; decorative tiles must not run behind text. Fixed pairs remain lilac/cyan progress fills against their track (3.57:1 / 5.14:1). Large white initials against the lightest avatar gradient stop have 3.57:1 contrast. Keep text away from the brighter decorative tile fills; palette ratios alone do not validate text overlapping artwork. Physical iPhone/PWA validation and exhaustive browser/state coverage are separate from these color calculations.
 
-Illustrated empty states and an alternative feed-card progress placement require separate visual proposals. This presentation increment does not select Lottie, change feed actions, or move progress on a learning card.
+Illustrated empty states are implemented as described below; card-header progress is documented in [progress presentation](progress/presentation.md). Further visual/control changes require a separate proposal. No Lottie dependency is selected.
 
 ## Loading states
 

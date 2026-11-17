@@ -1,0 +1,11 @@
+# Content review and publication
+
+Read after implementation/verification, not at startup. Confirm final-tree coverage and [applicable checks](../development.md#choose-checks-by-impact), including semantic/rendered/ordinary-feed checks; typecheck and build run sequentially. Inspect the entire diff for secrets, temporary routes/probes, restricted inventories, mock auth/backend, caches/raw evidence and unrelated work.
+
+Keep package README/COVERAGE/PLAN aligned: exact actual IDs/source objectives, exclusions, counts, sources/verified anchors, approved visuals, reproducible semantic commands, concise fresh/retained rendering evidence, limitations and owner acceptance scope. Update the [catalog](catalog.md) when registration changes. Keep the root README as a stable entry point to the registry/catalog; do not add card/section counts or a changing list of integrated sections. Registration establishes availability; source approval alone does not. Do not duplicate the Linear backlog.
+
+Report in Russian: subsection/Linear link, counts/topics/exclusions, approved visuals, executed/source/manual/unverified evidence, check results and exceptions, ordinary ngrok URL/representative screenshots, a short owner device scenario, and readiness for commit. Owner scenario: select only new subsection, inspect Info pages, answer Quiz, reveal Flip sides, visit profile/learning and return, re-enable other sections and reload. Record actual response/device/browser without inference.
+
+Do not call incomplete required checks ready. Distinguish accepted exceptions from clean passes and state-count savings from actual token/allowance usage. No routine large usage investigation. Keep Linear In Progress until accepted integration; propose a focused commit and wait for explicit commit/push approval.
+
+After approval, update only acceptance docs unless fixes are requested; reuse valid unchanged checks. Recheck branch/status/diff, stage only agreed files, preserve unrelated edits, commit/push and verify HEAD against the live remote branch. Record actual commit/results/owner acceptance in Linear, set the justified status and report remaining Git changes. A push is not deployment validation. Stop after delivery; no next section without a new instruction.

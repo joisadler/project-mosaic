@@ -1,0 +1,13 @@
+# Card progress presentation
+
+Read for header/progress/confirmation-control styling. Award rules remain in [Learning progress](../learning-progress.md).
+
+## Compact card progress presentation
+
+Every rendered card owns a shared `CardHeader` containing its type badge, `CardProgress`, and card counter. The card position uses `cardCounter`; only understanding percentage uses `CardProgress`. Compact quiz pagination is passed separately as `quizPagination`. Shared action-rail button/icon styles use `feedAction`/`feedActionIcon` for all action types. The header uses flex with `justify-content: space-between` and `align-items: center`; metadata is in normal header flow rather than independently positioned against the viewport. InfoCard/FlipCard headers overlay the existing card reading area, while QuizCard retains its existing grid header and compact-layout behavior. No extra reading-space padding is introduced. At narrow/short sizes the existing hidden type-badge behavior leaves progress and counter at opposite ends of the same row.
+
+The 2px progress track is absolutely positioned at the top of that card's header, across its full width, with no edge offsets or rounding. It moves with the vertical Swiper slide, including during a partial transition: outgoing and incoming cards retain their own percentages and section accents. `LearningFeed` passes each card's actual `cardPercentage` and readiness, or read-only 100% in review. The right action rail continues to contain only actions; it does not own or display card progress.
+
+`CardProgress` owns the existing 450ms interpolation for both its “Прогресс: N%” label and fill. It does not replay interpolation for initial readiness, activation, inactive cards, or reduced motion; frames are canceled on changes/unmount. A native progress element exposes the immediate value and the visual label is aria-hidden. Card/presentation identity remains owned by the existing keyed slide, independent of the display animation. Confirmation eligibility and awards remain in the progress/session logic, not the header.
+
+The compact label uses the unchanged system font at weight 400. Counter/progress text uses opaque `#e9edf5`; the [feed text contrast review](../feed-text-contrast.md) records an earlier palette baseline and conservative method; recheck affected current pairs rather than extrapolating its ratios. Existing content/control safe areas and the system gesture guard remain in place. The owner requested top placement after physical-corner clipping of the bottom strip and rejection of inset side placement; browser verification of the current header does not establish installed-iPhone/PWA rendering or physical-corner visibility.

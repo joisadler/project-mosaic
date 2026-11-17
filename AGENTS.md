@@ -1,42 +1,19 @@
 # Project Mosaic
 
-Mobile-first educational microlearning feed. The completed MVP focuses on frontend interview preparation: JavaScript, TypeScript, React, HTML, CSS, and browser APIs.
+Mobile-first frontend microlearning. Speak Russian to Йоси using «ты»; learning text is Russian, code/comments/docs/commits English.
 
-## Language
+- Check branch/diff and applicable instructions; preserve existing edits. Implement only the selected task. Ask before commit/push, new dependencies, major architecture or visual/control changes. Linear is the task/status authority.
+- Use the existing Next.js/React/strict TypeScript and SCSS Modules stack. No Tailwind, CSS-in-JS or UI libraries. Run `nvm use` before npm; keep lockfile reproducible.
+- Preserve guest access, owner isolation and existing behavior. Never use owner progress/accounts for tests. Do not infer physical-device or deployment acceptance from agent checks or push.
+- Read only the route relevant to this task; linked references are not a startup reading list:
 
-- Always communicate with the user in Russian, including questions, updates, and reports.
-- Use English for source code, identifiers, code comments, documentation, and Git commit messages.
-- Write learning content in natural Russian. Keep technical terminology in English at its first mention, and keep code, identifiers, APIs, and program output in English.
-
-## Stack and workflow
-
-- Next.js App Router, React, strict TypeScript, and a `src/` directory.
-- SCSS Modules for component styles; global SCSS for resets, variables, and shared styles.
-- ESLint and built-in Next.js metadata/manifest support. Mobile-first design.
-- Run `nvm use` before npm commands; `.nvmrc` pins the project Node.js version.
-- Run `npm run lint`, `npm run typecheck`, and `npm run build` after relevant changes.
-- Keep dependencies compatible and reproducible through `package-lock.json`.
-- For browser verification on macOS, always start a temporary `caffeinate -d -t 1800` process to keep the display awake. Renew it if verification lasts longer, track the process started for this task, and stop it when browser work ends. The owner has authorized this as the default; do not ask again or change persistent sleep settings.
-
-## Scope and principles
-
-- Current status: the project owner accepted the existing application as the completed MVP on October 11, 2026. It includes a virtualized vertical feed with InfoCards, accessible multiple-choice QuizCards, swipe-driven question-and-answer FlipCards, Markdown rendering, local structured frontend content, and a stable randomized order within each open study session. The owner selected fresh feed generation on true reload for MOS-205 on October 26, 2026; keep the current card/page/answer during ordinary backgrounding and client-side route visits, and persist progress/preferences/repetition evidence separately. The owner confirmed MOS-205 works and approved commit/push on October 26, 2026; acceptance is recorded in Linear.
-- Real-device validation: the owner confirmed on October 11, 2026, that the original iPhone/PWA bugs were fixed, and on October 12, 2026, that the feed correctly recovers after a portrait-landscape-portrait cycle without leaving a bottom gap. The manifest's `portrait-primary` hint did not prevent rotation when installed from either Chrome or Safari on the owner's iPhone, so preserve the responsive landscape fallback. Do not attribute physical-device validation to an agent or infer a tested commit or deployment.
-- Current stage: the owner-approved post-MVP learning plan. The integrated fe-1.1/fe-1.2 content and section visual identities are implemented and accepted. The Google sign-in and minimal MongoDB user/backend foundation through Next.js route handlers are complete and accepted. The user/settings page, device-local session resume, and explicit local understanding progress are complete and accepted. Account synchronization and hierarchical section controls, aggregate progress, and scoped resets are implemented and accepted by the owner after phone/desktop checks on October 22, 2026. Completed-card review and normal-study exclusion (MOS-16) were accepted by the owner in the development iPhone/PWA workflow on October 22, 2026. A push does not establish deployment validation. Review must remain read-only for progress and use its separate device-local session scope. Continuous progress-aware ordering (MOS-13) was accepted by the owner in the development iPhone/PWA workflow on October 22, 2026. Preserve the soft 2:1 mix, unique cards within a round, bounded presentation history, and shared award eligibility described in [Study ordering](docs/study-ordering.md). Keep existing presentation IDs during live backward/forward navigation and do not reshuffle an active queue on focus, ordinary backgrounding or progress updates. MOS-205 supersedes cross-reload navigation persistence: each new runtime creates a fresh balanced queue. Profile/My learning page separation (MOS-33) was accepted by the owner on October 23, 2026, after confirming that the page flows work. Keep `/account` as the compact profile and `/learning` for selection/progress/reset/shuffle controls, with `/review` separate. Accordions (MOS-34) and visual redesign (MOS-35) remain separate work. Read [MOS-12](https://linear.app/joisadler/issue/MOS-12) and the individual issues for current sequence, dependencies, acceptance criteria, and status; approval of the plan does not authorize implementing every task in one increment.
-- Keep the [Project Mosaic Linear project](https://linear.app/joisadler/project/project-mosaic-1db195c51ec6) as the source of truth for tasks and backlog status. Do not create a duplicate tracker in repository documentation.
-- Preserve the accepted interaction model unless a change is explicitly authorized: mix explanations and exercises; use taps, selections, and gestures; require no mobile code typing; and allow users to skip cards.
-- Implement only the authorized task in small, independently verifiable increments.
-- Prefer simple readable code, focused reusable components, strong typing, and native browser/framework capabilities. Avoid `any` unless justified.
-- Prioritize mobile UX, accessibility, and performance. Separate business logic from presentation where practical.
-- Keep feed actions vertically aligned on the right with icon-only styling. Preserve full-width card content with symmetric side padding; do not reserve an asymmetric content column for controls. Discuss changes to control placement or visual direction with the owner before implementation. Settings and illustrated empty-state redesign remain deferred to MOS-32 and its children.
-- Name handbook-derived content packages with the unambiguous `fe-<section>.<subsection>` namespace across directories, files, card IDs and documentation. Use identifier-safe names such as `feSection1_1InfoCards` only where source-code syntax cannot contain dots or hyphens.
-- No Tailwind, utility-first CSS frameworks, CSS-in-JS, or UI component libraries.
-- Discuss major architecture changes or additional dependencies before introducing them. No speculative abstractions, plugin systems, premature optimization, or complex state management.
-- Google authentication, MongoDB, and focused Next.js route handlers are approved for the selected account and learning-data tasks. Keep guest browsing available. The optional Google/MongoDB foundation has development credentials and live database/provider checks. On October 14, 2026, the owner confirmed the basic auth cycle on desktop and iPhone Safari, plus Google callback return, session persistence after reopening, and sign-out in the installed development PWA. Production is deployed; the owner confirmed the desktop and installed iPhone/PWA authentication checks on October 15, 2026. Live development session/security integration checks passed on October 15, 2026. The owner confirmed account selection and switching between both test Google accounts in the installed development PWA on October 15, 2026. MOS-24 is complete and accepted; detailed validation evidence is recorded in Linear. The MOS-23 account icon entry and `/account` shell are implemented, accepted by the owner on iPhone/PWA on October 21, 2026. The shared study layout keeps the feed mounted for client-side account visits; keep it hidden/inert and disable its global input while the account page is visible. Device-local feed resume was accepted for MOS-17 on October 21, 2026; the owner superseded cross-reload order/position restoration with MOS-205 on October 26, 2026. Keep ordinary live-session navigation stable; MOS-22 account synchronization is accepted by the owner after phone/desktop functionality and synchronization checks on October 22, 2026. MOS-14 explicit local understanding confirmations are implemented, accepted by the owner on October 22, 2026. Keep progress isolated by guest/account and reuse the documented presentation/repeat rule in [Learning progress](docs/learning-progress.md); do not infer understanding from quiz correctness. Account synchronization shares account progress and selected sections across devices while active feed order, current card, page and selected feedback stay only in the open runtime's memory. Follow [the authentication guide](docs/authentication.md) for environment separation, the development PWA entry, and ownership boundaries.
-- No runtime AI, recommendation engine, advanced spaced-repetition framework, tracking/analytics, social features, or multiple domains in the approved scope. A small repeat-eligibility/spacing rule is included only in the selected progress and ordering tasks. Sound/haptics and user-reporting ideas remain unselected backlog proposals.
-- Do not add service workers, offline caching libraries, or push infrastructure unless explicitly approved as a post-MVP improvement.
-- Tentative roadmap stages must not drive current infrastructure; no cross-platform abstractions for possible React Native work.
-- Preserve unrelated files and repository configuration. Proactively propose a focused commit when a task is ready, before starting the next task. Obtain owner approval before committing or pushing; do not wait for the owner to initiate the commit discussion.
+| Task | Read |
+| --- | --- |
+| Add/revise a content subsection | [Section workflow](docs/content/section-integration-workflow.md), including reasoning-switch waits |
+| Change app behavior/scope | [Product contract](docs/product-contract.md), then the affected subsystem in [docs index](docs/README.md) |
+| Browser checks | [Browser protocol](docs/verification.md): CLI first, MCP only when CLI cannot perform the work |
+| Commands, tests, build, environment errors | [Development](docs/development.md) |
+| Earlier acceptance/evidence | [History](docs/history/accepted-milestones.md) or affected package; verify current status in Linear |
 
 <!-- BEGIN:nextjs-agent-rules -->
 

@@ -1,0 +1,15 @@
+# Progress verification
+
+Read when validating confirmation, reset, sync or review changes.
+
+## Verification
+
+Run `npm run test:ordering`, `npm run test:sync`, `npm run test:progress`, session/auth tests, content validation, lint, typecheck, and build. Verify all three types, review gating, keyboard/touch activation, cancel/re-enable, reload/back-forward, immediate new-session blocking, corrupt/denied storage, and owner separation. Test narrow portrait, desktop, and compact landscape feedback. Attribute physical iPhone double-tap/gesture/PWA validation separately to the owner; automated and simulated browser checks do not establish device acceptance.
+
+The owner confirmed the requested functionality after local/PWA testing and accepted the icon-only controls and progress animation on October 22, 2026, then authorized commit/push. Detailed evidence is recorded in MOS-14. This acceptance does not establish validation of a later production deployment.
+
+MOS-22 automated checks cover independent client stores, offline restart/sign-out, in-flight toggles, denied storage, preferences, replay, concurrent conflicts, scoped resets, and stale-queue rejection. Live development HTTP/MongoDB checks use disposable fixture users and signed sessions, never the owner's cookies; test records are removed afterward. Browser validation covers the real account status and a simulated sync-only server failure. On October 22, 2026, the owner confirmed “Окружение — модель привязок” on the phone; the already mounted desktop feed subsequently displayed 10% for the same card without reloading or confirming it there. This establishes phone-to-desktop propagation while retaining separate presentations. Exact delivery latency was not measured. Reverse-direction and physical-device offline-recovery checks remain unconfirmed; earlier MOS-14/MOS-17 acceptance does not establish them.
+
+The MOS-15 account controls have automated aggregate/guest reset/offline retry coverage and separate live fixture API checks. Real-account browser inspection covers derived values and non-destructive modal cancellation. Successful/error reset UI branches are exercised in an isolated intercepted fixture tab; they are not presented as real Google/MongoDB browser evidence. On October 22, 2026, the owner reported that all implemented functions work and synchronize between the phone and computer, accepted the functionality, and authorized commit/push. Visual and settings-organization feedback is deferred to a separate design task. This acceptance does not establish validation of a later production deployment; detailed evidence remains in Linear.
+
+MOS-16 automated checks cover completion boundaries, disjoint study/review filtering, empty and exhausted pools, reset eligibility, and independent session restoration. Browser checks use a separate intercepted fixture account for all three completed card types; this does not alter the owner account or establish live backend evidence. On October 22, 2026, the owner confirmed the six-card development review checklist on iPhone/PWA and accepted MOS-16.

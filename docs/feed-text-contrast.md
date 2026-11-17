@@ -1,14 +1,14 @@
-# Feed text contrast review
+# Feed text contrast baseline (fe-1.1/fe-1.2)
 
 ## Scope and method
 
-This review covers the current InfoCard, QuizCard and FlipCard text styles in both registered section palettes (`fe-1.1`, `fe-1.2`) and the neutral fallback: headings/strong/emphasis, prose, inline/fenced code, type badges, card counters, progress text, flip hints, quiz option letters/text in default/hover/correct/incorrect states, feedback, explanation controls, tooltips and notices. Loading, recovery and empty-state text/action colors were checked against their separate surfaces as well. It is not a full WCAG conformance audit of every page, interaction, text-resize mode or future content package.
+This historical review covers the then-reviewed InfoCard, QuizCard and FlipCard text styles in the two original section palettes (`fe-1.1`, `fe-1.2`) and the neutral fallback: headings/strong/emphasis, prose, inline/fenced code, type badges, card counters, progress text, flip hints, quiz option letters/text in default/hover/correct/incorrect states, feedback, explanation controls, tooltips and notices. Loading, recovery and empty-state text/action colors were checked against their separate surfaces as well. It is not a full WCAG conformance audit of every page, interaction, text-resize mode or future content package.
 
 Ratios use WCAG sRGB relative luminance and alpha compositing. To bound the brightest possible card background conservatively, each preset's brightest gradient base is combined with both maximum glow layers and then 22% accent artwork. Foreground transparency and each local surface (code, options, letter chips, feedback, etc.) are composited separately. This can be brighter than any actual rendered point: a failing bound in the old styles does not establish that every screenshot failed. After correction, all reviewed text pairs meet 4.5:1 even under this bound; headings were also held to 4.5:1 rather than relying on the large-text exception.
 
-Reference: [WCAG 2.2 contrast minimum](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html). These calculations do not establish non-text contrast, focus, reflow, screen-reader, or physical-device conformance. Decorative emoji/icons and browser developer tools are not application text. Current local content illustrations contain no SVG text; future illustrations and new palettes require a fresh check. There are no authored inline Markdown hyperlinks in the current packs; future link colors/states also need verification.
+Reference: [WCAG 2.2 contrast minimum](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html). These calculations do not establish non-text contrast, focus, reflow, screen-reader, or physical-device conformance. Decorative emoji/icons and browser developer tools are not application text. The reviewed local content illustrations contain no SVG text; future illustrations and new palettes require a fresh check. There are no authored inline Markdown hyperlinks in the reviewed packs; future link colors/states also need verification.
 
-## Conservative minimum ratios across current presets
+## Conservative minimum ratios across reviewed presets
 
 | Text or state | Previous bound | Updated bound |
 | --- | ---: | ---: |
@@ -38,6 +38,6 @@ Counters, progress labels, prose and flip hints now use opaque `#e9edf5`. Inline
 
 ## Rendered checks
 
-An isolated, temporary presentation route exercised the actual card components without using stored progress or account state. Header row centers were measured on all three card types at 375×812 with 47/34px emulated safe-area insets, plus the narrow 320px and compact landscape layouts. Quiz default/selected incorrect/selected correct colors were checked in rendered styles; forced-colors label text uses CanvasText. The temporary route was removed. These checks are browser evidence, not owner iPhone/PWA validation or a fresh exhaustive audit of all 220 authored card states.
+An isolated, temporary presentation route exercised the actual card components without using stored progress or account state. Header row centers were measured on all three card types at 375×812 with 47/34px emulated safe-area insets, plus the narrow 320px and compact landscape layouts. Quiz default/selected incorrect/selected correct colors were checked in rendered styles; forced-colors label text uses CanvasText. The temporary route was removed. These checks are browser evidence, not owner iPhone/PWA validation or a fresh exhaustive audit of the then-registered 220 cards.
 
-Recheck this document's ratios whenever text tokens, surfaces, glow strength, artwork opacity, palettes, or applicable content change. The calculations are bounds over the current CSS tokens, not permanent guarantees for future design changes.
+Recheck this document's ratios whenever text tokens, surfaces, glow strength, artwork opacity, palettes, or applicable content change. The calculations describe the CSS/palette baseline reviewed here; they do not establish contrast for later presets or current changed tokens. Recompute affected pairs for new/changed rendering.

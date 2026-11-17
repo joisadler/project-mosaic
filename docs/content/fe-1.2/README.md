@@ -39,4 +39,4 @@ Different formats may revisit the same concept for explanation, prediction and r
 
 ## Visual identity
 
-Plum/lilac with distinct value shapes (`values`) by default. Cards centered on equality or identity comparisons explicitly select `equality`; conversion, coercion and operator-conversion cards select `conversion`. General type, mutation, numeric representation and optional-access cards retain the default. See the shared [optional motif contract](../README.md#optional-visual-motifs) for supported identifiers and fallback behavior. No learning text, IDs or source links are changed by these assignments.
+Plum/lilac with distinct value shapes (`values`) by default. Cards centered on equality or identity comparisons explicitly select `equality`; conversion, coercion and operator-conversion cards select `conversion`. General type, mutation, numeric representation and optional-access cards retain the default. See the shared [optional motif contract](../presentation.md#optional-visual-motifs) for supported identifiers and fallback behavior. No learning text, IDs or source links are changed by these assignments.
