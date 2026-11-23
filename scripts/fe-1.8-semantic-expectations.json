@@ -1,0 +1,693 @@
+{
+  "examples": {
+    "5d855e2b9bff88c4e8f80c3141164e9bd60d281bcd412f8810f69d7fae062437": {
+      "logs": [
+        [
+          2
+        ],
+        [
+          false
+        ]
+      ]
+    },
+    "caacb8bb1104ba918a5e2cd4a5aaa2e4ac6fa23d4d2c69261a4e3f7e9094beb8": {
+      "logs": [
+        [
+          2
+        ]
+      ]
+    },
+    "2148bcdbb1fc1b41ae1ba32f31fe31d0ae5e54bcab2bc58daf0518e2e0335be3": {
+      "logs": [
+        [
+          1
+        ]
+      ]
+    },
+    "6ee98609816151498db49c4f87913f912518c868c640b0247a8eaa80c1f29b4d": {
+      "logs": [
+        [
+          4
+        ]
+      ]
+    },
+    "1835a174793c885ca39047697b645f1bb8ad4d038f95eaf0129f50e3dfb5598a": {
+      "logs": [
+        [
+          2
+        ],
+        [
+          0
+        ]
+      ]
+    },
+    "e75965a17754de39d6cc5fb140fd4fe21eee2d4f11395b6f225ba2b0f251f3fb": {
+      "logs": [
+        [
+          "#7"
+        ]
+      ]
+    },
+    "51bdb69583211c46288f868d3067a9bd783111df00e3e52126a41cb93c94a8ad": {
+      "logs": [
+        [
+          1
+        ],
+        [
+          true,
+          false
+        ],
+        [
+          0
+        ]
+      ]
+    },
+    "55c8558f5e67d4f362352db06b39c00bfea36de4d5fe914ec1ab6e3343cf1f2e": {
+      "logs": [
+        [
+          false,
+          true
+        ]
+      ]
+    },
+    "1dedb07b45131b700758258d2fc8087379ddd5133f5756e84daa140b69d42c05": {
+      "logs": [
+        [
+          false,
+          2
+        ]
+      ]
+    },
+    "b192f8410acf3de644e92ddc0d3297cdcc2e4ff68773ffb56da204d379759405": {
+      "environment": "browser",
+      "logs": [
+        [
+          false
+        ]
+      ]
+    },
+    "232c475e97077b8e745af95e5abf8a73034950a47f9430c321d669f0d2166785": {
+      "environment": "browser",
+      "logs": [
+        [
+          1
+        ]
+      ]
+    }
+  },
+  "quizChecks": {
+    "fe-1.8-quiz-remove-listener": {
+      "mode": "decision",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "An independently created arrow is a different callback object."
+        },
+        {
+          "optionId": "b",
+          "reason": "The same callback with the opposite capture flag leaves this registration intact."
+        },
+        {
+          "optionId": "c",
+          "reason": "The registered target, type, callback and capture flag all match."
+        },
+        {
+          "optionId": "d",
+          "reason": "A fresh bind call creates a different callback object."
+        }
+      ]
+    },
+    "fe-1.8-quiz-module-owner": {
+      "mode": "decision",
+      "correctOptionId": "b",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Доступный модуль сам может быть частью пути."
+        },
+        {
+          "optionId": "b",
+          "reason": "Экспортированная функция может обратиться к отчёту через привязку."
+        },
+        {
+          "optionId": "c",
+          "reason": "Доступ к отчёту может сохраняться после вычисления модуля."
+        },
+        {
+          "optionId": "d",
+          "reason": "Достаточно, чтобы доступная функция обращалась к нему."
+        }
+      ]
+    },
+    "fe-1.8-quiz-null-alias": {
+      "mode": "output",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Присваивание затронуло только привязку row."
+        },
+        {
+          "optionId": "b",
+          "reason": "Элемент массива всё ещё ссылается на объект с полем n."
+        },
+        {
+          "optionId": "c",
+          "reason": "Чтение идёт через saved[0], где всё ещё объект."
+        },
+        {
+          "optionId": "d",
+          "reason": "Массив сохранил отдельную ссылку на исходный объект."
+        }
+      ]
+    },
+    "fe-1.8-quiz-unreachable-cycle": {
+      "mode": "decision",
+      "correctOptionId": "a",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Ссылки внутри цикла не создают путь от корней."
+        },
+        {
+          "optionId": "b",
+          "reason": "Цикл мешает простому подсчёту ссылок. При трассировке важна достижимость."
+        },
+        {
+          "optionId": "c",
+          "reason": "Сборка не обязана разрывать цикл из кода или освобождать объекты по одному."
+        },
+        {
+          "optionId": "d",
+          "reason": "Недостижимость позволяет сборку, а её момент выбирает среда."
+        }
+      ]
+    },
+    "fe-1.8-quiz-gc-deadline": {
+      "mode": "decision",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Истечение таймера ничего не обещает о моменте GC."
+        },
+        {
+          "optionId": "b",
+          "reason": "Выполнение таймера и сборка мусора имеют разные условия."
+        },
+        {
+          "optionId": "c",
+          "reason": "Проверь удаление ссылки или регистрации независимо от времени GC."
+        },
+        {
+          "optionId": "d",
+          "reason": "Объект может быть собран и раньше, общего срока нет."
+        }
+      ]
+    },
+    "fe-1.8-quiz-closure-update": {
+      "mode": "output",
+      "correctOptionId": "a",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Функция читает текущее значение привязки rows."
+        },
+        {
+          "optionId": "b",
+          "reason": "Замыкание не сохраняет снимок первого массива."
+        },
+        {
+          "optionId": "c",
+          "reason": "Функция читает длину массива, а не его элемент."
+        },
+        {
+          "optionId": "d",
+          "reason": "Свойство length у текущего массива определено."
+        }
+      ]
+    },
+    "fe-1.8-quiz-saved-alias": {
+      "mode": "decision",
+      "correctOptionId": "b",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Изменение захваченной привязки не меняет значение чужого свойства."
+        },
+        {
+          "optionId": "b",
+          "reason": "Другая ссылка позволяет обратиться к тому же массиву."
+        },
+        {
+          "optionId": "c",
+          "reason": "Изменение ссылки не меняет сам массив."
+        },
+        {
+          "optionId": "d",
+          "reason": "К элементам по-прежнему можно обратиться через сохранённый массив."
+        }
+      ]
+    },
+    "fe-1.8-quiz-capture-id": {
+      "mode": "decision",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Функция с этой ссылкой продолжает удерживать объект отчёта."
+        },
+        {
+          "optionId": "b",
+          "reason": "Два имени одного объекта не сокращают граф данных."
+        },
+        {
+          "optionId": "c",
+          "reason": "Этот путь повышает срок жизни отчёта без нужды для метки."
+        },
+        {
+          "optionId": "d",
+          "reason": "Тогда обязательная зависимость обработчика ограничена числом."
+        }
+      ]
+    },
+    "fe-1.8-quiz-external-dom-path": {
+      "mode": "decision",
+      "correctOptionId": "b",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Панель уже отсоединена. Указанный путь идёт от регистрации на window."
+        },
+        {
+          "optionId": "b",
+          "reason": "Зарегистрированная функция сохраняет доступ к панели через замыкание."
+        },
+        {
+          "optionId": "c",
+          "reason": "Одних внутренних ссылок недостаточно для пути от корней."
+        },
+        {
+          "optionId": "d",
+          "reason": "Обработчик остаётся отдельным доступным владельцем ссылки."
+        }
+      ]
+    },
+    "fe-1.8-quiz-once-before-close": {
+      "mode": "decision",
+      "correctOptionId": "a",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "До первого вызова once не снял обработчик."
+        },
+        {
+          "optionId": "b",
+          "reason": "До первого события регистрация может оставаться."
+        },
+        {
+          "optionId": "c",
+          "reason": "Обработчик из addEventListener хранится отдельно от свойства onresize."
+        },
+        {
+          "optionId": "d",
+          "reason": "Новый контроллер не связан с исходной регистрацией."
+        }
+      ]
+    },
+    "fe-1.8-quiz-abort-listeners": {
+      "mode": "decision",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Без переданного сигнала третья регистрация с контроллером не связана."
+        },
+        {
+          "optionId": "b",
+          "reason": "Каждая регистрация с этим сигналом добавляет своё действие отмены."
+        },
+        {
+          "optionId": "c",
+          "reason": "Значение capture не определяет, связан ли обработчик с сигналом."
+        },
+        {
+          "optionId": "d",
+          "reason": "Действия отмены относятся к двум регистрациям с этим сигналом."
+        }
+      ]
+    },
+    "fe-1.8-quiz-timer-id": {
+      "mode": "decision",
+      "correctOptionId": "b",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Для отмены нужна сохранённая ручка действующего интервала."
+        },
+        {
+          "optionId": "b",
+          "reason": "Сначала отмени регистрацию, потом обнуляй свою ссылку при необходимости."
+        },
+        {
+          "optionId": "c",
+          "reason": "Новая регистрация не удаляет старую."
+        },
+        {
+          "optionId": "d",
+          "reason": "Это может убрать ссылку на данные, но интервал продолжит вызывать функцию."
+        }
+      ]
+    },
+    "fe-1.8-quiz-late-notification": {
+      "mode": "decision",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Повторная операция затронет подписку у источника, а не уже сделанную копию."
+        },
+        {
+          "optionId": "b",
+          "reason": "Это не меняет список функций в текущей рассылке."
+        },
+        {
+          "optionId": "c",
+          "reason": "Защита подходит даже тогда, когда источник уже выбрал этот callback."
+        },
+        {
+          "optionId": "d",
+          "reason": "Сборка памяти не отменяет запланированный вызов."
+        }
+      ]
+    },
+    "fe-1.8-quiz-entry-byte-budget": {
+      "mode": "decision",
+      "correctOptionId": "a",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Размер значений может различаться, поэтому нужен отдельный бюджет байтов."
+        },
+        {
+          "optionId": "b",
+          "reason": "Для него нужна граница или оценка суммарного размера значений."
+        },
+        {
+          "optionId": "c",
+          "reason": "Момент возврата и другие ссылки остаются вне договора кеша."
+        },
+        {
+          "optionId": "d",
+          "reason": "Ограничение количества не выравнивает размеры значений."
+        }
+      ]
+    },
+    "fe-1.8-quiz-lazy-ttl": {
+      "mode": "decision",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Кеш всё ещё может сильно удерживать запись."
+        },
+        {
+          "optionId": "b",
+          "reason": "В этом сценарии отдельный механизм очистки не запущен."
+        },
+        {
+          "optionId": "c",
+          "reason": "Проверка применяется только к ключу текущего запроса."
+        },
+        {
+          "optionId": "d",
+          "reason": "Код очистки этого ключа срабатывает при чтении, которого не было."
+        }
+      ]
+    },
+    "fe-1.8-quiz-weakmap-metadata": {
+      "mode": "decision",
+      "correctOptionId": "b",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Map держит ключ сильной ссылкой."
+        },
+        {
+          "optionId": "b",
+          "reason": "Запись не поддерживает ключ живым сама по себе."
+        },
+        {
+          "optionId": "c",
+          "reason": "Set сильно держит объект и не связывает его с метаданными."
+        },
+        {
+          "optionId": "d",
+          "reason": "Реестр даёт необязательные уведомления, а не чтение данных по ключу."
+        }
+      ]
+    },
+    "fe-1.8-quiz-replace-preview": {
+      "mode": "decision",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Новый URL ещё понадобится потребителю."
+        },
+        {
+          "optionId": "b",
+          "reason": "Это не удаляет регистрацию старого URL из хранилища браузера."
+        },
+        {
+          "optionId": "c",
+          "reason": "Теперь новый URL остаётся доступным, а старая регистрация освобождена."
+        },
+        {
+          "optionId": "d",
+          "reason": "Старая регистрация уже не нужна и её можно освободить при замене."
+        }
+      ]
+    },
+    "fe-1.8-quiz-url-create-failure": {
+      "mode": "decision",
+      "correctOptionId": "a",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Если создание не удалось, прежний URL и изображение остаются доступными."
+        },
+        {
+          "optionId": "b",
+          "reason": "При сбое создание не вернёт замену, а прежний адрес уже отозван."
+        },
+        {
+          "optionId": "c",
+          "reason": "При сбое пользователь лишится прежнего изображения."
+        },
+        {
+          "optionId": "d",
+          "reason": "На случай сбоя и последующей очистки владелец должен сохранить адрес."
+        }
+      ]
+    },
+    "fe-1.8-quiz-partial-open": {
+      "mode": "decision",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Вызывающий код не получил панель и её ручку очистки."
+        },
+        {
+          "optionId": "b",
+          "reason": "Долгоживущая регистрация может сохраняться после исключения."
+        },
+        {
+          "optionId": "c",
+          "reason": "Она относится к неудачной попытке и способна дублировать будущую регистрацию."
+        },
+        {
+          "optionId": "d",
+          "reason": "Уже приобретённый ресурс освобождает код, который его зарегистрировал."
+        }
+      ]
+    },
+    "fe-1.8-quiz-dispose-retains": {
+      "mode": "decision",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Узел уже удалён, а доступ к нему остаётся через функцию."
+        },
+        {
+          "optionId": "b",
+          "reason": "По условию регистрация уже снята. Нужно проверить сохранённую функцию."
+        },
+        {
+          "optionId": "c",
+          "reason": "Её замыкание всё ещё может читать привязку, указывающую на узел."
+        },
+        {
+          "optionId": "d",
+          "reason": "По условию есть конкретный путь через функцию, универсального кэша тут не нужно."
+        }
+      ]
+    },
+    "fe-1.8-quiz-peak-vs-leak": {
+      "mode": "decision",
+      "correctOptionId": "a",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Одновременные копии объясняют пик, а сравнение не показывает накопления этой группы."
+        },
+        {
+          "optionId": "b",
+          "reason": "Для этой гипотезы ищи сохраняющиеся ненужные объекты или путь удержания."
+        },
+        {
+          "optionId": "c",
+          "reason": "Сам рост памяти во время работы не определяет причину."
+        },
+        {
+          "optionId": "d",
+          "reason": "Из условия видно временное изменение, данных о бюджете кеша пока нет."
+        }
+      ]
+    },
+    "fe-1.8-quiz-heap-owner": {
+      "mode": "decision",
+      "correctOptionId": "b",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Собственный размер не показывает входящие ссылки."
+        },
+        {
+          "optionId": "b",
+          "reason": "Входящий путь может привести к массиву, подписке или другому владельцу."
+        },
+        {
+          "optionId": "c",
+          "reason": "Агрегатный показатель не указывает конкретный путь."
+        },
+        {
+          "optionId": "d",
+          "reason": "Даже отсоединённый узел требует проверки удерживающих связей."
+        }
+      ]
+    },
+    "fe-1.8-quiz-retained-two-paths": {
+      "mode": "decision",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Вес объекта не меняет наличие второй сильной ссылки."
+        },
+        {
+          "optionId": "b",
+          "reason": "Длина пути не определяет, исчезнут ли другие пути."
+        },
+        {
+          "optionId": "c",
+          "reason": "Собственный размер относится к самой ветке или узлу, а не ко всем зависимостям."
+        },
+        {
+          "optionId": "d",
+          "reason": "Удаление одной ветки не лишает буфер достижимости."
+        }
+      ]
+    },
+    "fe-1.8-quiz-deterministic-test": {
+      "mode": "decision",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "На вызов финализатора нельзя рассчитывать в заданный момент."
+        },
+        {
+          "optionId": "b",
+          "reason": "Размер процесса включает другие области и их выделения."
+        },
+        {
+          "optionId": "c",
+          "reason": "Это наблюдаемые действия владельца, которые можно проверить независимо от момента GC."
+        },
+        {
+          "optionId": "d",
+          "reason": "Целевой договор относится к ресурсам панели, а не к исчезновению всех объектов."
+        }
+      ]
+    },
+    "fe-1.8-quiz-clear-registry-alias": {
+      "mode": "output",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Очистка Map не стирает свойство id у объекта."
+        },
+        {
+          "optionId": "b",
+          "reason": "Нулевым стал размер карты. Код читает id через псевдоним."
+        },
+        {
+          "optionId": "c",
+          "reason": "Псевдоним сохранил ссылку и позволяет читать поле id."
+        },
+        {
+          "optionId": "d",
+          "reason": "До очистки get вернул объект, поэтому чтение поля допустимо."
+        }
+      ]
+    },
+    "fe-1.8-quiz-finite-leak": {
+      "mode": "decision",
+      "correctOptionId": "b",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Даже один ненужный объект может удерживаться дольше своего срока."
+        },
+        {
+          "optionId": "b",
+          "reason": "Удержание ненужной панели продолжается, хотя количество стабильно."
+        },
+        {
+          "optionId": "c",
+          "reason": "Путь из долгоживущего реестра сохраняется после завершения работы."
+        },
+        {
+          "optionId": "d",
+          "reason": "По условию панель уже не нужна, поэтому ищем причину удержания."
+        }
+      ]
+    }
+  },
+  "supplemental": [
+    {
+      "cardId": "fe-1.8-quiz-remove-listener",
+      "environment": "node-process",
+      "code": "const target = new EventTarget();\nlet calls = 0;\nconst listener = () => { calls++; };\ntarget.addEventListener(\"resize\", listener, { capture: true });\ntarget.removeEventListener(\"resize\", () => { calls++; }, { capture: true });\ntarget.dispatchEvent(new Event(\"resize\"));\nconsole.log(calls);\ntarget.removeEventListener(\"resize\", listener, { capture: false });\ntarget.dispatchEvent(new Event(\"resize\"));\nconsole.log(calls);\ntarget.removeEventListener(\"resize\", listener.bind(null), { capture: true });\ntarget.dispatchEvent(new Event(\"resize\"));\nconsole.log(calls);\ntarget.removeEventListener(\"resize\", listener, { capture: true });\ntarget.dispatchEvent(new Event(\"resize\"));\nconsole.log(calls);",
+      "logs": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          3
+        ]
+      ]
+    }
+  ]
+}

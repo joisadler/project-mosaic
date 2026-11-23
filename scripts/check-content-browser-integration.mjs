@@ -10,7 +10,11 @@ export default async function checkIntegration(page, options) {
   page.on("pageerror", error => errors.push(error.message));
   await page.setViewportSize({ width: 375, height: 667 });
   const active = () => page.locator('main[aria-label="Учебная лента по frontend"] .swiper-slide-active[data-card-id]');
-  const identity = () => active().evaluate(el => ({ id: el.dataset.cardId, presentation: el.dataset.presentationId }));
+  const identity = () => active().evaluate(el => ({
+    id: el.dataset.cardId,
+    presentation: el.dataset.presentationId,
+    canPage: Boolean(el.querySelector('[aria-keyshortcuts="ArrowLeft ArrowRight"]')),
+  }));
   async function feed() {
     await active().waitFor();
     await page.waitForFunction(() => document.querySelector('main[aria-label="Учебная лента по frontend"] .swiper')?.swiper?.initialized);
@@ -64,7 +68,7 @@ export default async function checkIntegration(page, options) {
   assert.deepEqual(sections(only), [section]);
   const screenshots = [];
   for (const type of ["info", "quiz", "flip"]) {
-    const index = only.findIndex(item => item.id.includes("-" + type + "-"));
+    const index = only.findIndex(item => item.id.includes("-" + type + "-") && (type !== "info" || item.canPage));
     assert.ok(index >= 0, "No representative " + type + " in the sample.");
     await move(index);
     if (type === "quiz") {

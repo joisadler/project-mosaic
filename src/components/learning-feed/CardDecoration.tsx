@@ -125,6 +125,13 @@ const artwork = {
     <rect x="270" y="160" width="80" height="150" rx="10" />
     <path d="M285 185h50m-50 25h33m-33 25h46m-46 25h33m-33 25h45" />
   </>,
+  reachability: <>
+    <rect x="103" y="225" width="58" height="58" rx="14" />
+    <rect x="198" y="225" width="58" height="58" rx="14" />
+    <rect x="293" y="225" width="58" height="58" rx="14" />
+    <rect x="198" y="312" width="58" height="58" rx="14" strokeDasharray="5 7" />
+    <path d="M161 254h37m-9-8 9 8-9 8M256 254h37m-9-8 9 8-9 8" />
+  </>,
   neutral: <circle cx="290" cy="290" r="150" />,
 };
 

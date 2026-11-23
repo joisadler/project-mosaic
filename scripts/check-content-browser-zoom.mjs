@@ -39,8 +39,9 @@ export default async function checkZoom(chromium, options) {
           const r = el.getBoundingClientRect();
           return r.width > 0 && r.height > 0 && r.right > 1 && r.left < innerWidth - 1 && r.bottom > 1 && r.top < innerHeight - 1 && !el.closest('[aria-hidden="true"]');
         };
-        const candidates = [...document.querySelectorAll('[class*="__markdown"],pre,[class*="__compactPanel"],[class*="__flipSideScroller"]')].filter(visible);
         const host = document.querySelector("[data-audit-card]");
+        const candidates = [...host.querySelectorAll('pre,[class*="markdown"],[class*="compactQuizPanel"],[class*="flipSideScroller"]')].filter(visible);
+        if (!candidates.length) throw new Error("Missing visible content measurement targets");
         return { card: host.dataset.auditCard, width: innerWidth, height: innerHeight, dpr: devicePixelRatio,
           page: host.dataset.auditPage, side: host.dataset.auditSide, option: host.dataset.auditOption,
           overflows: candidates.filter(el => el.scrollWidth > el.clientWidth + 1 || el.scrollHeight > el.clientHeight + 1).map(el => ({ class: el.className, client: [el.clientWidth, el.clientHeight], scroll: [el.scrollWidth, el.scrollHeight] })),

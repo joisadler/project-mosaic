@@ -15,6 +15,7 @@ Cards may include `visual?: { motif?: VisualMotif }` in `BaseCardData`. Select a
 | `fe-1.5` | Muted coral | `slots`: separate array cells with an outlined empty position | `transformation`: offset input/output rows; `sharing`: two containers linked to one nested object |
 | `fe-1.6` | Periwinkle/ink | `entries`: paired collection nodes | `tokens`: distinct notched symbol contours; `cursor`: a position marker on a dotted traversal path |
 | `fe-1.7` | Dusty rose/graphite | `boundary`: separate linked module contours | `causes`: offset cause-chain frames; `payload`: value and text-record contours |
+| `fe-1.8` | Steel blue | `reachability`: linked nodes and one disconnected contour | — |
 
 ```ts
 visual: { motif: "conversion" },

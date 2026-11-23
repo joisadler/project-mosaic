@@ -20,6 +20,9 @@ import { feSection1_6QuizCards } from "./fe-1.6-quiz-cards";
 import { feSection1_7InfoCards } from "./fe-1.7-info-cards";
 import { feSection1_7QuizCards } from "./fe-1.7-quiz-cards";
 import { feSection1_7FlipCards } from "./fe-1.7-flip-cards";
+import { feSection1_8InfoCards } from "./fe-1.8-info-cards";
+import { feSection1_8QuizCards } from "./fe-1.8-quiz-cards";
+import { feSection1_8FlipCards } from "./fe-1.8-flip-cards";
 
 export const learningChapters = [
   { id: "fe-1", number: "1", title: "JavaScript и асинхронное программирование" },
@@ -106,6 +109,13 @@ export const learningSections = [
     number: "1.7",
     title: "Модули, ошибки и сериализация",
     cards: [...feSection1_7InfoCards, ...feSection1_7QuizCards, ...feSection1_7FlipCards],
+  },
+  {
+    id: "fe-1.8",
+    chapterId: "fe-1",
+    number: "1.8",
+    title: "Управление памятью",
+    cards: [...feSection1_8InfoCards, ...feSection1_8QuizCards, ...feSection1_8FlipCards],
   },
 ] as const satisfies readonly LearningSectionDefinition[];
 

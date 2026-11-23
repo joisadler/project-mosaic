@@ -61,10 +61,10 @@ export default async function audit(page, options) {
         requestedKeys.add(key);
         const content = hash(JSON.stringify(card));
         const previous = prior.find(x => x.key === key && x.content === content && x.rendering === rendering && fs.existsSync(x.evidence));
-        if (reuse && previous && Object.hasOwn(previous, "onePixelExcess"))
+        if (reuse && previous?.measurementVersion === 2)
           retained.push(previous);
         else
-          pending.push({ key, content, rendering, cardId: card.id, type: card.type, width, height, state });
+          pending.push({ key, content, rendering, cardId: card.id, type: card.type, width, height, state, hasSwiper: card.type === 'flip' || (card.type === 'info' && card.pages.length > 1) });
       }
     }
   const results = [...retained];
@@ -78,36 +78,38 @@ export default async function audit(page, options) {
     const observed = await Promise.all(batch.map(async (s, i) => {
       const frame = await (await page.locator('#tile-' + i).elementHandle()).contentFrame();
       await frame.waitForSelector('[data-audit-card]');
-      if (s.type !== 'quiz')
+      if (s.hasSwiper)
         await frame.waitForFunction(() => document.querySelector('.swiper')?.swiper?.initialized, null, { timeout: 20000 });
       await frame.evaluate(() => document.fonts.ready);
       await frame.waitForTimeout(100);
-      return frame.evaluate(({ expected, state, type }) => {
+      return frame.evaluate(({ expected, state, type, hasSwiper }) => {
         const host = document.querySelector('[data-audit-card]');
         const errors = [];
         if (host.dataset.auditCard !== expected)
           errors.push('wrong card');
-        if (type === 'info' && document.querySelector('.swiper').swiper.activeIndex !== state.page)
+        if (type === 'info' && (hasSwiper ? document.querySelector('.swiper').swiper.activeIndex : Number(host.dataset.auditPage)) !== state.page)
           errors.push('wrong page');
         if (type === 'flip' && document.querySelector('.swiper').swiper.activeIndex !== state.side)
           errors.push('wrong side');
         if (type === 'quiz' && (host.dataset.auditOption !== (state.option ?? 'none')))
           errors.push('wrong option');
         const visible = el => { const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0 && r.right > 0 && r.left < innerWidth && r.bottom > 0 && r.top < innerHeight && !el.closest('[aria-hidden="true"]'); };
-        const candidates = [...document.querySelectorAll('[class*="__markdown"],pre,[class*="__quizContent"],[class*="__quizResult"],[class*="__optionText"],[class*="__flipSideScroller"]')].filter(visible);
+        const candidates = [...host.querySelectorAll('pre,[class*="markdown"],[class*="quizContent"],[class*="quizResult"],[class*="optionText"],[class*="flipSideScroller"],[class*="compactQuizPanel"]')].filter(visible);
         const overflows = candidates.filter(el => el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1).map(el => ({ class: el.className, client: [el.clientWidth, el.clientHeight], scroll: [el.scrollWidth, el.scrollHeight] }));
         const onePixelExcess = candidates.filter(el => (el.scrollWidth > el.clientWidth || el.scrollHeight > el.clientHeight) && el.scrollWidth <= el.clientWidth + 1 && el.scrollHeight <= el.clientHeight + 1).map(el => ({class: el.className, client:[el.clientWidth,el.clientHeight], scroll:[el.scrollWidth,el.scrollHeight]}));
         const outside = candidates.filter(el => { const r = el.getBoundingClientRect(); return r.bottom > innerHeight + 1 || r.right > innerWidth + 1 || r.left < -1 || r.top < -1; }).map(el => el.className);
-        const text = [...document.querySelectorAll('p,li,h2,pre,button,[class*="__optionText"]')].filter(visible);
+        const text = [...host.querySelectorAll('p,li,h2,pre,button,[class*="optionText"]')].filter(visible);
         const floors = text.filter(el => { const n = parseFloat(getComputedStyle(el).fontSize); return n < (el.matches('pre') ? 12 : el.matches('h2') ? 14 : 14) - .1; }).map(el => ({ tag: el.tagName, size: getComputedStyle(el).fontSize, text: el.textContent.slice(0, 35) }));
         const contentBottom = Math.max(0, ...candidates.map(el => el.getBoundingClientRect().bottom));
+        if (!candidates.length)
+          errors.push('missing visible content measurement targets');
         const baselineCompact = innerWidth <= 320 && innerHeight > 320 && innerHeight <= 568;
         const typographyExceptions = floors.filter(item => baselineCompact && parseFloat(item.size) >= (item.tag === 'PRE' ? 10.88 : 12.48) - .1);
         const belowBaseline = floors.filter(item => !typographyExceptions.includes(item));
         const targets = [...document.querySelectorAll('[role="radio"],button,a')].filter(visible).map(el => ({ label: el.getAttribute('aria-label') ?? el.textContent.slice(0, 30), width: el.getBoundingClientRect().width, height: el.getBoundingClientRect().height }));
         const decoration = [...document.querySelectorAll('[data-motif]')].filter(visible).map(el => ({ motif: el.dataset.motif, hidden: el.getAttribute('aria-hidden'), pointerEvents: getComputedStyle(el).pointerEvents }));
-        return { observed: { card: host.dataset.auditCard, page: host.dataset.auditPage, side: host.dataset.auditSide, option: host.dataset.auditOption }, errors, overflows, onePixelExcess, outside, floors: belowBaseline, standardTypographyExceptions: typographyExceptions, targets, decoration, quizBottomGap: type === 'quiz' ? Math.round(innerHeight - contentBottom) : null };
-      }, { expected: s.cardId, state: s.state, type: s.type });
+        return { measurementVersion: 2, observed: { card: host.dataset.auditCard, page: host.dataset.auditPage, side: host.dataset.auditSide, option: host.dataset.auditOption }, errors, overflows, onePixelExcess, outside, floors: belowBaseline, standardTypographyExceptions: typographyExceptions, targets, decoration, quizBottomGap: type === 'quiz' ? Math.round(innerHeight - contentBottom) : null };
+      }, { expected: s.cardId, state: s.state, type: s.type, hasSwiper: s.hasSwiper });
     }));
     const evidence = path.join(output, `sheet-${Date.now()}-${batches}.png`);
     await page.screenshot({ path: evidence, fullPage: true, scale: 'css' });
