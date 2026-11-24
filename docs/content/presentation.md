@@ -16,6 +16,7 @@ Cards may include `visual?: { motif?: VisualMotif }` in `BaseCardData`. Select a
 | `fe-1.6` | Periwinkle/ink | `entries`: paired collection nodes | `tokens`: distinct notched symbol contours; `cursor`: a position marker on a dotted traversal path |
 | `fe-1.7` | Dusty rose/graphite | `boundary`: separate linked module contours | `causes`: offset cause-chain frames; `payload`: value and text-record contours |
 | `fe-1.8` | Steel blue | `reachability`: linked nodes and one disconnected contour | — |
+| `fe-1.9` | Muted lime/olive | `queue`: outlined entries on an open track | `deadline`: tick marks and an endpoint; `frame`: offset frame outlines |
 
 ```ts
 visual: { motif: "conversion" },

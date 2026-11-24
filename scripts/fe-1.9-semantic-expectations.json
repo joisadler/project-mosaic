@@ -1,0 +1,881 @@
+{
+  "examples": {
+    "ea89c97daed80fa8726de0b8166c811b78b3454f1390411fb77f10c8d1c126ad": {
+      "logs": [
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    "625277de95d5e134d7cd439ac9df1e29a00e4b8fd0f4815b733cc73c0744b36e": {
+      "environment": "node-module",
+      "logs": [
+        [
+          [
+            "A",
+            "B",
+            "C"
+          ]
+        ]
+      ]
+    },
+    "c35415f3df96146d6f651381eec990c4506c626d4f7095ee53b9103f6d2960ee": {
+      "logs": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ]
+      ]
+    },
+    "865ed532db57bb7b68263425f6624e3346026905367813bed08c890372db2aa1": {
+      "environment": "node-process",
+      "async": true,
+      "logs": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ]
+      ]
+    },
+    "63ce1d3f7b2b2d32b6c429dc72b70d48d0190f82e00e16a1326e4efc98e56e55": {
+      "environment": "node-module",
+      "logs": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          "timer"
+        ]
+      ]
+    },
+    "ad5149783712d4a05cbfd6269f4b77ef7d7dac5c73dee932a2789b56965e567f": {
+      "logs": [
+        [
+          0,
+          40
+        ]
+      ]
+    },
+    "e2117b5d47dd9781a46a318a25ac618b27b3d2f2b278797e322fe84db80348e1": {
+      "logs": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ]
+      ]
+    },
+    "271f38450e41f6b8f949030b3d23e052a0b05aa77ee65383b8c3c41c5374821d": {
+      "environment": "node-module",
+      "logs": [
+        [
+          "S"
+        ],
+        [
+          "T"
+        ]
+      ]
+    },
+    "f02626abcfe64741f634203817f57f5fcb6e1f14ac68e8e5625291943f81ccd7": {
+      "environment": "node-process",
+      "async": true,
+      "logs": [
+        [
+          "S"
+        ],
+        [
+          "M"
+        ]
+      ]
+    },
+    "50d1d57cbdc1e3b130b1295c957aad56eab9ef3326e62a2368dd4f31350e64a3": {
+      "environment": "node-process",
+      "async": true,
+      "logs": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ]
+      ]
+    },
+    "b2cf41585718944411f5f1895cf3de699dc01f3c06f45b579f0661f11f3bc550": {
+      "environment": "node-process",
+      "async": true,
+      "logs": [
+        [
+          "Q"
+        ],
+        [
+          "P"
+        ],
+        [
+          "R"
+        ]
+      ]
+    },
+    "dc518ece53ec80d231e536bacb61b2d2b2c0e83f6e3beda1fc69b16b7da86db6": {
+      "environment": "node-process",
+      "async": true,
+      "logs": [
+        [
+          "Q"
+        ],
+        [
+          "P"
+        ]
+      ]
+    },
+    "401285238cc0b3cb4e609f55712e868b0fb724130d2c67f9bc3557ae53aadd4a": {
+      "environment": "browser",
+      "logs": [
+        [
+          "L"
+        ],
+        [
+          "S"
+        ]
+      ]
+    },
+    "762e4791dccb79c0b4701a7e634b8cc62551264d0bd10daf8b0800566ef4f651": {
+      "logs": [
+        [
+          30,
+          60
+        ]
+      ]
+    }
+  },
+  "quizChecks": {
+    "fe-1.9-quiz-countdown-deadline": {
+      "mode": "output",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Floors 1.65 seconds instead of rounding up to 2."
+        },
+        {
+          "optionId": "b",
+          "reason": "Keeps the negative rounded value after the deadline."
+        },
+        {
+          "optionId": "c",
+          "reason": "Rounds the positive remainder up and clamps the negative remainder to zero."
+        },
+        {
+          "optionId": "d",
+          "reason": "Returns fractional seconds instead of rounding up."
+        }
+      ]
+    },
+    "fe-1.9-quiz-network-ready": {
+      "mode": "decision",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Готовность ответа не прерывает код."
+        },
+        {
+          "optionId": "b",
+          "reason": "Сеть может завершить работу независимо."
+        },
+        {
+          "optionId": "c",
+          "reason": "Пока поток занят, новый вызов ждёт."
+        },
+        {
+          "optionId": "d",
+          "reason": "Текущая задача сохраняет управление."
+        }
+      ]
+    },
+    "fe-1.9-quiz-nested-output": {
+      "mode": "output",
+      "correctOptionId": "b",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Вызов fn завершится до печати C."
+        },
+        {
+          "optionId": "b",
+          "reason": "fn вызывается синхронно внутри run."
+        },
+        {
+          "optionId": "c",
+          "reason": "Первая запись делается до вызова run."
+        },
+        {
+          "optionId": "d",
+          "reason": "Вызов fn тоже печатает строку."
+        }
+      ]
+    },
+    "fe-1.9-quiz-ready-task-order": {
+      "mode": "decision",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Тип источника не задаёт такой порядок."
+        },
+        {
+          "optionId": "b",
+          "reason": "Здесь нет гарантии приоритета ввода."
+        },
+        {
+          "optionId": "c",
+          "reason": "Регистрация не образует общую FIFO."
+        },
+        {
+          "optionId": "d",
+          "reason": "Нужны правила выбора в этом сценарии."
+        }
+      ]
+    },
+    "fe-1.9-quiz-timer-no-interruption": {
+      "mode": "output",
+      "correctOptionId": "a",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Синхронная запись S предшествует таймеру."
+        },
+        {
+          "optionId": "b",
+          "reason": "Таймер не прерывает синхронную запись."
+        },
+        {
+          "optionId": "c",
+          "reason": "До таймера код успевает вывести S."
+        },
+        {
+          "optionId": "d",
+          "reason": "Таймер разрешит p, и модуль выведет T."
+        }
+      ]
+    },
+    "fe-1.9-quiz-checkpoint-after-call": {
+      "mode": "output",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Микрозадача ждёт текущий код."
+        },
+        {
+          "optionId": "b",
+          "reason": "К моменту вызова log уже инициализирована."
+        },
+        {
+          "optionId": "c",
+          "reason": "Синхронная запись S предшествует M."
+        },
+        {
+          "optionId": "d",
+          "reason": "Зарегистрированная микрозадача тоже выполнится."
+        }
+      ]
+    },
+    "fe-1.9-quiz-executor-sync": {
+      "mode": "output",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Реакция C выполнится после B."
+        },
+        {
+          "optionId": "b",
+          "reason": "Исполнитель запускается внутри new Promise."
+        },
+        {
+          "optionId": "c",
+          "reason": "Код A выполняется первым."
+        },
+        {
+          "optionId": "d",
+          "reason": "Исполнитель и B выполняются до реакции."
+        }
+      ]
+    },
+    "fe-1.9-quiz-ready-microtasks-fifo": {
+      "mode": "output",
+      "correctOptionId": "a",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Готовая реакция поставлена между Q и R."
+        },
+        {
+          "optionId": "b",
+          "reason": "У Promise нет отдельного приоритета."
+        },
+        {
+          "optionId": "c",
+          "reason": "Готовая реакция уже ждёт перед R."
+        },
+        {
+          "optionId": "d",
+          "reason": "Очередь не обращает порядок."
+        }
+      ]
+    },
+    "fe-1.9-quiz-pending-reaction": {
+      "mode": "output",
+      "correctOptionId": "b",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Реакция P становится готовой после Q."
+        },
+        {
+          "optionId": "b",
+          "reason": "finish ставит P за уже ожидающей Q."
+        },
+        {
+          "optionId": "c",
+          "reason": "Q уже поставлена в очередь."
+        },
+        {
+          "optionId": "d",
+          "reason": "finish разрешает Promise и ставит P."
+        }
+      ]
+    },
+    "fe-1.9-quiz-nested-microtask-tail": {
+      "mode": "decision",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "C только добавляется в очередь."
+        },
+        {
+          "optionId": "b",
+          "reason": "B уже стояла в очереди перед C."
+        },
+        {
+          "optionId": "c",
+          "reason": "Новая микрозадача встаёт в конец."
+        },
+        {
+          "optionId": "d",
+          "reason": "Текущая проверка продолжается до опустошения."
+        }
+      ]
+    },
+    "fe-1.9-quiz-microtask-between-timers": {
+      "mode": "decision",
+      "correctOptionId": "b",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Проверка микрозадач проходит между таймерами."
+        },
+        {
+          "optionId": "b",
+          "reason": "M выполняется после завершения A, до B."
+        },
+        {
+          "optionId": "c",
+          "reason": "До A микрозадача M ещё не поставлена."
+        },
+        {
+          "optionId": "d",
+          "reason": "В этих условиях A поставлен раньше B."
+        }
+      ]
+    },
+    "fe-1.9-quiz-dispatch-listener-order": {
+      "mode": "output",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Обработчик вызывается до возврата из dispatchEvent."
+        },
+        {
+          "optionId": "b",
+          "reason": "Событие x имеет зарегистрированный обработчик."
+        },
+        {
+          "optionId": "c",
+          "reason": "После отправки текущий скрипт продолжается."
+        },
+        {
+          "optionId": "d",
+          "reason": "Отправка вызывает L синхронно, затем код печатает S."
+        }
+      ]
+    },
+    "fe-1.9-quiz-dispatch-microtask-boundary": {
+      "mode": "decision",
+      "correctOptionId": "a",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Внешний скрипт ещё удерживает стек."
+        },
+        {
+          "optionId": "b",
+          "reason": "Вложенный обработчик вернулся в скрипт."
+        },
+        {
+          "optionId": "c",
+          "reason": "queueMicrotask только ставит работу в очередь."
+        },
+        {
+          "optionId": "d",
+          "reason": "Граница здесь задана стеком."
+        }
+      ]
+    },
+    "fe-1.9-quiz-starvation-with-flat-stack": {
+      "mode": "decision",
+      "correctOptionId": "b",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Завершённые вызовы снимаются со стека."
+        },
+        {
+          "optionId": "b",
+          "reason": "Контрольная точка продолжает обработку."
+        },
+        {
+          "optionId": "c",
+          "reason": "Постановка микрозадачи не отменяет таймер."
+        },
+        {
+          "optionId": "d",
+          "reason": "Хватает заданной бесконечной очереди."
+        }
+      ]
+    },
+    "fe-1.9-quiz-yield-to-task": {
+      "mode": "decision",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Текущий синхронный вызов продолжится."
+        },
+        {
+          "optionId": "b",
+          "reason": "Оно останется в контрольной точке."
+        },
+        {
+          "optionId": "c",
+          "reason": "Продолжение попадёт в микрозадачи."
+        },
+        {
+          "optionId": "d",
+          "reason": "Возврат даёт среде выбрать очередную задачу."
+        }
+      ]
+    },
+    "fe-1.9-quiz-reentrant-chunk-cancel": {
+      "mode": "decision",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Отмена возможна уже во время обхода."
+        },
+        {
+          "optionId": "b",
+          "reason": "К этому моменту лишние элементы посещены."
+        },
+        {
+          "optionId": "c",
+          "reason": "Следующее посещение начнётся лишь при активности."
+        },
+        {
+          "optionId": "d",
+          "reason": "Тогда обход и уведомление уже прошли."
+        }
+      ]
+    },
+    "fe-1.9-quiz-empty-chunks": {
+      "mode": "decision",
+      "correctOptionId": "a",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Пустая работа сразу достигает завершения."
+        },
+        {
+          "optionId": "b",
+          "reason": "В пустом списке нечего посещать."
+        },
+        {
+          "optionId": "c",
+          "reason": "Об успешном завершении нужно сообщить."
+        },
+        {
+          "optionId": "d",
+          "reason": "Одной операции соответствует одно завершение."
+        }
+      ]
+    },
+    "fe-1.9-quiz-timer-delayed-by-work": {
+      "mode": "decision",
+      "correctOptionId": "b",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Обработчик ждёт освобождения потока."
+        },
+        {
+          "optionId": "b",
+          "reason": "Порог истечёт во время занятого вызова."
+        },
+        {
+          "optionId": "c",
+          "reason": "Задержка задаёт допуск, таймер остаётся."
+        },
+        {
+          "optionId": "d",
+          "reason": "После расчёта возможно другое ожидание."
+        }
+      ]
+    },
+    "fe-1.9-quiz-nested-timer-minimum": {
+      "mode": "decision",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Правило поднимает короткую задержку."
+        },
+        {
+          "optionId": "b",
+          "reason": "Этот уровень выше 5, порог вырастет."
+        },
+        {
+          "optionId": "c",
+          "reason": "HTML поднимает порог до 4 мс."
+        },
+        {
+          "optionId": "d",
+          "reason": "Уровень вложенности не задаёт задержку."
+        }
+      ]
+    },
+    "fe-1.9-quiz-resume-countdown": {
+      "mode": "decision",
+      "correctOptionId": "a",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Фактическая отметка учитывает паузу."
+        },
+        {
+          "optionId": "b",
+          "reason": "Один тик может покрыть долгий интервал."
+        },
+        {
+          "optionId": "c",
+          "reason": "Так отсчёт остановится на время фона."
+        },
+        {
+          "optionId": "d",
+          "reason": "Доставка каждого тика не гарантирована."
+        }
+      ]
+    },
+    "fe-1.9-quiz-clock-origin": {
+      "mode": "decision",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Ошибка возникает из-за разных начал отсчёта."
+        },
+        {
+          "optionId": "b",
+          "reason": "Частота не меняет начало отсчёта."
+        },
+        {
+          "optionId": "c",
+          "reason": "Модуль не делает отметки сопоставимыми."
+        },
+        {
+          "optionId": "d",
+          "reason": "Для этого дедлайна годится Date.now()."
+        }
+      ]
+    },
+    "fe-1.9-quiz-frame-one-request": {
+      "mode": "decision",
+      "correctOptionId": "a",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Для продолжения нужен новый запрос."
+        },
+        {
+          "optionId": "b",
+          "reason": "Регистрация обслуживает один вызов."
+        },
+        {
+          "optionId": "c",
+          "reason": "Запрос даёт один обратный вызов."
+        },
+        {
+          "optionId": "d",
+          "reason": "DOM не определяет число вызовов."
+        }
+      ]
+    },
+    "fe-1.9-quiz-cancel-animation-handle": {
+      "mode": "decision",
+      "correctOptionId": "b",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Таймеры и кадры отменяют разными API."
+        },
+        {
+          "optionId": "b",
+          "reason": "Этот API снимает ожидающий запрос rAF."
+        },
+        {
+          "optionId": "c",
+          "reason": "Регистрация в браузере останется."
+        },
+        {
+          "optionId": "d",
+          "reason": "Нужно указать конкретный запрос."
+        }
+      ]
+    },
+    "fe-1.9-quiz-frame-position-from-time": {
+      "mode": "output",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Нужно вычесть отметку старта."
+        },
+        {
+          "optionId": "b",
+          "reason": "К 700 мс уже прошло полсекунды."
+        },
+        {
+          "optionId": "c",
+          "reason": "Прошло 0,5 и 1 секунда от старта."
+        },
+        {
+          "optionId": "d",
+          "reason": "Это интервалы, а вывод — в пикселях."
+        }
+      ]
+    },
+    "fe-1.9-quiz-frame-latest-three": {
+      "mode": "decision",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Два обновления заменили первое значение."
+        },
+        {
+          "optionId": "b",
+          "reason": "Схема заменяет значение без усреднения."
+        },
+        {
+          "optionId": "c",
+          "reason": "В состоянии хранится одно значение."
+        },
+        {
+          "optionId": "d",
+          "reason": "Пока кадр ждал, значение обновилось."
+        }
+      ]
+    },
+    "fe-1.9-quiz-animation-pause-policy": {
+      "mode": "decision",
+      "correctOptionId": "b",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Так положение догонит прошедшее время."
+        },
+        {
+          "optionId": "b",
+          "reason": "Положение зависит от активного времени."
+        },
+        {
+          "optionId": "c",
+          "reason": "Это потеряет пройденное расстояние."
+        },
+        {
+          "optionId": "d",
+          "reason": "Скорость станет зависеть от кадров."
+        }
+      ]
+    },
+    "fe-1.9-quiz-geometry-and-paint": {
+      "mode": "decision",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Геометрия не показывает факт показа."
+        },
+        {
+          "optionId": "b",
+          "reason": "Чтение геометрии само по себе не вызывает rAF."
+        },
+        {
+          "optionId": "c",
+          "reason": "Геометрия доступна в текущем вызове."
+        },
+        {
+          "optionId": "d",
+          "reason": "Чтение может потребовать пересчёта раскладки."
+        }
+      ]
+    },
+    "fe-1.9-quiz-loading-microtask": {
+      "mode": "decision",
+      "correctOptionId": "a",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Микрозадача тоже занимает поток."
+        },
+        {
+          "optionId": "b",
+          "reason": "DOM может измениться до показа кадра."
+        },
+        {
+          "optionId": "c",
+          "reason": "Запись и показ происходят отдельно."
+        },
+        {
+          "optionId": "d",
+          "reason": "queueMicrotask не создаёт поток."
+        }
+      ]
+    },
+    "fe-1.9-quiz-node-entry-context": {
+      "mode": "decision",
+      "correctOptionId": "b",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Вопрос касается механизмов Node.js."
+        },
+        {
+          "optionId": "b",
+          "reason": "Порядок зависит от среды и контекста вызова."
+        },
+        {
+          "optionId": "c",
+          "reason": "У него нет фиксированной задержки в мс."
+        },
+        {
+          "optionId": "d",
+          "reason": "Фазы и контекст могут изменить порядок."
+        }
+      ]
+    },
+    "fe-1.9-quiz-test-timer-order": {
+      "mode": "decision",
+      "correctOptionId": "c",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Точная задержка не проверяет нужную связь."
+        },
+        {
+          "optionId": "b",
+          "reason": "Кадры не нужны для сравнения журнала."
+        },
+        {
+          "optionId": "c",
+          "reason": "Этого хватает для нужного порядка."
+        },
+        {
+          "optionId": "d",
+          "reason": "Соседство само по себе не задаёт порядок."
+        }
+      ]
+    },
+    "fe-1.9-quiz-close-after-last-batch": {
+      "mode": "decision",
+      "correctOptionId": "d",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Ожидающий кадр всё ещё может записать результат."
+        },
+        {
+          "optionId": "b",
+          "reason": "К моменту закрытия запись уже не нужна."
+        },
+        {
+          "optionId": "c",
+          "reason": "Запрос в браузере продолжит ждать."
+        },
+        {
+          "optionId": "d",
+          "reason": "Обработка и отображение имеют разные запросы."
+        }
+      ]
+    },
+    "fe-1.9-quiz-independent-panel-test": {
+      "mode": "decision",
+      "correctOptionId": "a",
+      "distractorReview": [
+        {
+          "optionId": "a",
+          "reason": "Закрытие A действует на её запросы."
+        },
+        {
+          "optionId": "b",
+          "reason": "Так проявилась бы общая отмена."
+        },
+        {
+          "optionId": "c",
+          "reason": "Закрытая A больше не должна писать."
+        },
+        {
+          "optionId": "d",
+          "reason": "Число кадров не проверяет владение."
+        }
+      ]
+    }
+  },
+  "supplemental": []
+}

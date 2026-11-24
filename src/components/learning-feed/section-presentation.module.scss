@@ -57,6 +57,13 @@
     --card-floor: #0e171f;
   }
 
+  &[data-section="fe-1.9"] {
+    --card-accent: #d4dc9d;
+    --card-glow: rgba(137, 147, 76, 0.16);
+    --card-base: #292d1c;
+    --card-floor: #13180f;
+  }
+
   &[data-section="fe-1.4"] {
     --card-accent: #a8d5ba;
     --card-glow: rgba(73, 126, 93, 0.16);
@@ -82,7 +89,10 @@
   &[data-motif="boundary"],
   &[data-motif="causes"],
   &[data-motif="payload"],
-  &[data-motif="reachability"] {
+  &[data-motif="reachability"],
+  &[data-motif="queue"],
+  &[data-motif="deadline"],
+  &[data-motif="frame"] {
     max-width: 100%;
     max-height: 100%;
     right: -1rem;

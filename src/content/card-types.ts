@@ -3,7 +3,8 @@ export type VisualMotif = "scope" | "lifecycle" | "values" | "equality" | "conve
   | "prototype" | "descriptor" | "interception"
   | "slots" | "transformation" | "sharing"
   | "entries" | "tokens" | "cursor"
-  | "boundary" | "causes" | "payload" | "reachability";
+  | "boundary" | "causes" | "payload" | "reachability"
+  | "queue" | "deadline" | "frame";
 
 export type BaseCardData = {
   id: string;

@@ -132,6 +132,20 @@ const artwork = {
     <rect x="198" y="312" width="58" height="58" rx="14" strokeDasharray="5 7" />
     <path d="M161 254h37m-9-8 9 8-9 8M256 254h37m-9-8 9 8-9 8" />
   </>,
+  queue: <>
+    <path d="M155 227h223M155 319h223" />
+    <rect x="169" y="246" width="54" height="54" rx="10" />
+    <rect x="238" y="246" width="54" height="54" rx="10" />
+    <rect x="307" y="246" width="54" height="54" rx="10" strokeDasharray="5 7" />
+  </>,
+  deadline: <>
+    <path d="M145 272h171m-137-18v36m57-36v36" />
+    <circle cx="334" cy="272" r="18" />
+  </>,
+  frame: <>
+    <rect x="173" y="200" width="156" height="102" rx="14" />
+    <rect x="203" y="229" width="156" height="102" rx="14" />
+  </>,
   neutral: <circle cx="290" cy="290" r="150" />,
 };
 
